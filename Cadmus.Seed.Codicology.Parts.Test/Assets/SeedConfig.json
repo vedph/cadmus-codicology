@@ -1,0 +1,29 @@
+{
+  "facets": [
+    {
+      "typeId": "it.vedph.codicology.shelfmarks",
+      "name": "shelfmarks",
+      "description": "Manuscript's shelfmark(s).",
+      "required": true,
+      "colorKey": "98F8F8",
+      "groupKey": "identity",
+      "sortKey": "a"
+    }
+  ],
+  "seed": {
+    "options": {
+      "seed": 1,
+      "baseTextPartTypeId": "it.vedph.token-text",
+      "users": [ "zeus" ],
+      "partRoles": [],
+      "fragmentRoles": []
+    },
+    "partSeeders": [
+      {
+        "id": "seed.it.vedph.codicology.shelfmarks"
+      }
+    ],
+    "fragmentSeeders": [
+    ]
+  }
+}
