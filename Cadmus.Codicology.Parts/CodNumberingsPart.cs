@@ -33,7 +33,8 @@ namespace Cadmus.Codicology.Parts
         /// can optionally be passed to this method for those parts requiring
         /// to access further data.</param>
         /// <returns>The pins: <c>tot-count</c> and a collection of pins with
-        /// these keys: ....</returns>
+        /// these keys: <c>eid</c>, <c>system</c>, <c>technique</c>,
+        /// <c>position</c>, <c>color</c>, <c>date-value</c>.</returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item)
         {
             DataPinBuilder builder = new DataPinBuilder();
