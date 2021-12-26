@@ -17,6 +17,23 @@ Manuscript's shelfmark(s). Usually there is just one, unless you are also adding
   - fund* (string)
   - location* (string)
 
+### CodEditsPart
+
+ID: `it.vedph.codicology.edits`
+
+Specialized events related to any kind of text editing on the manuscript.
+
+- edits (CodEdit[]):
+  - eid (string)
+  - type* (string) T:cod-edit-types
+  - language* (string) T:cod-edit-languages
+  - colors* (string[]) T:cod-edit-colors
+  - ranges* (CodLocationRange[])
+  - date (HistoricalDate)
+  - description (string)
+  - text (string)
+  - references (DocReference[])
+
 ### CodNumberingsPart
 
 ID: `it.vedph.codicology.numberings`
