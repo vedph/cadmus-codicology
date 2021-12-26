@@ -20,9 +20,9 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - **PhysicalSize**:
 
-  - tag T:physical-size-tags
+  - tag (string) T:physical-size-tags
   - w\* (**PhysicalDimension**):
-    - tag T:physical-size-dim-tags
+    - tag (string) T:physical-size-dim-tags
     - value\* (number)
     - unit\* (string) T:physical-size-units
   - h (PhysicalDimension)
@@ -31,11 +31,11 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - **CodLocation**:
 
-  - s (string)
-  - n\* (number)
-  - v (boolean)
-  - c (string)
-  - l (string)
+  - s (string): system
+  - n\* (number): sheet number
+  - v (boolean): verso or recto
+  - c (string): column
+  - l (string): line
 
 - **CodLocationRange**:
 
@@ -58,13 +58,13 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - **AssertedPlace**:
 
-  - tag (string)
+  - tag (string) T:asserted-place-tags
   - value\* (string)
   - assertion (Assertion)
 
 - **AssertedDate**:
 
-  - tag (string)
+  - tag (string) T:asserted-date-tags
   - value\* (HistoricalDateModel)
   - assertion (Assertion)
 
@@ -82,8 +82,8 @@ ID: `it.vedph.codicology.bindings`
 - bindings (CodBinding[]):
   - tag (string) T:cod-binding-tags
   - chronotope (AssertedChronotope)
-  - coverMaterial\* (string)
-  - supportMaterial\* (string)
+  - coverMaterial\* (string) T:cod-binding-cover-materials
+  - supportMaterial\* (string) T:cod-binding-support-materials
   - size (PhysicalSize)
   - description (string)
 
