@@ -51,7 +51,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     .RuleFor(p => p.System, f => f.PickRandom("arabic", "roman"))
                     .RuleFor(p => p.Technique, f => f.PickRandom("ink", "lapis"))
                     .RuleFor(p => p.Position, f => f.PickRandom("mse", "msc"))
-                    .RuleFor(p => p.Colors, f => new string[]
+                    .RuleFor(p => p.Colors, f => new List<string>
                         {
                             f.PickRandom("black", "red")
                         })

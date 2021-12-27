@@ -84,7 +84,7 @@ namespace Cadmus.Codicology.Parts.Test
                     System = even? "arabic" : "roman",
                     Technique = even? "ink" : "lapis",
                     Position = even? "mse" : "msc",
-                    Colors = new[] { even? "red" : "black" },
+                    Colors = new List<string> { even? "red" : "black" },
                     Date = HistoricalDate.Parse($"{1400 + n} AD")
                 });
             }

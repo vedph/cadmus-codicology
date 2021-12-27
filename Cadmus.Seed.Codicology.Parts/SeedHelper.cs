@@ -42,5 +42,38 @@ namespace Cadmus.Seed.Codicology.Parts
 
             return refs;
         }
+
+        public static List<ExternalId> GetExternalIds(int count)
+        {
+            List<ExternalId> ids = new List<ExternalId>();
+
+            for (int n = 1; n <= count; n++)
+            {
+                ids.Add(new Faker<ExternalId>()
+                    .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
+                    .RuleFor(r => r.Scope, f => f.Lorem.Word())
+                    .RuleFor(r => r.Value, f => f.Internet.Url())
+                    .Generate());
+            }
+
+            return ids;
+        }
+
+        public static List<RankedExternalId> GetRankedExternalIds(int count)
+        {
+            List<RankedExternalId> ids = new List<RankedExternalId>();
+
+            for (int n = 1; n <= count; n++)
+            {
+                ids.Add(new Faker<RankedExternalId>()
+                    .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
+                    .RuleFor(r => r.Scope, f => f.Lorem.Word())
+                    .RuleFor(r => r.Value, f => f.Internet.Url())
+                    .RuleFor(r => r.Rank, f => (short)f.Random.Number(1, 3))
+                    .Generate());
+            }
+
+            return ids;
+        }
     }
 }

@@ -44,7 +44,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the color(s) used for numberings.
         /// </summary>
-        public IList<string> Colors { get; set; }
+        public List<string> Colors { get; set; }
 
         /// <summary>
         /// Gets or sets the date when this numbering was applied to the
@@ -55,12 +55,12 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the manuscript's ranges this numbering is applied to.
         /// </summary>
-        public IList<CodLocationRange> Ranges { get; set; }
+        public List<CodLocationRange> Ranges { get; set; }
 
         /// <summary>
         /// Gets or sets the spans for this numbering.
         /// </summary>
-        public IList<CodNumberingSpan> Spans { get; set; }
+        public List<CodNumberingSpan> Spans { get; set; }
 
         /// <summary>
         /// Gets or sets a human-readable description of issues found in this

@@ -6,7 +6,8 @@
 
   <ItemGroup>
     <PackageReference Include="Cadmus.Core" Version="2.5.2" />
-    <PackageReference Include="Cadmus.Refs.Bricks" Version="2.1.0" />
+    <PackageReference Include="Cadmus.Mat.Bricks" Version="1.0.0" />
+    <PackageReference Include="Cadmus.Refs.Bricks" Version="2.1.1" />
     <PackageReference Include="Fusi.Antiquity" Version="1.2.0" />
   </ItemGroup>
 
