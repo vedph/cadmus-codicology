@@ -5,7 +5,11 @@
   - [Parts](#parts)
     - [CodBindingsPart](#codbindingspart)
     - [CodCatchwordsPart](#codcatchwordspart)
+    - [CodContentsPart](#codcontentspart)
+    - [CodDecorationsPart](#coddecorationspart)
     - [CodEditsPart](#codeditspart)
+    - [CodHandsPart](#codhandspart)
+    - [CodLayoutsPart](#codlayoutspart)
     - [CodMaterialDscPart](#codmaterialdscpart)
     - [CodNumberingsPart](#codnumberingspart)
     - [CodQuiresPart](#codquirespart)
@@ -92,19 +96,71 @@ ID: `it.vedph.codicology.bindings`
 ID: `it.vedph.codicology.catchwords`
 
 - catchwords (CodCatchword[]):
-  - range* (CodLocationRange)
-  - position* (string) T:cod-catchwords-positions
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-catchwords-positions
   - isVertical (boolean)
   - decoration (string)
   - note (string)
 - quireSignatures (CodQuireSignature[]):
-  - range* (CodLocationRange)
-  - position* (string) T:cod-quiresig-positions
-  - system* (string) T:cod-quiresig-systems
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-quiresig-positions
+  - system\* (string) T:cod-quiresig-systems
   - note (string)
 - quireRegSignatures (CodQuireRegSignature[]):
-  - range* (CodLocationRange)
-  - position* (string) T:cod-quiresig-positions
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-quiresig-positions
+  - note (string)
+
+### CodContentsPart
+
+ID: `it.vedph.codicology.contents`
+
+- contents (CodContent[]):
+  - eid (string)
+  - range\* (CodLocationRange)
+  - state\* (string) T:cod-content-states
+  - title\* (string)
+  - location (string)
+  - tag (string) T:cod-content-tags
+  - note (string)
+  - claimedAuthor (string)
+  - claimedTitle (string)
+  - incipit (string)
+  - explicit (string)
+  - annotations:
+    - type\* (string) T
+    - range\* (CodLocationRange)
+    - text\* (string)
+
+### CodDecorationsPart
+
+ID: `it.vedph.codicology.decorations`
+
+- eid (string)
+- name\* (string)
+- type\* (string) T:cod-decoration-types
+- flags (string) T:cod-decoration-flags
+- chronotope (AssertedChronotope)
+- artistIds (ExternalId[])
+- note (string)
+- references (DocReference[])
+- elements (CodDecorationElement[]):
+  - key (string)
+  - parentKey (string)
+  - type\* (string) T:cod-decoration-element-types
+  - flags (string) T:cod-decoration-element-flags
+  - ranges\* (CodLocationRange[])
+  - typologies (string) T:cod-decoration-element-typologies
+  - subject\* (string)
+  - colors (string[]) T:cod-decoration-element-colors
+  - gilding (string) T:cod-decoration-element-gildings
+  - technique (string) T:cod-decoration-element-techniques
+  - tool (string) T:cod-decoration-element-tools
+  - position (string) T:cod-decoration-element-positions
+  - lineHeight (int)
+  - textRelation (string)
+  - description (string MD)
+  - imageId (string)
   - note (string)
 
 ### CodEditsPart
@@ -123,6 +179,65 @@ Specialized events related to any kind of text editing on the manuscript.
   - description (string)
   - text (string)
   - references (DocReference[])
+
+### CodHandsPart
+
+ID: `it.vedph.codicology.hands`
+
+- hands (CodHand[]):
+  - eid (string)
+  - instances (CodHandInstance)
+    - script\* (string) T:cod-hand-scripts
+    - typologies\* (string[]) T:cod-hand-typologies
+    - colors (string[]) T:cod-hand-colors
+    - ranges\* (CodLocationRange[])
+    - rank (int)
+    - descriptionId (string)
+    - chronotope (AssertedChronotope)
+  - descriptions (CodHandDescription[]):
+    - eid (string)
+    - description (string)
+    - initials (string)
+    - corrections (string)
+    - punctuation (string)
+    - abbreviations (string)
+    - signs (CodHandSign[]):
+      - eid (string)
+      - type\* (string) T:cod-hand-sign-types
+      - description
+      - sampleLocation (CodWordLocation)
+        - s
+        - n\*
+        - v (boolean)
+        - c (string)
+        - l (int)
+        - word (string)
+  - subscriptions (CodHandSubscription[]):
+    - range\* (CodLocationRange)
+    - language\* (string) T:cod-hand-subscription-languages
+    - text (string)
+    - note (string)
+  - images (CodHandImage[]):
+    - imageId (string)
+    - legend (string)
+    - copyright (string)
+  - references (DocReference[])
+
+### CodLayoutsPart
+
+ID: `it.vedph.codicology.layouts`
+
+- layouts (CodLayout[]):
+  - sample\* (CodLocation)
+  - ranges\* (CodLocationRange[])
+  - dimensions (PhysicalDimension[]) T for dimension tag: cod-layout-dimension-tags
+  - columnCount (int)
+  - rulingTechnique (string) T:cod-layout-ruling-techniques
+  - derolez (string) T:cod-layout-derolez
+  - pricking (string) T:cod-layout-prickings
+  - counts (DecoratedCount[])
+  - tag
+  - note
 
 ### CodMaterialDscPart
 
@@ -179,9 +294,9 @@ ID: `it.vedph.codicology.quires`
 
 - quires (CodQuire[]):
   - tag (string) T:cod-quire-tags
-  - startNr* (number)
-  - endNr* (number)
-  - sheetCount* (number)
+  - startNr\* (number)
+  - endNr\* (number)
+  - sheetCount\* (number)
   - sheetDelta (number)
   - note (string)
 
