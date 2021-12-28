@@ -21,6 +21,17 @@ namespace Cadmus.Codicology.Parts
         public int N { get; set; }
 
         /// <summary>
+        /// Gets or sets a value indicating whether <see cref="N"/> is to be
+        /// displayed as a Roman number.
+        /// </summary>
+        public bool Rmn { get; set; }
+
+        /// <summary>
+        /// Gets or sets an optional suffix after N (e.g. "bis").
+        /// </summary>
+        public string Sfx { get; set; }
+
+        /// <summary>
         /// Gets or sets recto/verso. If null, the location refers to both
         /// sides or we don't care about specifying one.
         /// </summary>
@@ -46,7 +57,10 @@ namespace Cadmus.Codicology.Parts
         {
             StringBuilder sb = new StringBuilder();
             if (!string.IsNullOrEmpty(S)) sb.Append(S).Append(':');
+            if (Rmn) sb.Append('^');
             sb.Append(N);
+            if (!string.IsNullOrEmpty(Sfx))
+                sb.Append('"').Append(Sfx).Append('"');
             if (V != null)
             {
                 sb.Append(V == true ? 'v' : 'r');
