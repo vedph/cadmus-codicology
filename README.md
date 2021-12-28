@@ -121,14 +121,14 @@ ID: `it.vedph.codicology.contents`
   - state\* (string) T:cod-content-states
   - title\* (string)
   - location (string)
-  - tag (string) T:cod-content-tags
-  - note (string)
   - claimedAuthor (string)
   - claimedTitle (string)
+  - tag (string) T:cod-content-tags
+  - note (string)
   - incipit (string)
   - explicit (string)
-  - annotations:
-    - type\* (string) T
+  - annotations (CodContentAnnotation[]):
+    - type\* (string) T:cod-content-annotation-types
     - range\* (CodLocationRange)
     - text\* (string)
 
@@ -236,8 +236,8 @@ ID: `it.vedph.codicology.layouts`
   - derolez (string) T:cod-layout-derolez
   - pricking (string) T:cod-layout-prickings
   - counts (DecoratedCount[])
-  - tag
-  - note
+  - tag (string)
+  - note (string)
 
 ### CodMaterialDscPart
 
@@ -256,7 +256,7 @@ ID: `it.vedph.codicology.material-dsc`
 - palimpsests (Palimpsest[]):
   - range\* (CodLocationRange)
   - chronotope (AssertedChronotope)
-  - note
+  - note (string)
 - endLeaves (EndLeaf[]):
   - type\* (string) T:cod-endleaves-types
   - material\* (string) T:cod-endleaves-material
