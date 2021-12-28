@@ -50,11 +50,12 @@ namespace Cadmus.Codicology.Parts
                 {
                     builder.AddValue("eid", content.Eid);
                     builder.AddValue("state", content.State);
-                    builder.AddValue("title", content.Title, filter: true);
+                    builder.AddValue("title", content.Title,
+                        filter: true, filterOptions: true);
                     builder.AddValue("claimed-author", content.ClaimedAuthor,
-                        filter: true);
+                        filter: true, filterOptions: true);
                     builder.AddValue("claimed-title", content.ClaimedTitle,
-                        filter: true);
+                        filter: true, filterOptions: true);
 
                     if (content.Annotations?.Count > 0)
                         ac += content.Annotations.Count;
@@ -87,15 +88,15 @@ namespace Cadmus.Codicology.Parts
                 new DataPinDefinition(DataPinValueType.String,
                    "title",
                    "The contents titles.",
-                   "Mf"),
+                   "MF"),
                 new DataPinDefinition(DataPinValueType.String,
                    "claimed-author",
                    "The contents claimed authors.",
-                   "Mf"),
+                   "MF"),
                 new DataPinDefinition(DataPinValueType.String,
                    "claimed-title",
                    "The contents claimed titles.",
-                   "Mf"),
+                   "MF"),
             });
         }
 
