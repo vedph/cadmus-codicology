@@ -7,7 +7,7 @@ namespace Cadmus.Seed.Codicology.Parts
 {
     internal static class SeedHelper
     {
-        public static IList<CodLocationRange> GetLocationRanges(int count)
+        public static List<CodLocationRange> GetLocationRanges(int count)
         {
             List<CodLocationRange> ranges = new List<CodLocationRange>();
             for (int n = 1; n <= count; n++)

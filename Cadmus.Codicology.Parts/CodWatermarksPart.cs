@@ -36,7 +36,8 @@ namespace Cadmus.Codicology.Parts
         /// these keys: <c>id</c>, <c>place</c>, <c>date-value</c>.</returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new DataPinBuilder(
+                DataPinHelper.DefaultFilter);
 
             builder.Set("tot", Watermarks?.Count ?? 0, false);
 

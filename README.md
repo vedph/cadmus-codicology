@@ -37,7 +37,7 @@ The models of some bricks are summarized here for the reader's commodity.
 
   - s (string): system
   - n\* (number): sheet number
-  - v (boolean): verso or recto
+  - v (boolean?): verso or recto or unspecified/not-applicable
   - c (string): column
   - l (string): line
 
