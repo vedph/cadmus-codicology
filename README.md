@@ -231,11 +231,14 @@ ID: `it.vedph.codicology.layouts`
   - sample\* (CodLocation)
   - ranges\* (CodLocationRange[])
   - dimensions (PhysicalDimension[]) T for dimension tag: cod-layout-dimension-tags
-  - columnCount (int)
   - rulingTechnique (string) T:cod-layout-ruling-techniques
   - derolez (string) T:cod-layout-derolez
   - pricking (string) T:cod-layout-prickings
-  - counts (DecoratedCount[])
+  - columnCount (int)
+  - counts (DecoratedCount[]):
+    - id* (string)
+    - value* (int)
+    - note (string)
   - tag (string)
   - note (string)
 
