@@ -253,11 +253,11 @@ ID: `it.vedph.codicology.material-dsc`
   - chronotopes (AssertedChronotope[])
   - noGregory (boolean)
   - note (string)
-- palimpsests (Palimpsest[]):
+- palimpsests (CodPalimpsest[]):
   - range\* (CodLocationRange)
   - chronotope (AssertedChronotope)
   - note (string)
-- endLeaves (EndLeaf[]):
+- endLeaves (CodEndLeaf[]):
   - type\* (string) T:cod-endleaves-types
   - material\* (string) T:cod-endleaves-material
   - range\* (CodLocationRange)

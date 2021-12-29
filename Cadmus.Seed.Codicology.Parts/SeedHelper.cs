@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using Cadmus.Codicology.Parts;
 using Cadmus.Refs.Bricks;
+using Fusi.Antiquity.Chronology;
 using System.Collections.Generic;
 
 namespace Cadmus.Seed.Codicology.Parts
@@ -74,6 +75,27 @@ namespace Cadmus.Seed.Codicology.Parts
             }
 
             return ids;
+        }
+
+        public static List<AssertedChronotope> GetAssertedChronotopes(int count)
+        {
+            List<AssertedChronotope> chronotopes = new List<AssertedChronotope>();
+            for (int n = 1; n <= count; n++)
+            {
+                bool even = n % 2 == 0;
+                chronotopes.Add(new AssertedChronotope
+                {
+                    Place = new AssertedPlace
+                    {
+                        Value = even ? "Even" : "Odd"
+                    },
+                    Date = new AssertedDate
+                    {
+                        Value = HistoricalDate.Parse($"{1300 + n} AD")
+                    }
+                });
+            }
+            return chronotopes;
         }
     }
 }
