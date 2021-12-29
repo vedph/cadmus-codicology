@@ -11,7 +11,7 @@ namespace Cadmus.Seed.Codicology.Parts
     /// Manuscript's dimensions part seeder.
     /// <para>Tag: <c>seed.it.vedph.codicology.layouts</c>.</para>
     /// </summary>
-    [Tag("seed.it.vedph.itinera.ms-layouts")]
+    [Tag("seed.it.vedph.codicology.layouts")]
     public sealed class CodLayoutsPartSeeder : PartSeederBase
     {
         private static List<DecoratedCount> GetCounts(int count)
