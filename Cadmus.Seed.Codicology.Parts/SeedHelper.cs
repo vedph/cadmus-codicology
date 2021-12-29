@@ -1,13 +1,27 @@
 ﻿using Bogus;
 using Cadmus.Codicology.Parts;
+using Cadmus.Mat.Bricks;
 using Cadmus.Refs.Bricks;
 using Fusi.Antiquity.Chronology;
+using System;
 using System.Collections.Generic;
 
 namespace Cadmus.Seed.Codicology.Parts
 {
     internal static class SeedHelper
     {
+        /// <summary>
+        /// Truncates the specified value to the specified number of decimals.
+        /// </summary>
+        /// <param name="value">The value.</param>
+        /// <param name="decimals">The decimals.</param>
+        /// <returns>Truncated value.</returns>
+        public static double Truncate(double value, int decimals)
+        {
+            double factor = (double)Math.Pow(10, decimals);
+            return Math.Truncate(factor * value) / factor;
+        }
+
         public static List<CodLocationRange> GetLocationRanges(int count)
         {
             List<CodLocationRange> ranges = new List<CodLocationRange>();
@@ -96,6 +110,23 @@ namespace Cadmus.Seed.Codicology.Parts
                 });
             }
             return chronotopes;
+        }
+
+        public static List<PhysicalDimension> GetDimensions(int count)
+        {
+            List<PhysicalDimension> dimensions = new List<PhysicalDimension>();
+
+            for (int n = 1; n <= count; n++)
+            {
+                dimensions.Add(new Faker<PhysicalDimension>()
+                    .RuleFor(d => d.Tag, f => f.Lorem.Word())
+                    .RuleFor(d => d.Value, f => (float)SeedHelper.Truncate(
+                        f.Random.Float(2, 10), 2))
+                    .RuleFor(d => d.Unit, "cm")
+                    .Generate());
+            }
+
+            return dimensions;
         }
     }
 }
