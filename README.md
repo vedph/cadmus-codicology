@@ -85,10 +85,10 @@ ID: `it.vedph.codicology.bindings`
 
 - bindings (CodBinding[]):
   - tag (string) T:cod-binding-tags
-  - chronotope (AssertedChronotope)
   - coverMaterial\* (string) T:cod-binding-cover-materials
   - supportMaterial\* (string) T:cod-binding-support-materials
   - size (PhysicalSize)
+  - chronotope (AssertedChronotope)
   - description (string)
 
 ### CodCatchwordsPart

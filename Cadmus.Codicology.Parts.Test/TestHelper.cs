@@ -92,6 +92,25 @@ namespace Cadmus.Codicology.Parts.Test
             return chronotopes;
         }
 
+        public static List<AssertedChronotope> GetAssertedChronotopes(int count)
+        {
+            List<AssertedChronotope> chronotopes = new();
+
+            for (int n = 1; n <= count; n++)
+            {
+                chronotopes.Add(new AssertedChronotope
+                {
+                    Place = new AssertedPlace { Value = $"place-{n}" },
+                    Date = new AssertedDate
+                    {
+                        Value = HistoricalDate.Parse(1300 + n + " AD")
+                    }
+                });
+            }
+
+            return chronotopes;
+        }
+
         static public bool IsDataPinNameValid(string name) =>
             Regex.IsMatch(name, @"^[a-zA-Z0-9\-_\.]+$");
 

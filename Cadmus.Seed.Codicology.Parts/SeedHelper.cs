@@ -128,5 +128,19 @@ namespace Cadmus.Seed.Codicology.Parts
 
             return dimensions;
         }
+
+        public static PhysicalSize GetPhysicalSize()
+        {
+            List<PhysicalDimension> dimensions = GetDimensions(2);
+
+            Faker faker = new Faker();
+            return new PhysicalSize
+            {
+                Tag = "tag",
+                W = dimensions[0],
+                H = dimensions[1],
+                Note = faker.Random.Bool(0.25f)? faker.Lorem.Sentence() : null
+            };
+        }
     }
 }
