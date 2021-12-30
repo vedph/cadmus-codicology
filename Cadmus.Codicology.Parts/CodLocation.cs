@@ -8,6 +8,11 @@ namespace Cadmus.Codicology.Parts
     public class CodLocation
     {
         /// <summary>
+        /// Gets or sets the endleaf type.
+        /// </summary>
+        public CodLocationEndleaf Endleaf { get; set; }
+
+        /// <summary>
         /// Gets or sets the reference system. This starts with a-z or A-Z and
         /// then contains only letters a-z or A-Z, underscores, or digits 0-9.
         /// If not specified, the default reference system is assumed, which
@@ -56,6 +61,9 @@ namespace Cadmus.Codicology.Parts
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
+            if (Endleaf != CodLocationEndleaf.None)
+                sb.Append(Endleaf == CodLocationEndleaf.End ? "(/" : "(");
+
             if (!string.IsNullOrEmpty(S)) sb.Append(S).Append(':');
             if (Rmn) sb.Append('^');
             sb.Append(N);
@@ -67,7 +75,19 @@ namespace Cadmus.Codicology.Parts
                 if (!string.IsNullOrEmpty(C)) sb.Append(C);
             }
             if (L != 0) sb.Append('.').Append(L);
+
+            if (Endleaf != CodLocationEndleaf.None) sb.Append(')');
             return sb.ToString();
         }
+    }
+
+    /// <summary>
+    /// Endleaf type for <see cref="CodLocation"/>.
+    /// </summary>
+    public enum CodLocationEndleaf
+    {
+        None = 0,
+        Start,
+        End
     }
 }

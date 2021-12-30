@@ -23,9 +23,9 @@ namespace Cadmus.Codicology.Parts
         public List<CodPalimpsest> Palimpsests { get; set; }
 
         /// <summary>
-        /// Gets or sets the end-leaves in the manuscript.
+        /// Gets or sets the endleaves in the manuscript.
         /// </summary>
-        public List<CodEndLeaf> EndLeaves { get; set; }
+        public List<CodEndleaf> Endleaves { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodMaterialDscPart"/>
@@ -35,7 +35,7 @@ namespace Cadmus.Codicology.Parts
         {
             Units = new List<CodUnit>();
             Palimpsests = new List<CodPalimpsest>();
-            EndLeaves = new List<CodEndLeaf>();
+            Endleaves = new List<CodEndleaf>();
         }
 
         /// <summary>
@@ -55,7 +55,7 @@ namespace Cadmus.Codicology.Parts
             // palimpsest-count
             builder.Set("palimpsest", Palimpsests?.Count ?? 0, false);
             // endleaf-count
-            builder.Set("endleaf", EndLeaves?.Count ?? 0, false);
+            builder.Set("endleaf", Endleaves?.Count ?? 0, false);
             // unit-eid
             if (Units?.Count > 0)
                 builder.AddValues("unit-eid", Units.Select(u => u.Eid));
@@ -97,7 +97,7 @@ namespace Cadmus.Codicology.Parts
         {
             return $"[CodMaterialDsc] Units: {Units?.Count ?? 0} - " +
                 $"Palimpsests: {Palimpsests?.Count ?? 0} - " +
-                $"EndLeaves: {EndLeaves?.Count ?? 0}";
+                $"EndLeaves: {Endleaves?.Count ?? 0}";
         }
     }
 }

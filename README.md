@@ -91,9 +91,11 @@ ID: `it.vedph.codicology.bindings`
   - chronotope (AssertedChronotope)
   - description (string)
 
-### CodCatchwordsPart
+### CodQuireLabelsPart
 
-ID: `it.vedph.codicology.catchwords`
+Catchwords and signatures applied to manuscript's quires.
+
+ID: `it.vedph.codicology.quire-labels`
 
 - catchwords (CodCatchword[]):
   - range\* (CodLocationRange)
@@ -260,7 +262,7 @@ ID: `it.vedph.codicology.material-dsc`
   - range\* (CodLocationRange)
   - chronotope (AssertedChronotope)
   - note (string)
-- endLeaves (CodEndLeaf[]):
+- endleaves (CodEndleaf[]):
   - type\* (string) T:cod-endleaves-types
   - material\* (string) T:cod-endleaves-material
   - range\* (CodLocationRange)

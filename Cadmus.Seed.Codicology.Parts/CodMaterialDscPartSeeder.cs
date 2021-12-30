@@ -54,12 +54,12 @@ namespace Cadmus.Seed.Codicology.Parts
             return palimpsests;
         }
 
-        private static List<CodEndLeaf> GetEndLeaves(int count)
+        private static List<CodEndleaf> GetEndleaves(int count)
         {
-            List<CodEndLeaf> leaves = new List<CodEndLeaf>();
+            List<CodEndleaf> leaves = new List<CodEndleaf>();
             for (int n = 1; n <= count; n++)
             {
-                leaves.Add(new Faker<CodEndLeaf>()
+                leaves.Add(new Faker<CodEndleaf>()
                     // TODO use thesauri
                     .RuleFor(l => l.Type, f => f.PickRandom("start", "end"))
                     .RuleFor(l => l.Material, f => f.PickRandom("parchment", "paper"))
@@ -93,7 +93,7 @@ namespace Cadmus.Seed.Codicology.Parts
             CodMaterialDscPart part = new Faker<CodMaterialDscPart>()
                .RuleFor(p => p.Units, f => GetUnits(f.Random.Number(2, 5)))
                .RuleFor(p => p.Palimpsests, f => GetPalimpsests(f.Random.Number(1, 2)))
-               .RuleFor(p => p.EndLeaves, f => GetEndLeaves(f.Random.Number(1, 3)))
+               .RuleFor(p => p.Endleaves, f => GetEndleaves(f.Random.Number(1, 3)))
                .Generate();
             SetPartMetadata(part, roleId, item);
 

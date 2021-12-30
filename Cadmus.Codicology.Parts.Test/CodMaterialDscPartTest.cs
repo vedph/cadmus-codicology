@@ -58,7 +58,7 @@ namespace Cadmus.Codicology.Parts.Test
             CodMaterialDscPart part = GetEmptyPart();
             part.Units.Add(new CodUnit { Eid = "alpha" });
             part.Palimpsests.Add(new CodPalimpsest());
-            part.EndLeaves.Add(new CodEndLeaf());
+            part.Endleaves.Add(new CodEndleaf());
 
             List<DataPin> pins = part.GetDataPins(null).ToList();
             Assert.Equal(4, pins.Count);

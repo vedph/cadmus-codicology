@@ -4,9 +4,9 @@ using System.Text;
 namespace Cadmus.Codicology.Parts
 {
     /// <summary>
-    /// Manuscript's end-leaf.
+    /// Manuscript's endleaf.
     /// </summary>
-    public class CodEndLeaf
+    public class CodEndleaf
     {
         /// <summary>
         /// Gets or sets the type.

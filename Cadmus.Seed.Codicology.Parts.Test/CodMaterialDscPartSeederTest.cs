@@ -46,7 +46,7 @@ namespace Cadmus.Seed.Codicology.Parts.Test
 
             Assert.NotEmpty(p!.Units);
             Assert.NotEmpty(p!.Palimpsests);
-            Assert.NotEmpty(p!.EndLeaves);
+            Assert.NotEmpty(p!.Endleaves);
         }
     }
 }
