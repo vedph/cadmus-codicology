@@ -4,7 +4,7 @@
   - [Bricks](#bricks)
   - [Parts](#parts)
     - [CodBindingsPart](#codbindingspart)
-    - [CodCatchwordsPart](#codcatchwordspart)
+    - [CodQuireLabelsPart](#codquirelabelspart)
     - [CodContentsPart](#codcontentspart)
     - [CodDecorationsPart](#coddecorationspart)
     - [CodEditsPart](#codeditspart)
@@ -199,6 +199,10 @@ ID: `it.vedph.codicology.hands`
     - rank (int)
     - descriptionId (string)
     - chronotope (AssertedChronotope)
+    - images (CodHandImage[]):
+      - imageId (string)
+      - legend (string)
+      - copyright (string)
   - descriptions (CodHandDescription[]):
     - eid (string)
     - description (string)
@@ -222,10 +226,6 @@ ID: `it.vedph.codicology.hands`
     - language\* (string) T:cod-hand-subscription-languages
     - text (string)
     - note (string)
-  - images (CodHandImage[]):
-    - imageId (string)
-    - legend (string)
-    - copyright (string)
   - references (DocReference[])
 
 ### CodLayoutsPart
