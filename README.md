@@ -33,6 +33,18 @@ The models of some bricks are summarized here for the reader's commodity.
   - d (PhysicalDimension)
   - note (string)
 
+- **HistoricalDate**:
+  - a\* (Datation):
+    - value\* (int)
+    - isCentury (boolean)
+    - isSpan (boolean)
+    - isApproximate (boolean)
+    - isDubious (boolean)
+    - day (int)
+    - month (int)
+    - hint (string
+  - b (Datation)
+
 - **CodLocation**:
 
   - endleaf (int): 0=none 1=start 2=end
@@ -72,7 +84,7 @@ The models of some bricks are summarized here for the reader's commodity.
 - **AssertedDate**:
 
   - tag (string) T:asserted-date-tags
-  - value\* (HistoricalDateModel)
+  - value\* (HistoricalDate)
   - assertion (Assertion)
 
 - **AssertedChronotope**:
