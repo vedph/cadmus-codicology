@@ -18,6 +18,8 @@
 
 This solution contains a number of Cadmus parts related to codicology, originally stemming from the Itinera project, but designed to be generic enough to be useful in other projects.
 
+![models](./models.png)
+
 ## Bricks
 
 The models of some bricks are summarized here for the reader's commodity.
