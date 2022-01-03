@@ -75,24 +75,24 @@ The models of some bricks are summarized here for the reader's commodity.
   - tag (string) T:assertion-tags
   - rank\* (number)
   - note (string)
-  - references (DocReference[])
+  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedPlace**:
 
   - tag (string) T:asserted-place-tags
   - value\* (string)
-  - assertion (Assertion)
+  - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedDate**:
 
   - tag (string) T:asserted-date-tags
   - value\* (HistoricalDate)
-  - assertion (Assertion)
+  - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedChronotope**:
 
-  - place (AssertedPlace)
-  - date (AssertedDate)
+  - place (AssertedPlace) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - date (AssertedDate) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 ## Parts
 
@@ -104,8 +104,8 @@ ID: `it.vedph.codicology.bindings`
   - tag (string) T:cod-binding-tags
   - coverMaterial\* (string) T:cod-binding-cover-materials
   - supportMaterial\* (string) T:cod-binding-support-materials
-  - size (PhysicalSize)
-  - chronotope (AssertedChronotope)
+  - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
+  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
 ### CodQuireLabelsPart
@@ -159,10 +159,10 @@ ID: `it.vedph.codicology.decorations`
 - name\* (string)
 - type\* (string) T:cod-decoration-types
 - flags (string) T:cod-decoration-flags
-- chronotope (AssertedChronotope)
+- chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 - artistIds (ExternalId[])
 - note (string)
-- references (DocReference[])
+- references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
 - elements (CodDecorationElement[]):
   - key (string)
   - parentKey (string)
@@ -197,7 +197,7 @@ Specialized events related to any kind of text editing on the manuscript.
   - date (HistoricalDate)
   - description (string)
   - text (string)
-  - references (DocReference[])
+  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
 
 ### CodHandsPart
 
@@ -212,7 +212,7 @@ ID: `it.vedph.codicology.hands`
     - ranges\* (CodLocationRange[])
     - rank (int)
     - descriptionId (string)
-    - chronotope (AssertedChronotope)
+    - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
     - images (CodHandImage[]):
       - imageId (string)
       - legend (string)
@@ -240,7 +240,7 @@ ID: `it.vedph.codicology.hands`
     - language\* (string) T:cod-hand-subscription-languages
     - text (string)
     - note (string)
-  - references (DocReference[])
+  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
 
 ### CodLayoutsPart
 
@@ -249,16 +249,16 @@ ID: `it.vedph.codicology.layouts`
 - layouts (CodLayout[]):
   - sample\* (CodLocation)
   - ranges\* (CodLocationRange[])
-  - dimensions (PhysicalDimension[]) T for dimension tag: cod-layout-dimension-tags
+  - dimensions (PhysicalDimension[]) T for dimension tag: cod-layout-dimension-tags, T:physical-size-dim-tags, T:physical-size-units
   - rulingTechnique (string) T:cod-layout-ruling-techniques
   - derolez (string) T:cod-layout-derolez
   - pricking (string) T:cod-layout-prickings
   - columnCount (int)
   - counts (DecoratedCount[]):
-    - id* (string)
+    - id* (string) T:cod-layout-counts
     - value* (int)
     - note (string)
-  - tag (string)
+  - tag (string) T:cod-layout-tags
   - note (string)
 
 ### CodMaterialDscPart
@@ -267,21 +267,21 @@ ID: `it.vedph.codicology.material-dsc`
 
 - units (CodUnit[]):
   - eid (string)
-  - tag (string) T:cod-unit-tag
+  - tag (string) T:cod-unit-tags
   - material\* (string) T:cod-unit-materials
   - format\* (string) T:cod-unit-formats
   - state\* (string) T:cod-unit-states
   - range\* (CodLocationRange)
-  - chronotopes (AssertedChronotope[])
+  - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - noGregory (boolean)
   - note (string)
 - palimpsests (CodPalimpsest[]):
   - range\* (CodLocationRange)
-  - chronotope (AssertedChronotope)
+  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - note (string)
 - endleaves (CodEndleaf[]):
-  - type\* (string) T:cod-endleaves-types
-  - material\* (string) T:cod-endleaves-material
+  - type\* (string) T:cod-endleaf-types
+  - material\* (string) T:cod-endleaf-materials
   - range\* (CodLocationRange)
   - date (AssertedDate)
   - note (string)
@@ -329,7 +329,7 @@ ID: `it.vedph.codicology.shelfmarks`.
 Manuscript's shelfmark(s). Usually there is just one, unless you are also adding some historical signatures; in this case, assign a tag to the non-current (default) one.
 
 - shelfmarks (CodShelfmark[]):
-  - tag (string)
+  - tag (string) T:cod-shelfmark-tags
   - city\* (string)
   - library\* (string) T:cod-shelfmark-libraries
   - fund\* (string)
@@ -346,6 +346,6 @@ Manuscript's watermarks.
   - sampleRange\* (CodLocationRange)
   - ranges\* (CodLocationRange[])
   - ids (RankedExternalId[])
-  - size (PhysicalSize)
-  - chronotope (AssertedChronotope)
+  - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
+  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
