@@ -53,6 +53,13 @@ namespace Cadmus.Codicology.Parts
         public int L { get; set; }
 
         /// <summary>
+        /// Gets or sets the word we refer to. By scholarly convention, this
+        /// is a word picked from the line so that it cannot be ambiguous, i.e.
+        /// confused with other instances of the same word in its line.
+        /// </summary>
+        public string Word { get; set; }
+
+        /// <summary>
         /// Converts to string.
         /// </summary>
         /// <returns>
@@ -75,6 +82,8 @@ namespace Cadmus.Codicology.Parts
                 if (!string.IsNullOrEmpty(C)) sb.Append(C);
             }
             if (L != 0) sb.Append('.').Append(L);
+
+            if (!string.IsNullOrEmpty(Word)) sb.Append('@').Append(Word);
 
             if (Endleaf != CodLocationEndleaf.None) sb.Append(')');
             return sb.ToString();
