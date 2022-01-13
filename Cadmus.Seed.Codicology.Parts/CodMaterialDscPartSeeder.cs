@@ -64,10 +64,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     .RuleFor(l => l.Type, f => f.PickRandom("start", "end"))
                     .RuleFor(l => l.Material, f => f.PickRandom("parchment", "paper"))
                     .RuleFor(l => l.Range, SeedHelper.GetLocationRanges(1)[0])
-                    .RuleFor(l => l.Date, new AssertedDate
-                        {
-                            Value = HistoricalDate.Parse($"{1400+n} AD")
-                        })
+                    .RuleFor(l => l.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
                     .RuleFor(l => l.Note, f => f.Random.Bool(0.25f)
                         ? f.Lorem.Sentence() : null)
                     .Generate());

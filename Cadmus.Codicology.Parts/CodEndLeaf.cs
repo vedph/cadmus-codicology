@@ -24,9 +24,9 @@ namespace Cadmus.Codicology.Parts
         public CodLocationRange Range { get; set; }
 
         /// <summary>
-        /// Gets or sets the optional date for this end-leaf.
+        /// Gets or sets the optional place/date for this end-leaf.
         /// </summary>
-        public AssertedDate Date { get; set; }
+        public AssertedChronotope Chronotope { get; set; }
 
         /// <summary>
         /// Gets or sets an optional note.

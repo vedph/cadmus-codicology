@@ -205,6 +205,7 @@ ID: `it.vedph.codicology.hands`
 
 - hands (CodHand[]):
   - eid (string)
+  - name (string)
   - instances (CodHandInstance)
     - script\* (string) T:cod-hand-scripts
     - typologies\* (string[]) T:cod-hand-typologies
@@ -214,6 +215,7 @@ ID: `it.vedph.codicology.hands`
     - descriptionId (string)
     - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
     - images (CodHandImage[]):
+      - sourceId (string)
       - imageId (string)
       - legend (string)
       - copyright (string)
@@ -228,13 +230,7 @@ ID: `it.vedph.codicology.hands`
       - eid (string)
       - type\* (string) T:cod-hand-sign-types
       - description
-      - sampleLocation (CodWordLocation)
-        - s
-        - n\*
-        - v (boolean)
-        - c (string)
-        - l (int)
-        - word (string)
+      - sampleLocation\* (CodLocation)
   - subscriptions (CodHandSubscription[]):
     - range\* (CodLocationRange)
     - language\* (string) T:cod-hand-subscription-languages
@@ -253,7 +249,7 @@ ID: `it.vedph.codicology.layouts`
   - rulingTechnique (string) T:cod-layout-ruling-techniques
   - derolez (string) T:cod-layout-derolez
   - pricking (string) T:cod-layout-prickings
-  - columnCount (int)
+  - columnCount\* (int)
   - counts (DecoratedCount[]):
     - id* (string) T:cod-layout-counts
     - value* (int)
@@ -272,7 +268,7 @@ ID: `it.vedph.codicology.material-dsc`
   - format\* (string) T:cod-unit-formats
   - state\* (string) T:cod-unit-states
   - range\* (CodLocationRange)
-  - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotopes\* (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - noGregory (boolean)
   - note (string)
 - palimpsests (CodPalimpsest[]):
@@ -283,7 +279,7 @@ ID: `it.vedph.codicology.material-dsc`
   - type\* (string) T:cod-endleaf-types
   - material\* (string) T:cod-endleaf-materials
   - range\* (CodLocationRange)
-  - date (AssertedDate)
+  - chronotope (AssertedChronotope)
   - note (string)
 
 ### CodNumberingsPart
@@ -301,7 +297,7 @@ While `ranges` represents the global extent of the numbering system in the manus
   - system\* (string) T:cod-numbering-systems
   - technique\* (string) T:cod-numbering-techniques
   - position\* (string) T:cod-numbering-positions
-  - colors\* (string[]) T:cod-numbering-colors
+  - colors (string[]) T:cod-numbering-colors
   - date (HistoricalDate)
   - ranges\* (CodLocationRange[])
   - spans (CodNumberingSpan[]):
@@ -332,7 +328,7 @@ Manuscript's shelfmark(s). Usually there is just one, unless you are also adding
   - tag (string) T:cod-shelfmark-tags
   - city\* (string)
   - library\* (string) T:cod-shelfmark-libraries
-  - fund\* (string)
+  - fund (string)
   - location\* (string)
 
 ### CodWatermarksPart
@@ -344,7 +340,7 @@ Manuscript's watermarks.
 - watermarks (CodWatermark[]):
   - name\* (string)
   - sampleRange\* (CodLocationRange)
-  - ranges\* (CodLocationRange[])
+  - ranges (CodLocationRange[])
   - ids (RankedExternalId[])
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags

@@ -9,16 +9,12 @@ namespace Cadmus.Seed.Codicology.Parts.Test
 {
     public sealed class CodQuireLabelsPartSeederTest
     {
-        private static readonly PartSeederFactory _factory;
-        private static readonly SeedOptions _seedOptions;
-        private static readonly IItem _item;
-
-        static CodQuireLabelsPartSeederTest()
-        {
-            _factory = TestHelper.GetFactory();
-            _seedOptions = _factory.GetSeedOptions();
-            _item = _factory.GetItemSeeder().GetItem(1, "facet");
-        }
+        private static readonly PartSeederFactory _factory =
+            TestHelper.GetFactory();
+        private static readonly SeedOptions _seedOptions =
+            _factory.GetSeedOptions();
+        private static readonly IItem _item =
+            _factory.GetItemSeeder().GetItem(1, "facet");
 
         [Fact]
         public void TypeHasTagAttribute()
