@@ -31,7 +31,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the confidence rank for this instance identification.
         /// </summary>
-        public int Rank { get; set; }
+        public short Rank { get; set; }
 
         /// <summary>
         /// Gets or sets the description identifier. This is a link to a
