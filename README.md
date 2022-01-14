@@ -103,9 +103,9 @@ ID: `it.vedph.codicology.bindings`
 - bindings (CodBinding[]):
   - tag (string) T:cod-binding-tags
   - coverMaterial\* (string) T:cod-binding-cover-materials
-  - supportMaterial\* (string) T:cod-binding-support-materials
+  - boardMaterial\* (string) T:cod-binding-board-materials
+  - chronotope\* (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
-  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
 ### CodQuireLabelsPart
@@ -149,6 +149,8 @@ ID: `it.vedph.codicology.contents`
   - annotations (CodContentAnnotation[]):
     - type\* (string) T:cod-content-annotation-types
     - range\* (CodLocationRange)
+    - incipit\* (string)
+    - explicit\* (string)
     - text\* (string)
 
 ### CodDecorationsPart
@@ -202,9 +204,10 @@ Specialized events related to any kind of text editing on the manuscript.
 - edits (CodEdit[]):
   - eid (string)
   - type\* (string) T:cod-edit-types
-  - language\* (string) T:cod-edit-languages
-  - colors\* (string[]) T:cod-edit-colors
+  - technique\* (string) T:cod-edit-techniques
   - ranges\* (CodLocationRange[])
+  - language (string) T:cod-edit-languages
+  - colors (string[]) T:cod-edit-colors
   - date (HistoricalDate)
   - description (string)
   - text (string)

@@ -45,7 +45,7 @@ namespace Cadmus.Codicology.Parts
                 foreach (CodBinding binding in Bindings)
                 {
                     builder.AddValue("cover", binding.CoverMaterial);
-                    builder.AddValue("support", binding.SupportMaterial);
+                    builder.AddValue("support", binding.BoardMaterial);
                     if (binding.Chronotope != null)
                     {
                         builder.AddValue("place", binding.Chronotope.Place?.Value);

@@ -83,7 +83,7 @@ namespace Cadmus.Codicology.Parts.Test
                 part.Bindings.Add(new CodBinding
                 {
                     CoverMaterial = even ? "iron" : "wood",
-                    SupportMaterial = even ? "iron" : "wood",
+                    BoardMaterial = even ? "iron" : "wood",
                     Chronotope = chronotopes[n - 1],
                 });
             }

@@ -43,9 +43,9 @@ namespace Cadmus.Codicology.Parts
         /// can optionally be passed to this method for those parts requiring
         /// to access further data.</param>
         /// <returns>The pins: <c>tot-count</c> and a collection of pins with
-        /// these keys: <c>eid</c>, <c>type</c>, <c>language</c>, <c>color</c>,
-        /// <c>date-value</c>.</returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item)
+        /// these keys: <c>eid</c>, <c>type</c>, <c>technique</c>,
+        /// <c>language</c>, <c>color</c>, <c>date-value</c>.</returns>
+        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
             DataPinBuilder builder = new DataPinBuilder();
 
@@ -57,6 +57,7 @@ namespace Cadmus.Codicology.Parts
                 {
                     builder.AddValue("eid", edit.Eid);
                     builder.AddValue("type", edit.Type);
+                    builder.AddValue("technique", edit.Technique);
                     builder.AddValue("language", edit.Language);
 
                     if (edit.Colors?.Count > 0)
@@ -87,6 +88,10 @@ namespace Cadmus.Codicology.Parts
                 new DataPinDefinition(DataPinValueType.String,
                     "type",
                     "The edits types.",
+                    "M"),
+                new DataPinDefinition(DataPinValueType.String,
+                    "technique",
+                    "The edits techniques.",
                     "M"),
                 new DataPinDefinition(DataPinValueType.String,
                     "language",

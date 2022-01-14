@@ -27,6 +27,8 @@ namespace Cadmus.Seed.Codicology.Parts
                         f => f.PickRandom("correction", "comment"))
                     .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
                     .RuleFor(c => c.Text, f => f.Lorem.Sentence())
+                    .RuleFor(c => c.Incipit, f => f.Lorem.Sentence())
+                    .RuleFor(c => c.Explicit, f => f.Lorem.Sentence())
                     .Generate());
             }
             return annotations;

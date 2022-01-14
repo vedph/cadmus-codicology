@@ -1,8 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace Cadmus.Codicology.Parts
+﻿namespace Cadmus.Codicology.Parts
 {
     /// <summary>
     /// An annotation in a <see cref="CodContent"/>.
@@ -20,6 +16,16 @@ namespace Cadmus.Codicology.Parts
         public CodLocationRange Range { get; set; }
 
         /// <summary>
+        /// Gets or sets the incipit.
+        /// </summary>
+        public string Incipit { get; set; }
+
+        /// <summary>
+        /// Gets or sets the explicit.
+        /// </summary>
+        public string Explicit { get; set; }
+
+        /// <summary>
         /// Gets or sets this annotation's text.
         /// </summary>
         public string Text { get; set; }
@@ -32,7 +38,9 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            return base.ToString();
+            return $"{Range} [{Type}] "
+                + (Text?.Length > 60 ? Text.Substring(0, 60) : Text ?? "")
+                .TrimEnd();
         }
     }
 }

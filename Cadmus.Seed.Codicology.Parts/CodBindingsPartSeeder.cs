@@ -25,7 +25,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     // TODO use thesauri
                     .RuleFor(b => b.CoverMaterial,
                         f => f.PickRandom("wood", "iron"))
-                    .RuleFor(b => b.SupportMaterial,
+                    .RuleFor(b => b.BoardMaterial,
                         f => f.PickRandom("wood", "iron"))
                     .RuleFor(b => b.Size, SeedHelper.GetPhysicalSize())
                     .Generate());

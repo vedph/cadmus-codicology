@@ -82,6 +82,7 @@ namespace Cadmus.Codicology.Parts.Test
                 {
                     Eid = "n" + n,
                     Type = even ? "correction" : "comment",
+                    Technique = even? "even" : "odd",
                     Language = even ? "lat" : "grc",
                     Colors = new[] { even ? "red" : "black" },
                     Date = HistoricalDate.Parse($"{1400 + n} AD")
@@ -90,14 +91,14 @@ namespace Cadmus.Codicology.Parts.Test
 
             List<DataPin> pins = part.GetDataPins(null).ToList();
 
-            Assert.Equal(13, pins.Count);
+            Assert.Equal(15, pins.Count);
 
             DataPin? pin = pins.Find(p => p.Name == "tot-count");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
             Assert.Equal("3", pin!.Value);
 
-            // odd: n1 n3 comment grc black 1401 1403
+            // odd: n1 n3 comment grc black 1401 1403 odd
             pin = pins.Find(p => p.Name == "eid" && p.Value == "n1");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
@@ -126,7 +127,11 @@ namespace Cadmus.Codicology.Parts.Test
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
 
-            // even: n2 correction lat red 1402
+            pin = pins.Find(p => p.Name == "technique" && p.Value == "odd");
+            Assert.NotNull(pin);
+            TestHelper.AssertPinIds(part, pin!);
+
+            // even: n2 correction lat red 1402 even
             pin = pins.Find(p => p.Name == "eid" && p.Value == "n2");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
@@ -144,6 +149,10 @@ namespace Cadmus.Codicology.Parts.Test
             TestHelper.AssertPinIds(part, pin!);
 
             pin = pins.Find(p => p.Name == "date-value" && p.Value == "1402");
+            Assert.NotNull(pin);
+            TestHelper.AssertPinIds(part, pin!);
+
+            pin = pins.Find(p => p.Name == "technique" && p.Value == "even");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
         }

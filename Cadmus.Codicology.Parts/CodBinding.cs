@@ -21,9 +21,9 @@ namespace Cadmus.Codicology.Parts
         public string CoverMaterial { get; set; }
 
         /// <summary>
-        /// Gets or sets the support material.
+        /// Gets or sets the board material.
         /// </summary>
-        public string SupportMaterial { get; set; }
+        public string BoardMaterial { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -55,10 +55,10 @@ namespace Cadmus.Codicology.Parts
                 if (sb.Length > 0) sb.Append(' ');
                 sb.Append("c=").Append(CoverMaterial);
             }
-            if (!string.IsNullOrEmpty(SupportMaterial))
+            if (!string.IsNullOrEmpty(BoardMaterial))
             {
                 if (sb.Length > 0) sb.Append(' ');
-                sb.Append("c=").Append(SupportMaterial);
+                sb.Append("c=").Append(BoardMaterial);
             }
             if (Size != null)
             {

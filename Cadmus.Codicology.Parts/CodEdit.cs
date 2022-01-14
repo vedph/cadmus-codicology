@@ -21,6 +21,11 @@ namespace Cadmus.Codicology.Parts
         public string Type { get; set; }
 
         /// <summary>
+        /// Gets or sets the edit technique.
+        /// </summary>
+        public string Technique { get; set; }
+
+        /// <summary>
         /// Gets or sets the text's language.
         /// </summary>
         public string Language { get; set; }
