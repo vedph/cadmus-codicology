@@ -244,8 +244,8 @@ ID: `it.vedph.codicology.hands`
     - signs (CodHandSign[]):
       - eid (string)
       - type\* (string) T:cod-hand-sign-types
-      - description
       - sampleLocation\* (CodLocation)
+      - description (string)
   - subscriptions (CodHandSubscription[]):
     - range\* (CodLocationRange)
     - language\* (string) T:cod-hand-subscription-languages
