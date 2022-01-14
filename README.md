@@ -155,32 +155,43 @@ ID: `it.vedph.codicology.contents`
 
 ID: `it.vedph.codicology.decorations`
 
-- eid (string)
-- name\* (string)
-- type\* (string) T:cod-decoration-types
-- flags (string) T:cod-decoration-flags
-- chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-- artistIds (ExternalId[])
-- note (string)
-- references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
-- elements (CodDecorationElement[]):
-  - key (string)
-  - parentKey (string)
-  - type\* (string) T:cod-decoration-element-types
-  - flags (string) T:cod-decoration-element-flags
-  - ranges\* (CodLocationRange[])
-  - typologies (string) T:cod-decoration-element-typologies
-  - subject\* (string)
-  - colors (string[]) T:cod-decoration-element-colors
-  - gilding (string) T:cod-decoration-element-gildings
-  - technique (string) T:cod-decoration-element-techniques
-  - tool (string) T:cod-decoration-element-tools
-  - position (string) T:cod-decoration-element-positions
-  - lineHeight (int)
-  - textRelation (string)
-  - description (string MD)
-  - imageId (string)
+- decorations (CodDecoration[]):
+  - eid (string)
+  - name\* (string)
+  - type\* (string) T:cod-decoration-types
+  - flags (string) T:cod-decoration-flags
+  - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - artist (CodDecorationArtist):
+    - eid (string)
+    - type\* (string) T:cod-decoration-artist-types
+    - name\* (string)
+    - ids (ExternalId[])
+    - note (string)
   - note (string)
+  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
+  - elements (CodDecorationElement[]):
+    - key (string)
+    - parentKey (string)
+    - type\* (string) T:cod-decoration-element-types
+    - flags (string) T:cod-decoration-element-flags
+    - ranges\* (CodLocationRange[])
+    - typologies (string) T:cod-decoration-element-typologies
+    - subject (string)
+    - colors (string[]) T:cod-decoration-element-colors
+    - gilding (string) T:cod-decoration-element-gildings
+    - technique (string) T:cod-decoration-element-techniques
+    - tool (string) T:cod-decoration-element-tools
+    - position (string) T:cod-decoration-element-positions
+    - lineHeight (int)
+    - textRelation (string)
+    - description (string MD)
+    - images (CodImage[]):
+      - id\* (string)
+      - type\* (string)
+      - sourceId (string)
+      - label (string)
+      - copyright (string)
+    - note (string)
 
 ### CodEditsPart
 
@@ -214,10 +225,11 @@ ID: `it.vedph.codicology.hands`
     - rank (int)
     - descriptionId (string)
     - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-    - images (CodHandImage[]):
+    - images (CodImage[]):
+      - id\* (string)
+      - type\* (string)
       - sourceId (string)
-      - imageId (string)
-      - legend (string)
+      - label (string)
       - copyright (string)
   - descriptions (CodHandDescription[]):
     - eid (string)

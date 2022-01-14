@@ -35,14 +35,14 @@ namespace Cadmus.Codicology.Parts
         public List<string> Flags { get; set; }
 
         /// <summary>
-        /// Gets or sets the place of origin and/or date for this decoration.
+        /// Gets or sets the date/place indication(s) for this decoration.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public List<AssertedChronotope> Chronotopes { get; set; }
 
         /// <summary>
-        /// Gets or sets the decoration's artist ID(s).
+        /// Gets or sets the decoration's artist.
         /// </summary>
-        public List<ExternalId> ArtistIds { get; set; }
+        public CodDecorationArtist Artist { get; set; }
 
         /// <summary>
         /// Gets or sets an optional note.
@@ -65,6 +65,7 @@ namespace Cadmus.Codicology.Parts
         public CodDecoration()
         {
             Flags = new List<string>();
+            Chronotopes = new List<AssertedChronotope>();
             References = new List<DocReference>();
             Elements = new List<CodDecorationElement>();
         }

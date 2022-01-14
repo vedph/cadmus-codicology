@@ -34,7 +34,7 @@ namespace Cadmus.Codicology.Parts
         /// to access further data.</param>
         /// <returns>The pins: <c>tot-count</c> and a collection of pins with
         /// these keys: <c>id</c>, <c>place</c>, <c>date-value</c>.</returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item)
+        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
             DataPinBuilder builder = new DataPinBuilder(
                 DataPinHelper.DefaultFilter);
@@ -51,10 +51,10 @@ namespace Cadmus.Codicology.Parts
                         builder.AddValues("id", watermark.Ids.Select(i => i.Value));
                     if (!string.IsNullOrEmpty(watermark.Chronotope?.Place?.Value))
                         builder.AddValue("place", watermark.Chronotope.Place.Value);
-                    if (watermark.Chronotope?.Date?.Value != null)
+                    if (watermark.Chronotope?.Date != null)
                     {
                         builder.AddValue("date-value",
-                            watermark.Chronotope.Date.Value.GetSortValue());
+                            watermark.Chronotope.Date.GetSortValue());
                     }
                 }
             }

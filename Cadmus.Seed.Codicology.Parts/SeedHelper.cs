@@ -18,7 +18,7 @@ namespace Cadmus.Seed.Codicology.Parts
         /// <returns>Truncated value.</returns>
         public static double Truncate(double value, int decimals)
         {
-            double factor = (double)Math.Pow(10, decimals);
+            double factor = Math.Pow(10, decimals);
             return Math.Truncate(factor * value) / factor;
         }
 
@@ -103,10 +103,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     {
                         Value = even ? "Even" : "Odd"
                     },
-                    Date = new AssertedDate
-                    {
-                        Value = HistoricalDate.Parse($"{1300 + n} AD")
-                    }
+                    Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n} AD"))
                 });
             }
             return chronotopes;

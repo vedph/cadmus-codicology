@@ -97,12 +97,9 @@ namespace Cadmus.Codicology.Parts
         public string Description { get; set; }
 
         /// <summary>
-        /// Gets or sets the image identifier, representing the prefix for all
-        /// the images of the decoration; e.g. if it is <c>ae</c>, we would
-        /// expect any number of image resources named after it plus a
-        /// conventional numbering, like <c>ae00001</c>, <c>ae00002</c>, etc.
+        /// Gets or sets the list of images depicting this element.
         /// </summary>
-        public string ImageId { get; set; }
+        public List<CodImage> Images { get; set; }
 
         /// <summary>
         /// Gets or sets an optional note.
@@ -119,6 +116,7 @@ namespace Cadmus.Codicology.Parts
             Ranges = new List<CodLocationRange>();
             Typologies = new List<string>();
             Colors = new List<string>();
+            Images = new List<CodImage>();
         }
 
         /// <summary>

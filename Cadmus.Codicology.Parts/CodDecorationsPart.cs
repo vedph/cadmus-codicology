@@ -1,4 +1,5 @@
 ﻿using Cadmus.Core;
+using Cadmus.Refs.Bricks;
 using Fusi.Tools.Config;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,7 +39,7 @@ namespace Cadmus.Codicology.Parts
         /// <c>color-X-count</c>, (all the keys with X are filtered, with digits),
         /// <c>artist-id</c> (filtered, with digits).
         /// </returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item)
+        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
             DataPinBuilder builder = new DataPinBuilder(
                 DataPinHelper.DefaultFilter);
@@ -53,10 +54,19 @@ namespace Cadmus.Codicology.Parts
                         DataPinHelper.DefaultFilter.Apply(decoration.Type, true),
                         false, "type-");
 
-                    if (decoration.Chronotope?.Date?.Value != null)
+                    // chronotopes
+                    if (decoration.Chronotopes?.Count > 0)
                     {
-                        builder.AddValue("date-value",
-                            decoration.Chronotope.Date.Value.GetSortValue());
+                        foreach (AssertedChronotope c in decoration.Chronotopes)
+                        {
+                            if (c.Date != null)
+                                builder.AddValue("date-value", c.Date.GetSortValue());
+                            if (!string.IsNullOrEmpty(c.Place?.Value))
+                            {
+                                builder.AddValue("place", c.Place.Value,
+                                    filter: true, filterOptions: true);
+                            }
+                        }
                     }
 
                     foreach (CodDecorationElement element in decoration?.Elements)
@@ -75,10 +85,13 @@ namespace Cadmus.Codicology.Parts
                         }
                     }
 
-                    if (decoration.ArtistIds?.Count > 0)
+                    if (decoration.Artist != null)
                     {
+                        builder.AddValue("artist-name", decoration.Artist.Name,
+                            filter: true, filterOptions: true);
+
                         builder.AddValues("artist-id",
-                            decoration.ArtistIds.Select(id => id.Value));
+                            decoration.Artist.Ids.Select(id => id.Value));
                     }
                 }
             }

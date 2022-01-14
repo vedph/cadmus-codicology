@@ -68,12 +68,20 @@ namespace Cadmus.Seed.Codicology.Parts
                     LineHeight = faker.Random.Short(1, 10),
                     TextRelation = faker.Lorem.Sentence(),
                     Description = faker.Lorem.Sentence(),
-                    ImageId = "e" + n,
                     Note = faker.Random.Bool(0.25F) ? faker.Lorem.Sentence() : null
                 });
             }
 
             return elements;
+        }
+
+        private static CodDecorationArtist GetArtist()
+        {
+            return new Faker<CodDecorationArtist>()
+                .RuleFor(a => a.Eid, f => f.Lorem.Word())
+                .RuleFor(a => a.Type, f => f.PickRandom("painter", "illuminator"))
+                .RuleFor(a => a.Name, f => f.Person.FullName)
+                .Generate();
         }
 
         /// <summary>
@@ -99,24 +107,14 @@ namespace Cadmus.Seed.Codicology.Parts
             int count = Randomizer.Seed.Next(1, 3);
             for (int n = 1; n <= count; n++)
             {
-                int sn = (n - 1) * 2;
-
                 part.Decorations.Add(new Faker<CodDecoration>()
                     .RuleFor(d => d.Eid, f => "d" + f.UniqueIndex)
                     .RuleFor(d => d.Name, f => f.Lorem.Word())
                     .RuleFor(d => d.Type, f => f.PickRandom(_types))
                     .RuleFor(d => d.Flags,
                         f => new List<string>(new[] { f.PickRandom(_flags) }))
-                    .RuleFor(d => d.Chronotope, f => new AssertedChronotope
-                    {
-                        Place = new AssertedPlace
-                        {
-                            Value = f.Address.Country()
-                        },
-                        Date = new AssertedDate
-                            { Value = HistoricalDate.Parse($"{1300 + n} AD") }
-                    })
-                    .RuleFor(d => d.ArtistIds, f => SeedHelper.GetExternalIds(f.Random.Number(1,2)))
+                    .RuleFor(d => d.Chronotopes, SeedHelper.GetAssertedChronotopes(1))
+                    .RuleFor(d => d.Artist, GetArtist())
                     .RuleFor(d => d.Note, f => f.Random.Bool(0.25f)
                         ? f.Lorem.Sentence() : null)
                     .RuleFor(d => d.References,

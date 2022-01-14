@@ -10,7 +10,7 @@ using Xunit;
 
 namespace Cadmus.Codicology.Parts.Test
 {
-    internal sealed class TestHelper
+    internal static class TestHelper
     {
         private static readonly JsonSerializerOptions _options =
             new()
@@ -101,10 +101,7 @@ namespace Cadmus.Codicology.Parts.Test
                 chronotopes.Add(new AssertedChronotope
                 {
                     Place = new AssertedPlace { Value = $"place-{n}" },
-                    Date = new AssertedDate
-                    {
-                        Value = HistoricalDate.Parse(1300 + n + " AD")
-                    }
+                    Date = new AssertedDate(HistoricalDate.Parse(1300 + n + " AD"))
                 });
             }
 

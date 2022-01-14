@@ -12,7 +12,7 @@ namespace Cadmus.Codicology.Parts.Test
     {
         private static List<CodDecorationElement> GetElements(int count)
         {
-            List<CodDecorationElement> elements = new List<CodDecorationElement>();
+            List<CodDecorationElement> elements = new();
 
             for (int n = 1; n <= count; n++)
             {
@@ -56,7 +56,6 @@ namespace Cadmus.Codicology.Parts.Test
                     LineHeight = (short)n,
                     TextRelation = "relation",
                     Description = "description",
-                    ImageId = "iid",
                     Note = "note"
                 });
             }
@@ -82,14 +81,27 @@ namespace Cadmus.Codicology.Parts.Test
                     Eid = $"d{n}",
                     Name = "Decoration " + n,
                     Type = n % 2 == 0 ? "even" : "odd",
-                    Chronotope = new AssertedChronotope
+                    Chronotopes = new List<AssertedChronotope>
                     {
-                        Place = new AssertedPlace { Value = "Paris" },
-                        Date = new AssertedDate { Value = HistoricalDate.Parse($"{1300 + n}") }
+                        new AssertedChronotope
+                        {
+                            Place = new AssertedPlace { Value = "Paris" },
+                            Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n}"))
+                        }
                     },
                     Flags = new List<string>(new[] { "f-" + alt }),
                     Note = "Note",
-                    ArtistIds = new List<ExternalId> { new ExternalId { Value = "a"} },
+                    Artist = new CodDecorationArtist
+                    {
+                        Name = "Petrus",
+                        Ids = new List<ExternalId>
+                        {
+                            new ExternalId
+                            {
+                                Value = "petrus123"
+                            }
+                        }
+                    },
                     References = TestHelper.GetDocReferences(1),
                     Elements = GetElements(3)
                 });
@@ -140,7 +152,7 @@ namespace Cadmus.Codicology.Parts.Test
 
             List<DataPin> pins = part.GetDataPins(null).ToList();
 
-            Assert.Equal(13, pins.Count);
+            Assert.Equal(15, pins.Count);
             TestHelper.AssertValidDataPinNames(pins);
 
             DataPin? pin = pins.Find(p => p.Name == "tot-count");
@@ -158,10 +170,13 @@ namespace Cadmus.Codicology.Parts.Test
             TestHelper.AssertPinIds(part, pin!);
             Assert.Equal("1", pin!.Value);
 
-            pin = pins.Find(p => p.Name == "artist-id");
+            pin = pins.Find(p => p.Name == "artist-id" && p.Value == "petrus123");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
-            Assert.Equal("a", pin!.Value);
+
+            pin = pins.Find(p => p.Name == "artist-name" && p.Value == "petrus");
+            Assert.NotNull(pin);
+            TestHelper.AssertPinIds(part, pin!);
 
             for (int n = 1; n <= 3; n++)
             {
