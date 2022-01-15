@@ -40,6 +40,7 @@ namespace Cadmus.Codicology.Parts
             DataPinBuilder builder = new DataPinBuilder();
 
             builder.Set("tot", Hands?.Count ?? 0, false);
+            int subsCount = 0;
 
             if (Hands?.Count > 0)
             {
@@ -69,8 +70,7 @@ namespace Cadmus.Codicology.Parts
                     if (hand.Subscriptions?.Count > 0)
                     {
                         // subs-count
-                        builder.AddValue("subs-count",
-                            hand.Subscriptions.Count);
+                        subsCount += hand.Subscriptions.Count;
 
                         // subs-language
                         builder.AddValues("subs-language",
@@ -78,6 +78,8 @@ namespace Cadmus.Codicology.Parts
                     }
                 }
             }
+
+            if (subsCount > 0) builder.AddValue("subs-count", subsCount);
 
             return builder.Build(this);
         }
