@@ -31,6 +31,65 @@ namespace Cadmus.Seed.Codicology.Parts
             return signs;
         }
 
+        private static List<CodHandInstance> GetInstances(int count)
+        {
+            List<CodHandInstance> instances = new List<CodHandInstance>();
+            for (int n = 1; n <= count; n++)
+            {
+                instances.Add(new Faker<CodHandInstance>()
+                    .RuleFor(d => d.Script, f => f.PickRandom("got", "mea"))
+                    .RuleFor(d => d.Typologies, f => new List<string>
+                    {
+                        f.PickRandom("text", "notes")
+                    })
+                    .RuleFor(d => d.Colors, f => new List<string>
+                    {
+                        f.PickRandom("red", "blue")
+                    })
+                    .RuleFor(d => d.Ranges, SeedHelper.GetLocationRanges(1))
+                    .RuleFor(d => d.Rank, f => f.Random.Short(1, 3))
+                    .RuleFor(d => d.DescriptionId, "d1")
+                    .RuleFor(d => d.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
+                    .RuleFor(d => d.Images,
+                        f => SeedHelper.GetCodImages(f.Random.Number(1, 3)))
+                    .Generate());
+            }
+            return instances;
+        }
+
+        private static List<CodHandDescription> GetDescriptions(int count)
+        {
+            List<CodHandDescription> descriptions = new List<CodHandDescription>();
+            for (int n = 1; n <= count; n++)
+            {
+                descriptions.Add(new Faker<CodHandDescription>()
+                    .RuleFor(d => d.Id, "d" + n)
+                    .RuleFor(d => d.Description, f => f.Lorem.Sentence())
+                    .RuleFor(d => d.Initials, f => f.Lorem.Sentence())
+                    .RuleFor(d => d.Corrections, f => f.Lorem.Sentence())
+                    .RuleFor(d => d.Punctuation, f => f.Lorem.Sentence())
+                    .RuleFor(d => d.Abbreviations, f => f.Lorem.Sentence())
+                    .RuleFor(d => d.Signs, f => GetSigns(f.Random.Number(1, 3)))
+                    .Generate());
+            }
+            return descriptions;
+        }
+
+        private static List<CodHandSubscription> GetSubscriptions(int count)
+        {
+            List<CodHandSubscription> subscriptions = new List<CodHandSubscription>();
+            for (int n = 1; n <= count; n++)
+            {
+                subscriptions.Add(new Faker<CodHandSubscription>()
+                    .RuleFor(s => s.Range, SeedHelper.GetLocationRanges(1)[0])
+                    .RuleFor(s => s.Language, f => f.PickRandom("lat", "grc"))
+                    .RuleFor(s => s.Text, f => f.Lorem.Sentence())
+                    .RuleFor(s => s.Note, f => f.Lorem.Sentence().OrNull(f))
+                    .Generate());
+            }
+            return subscriptions;
+        }
+
         private static List<CodHand> GetHands(int count)
         {
             List<CodHand> hands = new List<CodHand>();
@@ -39,7 +98,12 @@ namespace Cadmus.Seed.Codicology.Parts
                 hands.Add(new Faker<CodHand>()
                     .RuleFor(h => h.Eid, f => f.Lorem.Word())
                     .RuleFor(h => h.Name, f => f.Lorem.Word())
-                    // TODO
+                    .RuleFor(h => h.Instances,
+                        f => GetInstances(f.Random.Number(1, 3)))
+                    .RuleFor(h => h.Descriptions,
+                        f => GetDescriptions(f.Random.Number(1, 3)))
+                    .RuleFor(h => h.Subscriptions,
+                        f => GetSubscriptions(f.Random.Number(1, 3)))
                     .RuleFor(h => h.References,
                         f => SeedHelper.GetDocReferences(f.Random.Number(1, 3)))
                     .Generate());

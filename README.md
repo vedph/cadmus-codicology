@@ -230,7 +230,7 @@ ID: `it.vedph.codicology.hands`
     - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
     - images (CodImage[]):
       - id\* (string)
-      - type\* (string)
+      - type\* (string) T:cod-image-types
       - sourceId (string)
       - label (string)
       - copyright (string)
