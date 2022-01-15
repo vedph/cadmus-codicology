@@ -127,7 +127,6 @@ namespace Cadmus.Codicology.Parts.Test
             Assert.Equal(part.UserId, part2.UserId);
 
             Assert.Equal(2, part.Decorations.Count);
-            // TODO: details
         }
 
         [Fact]

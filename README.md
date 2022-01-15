@@ -83,10 +83,9 @@ The models of some bricks are summarized here for the reader's commodity.
   - value\* (string)
   - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
-- **AssertedDate**:
+- **AssertedDate**: equal to `HistoricalDate` plus:
 
   - tag (string) T:asserted-date-tags
-  - value\* (HistoricalDate)
   - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedChronotope**:

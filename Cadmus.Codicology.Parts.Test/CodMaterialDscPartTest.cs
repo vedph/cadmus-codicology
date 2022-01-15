@@ -49,7 +49,6 @@ namespace Cadmus.Codicology.Parts.Test
             Assert.Equal(part.RoleId, part2.RoleId);
             Assert.Equal(part.CreatorId, part2.CreatorId);
             Assert.Equal(part.UserId, part2.UserId);
-            // TODO: check parts data here...
         }
 
         [Fact]

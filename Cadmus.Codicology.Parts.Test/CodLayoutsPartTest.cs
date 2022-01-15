@@ -91,7 +91,6 @@ namespace Cadmus.Codicology.Parts.Test
             Assert.Equal(part.UserId, part2.UserId);
 
             Assert.Equal(2, part.Layouts.Count);
-            // TODO: details
         }
 
         [Fact]
