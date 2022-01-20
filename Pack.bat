@@ -13,4 +13,8 @@ cd .\Cadmus.Seed.Codicology.Parts
 dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
 cd..
 
+cd .\Cadmus.Codicology.Services
+dotnet pack -c Debug -p:IncludeSymbols=true -p:SymbolPackageFormat=snupkg
+cd..
+
 pause
