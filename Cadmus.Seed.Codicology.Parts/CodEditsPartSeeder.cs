@@ -24,7 +24,9 @@ namespace Cadmus.Seed.Codicology.Parts
                 edits.Add(new Faker<CodEdit>()
                     .RuleFor(p => p.Eid, f => f.Lorem.Word())
                     .RuleFor(p => p.Type, f => f.PickRandom("correction", "comment"))
-                    .RuleFor(p => p.Technique, f => f.PickRandom("ink", "lapis"))
+                    .RuleFor(p => p.Tag, f => f.PickRandom(null, "tag"))
+                    .RuleFor(p => p.Techniques, f =>
+                        new List<string> { f.PickRandom("ink", "lapis") })
                     .RuleFor(p => p.Language, f => f.PickRandom("lat", "grc"))
                     .RuleFor(p => p.Colors, f => new string[]
                         {

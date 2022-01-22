@@ -29,9 +29,23 @@ namespace Cadmus.Codicology.Parts
         public List<ExternalId> Ids { get; set; }
 
         /// <summary>
+        /// Gets or sets the styles.
+        /// </summary>
+        public List<CodDecorationArtistStyle> Styles { get; set; }
+
+        /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
         public string Note { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CodDecorationArtist"/>
+        /// class.
+        /// </summary>
+        public CodDecorationArtist()
+        {
+            Styles = new List<CodDecorationArtistStyle>();
+        }
 
         /// <summary>
         /// Converts to string.

@@ -80,7 +80,7 @@ namespace Cadmus.Codicology.Parts.Test
                 part.Contents.Add(new CodContent
                 {
                     Eid = "n" + n,
-                    State = even? "intact" : "fragments",
+                    States = new List<string> { even ? "intact" : "fragments" },
                     Title = "Title " + n,
                     ClaimedAuthor = "Author " + n,
                     ClaimedTitle = "Title " + n

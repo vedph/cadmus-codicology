@@ -17,9 +17,9 @@ namespace Cadmus.Codicology.Parts
         public CodLocationRange Range { get; set; }
 
         /// <summary>
-        /// Gets or sets the content's material state.
+        /// Gets or sets the content's material state(s).
         /// </summary>
-        public string State { get; set; }
+        public List<string> States { get; set; }
 
         /// <summary>
         /// Gets or sets the content's standard title.
@@ -72,6 +72,7 @@ namespace Cadmus.Codicology.Parts
         /// </summary>
         public CodContent()
         {
+            States = new List<string>();
             Annotations = new List<CodContentAnnotation>();
         }
 

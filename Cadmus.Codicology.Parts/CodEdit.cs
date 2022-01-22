@@ -21,9 +21,14 @@ namespace Cadmus.Codicology.Parts
         public string Type { get; set; }
 
         /// <summary>
-        /// Gets or sets the edit technique.
+        /// Gets or sets the tag.
         /// </summary>
-        public string Technique { get; set; }
+        public string Tag { get; set; }
+
+        /// <summary>
+        /// Gets or sets the edit technique(s).
+        /// </summary>
+        public List<string> Techniques { get; set; }
 
         /// <summary>
         /// Gets or sets the text's language.
@@ -65,6 +70,7 @@ namespace Cadmus.Codicology.Parts
         /// </summary>
         public CodEdit()
         {
+            Techniques = new List<string>();
             Colors = new List<string>();
             Ranges = new List<CodLocationRange>();
             References = new List<DocReference>();

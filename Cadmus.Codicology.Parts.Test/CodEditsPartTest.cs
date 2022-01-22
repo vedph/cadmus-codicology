@@ -82,7 +82,7 @@ namespace Cadmus.Codicology.Parts.Test
                 {
                     Eid = "n" + n,
                     Type = even ? "correction" : "comment",
-                    Technique = even? "even" : "odd",
+                    Techniques = new List<string> { even ? "even" : "odd" },
                     Language = even ? "lat" : "grc",
                     Colors = new[] { even ? "red" : "black" },
                     Date = HistoricalDate.Parse($"{1400 + n} AD")

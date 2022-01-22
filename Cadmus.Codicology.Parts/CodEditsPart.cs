@@ -57,7 +57,8 @@ namespace Cadmus.Codicology.Parts
                 {
                     builder.AddValue("eid", edit.Eid);
                     builder.AddValue("type", edit.Type);
-                    builder.AddValue("technique", edit.Technique);
+                    if (edit.Techniques?.Count > 0)
+                        builder.AddValues("technique", edit.Techniques);
                     builder.AddValue("language", edit.Language);
 
                     if (edit.Colors?.Count > 0)

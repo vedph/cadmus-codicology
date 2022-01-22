@@ -4,7 +4,6 @@
   - [Bricks](#bricks)
   - [Parts](#parts)
     - [CodBindingsPart](#codbindingspart)
-    - [CodQuireLabelsPart](#codquirelabelspart)
     - [CodContentsPart](#codcontentspart)
     - [CodDecorationsPart](#coddecorationspart)
     - [CodEditsPart](#codeditspart)
@@ -12,6 +11,7 @@
     - [CodLayoutsPart](#codlayoutspart)
     - [CodMaterialDscPart](#codmaterialdscpart)
     - [CodNumberingsPart](#codnumberingspart)
+    - [CodQuireLabelsPart](#codquirelabelspart)
     - [CodQuiresPart](#codquirespart)
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
@@ -107,28 +107,6 @@ ID: `it.vedph.codicology.bindings`
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - description (string)
 
-### CodQuireLabelsPart
-
-Catchwords and signatures applied to manuscript's quires.
-
-ID: `it.vedph.codicology.quire-labels`
-
-- catchwords (CodCatchword[]):
-  - range\* (CodLocationRange)
-  - position\* (string) T:cod-catchwords-positions
-  - isVertical (boolean)
-  - decoration (string)
-  - note (string)
-- quireSignatures (CodQuireSignature[]):
-  - range\* (CodLocationRange)
-  - position\* (string) T:cod-quiresig-positions
-  - system\* (string) T:cod-quiresig-systems
-  - note (string)
-- quireRegSignatures (CodQuireRegSignature[]):
-  - range\* (CodLocationRange)
-  - position\* (string) T:cod-quiresig-positions
-  - note (string)
-
 ### CodContentsPart
 
 ID: `it.vedph.codicology.contents`
@@ -136,7 +114,7 @@ ID: `it.vedph.codicology.contents`
 - contents (CodContent[]):
   - eid (string)
   - range\* (CodLocationRange)
-  - state\* (string) T:cod-content-states
+  - states\* (string[]) T:cod-content-states
   - title\* (string)
   - location (string)
   - claimedAuthor (string)
@@ -160,13 +138,17 @@ ID: `it.vedph.codicology.decorations`
   - eid (string)
   - name\* (string)
   - type\* (string) T:cod-decoration-types
-  - flags (string) T:cod-decoration-flags
+  - flags (string[]) T:cod-decoration-flags
   - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - artist (CodDecorationArtist):
+  - artists (CodDecorationArtist[]):
     - eid (string)
     - type\* (string) T:cod-decoration-artist-types
     - name\* (string)
     - ids (ExternalId[])
+    - styles (CodDecorationArtistStyle[]):
+      - name\* (string) T:cod-decoration-artist-style-names
+      - chronotope (AssertedChronotope)
+      - assertion (Assertion)
     - note (string)
   - note (string)
   - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
@@ -174,7 +156,7 @@ ID: `it.vedph.codicology.decorations`
     - key (string)
     - parentKey (string)
     - type\* (string) T:cod-decoration-element-types
-    - flags (string) T:cod-decoration-element-flags
+    - flags (string[]) T:cod-decoration-element-flags
     - ranges\* (CodLocationRange[])
     - typologies (string) T:cod-decoration-element-typologies
     - subject (string)
@@ -203,7 +185,8 @@ Specialized events related to any kind of text editing on the manuscript.
 - edits (CodEdit[]):
   - eid (string)
   - type\* (string) T:cod-edit-types
-  - technique\* (string) T:cod-edit-techniques
+  - tag (string) T:cod-edit-tags
+  - techniques (string[]) T:cod-edit-techniques
   - ranges\* (CodLocationRange[])
   - language (string) T:cod-edit-languages
   - colors (string[]) T:cod-edit-colors
@@ -319,6 +302,28 @@ While `ranges` represents the global extent of the numbering system in the manus
     - start (string)
     - end (string)
   - issues (string)
+
+### CodQuireLabelsPart
+
+Catchwords and signatures applied to manuscript's quires.
+
+ID: `it.vedph.codicology.quire-labels`
+
+- catchwords (CodCatchword[]):
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-catchwords-positions
+  - isVertical (boolean)
+  - decoration (string)
+  - note (string)
+- quireSignatures (CodQuireSignature[]):
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-quiresig-positions
+  - system\* (string) T:cod-quiresig-systems
+  - note (string)
+- quireRegSignatures (CodQuireRegSignature[]):
+  - range\* (CodLocationRange)
+  - position\* (string) T:cod-quiresig-positions
+  - note (string)
 
 ### CodQuiresPart
 

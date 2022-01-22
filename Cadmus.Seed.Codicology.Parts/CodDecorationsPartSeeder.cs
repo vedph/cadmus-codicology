@@ -79,6 +79,15 @@ namespace Cadmus.Seed.Codicology.Parts
                 .RuleFor(a => a.Eid, f => f.Lorem.Word())
                 .RuleFor(a => a.Type, f => f.PickRandom("painter", "illuminator"))
                 .RuleFor(a => a.Name, f => f.Person.FullName)
+                .RuleFor(a => a.Styles, new List<CodDecorationArtistStyle>
+                {
+                    new CodDecorationArtistStyle
+                    {
+                        // TODO: use thesaurus
+                        Name = "style",
+                        Chronotope = SeedHelper.GetAssertedChronotopes(1)[0]
+                    }
+                })
                 .Generate();
         }
 
