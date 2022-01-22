@@ -90,8 +90,11 @@ namespace Cadmus.Codicology.Parts
                         builder.AddValue("artist-name", decoration.Artist.Name,
                             filter: true, filterOptions: true);
 
-                        builder.AddValues("artist-id",
-                            decoration.Artist.Ids.Select(id => id.Value));
+                        if (decoration.Artist.Ids != null)
+                        {
+                            builder.AddValues("artist-id",
+                                decoration.Artist.Ids.Select(id => id.Value));
+                        }
                     }
                 }
             }

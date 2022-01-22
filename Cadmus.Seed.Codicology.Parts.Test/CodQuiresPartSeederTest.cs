@@ -28,7 +28,7 @@ namespace Cadmus.Seed.Codicology.Parts.Test
         [Fact]
         public void Seed_Ok()
         {
-            CodQuiresPartSeeder seeder = new CodQuiresPartSeeder();
+            CodQuiresPartSeeder seeder = new();
             seeder.SetSeedOptions(_seedOptions);
 
             IPart part = seeder.GetPart(_item, null, _factory);

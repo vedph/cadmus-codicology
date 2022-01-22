@@ -28,7 +28,7 @@ namespace Cadmus.Seed.Codicology.Parts
         static public PartSeederFactory GetFactory()
         {
             // map
-            TagAttributeToTypeMap map = new TagAttributeToTypeMap();
+            TagAttributeToTypeMap map = new();
             map.Add(new[]
             {
                 // Cadmus.Core

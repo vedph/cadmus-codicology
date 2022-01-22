@@ -82,7 +82,6 @@ namespace Cadmus.Codicology.Parts
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            if (Ranges?.Count > 0) sb.Append(Ranges);
             if (Sample != null)
             {
                 if (sb.Length > 0) sb.Append(' ');

@@ -1,8 +1,6 @@
 ﻿using Bogus;
 using Cadmus.Codicology.Parts;
 using Cadmus.Core;
-using Cadmus.Refs.Bricks;
-using Fusi.Antiquity.Chronology;
 using Fusi.Tools.Config;
 using System;
 using System.Collections.Generic;
@@ -24,7 +22,7 @@ namespace Cadmus.Seed.Codicology.Parts
         {
             _types = new[] { "pag-inc", "pag-dec", "ill" };
             _flags = new[] { "original", "unitary", "complete" };
-            _colors = new[] { "red", "green", "blue", "violet", "gold" };
+            _colors = new[] { "red", "green", "blue", "gold" };
         }
 
         private List<string> GetColors()
@@ -118,7 +116,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     .RuleFor(d => d.Note, f => f.Random.Bool(0.25f)
                         ? f.Lorem.Sentence() : null)
                     .RuleFor(d => d.References,
-                        f => SeedHelper.GetDocReferences(f.Random.Number(1,3)))
+                        f => SeedHelper.GetDocReferences(f.Random.Number(1, 3)))
                     .RuleFor(d => d.Elements, f => GetElements(f.Random.Number(1, 3), f))
                     .Generate());
             }
