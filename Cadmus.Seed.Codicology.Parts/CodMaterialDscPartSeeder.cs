@@ -25,9 +25,8 @@ namespace Cadmus.Seed.Codicology.Parts
                 units.Add(new Faker<CodUnit>()
                     .RuleFor(u => u.Eid, f => f.Lorem.Word())
                     .RuleFor(u => u.Tag, f => f.PickRandom(null, "tag"))
-                    // TODO use thesauri
                     .RuleFor(u => u.Material, f => f.PickRandom("parchment", "paper"))
-                    .RuleFor(u => u.State, f => f.PickRandom("intact", "damaged"))
+                    .RuleFor(u => u.State, f => f.PickRandom("s1", "s2"))
                     .RuleFor(u => u.Range, SeedHelper.GetLocationRanges(1)[0])
                     .RuleFor(u => u.Chronotopes,
                         f => SeedHelper.GetAssertedChronotopes(f.Random.Number(1, 2)))
@@ -60,8 +59,7 @@ namespace Cadmus.Seed.Codicology.Parts
             for (int n = 1; n <= count; n++)
             {
                 leaves.Add(new Faker<CodEndleaf>()
-                    // TODO use thesauri
-                    .RuleFor(l => l.Type, f => f.PickRandom("start", "end"))
+                    .RuleFor(l => l.Type, f => f.PickRandom("front", "back"))
                     .RuleFor(l => l.Material, f => f.PickRandom("parchment", "paper"))
                     .RuleFor(l => l.Range, SeedHelper.GetLocationRanges(1)[0])
                     .RuleFor(l => l.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])

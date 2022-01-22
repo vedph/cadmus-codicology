@@ -22,12 +22,13 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 bindings.Add(new Faker<CodBinding>()
                     .RuleFor(b => b.Tag, f => f.PickRandom(null, "tag"))
-                    // TODO use thesauri
                     .RuleFor(b => b.CoverMaterial,
-                        f => f.PickRandom("wood", "iron"))
+                        f => f.PickRandom("skin", "velvet"))
                     .RuleFor(b => b.BoardMaterial,
-                        f => f.PickRandom("wood", "iron"))
+                        f => f.PickRandom("wood", "card"))
                     .RuleFor(b => b.Size, SeedHelper.GetPhysicalSize())
+                    .RuleFor(b => b.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
+                    .RuleFor(b => b.Description, f => f.Lorem.Sentence())
                     .Generate());
             }
             return bindings;

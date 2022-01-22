@@ -40,9 +40,8 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 signatures.Add(new Faker<CodQuireSignature>()
                     .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
-                    // TODO get from thesauri
-                    .RuleFor(c => c.Position, f => f.PickRandom("mis", "mic"))
-                    .RuleFor(c => c.System, f => f.PickRandom("x", "y"))
+                    .RuleFor(c => c.Position, f => f.PickRandom("mse", "msc"))
+                    .RuleFor(c => c.System, f => f.PickRandom("arabic", "roman"))
                     .RuleFor(c => c.Note,
                         f => f.Random.Bool(0.25f) ? f.Lorem.Sentence() : null)
                     .Generate());
@@ -57,8 +56,7 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 signatures.Add(new Faker<CodQuireRegSignature>()
                     .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
-                    // TODO get from thesauri
-                    .RuleFor(c => c.Position, f => f.PickRandom("mis", "mic"))
+                    .RuleFor(c => c.Position, f => f.PickRandom("mse", "msc"))
                     .RuleFor(c => c.Note,
                         f => f.Random.Bool(0.25f) ? f.Lorem.Sentence() : null)
                     .Generate());

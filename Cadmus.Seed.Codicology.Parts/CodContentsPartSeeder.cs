@@ -22,9 +22,8 @@ namespace Cadmus.Seed.Codicology.Parts
             for (int n = 1; n <= count; n++)
             {
                 annotations.Add(new Faker<CodContentAnnotation>()
-                    // TODO use thesaurus
                     .RuleFor(a => a.Type,
-                        f => f.PickRandom("correction", "comment"))
+                        f => f.PickRandom("rubric", "dedication"))
                     .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
                     .RuleFor(c => c.Text, f => f.Lorem.Sentence())
                     .RuleFor(c => c.Incipit, f => f.Lorem.Sentence())
@@ -42,8 +41,7 @@ namespace Cadmus.Seed.Codicology.Parts
                 contents.Add(new Faker<CodContent>()
                     .RuleFor(c => c.Eid, f => f.Lorem.Word())
                     .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
-                    // TODO use thesauri
-                    .RuleFor(c => c.State, f => f.PickRandom("intact", "fragments"))
+                    .RuleFor(c => c.State, f => f.PickRandom("headless", "gaps"))
                     .RuleFor(c => c.Title, f => f.Lorem.Sentence(2, 4))
                     .RuleFor(c => c.Location,
                         f => $"{f.Random.Number(1, 12)}.{f.Random.Number(1, 100)}")
