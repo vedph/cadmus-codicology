@@ -90,8 +90,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - **AssertedChronotope**:
 
-  - place (AssertedPlace) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - date (AssertedDate) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - place (AssertedPlace) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - date (AssertedDate) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 ## Parts
 

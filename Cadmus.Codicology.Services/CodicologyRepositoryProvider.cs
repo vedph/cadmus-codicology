@@ -65,7 +65,7 @@ namespace Cadmus.Codicology.Services
             {
                 ConnectionString = string.Format(
                     _configuration.GetConnectionString("Default"),
-                    _configuration.GetValue<string>("DatabaseName"))
+                    _configuration.GetValue<string>("DatabaseNames:Data"))
             });
 
             return repository;
