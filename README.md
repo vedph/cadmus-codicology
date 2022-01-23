@@ -103,7 +103,7 @@ ID: `it.vedph.codicology.bindings`
   - tag (string) T:cod-binding-tags
   - coverMaterial\* (string) T:cod-binding-cover-materials
   - boardMaterial\* (string) T:cod-binding-board-materials
-  - chronotope\* (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotope\* (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - description (string)
 
@@ -360,7 +360,7 @@ Manuscript's watermarks.
   - name\* (string)
   - sampleRange\* (CodLocationRange)
   - ranges (CodLocationRange[])
-  - ids (RankedExternalId[])
+  - ids (RankedExternalId[]) T:external-id-tags, T:external-id-scopes
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
-  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
