@@ -258,7 +258,7 @@ ID: `it.vedph.codicology.layouts`
 
 ID: `it.vedph.codicology.material-dsc`
 
-- units (CodUnit[]):
+- units\* (CodUnit[]):
   - eid (string)
   - tag (string) T:cod-unit-tags
   - material\* (string) T:cod-unit-materials
