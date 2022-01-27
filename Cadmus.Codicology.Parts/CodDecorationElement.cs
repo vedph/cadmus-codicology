@@ -59,14 +59,14 @@ namespace Cadmus.Codicology.Parts
         public List<string> Colors { get; set; }
 
         /// <summary>
-        /// Gets or sets the gilding type, usually drawn from a thesaurus.
+        /// Gets or sets the gilding types, usually drawn from a thesaurus.
         /// </summary>
-        public string Gilding { get; set; }
+        public List<string> Gildings { get; set; }
 
         /// <summary>
-        /// Gets or sets the technique, usually drawn from a thesaurus.
+        /// Gets or sets the techniques, usually drawn from a thesaurus.
         /// </summary>
-        public string Technique { get; set; }
+        public List<string> Techniques { get; set; }
 
         /// <summary>
         /// Gets or sets the tool used for the element, usually drawn from
@@ -116,6 +116,8 @@ namespace Cadmus.Codicology.Parts
             Ranges = new List<CodLocationRange>();
             Typologies = new List<string>();
             Colors = new List<string>();
+            Gildings = new List<string>();
+            Techniques = new List<string>();
             Images = new List<CodImage>();
         }
 

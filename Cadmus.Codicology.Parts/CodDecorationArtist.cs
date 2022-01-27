@@ -34,6 +34,12 @@ namespace Cadmus.Codicology.Parts
         public List<CodDecorationArtistStyle> Styles { get; set; }
 
         /// <summary>
+        /// Gets or sets the element keys. These refer this artist to one or
+        /// more specific elements of a decoration.
+        /// </summary>
+        public List<string> ElementKeys { get; set; }
+
+        /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
         public string Note { get; set; }
@@ -45,6 +51,7 @@ namespace Cadmus.Codicology.Parts
         public CodDecorationArtist()
         {
             Styles = new List<CodDecorationArtistStyle>();
+            ElementKeys = new List<string>();
         }
 
         /// <summary>

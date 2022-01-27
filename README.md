@@ -149,6 +149,7 @@ ID: `it.vedph.codicology.decorations`
       - name\* (string) T:cod-decoration-artist-style-names
       - chronotope (AssertedChronotope)
       - assertion (Assertion)
+    - elementKeys (string[])
     - note (string)
   - note (string)
   - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
@@ -161,8 +162,8 @@ ID: `it.vedph.codicology.decorations`
     - typologies (string) T:cod-decoration-element-typologies
     - subject (string)
     - colors (string[]) T:cod-decoration-element-colors
-    - gilding (string) T:cod-decoration-element-gildings
-    - technique (string) T:cod-decoration-element-techniques
+    - gildings (string[]) T:cod-decoration-element-gildings
+    - techniques (string[]) T:cod-decoration-element-techniques
     - tool (string) T:cod-decoration-element-tools
     - position (string) T:cod-decoration-element-positions
     - lineHeight (int)
