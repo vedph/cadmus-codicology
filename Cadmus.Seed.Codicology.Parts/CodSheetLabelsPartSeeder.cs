@@ -52,8 +52,8 @@ namespace Cadmus.Seed.Codicology.Parts
             int div = new Random().Next(3, 14), a = 0, b = 0;
             for (int i = 0; i < 16; i++)
             {
-                int n = i + 1;
-                bool v = n % 2 == 0;
+                int n = i / 2 + 1;
+                bool v = i % 2 != 0;
                 CodSheetRow row = new CodSheetRow
                 {
                     Id = n + (v ? "v" : "r")
@@ -62,10 +62,10 @@ namespace Cadmus.Seed.Codicology.Parts
                 row.Columns.Add(new CodSheetColumn
                 {
                     Id = "q",
-                    Value = $"{i / 8 + 1}.{i / 2 + 1}/4",
+                    Value = $"{i / 8 + 1}.{n - (i / 8 * 4)}/4",
                 });
                 // n.alpha
-                if (n < div)
+                if (i < div)
                 {
                     row.Columns.Add(new CodSheetColumn
                     {

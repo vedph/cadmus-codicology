@@ -44,6 +44,7 @@ namespace Cadmus.Codicology.Parts
         /// </summary>
         public CodSheetLabelsPart()
         {
+            Rows = new List<CodSheetRow>();
             NDefinitions = new List<CodSheetNColumnDefinition>();
             CDefinitions = new List<CodSheetCColumnDefinition>();
             SDefinitions = new List<CodSheetSColumnDefinition>();
@@ -108,6 +109,64 @@ namespace Cadmus.Codicology.Parts
                    "The quire register signature IDs.",
                    "M"),
             });
+        }
+
+        static public string DumpTable(IList<CodSheetRow> rows)
+        {
+            if (rows is null) return null;
+
+            // collect unique col IDs
+            int maxValLen = 0;
+            HashSet<string> colIds = new HashSet<string>();
+            foreach (CodSheetRow row in rows)
+            {
+                foreach (CodSheetColumn col in row.Columns)
+                {
+                    colIds.Add(col.Id);
+                    if (maxValLen < col.Id.Length) maxValLen = col.Id.Length;
+                    if (col.Value != null && maxValLen < col.Value.Length)
+                        maxValLen = col.Value.Length;
+                }
+            }
+
+            // build header
+            StringBuilder sb = new StringBuilder("|   |");
+            StringBuilder sbl = new StringBuilder("|---|");
+            string colRuler = new string('-', maxValLen);
+            foreach (string colId in colIds)
+            {
+                sb.Append(colId);
+                if (colId.Length < maxValLen)
+                    sb.Append(' ', maxValLen - colId.Length);
+                sb.Append('|');
+                sbl.Append(colRuler).Append('|');
+            }
+            sb.AppendLine().Append(sbl).AppendLine();
+
+            // build body
+            int i = 0;
+            foreach (CodSheetRow row in rows)
+            {
+                sb.Append('|').AppendFormat("{0:00}", i / 2 + 1)
+                  .Append(i % 2 == 0? 'r':'v')
+                  .Append('|');
+                foreach (string colId in colIds)
+                {
+                    CodSheetColumn col = row.Columns.Find(c => c.Id == colId);
+                    if (col?.Value != null)
+                    {
+                        sb.Append(col.Value);
+                        if (col.Value.Length < maxValLen)
+                            sb.Append(' ', maxValLen - col.Value.Length);
+                    }
+                    else sb.Append(' ', maxValLen);
+                    sb.Append('|');
+                }
+                sb.AppendLine();
+                i++;
+            }
+
+            return sb.ToString();
         }
 
         /// <summary>
