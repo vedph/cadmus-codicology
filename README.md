@@ -418,8 +418,6 @@ Finally, as endleaves are detailed here (as head/tail rows in the table, with th
   - material\* (string) T:cod-endleaf-materials
   - chronotope (AssertedChronotope)
 
-As for location, endleaves have number=0 and a suffix built with the reserved prefix <c>&lt;</c>=front or <c>&gt;</c>=back + the ordinal number of the endleaf, e.g. <c>0r"&lt;1"</c>=recto of the first front endleaf. When the prefix is not followed by a number, it's the endleaf internally attached to the book's cover (controguardia).
-
 Once we have this model, let us see the imagined input method. The UI is focused on the table. The table will be displayed in its entirety, having a row per sheet, and a number of columns from 1 to N.
 
 The first column is the quires column. All the other columns are added by user.
@@ -437,7 +435,7 @@ The controls are:
 
 The UI has 3 bands:
 
-- the top band has a dropdown to select the current column, a button to remove it, and a button to add a new column of a specific type (the type is specified by another dropdown). The operation textbox is used to enter value-insertion operations which can insert a lot of values at once using a simple formula. This is the preferred input method except for corner cases (see below).
+- the top band has a dropdown to select the current column, a button to remove it, and a button to add a new column of a specific type (the type is specified by another dropdown). The operation textbox is used to enter value-insertion operations which can insert a lot of values at once using a simple formula. This is the preferred input method except for corner cases (see below). We will also add controls to add rows and endleaves.
 
 - the mid band is the table (see below).
 
@@ -447,6 +445,8 @@ The table is like in this sample, where I just fill `n` and `q` types for brevit
 
 |    | q     | n.alpha | n.beta | n.gamma | c | s | r |
 |----|-------|---------|--------|---------|---|---|---|
+|(1) |       |         |        |         |   |   |   |
+|(2) |       |         |        |         |   |   |   |
 | 1r | 1.1/4 | i       | d      |         |   |   |   |
 | 1v | 1.1/4 |         | e      |         |   |   |   |
 | 2r | 1.2/4 | ii      | f      |         |   |   |   |
@@ -457,6 +457,7 @@ The table is like in this sample, where I just fill `n` and `q` types for brevit
 | 4v | 1.4/4 |         | x      |         |   |   |   |
 | 5r | 2.1/4 |         |        | 3       |   |   |   |
 | 5v | 2.2/4 |         |        |         |   |   |   |
+|(/1)|       |         |        |         |   |   |   |
 
 As you can see, the reference physical sheets represent rows; each added column is shown next to it. Here the user added quires, 3 numberings, catchwords, signatures, and register signatures.
 

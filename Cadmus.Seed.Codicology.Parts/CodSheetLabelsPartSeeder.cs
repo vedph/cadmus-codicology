@@ -17,19 +17,6 @@ namespace Cadmus.Seed.Codicology.Parts
     [Tag("seed.it.vedph.codicology.sheet-labels")]
     public sealed class CodSheetLabelsPartSeeder : PartSeederBase
     {
-        private static List<CodEndleaf> GetEndleaves(int count)
-        {
-            List<CodEndleaf> leaves = new List<CodEndleaf>();
-            for (int n = 1; n <= count; n++)
-            {
-                leaves.Add(new Faker<CodEndleaf>()
-                    .RuleFor(l => l.Material, f => f.PickRandom("parchment", "paper"))
-                    .RuleFor(l => l.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
-                    .Generate());
-            }
-            return leaves;
-        }
-
         /// <summary>
         /// Creates and seeds a new part.
         /// </summary>
