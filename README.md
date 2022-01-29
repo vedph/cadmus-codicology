@@ -14,9 +14,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
 
-This solution contains a number of Cadmus parts related to codicology, originally stemming from the Itinera project, but designed to be generic enough to be useful in other projects.
-
-![models](./models.png)
+This solution contains a number of Cadmus parts related to codicology, originally stemming from the *Itinera* project, but designed to be generic enough to be useful in other projects.
 
 ## Bricks
 
