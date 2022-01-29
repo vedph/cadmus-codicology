@@ -14,7 +14,7 @@ namespace Cadmus.Seed.Codicology.Parts
     /// Tag: <c>seed.it.vedph.codicology.sheet-labels</c>.
     /// </summary>
     /// <seealso cref="PartSeederBase" />
-    [Tag("it.vedph.codicology.sheet-labels")]
+    [Tag("seed.it.vedph.codicology.sheet-labels")]
     public sealed class CodSheetLabelsPartSeeder : PartSeederBase
     {
         /// <summary>

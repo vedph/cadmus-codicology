@@ -64,7 +64,7 @@ namespace Cadmus.Codicology.Parts
         {
             DataPinBuilder builder = new DataPinBuilder();
 
-            builder.Set("row", Rows?.Count ?? 0);
+            builder.Set("row", Rows?.Count ?? 0, false);
 
             if (NDefinitions?.Count > 0)
                 builder.AddValues("n-id", NDefinitions.Select(d => d.Id));
