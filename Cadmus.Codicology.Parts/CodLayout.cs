@@ -1,4 +1,5 @@
 ﻿using Cadmus.Mat.Bricks;
+using Cadmus.Refs.Bricks;
 using System.Collections.Generic;
 using System.Text;
 

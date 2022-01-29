@@ -1,6 +1,7 @@
 ﻿using Bogus;
 using Cadmus.Codicology.Parts;
 using Cadmus.Core;
+using Cadmus.Refs.Bricks;
 using Fusi.Tools.Config;
 using System;
 using System.Collections.Generic;

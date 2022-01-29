@@ -154,6 +154,7 @@ ID: `it.vedph.codicology.decorations`
     - type\* (string) T:cod-decoration-element-types
     - flags (string[]) T:cod-decoration-element-flags
     - ranges\* (CodLocationRange[])
+    - instanceCount (int)
     - typologies (string) T:cod-decoration-element-typologies
     - subject (string)
     - colors (string[]) T:cod-decoration-element-colors
@@ -246,6 +247,7 @@ ID: `it.vedph.codicology.layouts`
   - counts (DecoratedCount[]):
     - id* (string) T:cod-layout-counts
     - value* (int)
+    - tag (string)
     - note (string)
   - tag (string) T:cod-layout-tags
   - note (string)

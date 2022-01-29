@@ -41,6 +41,14 @@ namespace Cadmus.Codicology.Parts
         public List<CodLocationRange> Ranges { get; set; }
 
         /// <summary>
+        /// Gets or sets the count of other instances of the same element
+        /// which is described just once about its parent decoration, but occurs
+        /// several times in other decorations of the same manuscript. When
+        /// not used this is just 0.
+        /// </summary>
+        public int InstanceCount { get; set; }
+
+        /// <summary>
         /// Gets or sets the typologies assigned to this element. These are
         /// typically drawn from a thesaurus, organized in sub-sets according
         /// to the element's <see cref="Type"/>; for instance, for type
