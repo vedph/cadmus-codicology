@@ -458,6 +458,8 @@ As you can see, the reference physical sheets represent rows; each added column 
 
 In most cases it's easy to fill a column with values without having to click on the cell and editing it. This happens because most of these annotations are distributed according to patterns, which can be expressed with formulas.
 
+Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed.
+
 A generic way of representing an insert-values action uses the syntax:
 
 `([0-9]+)([rv])?\s*[*%]\s*([0-9]+)\s*=\s*([^\s]+)`

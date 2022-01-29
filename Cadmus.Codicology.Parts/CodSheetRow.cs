@@ -9,10 +9,12 @@ namespace Cadmus.Codicology.Parts
     {
         /// <summary>
         /// Gets or sets the row's identifier. This is the physical sheet
-        /// number + <c>r</c>ecto or <c>v</c>erso, except for endleaves,
-        /// having just a number + suffix <c>&lt;</c>=front or <c>&gt;</c>=back;
-        /// when the number is 0, it's the endleaf internally attached to the
-        /// book's cover (controguardia).
+        /// number + <c>r</c>ecto or <c>v</c>erso, except for endleaves. These
+        /// have number=0 and a suffix built with the reserved prefix
+        /// <c>&lt;</c>=front or <c>&gt;</c>=back + the ordinal number of the
+        /// endleaf, e.g. <c>0r"&lt;1"</c>=recto of the first front endleaf.
+        /// When the prefix is not followed by a number, it's the endleaf
+        /// internally attached to the book's cover (controguardia).
         /// </summary>
         public string Id { get; set; }
 
