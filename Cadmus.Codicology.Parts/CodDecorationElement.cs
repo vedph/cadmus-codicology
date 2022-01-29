@@ -21,7 +21,9 @@ namespace Cadmus.Codicology.Parts
         public string ParentKey { get; set; }
 
         /// <summary>
-        /// Gets or sets the type.
+        /// Gets or sets the element's type, usually drawn from a thesaurus,
+        /// like "pagina incipitaria", "pagina decorata", "illustrazione",
+        /// "ornamentazione", "iniziali", etc.
         /// </summary>
         public string Type { get; set; }
 
@@ -69,16 +71,16 @@ namespace Cadmus.Codicology.Parts
         public List<string> Techniques { get; set; }
 
         /// <summary>
-        /// Gets or sets the tool used for the element, usually drawn from
+        /// Gets or sets the tools used for the element, usually drawn from
         /// a thesaurus.
         /// </summary>
-        public string Tool { get; set; }
+        public List<string> Tools { get; set; }
 
         /// <summary>
         /// Gets or sets the position of the element relative to the page,
         /// usually drawn from a thesaurus.
         /// </summary>
-        public string Position { get; set; }
+        public List<string> Positions { get; set; }
 
         /// <summary>
         /// Gets or sets the height of the element, measured in lines.
@@ -118,6 +120,8 @@ namespace Cadmus.Codicology.Parts
             Colors = new List<string>();
             Gildings = new List<string>();
             Techniques = new List<string>();
+            Tools = new List<string>();
+            Positions = new List<string>();
             Images = new List<CodImage>();
         }
 

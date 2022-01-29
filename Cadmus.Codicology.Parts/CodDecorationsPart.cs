@@ -50,10 +50,6 @@ namespace Cadmus.Codicology.Parts
             {
                 foreach (CodDecoration decoration in Decorations)
                 {
-                    builder.Increase(
-                        DataPinHelper.DefaultFilter.Apply(decoration.Type, true),
-                        false, "type-");
-
                     // chronotopes
                     if (decoration.Chronotopes?.Count > 0)
                     {
@@ -71,6 +67,10 @@ namespace Cadmus.Codicology.Parts
 
                     foreach (CodDecorationElement element in decoration?.Elements)
                     {
+                        builder.Increase(
+                            DataPinHelper.DefaultFilter.Apply(element.Type, true),
+                            false, "type-");
+
                         builder.Increase(
                             DataPinHelper.DefaultFilter.Apply(element.Subject, true),
                             false,

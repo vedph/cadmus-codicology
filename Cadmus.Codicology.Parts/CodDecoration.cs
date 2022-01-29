@@ -20,13 +20,6 @@ namespace Cadmus.Codicology.Parts
         public string Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the decoration's type, usually drawn from a thesaurus,
-        /// like "pagina incipitaria", "pagina decorata", "illustrazione",
-        /// "ornamentazione", "iniziali", etc.
-        /// </summary>
-        public string Type { get; set; }
-
-        /// <summary>
         /// Gets or sets the flags. These are typically drawn from a thesaurus,
         /// and represent single features of the element, which may or not be
         /// present in it, like "original", "unitary", "complete", "has tips",
@@ -78,7 +71,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            return $"[{Type}] {Name} ({Elements?.Count ?? 0})";
+            return $"{Name} ({Elements?.Count ?? 0})";
         }
     }
 }

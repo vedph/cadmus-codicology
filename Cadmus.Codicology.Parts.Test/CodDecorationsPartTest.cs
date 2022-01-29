@@ -51,8 +51,8 @@ namespace Cadmus.Codicology.Parts.Test
                     Colors = new List<string>(new[] { "c" + n }),
                     Gildings = new List<string> { "gilding" },
                     Techniques = new List<string> { "technique" },
-                    Tool = "tool",
-                    Position = "position",
+                    Tools = new List<string> { "tool" },
+                    Positions = new List<string> { "position" },
                     LineHeight = (short)n,
                     TextRelation = "relation",
                     Description = "description",
@@ -80,7 +80,6 @@ namespace Cadmus.Codicology.Parts.Test
                 {
                     Eid = $"d{n}",
                     Name = "Decoration " + n,
-                    Type = n % 2 == 0 ? "even" : "odd",
                     Chronotopes = new List<AssertedChronotope>
                     {
                         new AssertedChronotope
@@ -162,12 +161,12 @@ namespace Cadmus.Codicology.Parts.Test
             pin = pins.Find(p => p.Name == "type-odd-count");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
-            Assert.Equal("2", pin!.Value);
+            Assert.Equal("6", pin!.Value);
 
             pin = pins.Find(p => p.Name == "type-even-count");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
-            Assert.Equal("1", pin!.Value);
+            Assert.Equal("3", pin!.Value);
 
             pin = pins.Find(p => p.Name == "artist-id" && p.Value == "petrus123");
             Assert.NotNull(pin);

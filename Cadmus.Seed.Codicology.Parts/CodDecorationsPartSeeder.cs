@@ -61,8 +61,8 @@ namespace Cadmus.Seed.Codicology.Parts
                     Colors = GetColors(),
                     Gildings = new List<string> { faker.PickRandom(gildings) },
                     Techniques = new List<string> { faker.PickRandom("ink", "watercolor") },
-                    Tool = faker.PickRandom("pen", "brush"),
-                    Position = faker.PickRandom(positions),
+                    Tools = new List<string> { faker.PickRandom("pen", "brush") },
+                    Positions = new List<string> { faker.PickRandom(positions) },
                     LineHeight = faker.Random.Short(1, 10),
                     TextRelation = faker.Lorem.Sentence(),
                     Description = faker.Lorem.Sentence(),
@@ -117,7 +117,6 @@ namespace Cadmus.Seed.Codicology.Parts
                 part.Decorations.Add(new Faker<CodDecoration>()
                     .RuleFor(d => d.Eid, f => "d" + f.UniqueIndex)
                     .RuleFor(d => d.Name, f => f.Lorem.Word())
-                    .RuleFor(d => d.Type, f => f.PickRandom(_types))
                     .RuleFor(d => d.Flags,
                         f => new List<string>(new[] { f.PickRandom(_flags) }))
                     .RuleFor(d => d.Chronotopes, SeedHelper.GetAssertedChronotopes(1))

@@ -135,7 +135,6 @@ ID: `it.vedph.codicology.decorations`
 - decorations (CodDecoration[]):
   - eid (string)
   - name\* (string)
-  - type\* (string) T:cod-decoration-types
   - flags (string[]) T:cod-decoration-flags
   - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - artists (CodDecorationArtist[]):
@@ -162,8 +161,8 @@ ID: `it.vedph.codicology.decorations`
     - colors (string[]) T:cod-decoration-element-colors
     - gildings (string[]) T:cod-decoration-element-gildings
     - techniques (string[]) T:cod-decoration-element-techniques
-    - tool (string) T:cod-decoration-element-tools
-    - position (string) T:cod-decoration-element-positions
+    - tools (string[]) T:cod-decoration-element-tools
+    - positions (string[]) T:cod-decoration-element-positions
     - lineHeight (int)
     - textRelation (string)
     - description (string MD)
