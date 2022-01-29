@@ -261,12 +261,12 @@ ID: `it.vedph.codicology.material-dsc`
   - format\* (string) T:cod-unit-formats
   - state\* (string) T:cod-unit-states
   - range\* (CodLocationRange)
-  - chronotopes\* (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotopes\* (AssertedChronotope[]) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - noGregory (boolean)
   - note (string)
 - palimpsests (CodPalimpsest[]):
   - range\* (CodLocationRange)
-  - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - note (string)
 - endleaves (CodEndleaf[]):
   - type\* (string) T:cod-endleaf-types
