@@ -19,6 +19,11 @@ namespace Cadmus.Codicology.Parts
         public List<CodSheetRow> Rows { get; set; }
 
         /// <summary>
+        /// Gets or sets data about the endleaves.
+        /// </summary>
+        public List<CodEndleaf> Endleaves { get; set; }
+
+        /// <summary>
         /// Gets or sets the definitions of numbering columns.
         /// </summary>
         public List<CodSheetNColumnDefinition> NDefinitions { get; set; }
@@ -45,6 +50,7 @@ namespace Cadmus.Codicology.Parts
         public CodSheetLabelsPart()
         {
             Rows = new List<CodSheetRow>();
+            Endleaves = new List<CodEndleaf>();
             NDefinitions = new List<CodSheetNColumnDefinition>();
             CDefinitions = new List<CodSheetCColumnDefinition>();
             SDefinitions = new List<CodSheetSColumnDefinition>();

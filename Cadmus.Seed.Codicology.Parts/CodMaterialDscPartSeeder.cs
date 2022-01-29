@@ -1,8 +1,6 @@
 ﻿using Bogus;
 using Cadmus.Codicology.Parts;
 using Cadmus.Core;
-using Cadmus.Refs.Bricks;
-using Fusi.Antiquity.Chronology;
 using Fusi.Tools.Config;
 using System;
 using System.Collections.Generic;
@@ -53,23 +51,6 @@ namespace Cadmus.Seed.Codicology.Parts
             return palimpsests;
         }
 
-        private static List<CodEndleaf> GetEndleaves(int count)
-        {
-            List<CodEndleaf> leaves = new List<CodEndleaf>();
-            for (int n = 1; n <= count; n++)
-            {
-                leaves.Add(new Faker<CodEndleaf>()
-                    .RuleFor(l => l.Type, f => f.PickRandom("front", "back"))
-                    .RuleFor(l => l.Material, f => f.PickRandom("parchment", "paper"))
-                    .RuleFor(l => l.Range, SeedHelper.GetLocationRanges(1)[0])
-                    .RuleFor(l => l.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
-                    .RuleFor(l => l.Note, f => f.Random.Bool(0.25f)
-                        ? f.Lorem.Sentence() : null)
-                    .Generate());
-            }
-            return leaves;
-        }
-
         /// <summary>
         /// Creates and seeds a new part.
         /// </summary>
@@ -88,7 +69,6 @@ namespace Cadmus.Seed.Codicology.Parts
             CodMaterialDscPart part = new Faker<CodMaterialDscPart>()
                .RuleFor(p => p.Units, f => GetUnits(f.Random.Number(2, 5)))
                .RuleFor(p => p.Palimpsests, f => GetPalimpsests(f.Random.Number(1, 2)))
-               .RuleFor(p => p.Endleaves, f => GetEndleaves(f.Random.Number(1, 3)))
                .Generate();
             SetPartMetadata(part, roleId, item);
 

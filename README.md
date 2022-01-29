@@ -270,12 +270,8 @@ ID: `it.vedph.codicology.material-dsc`
   - range\* (CodLocationRange)
   - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - note (string)
-- endleaves (CodEndleaf[]):
-  - type\* (string) T:cod-endleaf-types
-  - material\* (string) T:cod-endleaf-materials
-  - range\* (CodLocationRange)
-  - chronotope (AssertedChronotope)
-  - note (string)
+
+Note: endleaves are described in `CodSheetLabelsPart`.
 
 ### CodSheetLabelsPart
 
@@ -414,6 +410,15 @@ Quires need no definitions. In the end, the top level properties of the part's m
 - cDefinitions
 - sDefinitions
 - rDefinitions
+
+Finally, as endleaves are detailed here (as head/tail rows in the table, with their own location numbering based on sheet 0: see below), we also add some more details about each endleaf where required:
+
+- endleaves (EndLeaf[]):
+  - location\* (string): the endleaf location. This links these data to the endleaf row's ID in the table.
+  - material\* (string) T:cod-endleaf-materials
+  - chronotope (AssertedChronotope)
+
+As for location, endleaves have number=0 and a suffix built with the reserved prefix <c>&lt;</c>=front or <c>&gt;</c>=back + the ordinal number of the endleaf, e.g. <c>0r"&lt;1"</c>=recto of the first front endleaf. When the prefix is not followed by a number, it's the endleaf internally attached to the book's cover (controguardia).
 
 Once we have this model, let us see the imagined input method. The UI is focused on the table. The table will be displayed in its entirety, having a row per sheet, and a number of columns from 1 to N.
 

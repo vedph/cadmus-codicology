@@ -23,11 +23,6 @@ namespace Cadmus.Codicology.Parts
         public List<CodPalimpsest> Palimpsests { get; set; }
 
         /// <summary>
-        /// Gets or sets the endleaves in the manuscript.
-        /// </summary>
-        public List<CodEndleaf> Endleaves { get; set; }
-
-        /// <summary>
         /// Initializes a new instance of the <see cref="CodMaterialDscPart"/>
         /// class.
         /// </summary>
@@ -35,7 +30,6 @@ namespace Cadmus.Codicology.Parts
         {
             Units = new List<CodUnit>();
             Palimpsests = new List<CodPalimpsest>();
-            Endleaves = new List<CodEndleaf>();
         }
 
         /// <summary>
@@ -45,7 +39,7 @@ namespace Cadmus.Codicology.Parts
         /// can optionally be passed to this method for those parts requiring
         /// to access further data.</param>
         /// <returns>The pins.</returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item)
+        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
             DataPinBuilder builder = new DataPinBuilder(
                 new StandardDataPinTextFilter());
@@ -54,8 +48,6 @@ namespace Cadmus.Codicology.Parts
             builder.Set("unit", Units?.Count ?? 0, false);
             // palimpsest-count
             builder.Set("palimpsest", Palimpsests?.Count ?? 0, false);
-            // endleaf-count
-            builder.Set("endleaf", Endleaves?.Count ?? 0, false);
             // unit-eid
             if (Units?.Count > 0)
                 builder.AddValues("unit-eid", Units.Select(u => u.Eid));
@@ -77,9 +69,6 @@ namespace Cadmus.Codicology.Parts
                  new DataPinDefinition(DataPinValueType.Integer,
                     "palimpsest-count",
                     "The total count of palimpsests."),
-                 new DataPinDefinition(DataPinValueType.Integer,
-                    "endleaf-count",
-                    "The total count of end-leaves."),
                  new DataPinDefinition(DataPinValueType.String,
                     "unit-eid",
                     "The unit IDs.",
@@ -96,8 +85,7 @@ namespace Cadmus.Codicology.Parts
         public override string ToString()
         {
             return $"[CodMaterialDsc] Units: {Units?.Count ?? 0} - " +
-                $"Palimpsests: {Palimpsests?.Count ?? 0} - " +
-                $"EndLeaves: {Endleaves?.Count ?? 0}";
+                $"Palimpsests: {Palimpsests?.Count ?? 0}";
         }
     }
 }

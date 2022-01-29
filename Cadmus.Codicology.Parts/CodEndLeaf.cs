@@ -1,5 +1,4 @@
 ﻿using Cadmus.Refs.Bricks;
-using System.Text;
 
 namespace Cadmus.Codicology.Parts
 {
@@ -9,9 +8,10 @@ namespace Cadmus.Codicology.Parts
     public class CodEndleaf
     {
         /// <summary>
-        /// Gets or sets the type.
+        /// Gets or sets the endleaf location. See <see cref="CodSheetRow.Id"/>
+        /// for the details.
         /// </summary>
-        public string Type { get; set; }
+        public string Location { get; set; }
 
         /// <summary>
         /// Gets or sets the material.
@@ -19,19 +19,9 @@ namespace Cadmus.Codicology.Parts
         public string Material { get; set; }
 
         /// <summary>
-        /// Gets or sets the range covered by this end-leaf.
-        /// </summary>
-        public CodLocationRange Range { get; set; }
-
-        /// <summary>
         /// Gets or sets the optional place/date for this end-leaf.
         /// </summary>
         public AssertedChronotope Chronotope { get; set; }
-
-        /// <summary>
-        /// Gets or sets an optional note.
-        /// </summary>
-        public string Note { get; set; }
 
         /// <summary>
         /// Converts to string.
@@ -41,17 +31,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
-
-            if (!string.IsNullOrEmpty(Type)) sb.Append(Type);
-            if (!string.IsNullOrEmpty(Material))
-            {
-                if (sb.Length > 0) sb.Append(' ');
-                sb.Append(Material);
-            }
-            if (Range != null) sb.Append(": "); sb.Append(Range);
-
-            return sb.ToString();
+            return $"{Location}: {Material}";
         }
     }
 }
