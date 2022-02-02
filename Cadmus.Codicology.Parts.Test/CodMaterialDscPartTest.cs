@@ -59,7 +59,7 @@ namespace Cadmus.Codicology.Parts.Test
             part.Palimpsests.Add(new CodPalimpsest());
 
             List<DataPin> pins = part.GetDataPins(null).ToList();
-            Assert.Equal(4, pins.Count);
+            Assert.Equal(3, pins.Count);
 
             DataPin? pin = pins.Find(p => p.Name == "unit-eid" && p.Value == "alpha");
             Assert.NotNull(pin);
@@ -70,10 +70,6 @@ namespace Cadmus.Codicology.Parts.Test
             TestHelper.AssertPinIds(part, pin!);
 
             pin = pins.Find(p => p.Name == "palimpsest-count" && p.Value == "1");
-            Assert.NotNull(pin);
-            TestHelper.AssertPinIds(part, pin!);
-
-            pin = pins.Find(p => p.Name == "endleaf-count" && p.Value == "1");
             Assert.NotNull(pin);
             TestHelper.AssertPinIds(part, pin!);
         }

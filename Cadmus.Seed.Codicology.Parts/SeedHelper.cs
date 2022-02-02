@@ -49,8 +49,9 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 refs.Add(new Faker<DocReference>()
                     .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
+                    .RuleFor(r => r.Type, "biblio")
                     .RuleFor(r => r.Citation,
-                        f => f.Person.LastName + " " + f.Date.Past(10))
+                        f => f.Person.LastName + " " + f.Date.Past(10).Year)
                     .RuleFor(r => r.Note, f => f.Lorem.Sentence())
                     .Generate());
             }
