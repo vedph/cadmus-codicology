@@ -167,7 +167,7 @@ ID: `it.vedph.codicology.decorations`
     - description (string MD)
     - images (CodImage[]):
       - id\* (string)
-      - type\* (string)
+      - type\* (string) T:cod-image-types
       - sourceId (string)
       - label (string)
       - copyright (string)
