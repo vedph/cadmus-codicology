@@ -34,10 +34,10 @@ namespace Cadmus.Codicology.Parts
         public short Rank { get; set; }
 
         /// <summary>
-        /// Gets or sets the description identifier. This is a link to a
-        /// <see cref="CodHandDescription"/>.
+        /// Gets or sets the description key. This is a link to a
+        /// <see cref="CodHandDescription"/> in the scope of the same part.
         /// </summary>
-        public string DescriptionId { get; set; }
+        public string DescriptionKey { get; set; }
 
         /// <summary>
         /// Gets or sets the place/time of this instance.

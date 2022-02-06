@@ -48,7 +48,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     })
                     .RuleFor(d => d.Ranges, SeedHelper.GetLocationRanges(1))
                     .RuleFor(d => d.Rank, f => f.Random.Short(1, 3))
-                    .RuleFor(d => d.DescriptionId, "d1")
+                    .RuleFor(d => d.DescriptionKey, "d1")
                     .RuleFor(d => d.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
                     .RuleFor(d => d.Images,
                         f => SeedHelper.GetCodImages(f.Random.Number(1, 3)))
@@ -63,7 +63,7 @@ namespace Cadmus.Seed.Codicology.Parts
             for (int n = 1; n <= count; n++)
             {
                 descriptions.Add(new Faker<CodHandDescription>()
-                    .RuleFor(d => d.Id, "d" + n)
+                    .RuleFor(d => d.Key, "d" + n)
                     .RuleFor(d => d.Description, f => f.Lorem.Sentence())
                     .RuleFor(d => d.Initials, f => f.Lorem.Sentence())
                     .RuleFor(d => d.Corrections, f => f.Lorem.Sentence())

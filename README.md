@@ -205,7 +205,7 @@ ID: `it.vedph.codicology.hands`
     - colors (string[]) T:cod-hand-colors
     - ranges\* (CodLocationRange[])
     - rank (short)
-    - descriptionId (string)
+    - descriptionKey (string)
     - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
     - images (CodImage[]):
       - id\* (string)
@@ -214,7 +214,7 @@ ID: `it.vedph.codicology.hands`
       - label (string)
       - copyright (string)
   - descriptions (CodHandDescription[]):
-    - id (string): this is referenced by `CodHandInstance.descriptionId`
+    - key (string): this is referenced by `CodHandInstance.descriptionKey`
     - description (string)
     - initials (string)
     - corrections (string)

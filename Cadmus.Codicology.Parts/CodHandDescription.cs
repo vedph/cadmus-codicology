@@ -9,10 +9,11 @@ namespace Cadmus.Codicology.Parts
     public class CodHandDescription
     {
         /// <summary>
-        /// Gets or sets the ID of this description. This is used to internally
-        /// link hand instances to descriptions.
+        /// Gets or sets the key of this description. This is used to internally
+        /// link hand instances to descriptions in the context of the same
+        /// part.
         /// </summary>
-        public string Id { get; set; }
+        public string Key { get; set; }
 
         /// <summary>
         /// Gets or sets the hand's description.
@@ -62,7 +63,7 @@ namespace Cadmus.Codicology.Parts
         public override string ToString()
         {
             StringBuilder sb = new StringBuilder();
-            if (!string.IsNullOrEmpty(Id)) sb.Append(Id);
+            if (!string.IsNullOrEmpty(Key)) sb.Append(Key);
             if (!string.IsNullOrEmpty(Description))
             {
                 sb.Append(": ")
