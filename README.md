@@ -370,19 +370,20 @@ We then have the definitions for the numbering systems:
 
 - nDefinitions (`CodNColDefinition[]`):
   - id\* (string): the column ID.
-  - isMain (boolean): I wonder whether we could use a more generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different conflicting descriptions. If this is ok, we remove `isMain` here, and add a `rank` to all the definitions.
+  - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different conflicting descriptions.
   - isPagination (boolean)
   - system\* (string) T:cod-numbering-systems
   - technique\* (string) T:cod-numbering-techniques
   - position\* (string) T:cod-numbering-positions
   - colors (string[]) T:cod-numbering-colors
   - date (`HistoricalDate`)
-  - issues (string)
+  - note (string)
 
 The definitions for catchwords:
 
 - cDefinitions (`CodCColDefinition[]`):
   - id\* (string): the column ID.
+  - rank (short)
   - position\* (string) T:cod-catchwords-positions
   - isVertical (boolean)
   - decoration (string)
@@ -392,6 +393,7 @@ The definitions for quire signatures:
 
 - sDefinitions (`CodSColDefinition[]`):
   - id\* (string): the column ID.
+  - rank (short)
   - system* (string) T:cod-quiresig-systems
   - position* (string) T:cod-quiresig-positions
   - note (string)
@@ -400,6 +402,7 @@ The definitions for quire register signatures (identical to the preceding one, e
 
 - rDefinitions (`CodRColDefinition[]`):
   - id\* (string): the column ID.
+  - rank (short)
   - position* (string) T:cod-quiresig-positions
   - note (string)
 
