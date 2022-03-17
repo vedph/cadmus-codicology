@@ -33,9 +33,9 @@ namespace Cadmus.Codicology.Parts
         public List<AssertedChronotope> Chronotopes { get; set; }
 
         /// <summary>
-        /// Gets or sets the decoration's artist.
+        /// Gets or sets the decoration's artist(s).
         /// </summary>
-        public CodDecorationArtist Artist { get; set; }
+        public List<CodDecorationArtist> Artists { get; set; }
 
         /// <summary>
         /// Gets or sets an optional note.
@@ -59,6 +59,7 @@ namespace Cadmus.Codicology.Parts
         {
             Flags = new List<string>();
             Chronotopes = new List<AssertedChronotope>();
+            Artists = new List<CodDecorationArtist>();
             References = new List<DocReference>();
             Elements = new List<CodDecorationElement>();
         }

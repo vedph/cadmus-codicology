@@ -120,7 +120,8 @@ namespace Cadmus.Seed.Codicology.Parts
                     .RuleFor(d => d.Flags,
                         f => new List<string>(new[] { f.PickRandom(_flags) }))
                     .RuleFor(d => d.Chronotopes, SeedHelper.GetAssertedChronotopes(1))
-                    .RuleFor(d => d.Artist, GetArtist())
+                    .RuleFor(d => d.Artists,
+                        new List<CodDecorationArtist>(new[] { GetArtist() }))
                     .RuleFor(d => d.Note, f => f.Random.Bool(0.25f)
                         ? f.Lorem.Sentence() : null)
                     .RuleFor(d => d.References,

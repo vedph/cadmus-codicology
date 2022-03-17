@@ -85,15 +85,18 @@ namespace Cadmus.Codicology.Parts
                         }
                     }
 
-                    if (decoration.Artist != null)
+                    if (decoration.Artists?.Count > 0)
                     {
-                        builder.AddValue("artist-name", decoration.Artist.Name,
-                            filter: true, filterOptions: true);
-
-                        if (decoration.Artist.Ids != null)
+                        foreach (var artist in decoration.Artists)
                         {
-                            builder.AddValues("artist-id",
-                                decoration.Artist.Ids.Select(id => id.Value));
+                            builder.AddValue("artist-name", artist.Name,
+                                filter: true, filterOptions: true);
+
+                            if (artist.Ids != null)
+                            {
+                                builder.AddValues("artist-id",
+                                    artist.Ids.Select(id => id.Value));
+                            }
                         }
                     }
                 }

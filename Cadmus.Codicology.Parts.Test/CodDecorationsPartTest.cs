@@ -90,17 +90,20 @@ namespace Cadmus.Codicology.Parts.Test
                     },
                     Flags = new List<string>(new[] { "f-" + alt }),
                     Note = "Note",
-                    Artist = new CodDecorationArtist
-                    {
-                        Name = "Petrus",
-                        Ids = new List<ExternalId>
+                    Artists = new List<CodDecorationArtist>(new[]
                         {
-                            new ExternalId
+                            new CodDecorationArtist
                             {
-                                Value = "petrus123"
+                                Name = "Petrus",
+                                Ids = new List<ExternalId>
+                                {
+                                    new ExternalId
+                                    {
+                                        Value = "petrus123"
+                                    }
+                                }
                             }
-                        }
-                    },
+                        }),
                     References = TestHelper.GetDocReferences(1),
                     Elements = GetElements(3)
                 });

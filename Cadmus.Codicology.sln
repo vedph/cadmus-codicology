@@ -15,10 +15,11 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 	ProjectSection(SolutionItems) = preProject
 		models.png = models.png
 		Pack.bat = Pack.bat
+		Push.bat = Push.bat
 		README.md = README.md
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.Codicology.Services", "Cadmus.Codicology.Services\Cadmus.Codicology.Services.csproj", "{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadmus.Codicology.Services", "Cadmus.Codicology.Services\Cadmus.Codicology.Services.csproj", "{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
