@@ -519,3 +519,7 @@ Manuscript's watermarks.
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
+
+## History
+
+- 2022-04-29: upgraded to NET 6.0.
