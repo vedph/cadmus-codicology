@@ -92,7 +92,7 @@ namespace Cadmus.Codicology.Parts.Test
                         {
                             Value = even? "Even" : "Odd"
                         },
-                        Date  = new AssertedDate(HistoricalDate.Parse($"{1400 + n}"))
+                        Date  = new AssertedDate(HistoricalDate.Parse($"{1400 + n}")!)
                     }
                 });
             }

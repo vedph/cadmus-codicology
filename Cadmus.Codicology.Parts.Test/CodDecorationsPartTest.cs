@@ -85,7 +85,7 @@ namespace Cadmus.Codicology.Parts.Test
                         new AssertedChronotope
                         {
                             Place = new AssertedPlace { Value = "Paris" },
-                            Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n}"))
+                            Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n}")!)
                         }
                     },
                     Flags = new List<string>(new[] { "f-" + alt }),

@@ -101,7 +101,7 @@ namespace Cadmus.Codicology.Parts.Test
                 chronotopes.Add(new AssertedChronotope
                 {
                     Place = new AssertedPlace { Value = $"place-{n}" },
-                    Date = new AssertedDate(HistoricalDate.Parse(1300 + n + " AD"))
+                    Date = new AssertedDate(HistoricalDate.Parse(1300 + n + " AD")!)
                 });
             }
 
