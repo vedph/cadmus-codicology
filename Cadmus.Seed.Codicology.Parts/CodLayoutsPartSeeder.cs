@@ -17,7 +17,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static List<DecoratedCount> GetCounts(int count)
         {
-            List<DecoratedCount> counts = new List<DecoratedCount>();
+            List<DecoratedCount> counts = new();
 
             for (int n = 1; n <= count; n++)
             {
@@ -74,7 +74,7 @@ namespace Cadmus.Seed.Codicology.Parts
             if (factory == null)
                 throw new ArgumentNullException(nameof(factory));
 
-            CodLayoutsPart part = new CodLayoutsPart();
+            CodLayoutsPart part = new();
 
             int count = Randomizer.Seed.Next(1, 3);
             for (int n = 1; n <= count; n++) part.Layouts.Add(GetLayout());

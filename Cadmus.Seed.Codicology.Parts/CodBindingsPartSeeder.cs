@@ -17,7 +17,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static List<CodBinding> GetBindings(int count)
         {
-            List<CodBinding> bindings = new List<CodBinding>();
+            List<CodBinding> bindings = new();
             for (int n = 1; n <= count; n++)
             {
                 bindings.Add(new Faker<CodBinding>()

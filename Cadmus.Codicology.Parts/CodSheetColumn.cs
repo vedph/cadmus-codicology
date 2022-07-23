@@ -8,7 +8,7 @@
         /// <summary>
         /// Gets or sets the column identifier.
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the value. This depends on the column type, and for
@@ -19,12 +19,12 @@
         /// missing, or go beyond it when sheets were added (e.g. <c>2.3/4</c>
         /// or <c>2.5/4</c>).
         /// </summary>
-        public string Value { get; set; }
+        public string? Value { get; set; }
 
         /// <summary>
         /// Gets or sets the note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// Converts to string.

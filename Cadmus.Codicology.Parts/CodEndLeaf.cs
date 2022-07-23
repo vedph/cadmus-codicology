@@ -11,17 +11,17 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets the endleaf location. See <see cref="CodSheetRow.Id"/>
         /// for the details.
         /// </summary>
-        public string Location { get; set; }
+        public string? Location { get; set; }
 
         /// <summary>
         /// Gets or sets the material.
         /// </summary>
-        public string Material { get; set; }
+        public string? Material { get; set; }
 
         /// <summary>
         /// Gets or sets the optional place/date for this end-leaf.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public AssertedChronotope? Chronotope { get; set; }
 
         /// <summary>
         /// Converts to string.

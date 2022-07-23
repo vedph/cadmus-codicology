@@ -18,7 +18,7 @@ namespace Cadmus.Codicology.Parts
         /// If not specified, the default reference system is assumed, which
         /// is determined by the convention adopted in the project.
         /// </summary>
-        public string S { get; set; }
+        public string? S { get; set; }
 
         /// <summary>
         /// Gets or sets the ordinal sheet number (1-N).
@@ -34,7 +34,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional suffix after N (e.g. "bis").
         /// </summary>
-        public string Sfx { get; set; }
+        public string? Sfx { get; set; }
 
         /// <summary>
         /// Gets or sets recto/verso. If null, the location refers to both
@@ -45,7 +45,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the column letter(s).
         /// </summary>
-        public string C { get; set; }
+        public string? C { get; set; }
 
         /// <summary>
         /// Gets or sets the line number (1-N, 0 if not specified).
@@ -57,7 +57,7 @@ namespace Cadmus.Codicology.Parts
         /// is a word picked from the line so that it cannot be ambiguous, i.e.
         /// confused with other instances of the same word in its line.
         /// </summary>
-        public string Word { get; set; }
+        public string? Word { get; set; }
 
         /// <summary>
         /// Converts to string.
@@ -67,7 +67,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (Endleaf != CodLocationEndleaf.None)
                 sb.Append(Endleaf == CodLocationEndleaf.End ? "(/" : "(");
 

@@ -13,32 +13,32 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets an optional tag, typically used to label bindings
         /// other than the current one.
         /// </summary>
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Gets or sets the cover material.
         /// </summary>
-        public string CoverMaterial { get; set; }
+        public string? CoverMaterial { get; set; }
 
         /// <summary>
         /// Gets or sets the board material.
         /// </summary>
-        public string BoardMaterial { get; set; }
+        public string? BoardMaterial { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
-        public PhysicalSize Size { get; set; }
+        public PhysicalSize? Size { get; set; }
 
         /// <summary>
         /// Gets or sets the place/date of the binding.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public AssertedChronotope? Chronotope { get; set; }
 
         /// <summary>
         /// Gets or sets the binding's description.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Converts to string.
@@ -48,7 +48,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (!string.IsNullOrEmpty(Tag)) sb.Append('[').Append(Tag).Append(']');
             if (!string.IsNullOrEmpty(CoverMaterial))
             {
@@ -70,7 +70,7 @@ namespace Cadmus.Codicology.Parts
                 if (sb.Length > 0) sb.Append(' ');
                 sb.Append(Chronotope);
             }
-            return base.ToString();
+            return base.ToString()!;
         }
     }
 }

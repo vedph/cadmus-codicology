@@ -8,13 +8,13 @@
         /// <summary>
         /// Gets or sets the start location.
         /// </summary>
-        public CodLocation Start { get; set; }
+        public CodLocation? Start { get; set; }
 
         /// <summary>
         /// Gets or sets the end location (included). If the range refers to
         /// a single location, <see cref="Start"/> is equal to <see cref="End"/>.
         /// </summary>
-        public CodLocation End { get; set; }
+        public CodLocation? End { get; set; }
 
         /// <summary>
         /// Converts to string.

@@ -13,7 +13,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the sheet used as a sample for this layout.
         /// </summary>
-        public CodLocation Sample { get; set; }
+        public CodLocation? Sample { get; set; }
 
         /// <summary>
         /// Gets or sets the ranges covered by this layout.
@@ -28,17 +28,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the ruling technique.
         /// </summary>
-        public string RulingTechnique { get; set; }
+        public string? RulingTechnique { get; set; }
 
         /// <summary>
         /// Gets or sets the Derolez classification.
         /// </summary>
-        public string Derolez { get; set; }
+        public string? Derolez { get; set; }
 
         /// <summary>
         /// Gets or sets the pricking type.
         /// </summary>
-        public string Pricking { get; set; }
+        public string? Pricking { get; set; }
 
         /// <summary>
         /// Gets or sets the columns count.
@@ -58,18 +58,19 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional tag.
         /// </summary>
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodLayout"/> class.
         /// </summary>
         public CodLayout()
         {
+            Ranges = new List<CodLocationRange>();
             Dimensions = new List<PhysicalDimension>();
             Counts = new List<DecoratedCount>();
         }
@@ -82,7 +83,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (Sample != null)
             {
                 if (sb.Length > 0) sb.Append(' ');

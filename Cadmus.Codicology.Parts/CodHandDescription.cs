@@ -13,32 +13,32 @@ namespace Cadmus.Codicology.Parts
         /// link hand instances to descriptions in the context of the same
         /// part.
         /// </summary>
-        public string Key { get; set; }
+        public string? Key { get; set; }
 
         /// <summary>
         /// Gets or sets the hand's description.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Gets or sets the initials description.
         /// </summary>
-        public string Initials { get; set; }
+        public string? Initials { get; set; }
 
         /// <summary>
         /// Gets or sets the corrections description.
         /// </summary>
-        public string Corrections { get; set; }
+        public string? Corrections { get; set; }
 
         /// <summary>
         /// Gets or sets the punctuation description.
         /// </summary>
-        public string Punctuation { get; set; }
+        public string? Punctuation { get; set; }
 
         /// <summary>
         /// Gets or sets the abbreviations description.
         /// </summary>
-        public string Abbreviations { get; set; }
+        public string? Abbreviations { get; set; }
 
         /// <summary>
         /// Gets or sets the descriptions of single signs.
@@ -62,7 +62,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (!string.IsNullOrEmpty(Key)) sb.Append(Key);
             if (!string.IsNullOrEmpty(Description))
             {

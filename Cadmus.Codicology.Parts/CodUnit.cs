@@ -14,32 +14,32 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an arbitrary entity ID optionally assigned to this unit.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the optional tag used to classify or groups units.
         /// </summary>
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Gets or sets the unit's material.
         /// </summary>
-        public string Material { get; set; }
+        public string? Material { get; set; }
 
         /// <summary>
         /// Gets or sets the format of this unit.
         /// </summary>
-        public string Format { get; set; }
+        public string? Format { get; set; }
 
         /// <summary>
         /// Gets or sets the material state of this unit.
         /// </summary>
-        public string State { get; set; }
+        public string? State { get; set; }
 
         /// <summary>
         /// Gets or sets the range covered by this unit in the manuscript.
         /// </summary>
-        public CodLocationRange Range { get; set; }
+        public CodLocationRange? Range { get; set; }
 
         /// <summary>
         /// Gets or sets places/dates assigned to this unit.
@@ -57,7 +57,15 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="CodUnit"/> class.
+        /// </summary>
+        public CodUnit()
+        {
+            Chronotopes = new();
+        }
 
         /// <summary>
         /// Converts to string.
@@ -67,7 +75,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
             if (!string.IsNullOrEmpty(Eid)) sb.Append('#').Append(Eid);
             if (!string.IsNullOrEmpty(Material)) sb.Append(' ').Append(Material);
             if (!string.IsNullOrEmpty(Format))

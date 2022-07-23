@@ -37,7 +37,7 @@ namespace Cadmus.Codicology.Parts
         /// <c>color</c>, <c>subs-count</c>, <c>subs-language</c>.</returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new();
 
             builder.Set("tot", Hands?.Count ?? 0, false);
             int subsCount = 0;
@@ -130,7 +130,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodHands]");
 

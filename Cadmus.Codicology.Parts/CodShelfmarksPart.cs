@@ -40,7 +40,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item)
         {
-            DataPinBuilder builder = new DataPinBuilder(
+            DataPinBuilder builder = new(
                 DataPinHelper.DefaultFilter);
 
             builder.Set("tot", Shelfmarks?.Count ?? 0, false);
@@ -107,7 +107,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodShelfmarks]");
 

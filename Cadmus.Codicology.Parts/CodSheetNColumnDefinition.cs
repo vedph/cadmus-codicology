@@ -19,17 +19,17 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets the numbering system (e.g. Arabic, Roman,
         /// Latin alphabetic, etc.).
         /// </summary>
-        public string System { get; set; }
+        public string? System { get; set; }
 
         /// <summary>
         /// Gets or sets the technique.
         /// </summary>
-        public string Technique { get; set; }
+        public string? Technique { get; set; }
 
         /// <summary>
         /// Gets or sets the position of labels in the page.
         /// </summary>
-        public string Position { get; set; }
+        public string? Position { get; set; }
 
         /// <summary>
         /// Gets or sets the color(s).
@@ -39,7 +39,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
-        public HistoricalDate Date { get; set; }
+        public HistoricalDate? Date { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodSheetNColumnDefinition"/>

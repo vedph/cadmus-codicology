@@ -8,23 +8,23 @@
         /// <summary>
         /// Gets or sets the entity ID for this sign.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the sign's type (e.g. letter, ligature, punctuation...).
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the location in the manuscript used to get a sample
         /// representative of this sign.
         /// </summary>
-        public CodLocation SampleLocation { get; set; }
+        public CodLocation? SampleLocation { get; set; }
 
         /// <summary>
         /// Gets or sets the sign's description.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Converts to string.

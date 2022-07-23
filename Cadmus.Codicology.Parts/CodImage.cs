@@ -9,27 +9,27 @@
         /// <summary>
         /// Gets or sets the image identifier.
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the image type. This usually is drawn from a thesaurus.
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the source identifier.
         /// </summary>
-        public string SourceId { get; set; }
+        public string? SourceId { get; set; }
 
         /// <summary>
         /// Gets or sets the label.
         /// </summary>
-        public string Label { get; set; }
+        public string? Label { get; set; }
 
         /// <summary>
         /// Gets or sets the copyright note.
         /// </summary>
-        public string Copyright { get; set; }
+        public string? Copyright { get; set; }
 
         /// <summary>
         /// Converts to string.

@@ -11,17 +11,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the artist's entity ID.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the optional external IDs for this author.
@@ -42,7 +42,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodDecorationArtist"/>
@@ -50,6 +50,7 @@ namespace Cadmus.Codicology.Parts
         /// </summary>
         public CodDecorationArtist()
         {
+            Ids = new List<ExternalId>();
             Styles = new List<CodDecorationArtistStyle>();
             ElementKeys = new List<string>();
         }

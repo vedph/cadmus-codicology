@@ -1,5 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using System.Globalization;
 using System.Text;
 using Cadmus.Core;
@@ -39,7 +38,7 @@ namespace Cadmus.Codicology.Parts
         /// <c>pricking</c>, <c>d.TAG</c> for dimensions.</returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new();
 
             builder.Set("tot", Layouts?.Count ?? 0, false);
 
@@ -115,7 +114,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodLayouts]");
 

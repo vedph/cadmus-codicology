@@ -9,12 +9,12 @@
         /// <summary>
         /// Gets or sets the signature system.
         /// </summary>
-        public string System { get; set; }
+        public string? System { get; set; }
 
         /// <summary>
         /// Gets or sets the position of labels in the page.
         /// </summary>
-        public string Position { get; set; }
+        public string? Position { get; set; }
 
         /// <summary>
         /// Converts to string.

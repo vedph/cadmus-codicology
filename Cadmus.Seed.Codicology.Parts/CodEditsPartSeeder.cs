@@ -18,7 +18,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static IList<CodEdit> GetEdits(int count)
         {
-            List<CodEdit> edits = new List<CodEdit>();
+            List<CodEdit> edits = new();
             for (int n = 1; n <= count; n++)
             {
                 edits.Add(new Faker<CodEdit>()

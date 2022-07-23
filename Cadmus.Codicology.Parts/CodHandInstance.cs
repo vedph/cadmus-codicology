@@ -11,7 +11,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the script type.
         /// </summary>
-        public string Script { get; set; }
+        public string? Script { get; set; }
 
         /// <summary>
         /// Gets or sets the typologies.
@@ -37,12 +37,12 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets the description key. This is a link to a
         /// <see cref="CodHandDescription"/> in the scope of the same part.
         /// </summary>
-        public string DescriptionKey { get; set; }
+        public string? DescriptionKey { get; set; }
 
         /// <summary>
         /// Gets or sets the place/time of this instance.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public AssertedChronotope? Chronotope { get; set; }
 
         /// <summary>
         /// Gets or sets the images.
@@ -68,7 +68,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            return base.ToString();
+            return $"{Script} ({Rank})";
         }
     }
 }

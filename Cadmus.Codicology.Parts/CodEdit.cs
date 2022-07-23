@@ -13,17 +13,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the optional entity ID for this edit event.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the edit type.
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the tag.
         /// </summary>
-        public string Tag { get; set; }
+        public string? Tag { get; set; }
 
         /// <summary>
         /// Gets or sets the edit technique(s).
@@ -33,7 +33,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the text's language.
         /// </summary>
-        public string Language { get; set; }
+        public string? Language { get; set; }
 
         /// <summary>
         /// Gets or sets the color(s).
@@ -48,17 +48,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the date.
         /// </summary>
-        public HistoricalDate Date { get; set; }
+        public HistoricalDate? Date { get; set; }
 
         /// <summary>
         /// Gets or sets the description.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Gets or sets the text.
         /// </summary>
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         /// Gets or sets the references.
@@ -84,7 +84,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (!string.IsNullOrEmpty(Eid)) sb.Append('#').Append(Eid);
             if (!string.IsNullOrEmpty(Type))

@@ -14,12 +14,12 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the range of sheets used as a sample for this watermark.
         /// </summary>
-        public CodLocationRange SampleRange { get; set; }
+        public CodLocationRange? SampleRange { get; set; }
 
         /// <summary>
         /// Gets or sets the ranges covered by this watermark.
@@ -36,17 +36,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the size.
         /// </summary>
-        public PhysicalSize Size { get; set; }
+        public PhysicalSize? Size { get; set; }
 
         /// <summary>
         /// Gets or sets the date and/or place for this watermark.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public AssertedChronotope? Chronotope { get; set; }
 
         /// <summary>
         /// Gets or sets a short description of this watermark.
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodWatermark"/> class.
@@ -65,13 +65,13 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (!string.IsNullOrEmpty(Name)) sb.Append(Name);
             if (Ranges?.Count > 0)
-                sb.Append('@').Append(string.Join(" ", Ranges));
+                sb.Append('@').AppendJoin(" ", Ranges);
             if (Ids?.Count > 0)
-                sb.Append(": ").Append(string.Join(" ", Ids.Select(i => i.Value)));
+                sb.Append(": ").AppendJoin(" ", Ids.Select(i => i.Value));
 
             return sb.ToString();
         }

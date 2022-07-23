@@ -17,7 +17,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static List<CodHandSign> GetSigns(int count)
         {
-            List<CodHandSign> signs = new List<CodHandSign>();
+            List<CodHandSign> signs = new();
             for (int n = 1; n <= count; n++)
             {
                 signs.Add(new Faker<CodHandSign>()
@@ -33,7 +33,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodHandInstance> GetInstances(int count)
         {
-            List<CodHandInstance> instances = new List<CodHandInstance>();
+            List<CodHandInstance> instances = new();
             for (int n = 1; n <= count; n++)
             {
                 instances.Add(new Faker<CodHandInstance>()
@@ -59,7 +59,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodHandDescription> GetDescriptions(int count)
         {
-            List<CodHandDescription> descriptions = new List<CodHandDescription>();
+            List<CodHandDescription> descriptions = new();
             for (int n = 1; n <= count; n++)
             {
                 descriptions.Add(new Faker<CodHandDescription>()
@@ -77,7 +77,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodHandSubscription> GetSubscriptions(int count)
         {
-            List<CodHandSubscription> subscriptions = new List<CodHandSubscription>();
+            List<CodHandSubscription> subscriptions = new();
             for (int n = 1; n <= count; n++)
             {
                 subscriptions.Add(new Faker<CodHandSubscription>()
@@ -92,7 +92,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodHand> GetHands(int count)
         {
-            List<CodHand> hands = new List<CodHand>();
+            List<CodHand> hands = new();
             for (int n = 1; n <= count; n++)
             {
                 hands.Add(new Faker<CodHand>()

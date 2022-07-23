@@ -31,7 +31,7 @@ namespace Cadmus.Seed.Codicology.Parts
         {
             if (item == null) throw new ArgumentNullException(nameof(item));
 
-            CodSheetLabelsPart part = new CodSheetLabelsPart();
+            CodSheetLabelsPart part = new();
             SetPartMetadata(part, roleId, item);
 
             // n.alpha and n.beta
@@ -54,7 +54,7 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 int n = i / 2 + 1;
                 bool v = i % 2 != 0;
-                CodSheetRow row = new CodSheetRow
+                CodSheetRow row = new()
                 {
                     Id = n + (v ? "v" : "r")
                 };

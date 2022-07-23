@@ -12,20 +12,20 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets the key used for this element when it represents also
         /// a parent of other elements. Its scope is limited to the part.
         /// </summary>
-        public string Key { get; set; }
+        public string? Key { get; set; }
 
         /// <summary>
         /// Gets or sets the parent element's key, used to group sub-elements
         /// under an element. Its scope is limited to the part.
         /// </summary>
-        public string ParentKey { get; set; }
+        public string? ParentKey { get; set; }
 
         /// <summary>
         /// Gets or sets the element's type, usually drawn from a thesaurus,
         /// like "pagina incipitaria", "pagina decorata", "illustrazione",
         /// "ornamentazione", "iniziali", etc.
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the flags. These are typically drawn from a thesaurus,
@@ -61,7 +61,7 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets the decoration subject, when applicable. For letters,
         /// it might be the letter itself.
         /// </summary>
-        public string Subject { get; set; }
+        public string? Subject { get; set; }
 
         /// <summary>
         /// Gets or sets the colors, usually drawn from a thesaurus.
@@ -98,13 +98,13 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the relation of this element with the text.
         /// </summary>
-        public string TextRelation { get; set; }
+        public string? TextRelation { get; set; }
 
         /// <summary>
         /// Gets or sets the element's description. Usually this is a rich
         /// text (Markdown).
         /// </summary>
-        public string Description { get; set; }
+        public string? Description { get; set; }
 
         /// <summary>
         /// Gets or sets the list of images depicting this element.
@@ -114,7 +114,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="MsDecorationElement"/>
@@ -141,7 +141,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             if (!string.IsNullOrEmpty(Key))
                 sb.Append('#').Append(Key);

@@ -45,9 +45,9 @@ namespace Cadmus.Codicology.Parts
         /// <returns>The pins: <c>tot-count</c> and a collection of pins with
         /// these keys: <c>eid</c>, <c>type</c>, <c>technique</c>,
         /// <c>language</c>, <c>color</c>, <c>date-value</c>.</returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new();
 
             builder.Set("tot", Edits?.Count ?? 0, false);
 
@@ -63,7 +63,7 @@ namespace Cadmus.Codicology.Parts
 
                     if (edit.Colors?.Count > 0)
                         builder.AddValues("color", edit.Colors);
-                    if (edit.Date != null)
+                    if (edit.Date is not null)
                         builder.AddValue("date-value", edit.Date.GetSortValue());
                 }
             }
@@ -117,7 +117,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodEdits]");
 

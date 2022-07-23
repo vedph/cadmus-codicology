@@ -8,27 +8,27 @@
         /// <summary>
         /// Gets or sets the type.
         /// </summary>
-        public string Type { get; set; }
+        public string? Type { get; set; }
 
         /// <summary>
         /// Gets or sets the range covered by this annotation.
         /// </summary>
-        public CodLocationRange Range { get; set; }
+        public CodLocationRange? Range { get; set; }
 
         /// <summary>
         /// Gets or sets the incipit.
         /// </summary>
-        public string Incipit { get; set; }
+        public string? Incipit { get; set; }
 
         /// <summary>
         /// Gets or sets the explicit.
         /// </summary>
-        public string Explicit { get; set; }
+        public string? Explicit { get; set; }
 
         /// <summary>
         /// Gets or sets this annotation's text.
         /// </summary>
-        public string Text { get; set; }
+        public string? Text { get; set; }
 
         /// <summary>
         /// Converts to string.

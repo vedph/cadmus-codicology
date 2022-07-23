@@ -15,7 +15,7 @@
         /// system, while <c>q</c> is the (unique and thus default) quires
         /// description.
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the rank. This is used to define the main column among
@@ -29,6 +29,6 @@
         /// <summary>
         /// Gets or sets a generic short note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
     }
 }

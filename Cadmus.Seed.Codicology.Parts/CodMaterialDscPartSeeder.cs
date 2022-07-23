@@ -17,7 +17,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static List<CodUnit> GetUnits(int count)
         {
-            List<CodUnit> units = new List<CodUnit>();
+            List<CodUnit> units = new();
             for (int n = 1; n <= count; n++)
             {
                 units.Add(new Faker<CodUnit>()
@@ -38,7 +38,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodPalimpsest> GetPalimpsests(int count)
         {
-            List<CodPalimpsest> palimpsests = new List<CodPalimpsest>();
+            List<CodPalimpsest> palimpsests = new();
             for (int n = 1; n <= count; n++)
             {
                 palimpsests.Add(new Faker<CodPalimpsest>()

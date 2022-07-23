@@ -27,7 +27,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private List<string> GetColors()
         {
-            List<string> colors = new List<string>();
+            List<string> colors = new();
             int count = Randomizer.Seed.Next(1, 3 + 1);
 
             for (int n = 1; n <= count; n++)
@@ -38,7 +38,7 @@ namespace Cadmus.Seed.Codicology.Parts
         private List<CodDecorationElement> GetElements(int count, Faker faker)
         {
             List<CodDecorationElement> elements =
-                new List<CodDecorationElement>();
+                new();
             string[] typologies = new[] { "frieze", "frame" };
             string[] gildings = new[] { "leaf", "powder" };
             string[] positions = new[]
@@ -108,7 +108,7 @@ namespace Cadmus.Seed.Codicology.Parts
             if (factory == null)
                 throw new ArgumentNullException(nameof(factory));
 
-            CodDecorationsPart part = new CodDecorationsPart();
+            CodDecorationsPart part = new();
             SetPartMetadata(part, roleId, item);
 
             int count = Randomizer.Seed.Next(1, 3);

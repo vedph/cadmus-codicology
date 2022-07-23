@@ -12,12 +12,12 @@ namespace Cadmus.Codicology.Parts
         /// Gets or sets an identifier which can be arbitrarily assigned to this
         /// decoration.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the human-friendly name of this decoration.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the flags. These are typically drawn from a thesaurus,
@@ -40,7 +40,7 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets an optional note.
         /// </summary>
-        public string Note { get; set; }
+        public string? Note { get; set; }
 
         /// <summary>
         /// Gets or sets the optional references for this decoration.

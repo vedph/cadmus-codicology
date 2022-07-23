@@ -30,7 +30,7 @@ namespace Cadmus.Codicology.Services
             _configuration = configuration ??
                 throw new ArgumentNullException(nameof(configuration));
 
-            TagAttributeToTypeMap map = new TagAttributeToTypeMap();
+            TagAttributeToTypeMap map = new();
             map.Add(new[]
             {
                 // Cadmus.Codicology.Parts
@@ -57,7 +57,7 @@ namespace Cadmus.Codicology.Services
         {
             // create the repository (no need to use container here)
             MongoCadmusRepository repository =
-                new MongoCadmusRepository(
+                new(
                     _partTypeProvider,
                     new StandardItemSortKeyBuilder());
 

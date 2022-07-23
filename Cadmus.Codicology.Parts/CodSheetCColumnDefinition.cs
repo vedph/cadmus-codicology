@@ -9,7 +9,7 @@
         /// <summary>
         /// Gets or sets the position of labels in the page.
         /// </summary>
-        public string Position { get; set; }
+        public string? Position { get; set; }
 
         /// <summary>
         /// Gets or sets a value indicating whether this label is runs
@@ -20,7 +20,7 @@
         /// <summary>
         /// Gets or sets the decoration.
         /// </summary>
-        public string Decoration { get; set; }
+        public string? Decoration { get; set; }
 
         /// <summary>
         /// Converts to string.

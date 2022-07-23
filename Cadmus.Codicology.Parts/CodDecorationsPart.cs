@@ -39,9 +39,9 @@ namespace Cadmus.Codicology.Parts
         /// <c>color-X-count</c>, (all the keys with X are filtered, with digits),
         /// <c>artist-id</c> (filtered, with digits).
         /// </returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder(
+            DataPinBuilder builder = new(
                 DataPinHelper.DefaultFilter);
 
             builder.Set("tot", Decorations?.Count ?? 0, false);
@@ -55,7 +55,7 @@ namespace Cadmus.Codicology.Parts
                     {
                         foreach (AssertedChronotope c in decoration.Chronotopes)
                         {
-                            if (c.Date != null)
+                            if (c.Date is not null)
                                 builder.AddValue("date-value", c.Date.GetSortValue());
                             if (!string.IsNullOrEmpty(c.Place?.Value))
                             {
@@ -65,27 +65,30 @@ namespace Cadmus.Codicology.Parts
                         }
                     }
 
-                    foreach (CodDecorationElement element in decoration?.Elements)
+                    if (decoration?.Elements?.Count > 0)
                     {
-                        builder.Increase(
-                            DataPinHelper.DefaultFilter.Apply(element.Type, true),
-                            false, "type-");
-
-                        builder.Increase(
-                            DataPinHelper.DefaultFilter.Apply(element.Subject, true),
-                            false,
-                            "subject-");
-
-                        foreach (string color in element.Colors)
+                        foreach (CodDecorationElement element in decoration.Elements)
                         {
                             builder.Increase(
-                                DataPinHelper.DefaultFilter.Apply(color, true),
+                                DataPinHelper.DefaultFilter.Apply(element.Type, true),
+                                false, "type-");
+
+                            builder.Increase(
+                                DataPinHelper.DefaultFilter.Apply(element.Subject, true),
                                 false,
-                                "color-");
+                                "subject-");
+
+                            foreach (string color in element.Colors)
+                            {
+                                builder.Increase(
+                                    DataPinHelper.DefaultFilter.Apply(color, true),
+                                    false,
+                                    "color-");
+                            }
                         }
                     }
 
-                    if (decoration.Artists?.Count > 0)
+                    if (decoration?.Artists?.Count > 0)
                     {
                         foreach (var artist in decoration.Artists)
                         {
@@ -148,7 +151,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodDecorations]");
 

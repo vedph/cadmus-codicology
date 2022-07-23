@@ -17,7 +17,7 @@ namespace Cadmus.Seed.Codicology.Parts
     {
         private static IList<CodWatermark> GetWatermarks(int count)
         {
-            List<CodWatermark> watermarks = new List<CodWatermark>();
+            List<CodWatermark> watermarks = new();
             IList<CodLocationRange> ranges = SeedHelper.GetLocationRanges(count);
 
             for (int n = 1; n <= count; n++)

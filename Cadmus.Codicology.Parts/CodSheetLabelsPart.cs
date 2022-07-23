@@ -66,9 +66,9 @@ namespace Cadmus.Codicology.Parts
         /// <returns>The pins: <c>row-count</c> and a collection of pins with
         /// these keys: <c>n-id</c>, <c>c-id</c>, <c>s-id</c>, <c>r-id</c>.
         /// </returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new();
 
             builder.Set("row", Rows?.Count ?? 0, false);
 
@@ -117,28 +117,28 @@ namespace Cadmus.Codicology.Parts
             });
         }
 
-        static public string DumpTable(IList<CodSheetRow> rows)
+        static public string? DumpTable(IList<CodSheetRow> rows)
         {
             if (rows is null) return null;
 
             // collect unique col IDs
             int maxValLen = 0;
-            HashSet<string> colIds = new HashSet<string>();
+            HashSet<string> colIds = new();
             foreach (CodSheetRow row in rows)
             {
                 foreach (CodSheetColumn col in row.Columns)
                 {
-                    colIds.Add(col.Id);
-                    if (maxValLen < col.Id.Length) maxValLen = col.Id.Length;
+                    colIds.Add(col.Id!);
+                    if (maxValLen < col.Id!.Length) maxValLen = col.Id.Length;
                     if (col.Value != null && maxValLen < col.Value.Length)
                         maxValLen = col.Value.Length;
                 }
             }
 
             // build header
-            StringBuilder sb = new StringBuilder("|   |");
-            StringBuilder sbl = new StringBuilder("|---|");
-            string colRuler = new string('-', maxValLen);
+            StringBuilder sb = new("|   |");
+            StringBuilder sbl = new("|---|");
+            string colRuler = new('-', maxValLen);
             foreach (string colId in colIds)
             {
                 sb.Append(colId);
@@ -158,7 +158,7 @@ namespace Cadmus.Codicology.Parts
                   .Append('|');
                 foreach (string colId in colIds)
                 {
-                    CodSheetColumn col = row.Columns.Find(c => c.Id == colId);
+                    CodSheetColumn? col = row.Columns.Find(c => c.Id == colId);
                     if (col?.Value != null)
                     {
                         sb.Append(col.Value);
@@ -183,7 +183,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodSheetLabels]: R=").Append(Rows?.Count ?? 0);
 

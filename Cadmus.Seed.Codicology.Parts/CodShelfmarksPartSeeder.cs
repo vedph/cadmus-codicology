@@ -31,7 +31,7 @@ namespace Cadmus.Seed.Codicology.Parts
             if (factory == null)
                 throw new ArgumentNullException(nameof(factory));
 
-            CodShelfmarksPart part = new CodShelfmarksPart();
+            CodShelfmarksPart part = new();
             SetPartMetadata(part, roleId, item);
 
             for (int n = 1; n <= Randomizer.Seed.Next(1, 3 + 1); n++)

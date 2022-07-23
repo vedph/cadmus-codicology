@@ -14,7 +14,7 @@ namespace Cadmus.Codicology.Parts
         /// An endleaf with N=0 is the endleaf internally attached to
         /// the book's cover (controguardia).
         /// </summary>
-        public string Id { get; set; }
+        public string? Id { get; set; }
 
         /// <summary>
         /// Gets or sets the columns in this row.

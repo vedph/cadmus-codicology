@@ -10,17 +10,17 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the name.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the chronotope.
         /// </summary>
-        public AssertedChronotope Chronotope { get; set; }
+        public AssertedChronotope? Chronotope { get; set; }
 
         /// <summary>
         /// Gets or sets the assertion.
         /// </summary>
-        public Assertion Assertion { get; set; }
+        public Assertion? Assertion { get; set; }
 
         /// <summary>
         /// Converts to string.

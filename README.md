@@ -522,6 +522,12 @@ Manuscript's watermarks.
 
 ## History
 
+### 2.0.3
+
+- 2022-07-23:
+  - made projects nullable.
+  - `CodContent`: added `Author` and changed `Range` into `Ranges`.
+
 ### 2.0.2
 
 - 2022-06-19: updated packages.

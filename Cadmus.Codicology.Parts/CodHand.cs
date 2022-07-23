@@ -11,12 +11,12 @@ namespace Cadmus.Codicology.Parts
         /// <summary>
         /// Gets or sets the entity ID for this hand.
         /// </summary>
-        public string Eid { get; set; }
+        public string? Eid { get; set; }
 
         /// <summary>
         /// Gets or sets the conventional hand's name.
         /// </summary>
-        public string Name { get; set; }
+        public string? Name { get; set; }
 
         /// <summary>
         /// Gets or sets the instances of this hand in the manuscript.

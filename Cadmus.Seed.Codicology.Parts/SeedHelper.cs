@@ -24,7 +24,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<CodLocationRange> GetLocationRanges(int count)
         {
-            List<CodLocationRange> ranges = new List<CodLocationRange>();
+            List<CodLocationRange> ranges = new();
             for (int n = 1; n <= count; n++)
             {
                 ranges.Add(new CodLocationRange
@@ -43,7 +43,7 @@ namespace Cadmus.Seed.Codicology.Parts
         /// <returns>References.</returns>
         public static List<DocReference> GetDocReferences(int count)
         {
-            List<DocReference> refs = new List<DocReference>();
+            List<DocReference> refs = new();
 
             for (int n = 1; n <= count; n++)
             {
@@ -61,7 +61,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<ExternalId> GetExternalIds(int count)
         {
-            List<ExternalId> ids = new List<ExternalId>();
+            List<ExternalId> ids = new();
 
             for (int n = 1; n <= count; n++)
             {
@@ -77,7 +77,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<RankedExternalId> GetRankedExternalIds(int count)
         {
-            List<RankedExternalId> ids = new List<RankedExternalId>();
+            List<RankedExternalId> ids = new();
 
             for (int n = 1; n <= count; n++)
             {
@@ -94,7 +94,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<AssertedChronotope> GetAssertedChronotopes(int count)
         {
-            List<AssertedChronotope> chronotopes = new List<AssertedChronotope>();
+            List<AssertedChronotope> chronotopes = new();
             for (int n = 1; n <= count; n++)
             {
                 bool even = n % 2 == 0;
@@ -104,7 +104,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     {
                         Value = even ? "Even" : "Odd"
                     },
-                    Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n} AD"))
+                    Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n} AD")!)
                 });
             }
             return chronotopes;
@@ -112,7 +112,7 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<CodImage> GetCodImages(int count)
         {
-            List<CodImage> images = new List<CodImage>();
+            List<CodImage> images = new();
             for (int n = 1; n <= count; n++)
             {
                 images.Add(new Faker<CodImage>()
@@ -128,14 +128,13 @@ namespace Cadmus.Seed.Codicology.Parts
 
         public static List<PhysicalDimension> GetDimensions(int count)
         {
-            List<PhysicalDimension> dimensions = new List<PhysicalDimension>();
+            List<PhysicalDimension> dimensions = new();
 
             for (int n = 1; n <= count; n++)
             {
                 dimensions.Add(new Faker<PhysicalDimension>()
                     .RuleFor(d => d.Tag, f => f.Lorem.Word())
-                    .RuleFor(d => d.Value, f => (float)SeedHelper.Truncate(
-                        f.Random.Float(2, 10), 2))
+                    .RuleFor(d => d.Value, f => Truncate(f.Random.Float(2, 10), 2))
                     .RuleFor(d => d.Unit, "cm")
                     .Generate());
             }
@@ -147,7 +146,7 @@ namespace Cadmus.Seed.Codicology.Parts
         {
             List<PhysicalDimension> dimensions = GetDimensions(2);
 
-            Faker faker = new Faker();
+            Faker faker = new();
             return new PhysicalSize
             {
                 Tag = "tag",

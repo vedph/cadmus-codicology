@@ -36,7 +36,7 @@ namespace Cadmus.Codicology.Parts
         /// <c>date-value</c>.</returns>
         public override IEnumerable<DataPin> GetDataPins(IItem item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder();
+            DataPinBuilder builder = new();
 
             builder.Set("tot", Bindings?.Count ?? 0, false);
 
@@ -49,7 +49,7 @@ namespace Cadmus.Codicology.Parts
                     if (binding.Chronotope != null)
                     {
                         builder.AddValue("place", binding.Chronotope.Place?.Value);
-                        if (binding.Chronotope.Date != null)
+                        if (binding.Chronotope.Date is not null)
                         {
                             builder.AddValue("date-value",
                                 binding.Chronotope.Date.GetSortValue());
@@ -99,7 +99,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodBindings]");
 

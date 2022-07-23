@@ -18,7 +18,7 @@ namespace Cadmus.Seed.Codicology.Parts
         private static List<CodContentAnnotation> GetAnnotations(int count)
         {
             List<CodContentAnnotation> annotations =
-                new List<CodContentAnnotation>();
+                new();
             for (int n = 1; n <= count; n++)
             {
                 annotations.Add(new Faker<CodContentAnnotation>()
@@ -35,12 +35,12 @@ namespace Cadmus.Seed.Codicology.Parts
 
         private static List<CodContent> GetContents(int count)
         {
-            List<CodContent> contents = new List<CodContent>();
+            List<CodContent> contents = new();
             for (int n = 1; n <= count; n++)
             {
                 contents.Add(new Faker<CodContent>()
                     .RuleFor(c => c.Eid, f => f.Lorem.Word())
-                    .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
+                    .RuleFor(c => c.Ranges, SeedHelper.GetLocationRanges(1))
                     .RuleFor(c => c.States,
                         f => new List<string> { f.PickRandom("headless", "gaps") })
                     .RuleFor(c => c.Title, f => f.Lorem.Sentence(2, 4))

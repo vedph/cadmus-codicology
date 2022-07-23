@@ -36,9 +36,9 @@ namespace Cadmus.Codicology.Parts
         /// these keys: <c>eid</c>, <c>state</c>, <c>title</c>,
         /// <c>claimed-author</c>, <c>claimed-title</c>, <c>annotation-count</c>.
         /// </returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
-            DataPinBuilder builder = new DataPinBuilder(
+            DataPinBuilder builder = new(
                 DataPinHelper.DefaultFilter);
 
             builder.Set("tot", Contents?.Count ?? 0, false);
@@ -109,7 +109,7 @@ namespace Cadmus.Codicology.Parts
         /// </returns>
         public override string ToString()
         {
-            StringBuilder sb = new StringBuilder();
+            StringBuilder sb = new();
 
             sb.Append("[CodContents]");
 
