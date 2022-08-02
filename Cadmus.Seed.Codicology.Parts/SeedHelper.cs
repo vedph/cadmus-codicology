@@ -16,10 +16,10 @@ namespace Cadmus.Seed.Codicology.Parts
         /// <param name="value">The value.</param>
         /// <param name="decimals">The decimals.</param>
         /// <returns>Truncated value.</returns>
-        public static double Truncate(double value, int decimals)
+        private static float Truncate(float value, int decimals)
         {
             double factor = Math.Pow(10, decimals);
-            return Math.Truncate(factor * value) / factor;
+            return (float)((float)Math.Truncate(factor * value) / factor);
         }
 
         public static List<CodLocationRange> GetLocationRanges(int count)

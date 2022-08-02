@@ -522,6 +522,8 @@ Manuscript's watermarks.
 
 ## History
 
+- 2022-08-01: fix to `SeedHelper.Truncate` (float instead of double).
+
 ### 2.0.3
 
 - 2022-07-23:
