@@ -33,7 +33,7 @@ namespace Cadmus.Seed.Codicology.Parts.Test
             seeder.SetSeedOptions(_seedOptions);
 
             IPart part = seeder.GetPart(_item, null, _factory);
-            string dump = CodSheetLabelsPart.DumpTable(((CodSheetLabelsPart)(part)).Rows);
+            string dump = CodSheetLabelsPart.DumpTable(((CodSheetLabelsPart)(part)).Rows)!;
             Debug.WriteLine(dump);
 
             Assert.NotNull(part);

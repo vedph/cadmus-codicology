@@ -35,7 +35,7 @@ namespace Cadmus.Codicology.Parts
         /// <returns>The pins: <c>tot-count</c> and a collection of pins with
         /// these keys: <c>eid</c>, <c>script</c>, <c>typology</c>,
         /// <c>color</c>, <c>subs-count</c>, <c>subs-language</c>.</returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item = null)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
             DataPinBuilder builder = new();
 

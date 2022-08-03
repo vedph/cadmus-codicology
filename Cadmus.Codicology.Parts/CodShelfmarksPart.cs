@@ -38,7 +38,7 @@ namespace Cadmus.Codicology.Parts
         /// <c>tag-TAG-count</c>, <c>library</c> (filtered, with digits),
         /// <c>city</c> (filtered).
         /// </returns>
-        public override IEnumerable<DataPin> GetDataPins(IItem item)
+        public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
         {
             DataPinBuilder builder = new(
                 DataPinHelper.DefaultFilter);

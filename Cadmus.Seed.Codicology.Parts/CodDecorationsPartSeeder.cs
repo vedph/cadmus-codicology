@@ -14,13 +14,11 @@ namespace Cadmus.Seed.Codicology.Parts
     [Tag("seed.it.vedph.codicology.decorations")]
     public sealed class CodDecorationsPartSeeder : PartSeederBase
     {
-        private readonly string[] _types;
         private readonly string[] _flags;
         private readonly string[] _colors;
 
         public CodDecorationsPartSeeder()
         {
-            _types = new[] { "pag-inc", "pag-dec", "ill" };
             _flags = new[] { "original", "unitary", "complete" };
             _colors = new[] { "red", "green", "blue", "gold" };
         }
@@ -100,8 +98,8 @@ namespace Cadmus.Seed.Codicology.Parts
         /// for layer parts, which need to seed a set of fragments.</param>
         /// <returns>A new part.</returns>
         /// <exception cref="ArgumentNullException">item or factory</exception>
-        public override IPart GetPart(IItem item, string roleId,
-            PartSeederFactory factory)
+        public override IPart GetPart(IItem item, string? roleId,
+            PartSeederFactory? factory)
         {
             if (item == null)
                 throw new ArgumentNullException(nameof(item));
