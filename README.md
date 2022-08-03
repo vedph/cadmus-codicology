@@ -528,6 +528,8 @@ Manuscript's watermarks.
 
 ## History
 
+- 2022-08-03: fix codicology seeder location number.
+
 ### 2.0.5
 
 - 2022-08-03: replaced `ExternalId` with `AssertedId` in `CodWatermark`.

@@ -29,8 +29,8 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 ranges.Add(new CodLocationRange
                 {
-                    Start = new CodLocation { N = (n - 1) * 3 },
-                    End = new CodLocation { N = ((n - 1) * 3) + 2 }
+                    Start = new CodLocation { N = n * 3 },
+                    End = new CodLocation { N = (n * 3) + 2 }
                 });
             }
             return ranges;
