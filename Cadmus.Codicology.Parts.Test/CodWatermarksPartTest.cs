@@ -82,9 +82,9 @@ namespace Cadmus.Codicology.Parts.Test
                 part.Watermarks.Add(new CodWatermark
                 {
                     Name = "n" + n,
-                    Ids = new List<RankedExternalId>
+                    Ids = new List<AssertedId>
                     {
-                        new RankedExternalId{Value = "mock/" + n}
+                        new AssertedId{Value = "mock/" + n}
                     },
                     Chronotope = new AssertedChronotope
                     {

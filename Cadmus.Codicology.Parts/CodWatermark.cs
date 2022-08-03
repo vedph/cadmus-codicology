@@ -31,7 +31,7 @@ namespace Cadmus.Codicology.Parts
         /// Briquet (https://briquet-online.at) or Piccard
         /// (https://www.piccard-online.de/struktur.php).
         /// </summary>
-        public List<RankedExternalId> Ids { get; set; }
+        public List<AssertedId> Ids { get; set; }
 
         /// <summary>
         /// Gets or sets the size.
@@ -54,7 +54,7 @@ namespace Cadmus.Codicology.Parts
         public CodWatermark()
         {
             Ranges = new List<CodLocationRange>();
-            Ids = new List<RankedExternalId>();
+            Ids = new List<AssertedId>();
         }
 
         /// <summary>

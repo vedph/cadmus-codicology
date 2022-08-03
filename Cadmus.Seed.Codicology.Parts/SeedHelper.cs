@@ -75,21 +75,31 @@ namespace Cadmus.Seed.Codicology.Parts
             return ids;
         }
 
-        public static List<RankedExternalId> GetRankedExternalIds(int count)
+        public static List<AssertedId> GetAssertedIds(int count)
         {
-            List<RankedExternalId> ids = new();
+            List<AssertedId> ids = new();
 
             for (int n = 1; n <= count; n++)
             {
-                ids.Add(new Faker<RankedExternalId>()
+                ids.Add(new Faker<AssertedId>()
                     .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
                     .RuleFor(r => r.Scope, f => f.Lorem.Word())
                     .RuleFor(r => r.Value, f => f.Internet.Url())
-                    .RuleFor(r => r.Rank, f => (short)f.Random.Number(1, 3))
+                    .RuleFor(r => r.Assertion, GetAssertion())
                     .Generate());
             }
 
             return ids;
+        }
+
+        public static Assertion GetAssertion()
+        {
+            return new Faker<Assertion>()
+                .RuleFor(a => a.Tag, f => f.PickRandom("a", "b", null))
+                .RuleFor(a => a.Rank, f => f.Random.Short(1, 3))
+                .RuleFor(a => a.References, GetDocReferences(2))
+                .RuleFor(a => a.Note, f => f.Lorem.Sentence().OrNull(f))
+                .Generate();
         }
 
         public static List<AssertedChronotope> GetAssertedChronotopes(int count)

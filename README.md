@@ -1,6 +1,6 @@
-# Cadmus.Codicology
+# Cadmus Codicology
 
-- [Cadmus.Codicology](#cadmuscodicology)
+- [Cadmus Codicology](#cadmus-codicology)
   - [Bricks](#bricks)
   - [Parts](#parts)
     - [CodBindingsPart](#codbindingspart)
@@ -13,6 +13,12 @@
     - [CodSheetLabelsPart](#codsheetlabelspart)
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
+  - [History](#history)
+    - [2.0.5](#205)
+    - [2.0.3](#203)
+    - [2.0.2](#202)
+    - [2.0.1](#201)
+    - [2.0.0](#200)
 
 This solution contains a number of Cadmus parts related to codicology, originally stemming from the *Itinera* project, but designed to be generic enough to be useful in other projects.
 
@@ -515,13 +521,16 @@ Manuscript's watermarks.
   - name\* (string)
   - sampleRange\* (CodLocationRange)
   - ranges (CodLocationRange[])
-  - ids (RankedExternalId[]) T:external-id-tags, T:external-id-scopes
+  - ids (AssertedId[]) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
 ## History
 
+### 2.0.5
+
+- 2022-08-03: replaced `ExternalId` with `AssertedId` in `CodWatermark`.
 - 2022-08-01: fix to `SeedHelper.Truncate` (float instead of double).
 
 ### 2.0.3
