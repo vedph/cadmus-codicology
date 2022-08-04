@@ -24,9 +24,9 @@ namespace Cadmus.Codicology.Parts
         public string? Name { get; set; }
 
         /// <summary>
-        /// Gets or sets the optional external IDs for this author.
+        /// Gets or sets the optional asserted IDs for this author.
         /// </summary>
-        public List<ExternalId> Ids { get; set; }
+        public List<AssertedId> Ids { get; set; }
 
         /// <summary>
         /// Gets or sets the styles.
@@ -50,7 +50,7 @@ namespace Cadmus.Codicology.Parts
         /// </summary>
         public CodDecorationArtist()
         {
-            Ids = new List<ExternalId>();
+            Ids = new List<AssertedId>();
             Styles = new List<CodDecorationArtistStyle>();
             ElementKeys = new List<string>();
         }

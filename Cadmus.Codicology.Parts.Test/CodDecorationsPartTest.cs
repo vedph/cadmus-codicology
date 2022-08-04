@@ -95,9 +95,9 @@ namespace Cadmus.Codicology.Parts.Test
                             new CodDecorationArtist
                             {
                                 Name = "Petrus",
-                                Ids = new List<ExternalId>
+                                Ids = new List<AssertedId>
                                 {
-                                    new ExternalId
+                                    new AssertedId
                                     {
                                         Value = "petrus123"
                                     }

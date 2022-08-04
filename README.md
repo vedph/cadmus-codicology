@@ -14,6 +14,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [2.0.6](#206)
     - [2.0.5](#205)
     - [2.0.3](#203)
     - [2.0.2](#202)
@@ -145,7 +146,7 @@ ID: `it.vedph.codicology.decorations`
     - eid (string)
     - type\* (string) T:cod-decoration-artist-types
     - name\* (string)
-    - ids (ExternalId[])
+    - ids (AssertedId[])
     - styles (CodDecorationArtistStyle[]):
       - name\* (string) T:cod-decoration-artist-style-names
       - chronotope (AssertedChronotope)
@@ -528,6 +529,9 @@ Manuscript's watermarks.
 
 ## History
 
+### 2.0.6
+
+- 2022-08-04: replaced `ExternalId` list with `AssertedId` list in `CodDecorationArtist`.
 - 2022-08-03: fix codicology seeder location number.
 
 ### 2.0.5
