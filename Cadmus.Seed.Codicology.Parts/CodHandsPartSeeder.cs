@@ -22,7 +22,7 @@ namespace Cadmus.Seed.Codicology.Parts
             {
                 signs.Add(new Faker<CodHandSign>()
                     .RuleFor(s => s.Eid, f => f.Lorem.Word())
-                    .RuleFor(s => s.Type, f => f.PickRandom("let", "pct"))
+                    .RuleFor(s => s.Type, f => f.PickRandom("letter", "punct"))
                     .RuleFor(s => s.SampleLocation,
                         SeedHelper.GetLocationRanges(1)[0].Start)
                     .RuleFor(s => s.Description, f => f.Lorem.Sentence())
@@ -40,7 +40,7 @@ namespace Cadmus.Seed.Codicology.Parts
                     .RuleFor(d => d.Script, f => f.PickRandom("got", "mea"))
                     .RuleFor(d => d.Typologies, f => new List<string>
                     {
-                        f.PickRandom("text", "notes")
+                        f.PickRandom("text", "note")
                     })
                     .RuleFor(d => d.Colors, f => new List<string>
                     {

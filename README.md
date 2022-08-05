@@ -529,6 +529,10 @@ Manuscript's watermarks.
 
 ## History
 
+### 2.0.7
+
+- 2022-08-04: fixed some thesaurus entries IDs in seeder.
+
 ### 2.0.6
 
 - 2022-08-04: replaced `ExternalId` list with `AssertedId` list in `CodDecorationArtist`.
