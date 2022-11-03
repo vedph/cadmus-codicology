@@ -530,6 +530,10 @@ Manuscript's watermarks.
 
 ## History
 
+### 2.1.1
+
+- 2022-11-03: updated packages.
+
 ### 2.1.0
 
 - 2022-10-10: updated packages for new `IRepositoryProvider`.

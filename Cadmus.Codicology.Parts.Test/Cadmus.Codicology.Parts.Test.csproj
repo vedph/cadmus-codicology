@@ -6,11 +6,11 @@
 
     <IsPackable>false</IsPackable>
 
-    <Version>2.1.0</Version>
+    <Version>2.1.1</Version>
 
-    <FileVersion>2.1.0</FileVersion>
+    <FileVersion>2.1.1</FileVersion>
 
-    <AssemblyVersion>2.1.0</AssemblyVersion>
+    <AssemblyVersion>2.1.1</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
@@ -21,7 +21,7 @@
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
-    <PackageReference Include="coverlet.collector" Version="3.1.2">
+    <PackageReference Include="coverlet.collector" Version="3.2.0">
       <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
       <PrivateAssets>all</PrivateAssets>
     </PackageReference>
