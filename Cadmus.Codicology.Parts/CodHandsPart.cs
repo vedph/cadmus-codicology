@@ -74,7 +74,7 @@ namespace Cadmus.Codicology.Parts
 
                         // subs-language
                         builder.AddValues("subs-language",
-                            hand.Subscriptions.Select(s => s.Language));
+                            hand.Subscriptions.Select(s => s.Language!));
                     }
                 }
             }

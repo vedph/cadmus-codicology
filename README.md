@@ -14,7 +14,11 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [2.2.0](#220)
+    - [2.1.1](#211)
+    - [2.1.0](#210)
     - [2.0.8](#208)
+    - [2.0.7](#207)
     - [2.0.6](#206)
     - [2.0.5](#205)
     - [2.0.3](#203)
@@ -529,6 +533,10 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 2.2.0
+
+- 2022-11-04: updated packages (nullability enabled in Cadmus core).
 
 ### 2.1.1
 

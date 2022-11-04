@@ -50,7 +50,7 @@ namespace Cadmus.Codicology.Parts
             builder.Set("palimpsest", Palimpsests?.Count ?? 0, false);
             // unit-eid
             if (Units?.Count > 0)
-                builder.AddValues("unit-eid", Units.Select(u => u.Eid));
+                builder.AddValues("unit-eid", Units.Select(u => u.Eid!));
 
             return builder.Build(this);
         }

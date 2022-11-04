@@ -98,7 +98,7 @@ namespace Cadmus.Codicology.Parts
                             if (artist.Ids != null)
                             {
                                 builder.AddValues("artist-id",
-                                    artist.Ids.Select(id => id.Value));
+                                    artist.Ids.Select(id => id.Value!));
                             }
                         }
                     }

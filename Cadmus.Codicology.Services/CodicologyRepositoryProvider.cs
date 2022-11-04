@@ -21,7 +21,7 @@ namespace Cadmus.Codicology.Services
         /// <summary>
         /// The connection string.
         /// </summary>
-        public string? ConnectionString { get; set; }
+        public string ConnectionString { get; set; }
 
         /// <summary>
         /// Initializes a new instance of the <see cref="CodicologyRepositoryProvider"/>
@@ -30,6 +30,7 @@ namespace Cadmus.Codicology.Services
         /// <exception cref="ArgumentNullException">configuration</exception>
         public CodicologyRepositoryProvider()
         {
+            ConnectionString = "";
             TagAttributeToTypeMap map = new();
             map.Add(new[]
             {

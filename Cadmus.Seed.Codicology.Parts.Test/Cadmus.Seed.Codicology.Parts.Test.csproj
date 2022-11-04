@@ -6,11 +6,11 @@
 
     <IsPackable>false</IsPackable>
 
-    <Version>2.1.1</Version>
+    <Version>2.2.0</Version>
 
-    <FileVersion>2.1.1</FileVersion>
+    <FileVersion>2.2.0</FileVersion>
 
-    <AssemblyVersion>2.1.1</AssemblyVersion>
+    <AssemblyVersion>2.2.0</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>

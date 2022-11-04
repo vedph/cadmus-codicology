@@ -48,7 +48,7 @@ namespace Cadmus.Codicology.Parts
                     builder.AddValue("name", watermark.Name, filter: true,
                         filterOptions: true);
                     if (watermark.Ids?.Count > 0)
-                        builder.AddValues("id", watermark.Ids.Select(i => i.Value));
+                        builder.AddValues("id", watermark.Ids.Select(i => i.Value!));
                     if (!string.IsNullOrEmpty(watermark.Chronotope?.Place?.Value))
                         builder.AddValue("place", watermark.Chronotope.Place.Value);
                     if (watermark.Chronotope?.Date is not null)

@@ -73,16 +73,16 @@ namespace Cadmus.Codicology.Parts
             builder.Set("row", Rows?.Count ?? 0, false);
 
             if (NDefinitions?.Count > 0)
-                builder.AddValues("n-id", NDefinitions.Select(d => d.Id));
+                builder.AddValues("n-id", NDefinitions.Select(d => d.Id!));
 
             if (CDefinitions?.Count > 0)
-                builder.AddValues("c-id", CDefinitions.Select(d => d.Id));
+                builder.AddValues("c-id", CDefinitions.Select(d => d.Id!));
 
             if (SDefinitions?.Count > 0)
-                builder.AddValues("s-id", SDefinitions.Select(d => d.Id));
+                builder.AddValues("s-id", SDefinitions.Select(d => d.Id!));
 
             if (RDefinitions?.Count > 0)
-                builder.AddValues("r-id", RDefinitions.Select(d => d.Id));
+                builder.AddValues("r-id", RDefinitions.Select(d => d.Id!));
 
             return builder.Build(this);
         }
