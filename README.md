@@ -14,6 +14,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [3.0.0](#300)
     - [2.2.1](#221)
     - [2.2.0](#220)
     - [2.1.1](#211)
@@ -534,6 +535,10 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 3.0.0
+
+- 2022-11-10: upgraded to NET 7.
 
 ### 2.2.1
 
