@@ -11,9 +11,10 @@
     - [CodLayoutsPart](#codlayoutspart)
     - [CodMaterialDscPart](#codmaterialdscpart)
     - [CodSheetLabelsPart](#codsheetlabelspart)
+      - [History](#history)
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
-  - [History](#history)
+  - [History](#history-1)
     - [3.0.0](#300)
     - [2.2.1](#221)
     - [2.2.0](#220)
@@ -294,6 +295,93 @@ ID: `it.vedph.codicology.sheet-labels`
 
 This is a higher-abstraction level part deduced from refactoring parts initially designed as independent, but semantically and pragmatically connected.
 
+The model focuses on the sequence of _physical sheets_ in the current arrangement of the manuscript (i.e. `1r`, `1v`, `2r`, `2v`, etc.). In relation with this sequence, quires describe sheets "grouping", while all the other properties describe labels on some sheets, usually following a pattern.
+
+So, we can first imagine a bidimensional **table**, having 1 **row** per *physical sheet* in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`... etc.
+
+Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus 0 or 1 column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
+
+- rows (`CodSheetRow[]`)
+  - id\* (string): the physical sheet ID (`1r`, `1v`, `2r`, `2v`... etc).
+  - columns (CodSheetColumn[]):
+    - id\* (string): assigned according to a convention (see below).
+    - value: the cell's value.
+    - note
+- endleaves (`CodEndleaf[]`):
+  - location\* (string): the endleaf location. This links these data to the endleaf row's ID in the table.
+  - material\* (string) T:cod-endleaf-materials
+  - chronotope (`AssertedChronotope`):
+    - place (`AssertedPlace`):
+      - tag (string)
+      - value\* (string)
+      - assertion (`Assertion`):
+        - tag (string)
+        - rank (short)
+        - references (`DocReference[]`):
+          - type (string)
+          - tag (string)
+          - citation\* (string)
+          - note (string)
+    - date (`AssertedDate`):
+      - a* (`Datation`):
+        - value* (int): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
+        - isCentury (boolean): true if value is a century number; false if it's a Gregorian year.
+        - isSpan (boolean): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
+        - month (short): the month number (1-12) or 0.
+        - day (short): the day number (1-31) or 0.
+        - isApproximate (boolean): true if the point is approximate ("about").
+        - isDubious (boolean): true if the point is dubious ("perhaphs").
+        - hint (string): a short textual hint used to better explain or motivate the datation point.
+      - b (`Datation`)
+      - tag (string)
+      - assertion (`Assertion`)
+- nDefinitions (`CodSheetNColumnDefinition[]`): numbering on sheets:
+  - id\* (string)
+  - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
+  - note (string)
+  - isPagination (bool)
+  - system\* (string) T:cod-numbering-systems
+  - technique\* (string) T:cod-numbering-techniques
+  - position\* (string) T:cod-numbering-positions
+  - colors (string[])
+  - date (`HistoricalDate`)
+- cDefinitions (`CodSheetCColumnDefinition[]`): catchwords on sheets:
+  - id\* (string)
+  - rank (short)
+  - note (string)
+  - position\* (string) T:cod-catchwords-positions
+  - isVertical (bool)
+  - decoration (string)
+- sDefinitions (`CodSheetSColumnDefinition[]`): quire signatures on sheets:
+  - id\* (string)
+  - rank (short)
+  - note (string)
+  - system\* (string) T:cod-quiresig-systems
+  - position\* (string) T:cod-quiresig-positions
+- rDefinitions (`CodSheetRColumnDefinition[]`): quire register signatures:
+  - id\* (string)
+  - rank (short)
+  - note (string)
+  - position\* (string) T:cod-quiresig-positions
+
+Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed.
+
+🔖 Conventions for assigning **column IDs**:
+
+(1) (required) prefix representing the ID type: one of:
+
+- `n`: a numbering system.
+- `q`: the quires description.
+- `c`: catchwords.
+- `s`: quire signatures.
+- `r`: quire register signatures.
+
+(2) dot (`.`) + an arbitrary name. If this part is missing, it is assumed that this is the default item for its type of column. For instance, `q` is the (obviously unique and thus default) description for quires; while `n` is the default numbering system, side by side with another numbering system `n.some-other`.
+
+For instance, `n.roman-endleaf` is a numbering system, `q` is the quires description, `c` the catchwords description, etc.
+
+#### History
+
 The original design, reflecting more traditional approaches, had these 3 parts:
 
 - CodQuiresPart
@@ -354,88 +442,6 @@ Now, all these data are semantically connected, and one would want to see e.g. a
 
 Also, from an abstract point of view, a more generic description model could be defined, focused on the sequence of physical sheets in the current arrangement of the manuscript (i.e. `1r`, `1v`, `2r`, `2v`, etc.). In relation with this sequence, quires describe sheets "grouping", while all the other properties describe labels on some sheets, usually following a pattern. That's why I named this part `CodSheetLabelsPart`: the name of the part derives from the prevalent meaning of its data.
 
-So, we can first imagine a bidimensional **table**, having 1 **row** per *physical sheet* in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`... etc.
-
-Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus 0 or 1 column to describe how sheets are related to quires. So, in the minimalist scenario we just have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
-
-Let us start with our table model:
-
-- rows (`CodRow[]`):
-  - id\*: this is the row's ID, like `1r`. While it could be easily calculated from the row's position, we prefer an explicit ID because this is safer while editing: it's the real ID of each record representing a row.
-  - columns (`CodColumn[]`):
-    - id\*: this is the column ID: as above, we prefer an explicit ID because these data are subject to editing. The ID is arbitrarily assigned following a set of conventions (see below).
-    - value: the value in the cell.
-    - note: an optional short note.
-
-Conventions for assigning column IDs:
-
-(1) (required) prefix representing the ID type: one of:
-
-- `n`: a numbering system.
-- `q`: the quires description.
-- `c`: catchwords.
-- `s`: quire signatures.
-- `r`: quire register signatures.
-
-(2) dot (`.`) + an arbitrary name. If this part is missing, it is assumed that this is the default item for its type of column. For instance, `q` is the (obviously unique and thus default) description for quires; while `n` is the default numbering system, side by side with another numbering system `n.some-other`.
-
-For instance, `n.roman-endleaf` is a numbering system, `q` is the quires description, `c` the catchwords description, etc.
-
-We then have the definitions for the numbering systems:
-
-- nDefinitions (`CodNColDefinition[]`):
-  - id\* (string): the column ID.
-  - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different conflicting descriptions.
-  - isPagination (boolean)
-  - system\* (string) T:cod-numbering-systems
-  - technique\* (string) T:cod-numbering-techniques
-  - position\* (string) T:cod-numbering-positions
-  - colors (string[]) T:cod-numbering-colors
-  - date (`HistoricalDate`)
-  - note (string)
-
-The definitions for catchwords:
-
-- cDefinitions (`CodCColDefinition[]`):
-  - id\* (string): the column ID.
-  - rank (short)
-  - position\* (string) T:cod-catchwords-positions
-  - isVertical (boolean)
-  - decoration (string)
-  - note (string)
-
-The definitions for quire signatures:
-
-- sDefinitions (`CodSColDefinition[]`):
-  - id\* (string): the column ID.
-  - rank (short)
-  - system* (string) T:cod-quiresig-systems
-  - position* (string) T:cod-quiresig-positions
-  - note (string)
-
-The definitions for quire register signatures (identical to the preceding one, except for the missing `system`):
-
-- rDefinitions (`CodRColDefinition[]`):
-  - id\* (string): the column ID.
-  - rank (short)
-  - position* (string) T:cod-quiresig-positions
-  - note (string)
-
-Quires need no definitions. In the end, the top level properties of the part's model would thus be:
-
-- rows
-- nDefinitions
-- cDefinitions
-- sDefinitions
-- rDefinitions
-
-Finally, as endleaves are detailed here (as head/tail rows in the table, with their own location numbering based on sheet 0: see below), we also add some more details about each endleaf where required:
-
-- endleaves (EndLeaf[]):
-  - location\* (string): the endleaf location. This links these data to the endleaf row's ID in the table.
-  - material\* (string) T:cod-endleaf-materials
-  - chronotope (AssertedChronotope)
-
 Once we have this model, let us see the imagined input method. The UI is focused on the table. The table will be displayed in its entirety, having a row per sheet, and a number of columns from 1 to N.
 
 The first column is the quires column. All the other columns are added by user.
@@ -461,21 +467,21 @@ The UI has 3 bands:
 
 The table is like in this sample, where I just fill `n` and `q` types for brevity:
 
-|    | q     | n.alpha | n.beta | n.gamma | c | s | r |
-|----|-------|---------|--------|---------|---|---|---|
-|(1) |       |         |        |         |   |   |   |
-|(2) |       |         |        |         |   |   |   |
-| 1r | 1.1/4 | i       | d      |         |   |   |   |
-| 1v | 1.1/4 |         | e      |         |   |   |   |
-| 2r | 1.2/4 | ii      | f      |         |   |   |   |
-| 2v | 1.2/4 |         | g      |         |   |   |   |
-| 3r | 1.3/4 |         |        | 1       |   |   |   |
-| 3v | 1.3/4 |         |        |         |   |   |   |
-| 4r | 1.4/4 |         |        | 2       |   |   |   |
-| 4v | 1.4/4 |         | x      |         |   |   |   |
-| 5r | 2.1/4 |         |        | 3       |   |   |   |
-| 5v | 2.2/4 |         |        |         |   |   |   |
-|(/1)|       |         |        |         |   |   |   |
+|      | q     | n.alpha | n.beta | n.gamma | c | s | r |
+|------|-------|---------|--------|---------|---|---|---|
+| (1)  |       |         |        |         |   |   |   |
+| (2)  |       |         |        |         |   |   |   |
+| 1r   | 1.1/4 | i       | d      |         |   |   |   |
+| 1v   | 1.1/4 |         | e      |         |   |   |   |
+| 2r   | 1.2/4 | ii      | f      |         |   |   |   |
+| 2v   | 1.2/4 |         | g      |         |   |   |   |
+| 3r   | 1.3/4 |         |        | 1       |   |   |   |
+| 3v   | 1.3/4 |         |        |         |   |   |   |
+| 4r   | 1.4/4 |         |        | 2       |   |   |   |
+| 4v   | 1.4/4 |         | x      |         |   |   |   |
+| 5r   | 2.1/4 |         |        | 3       |   |   |   |
+| 5v   | 2.2/4 |         |        |         |   |   |   |
+| (/1) |       |         |        |         |   |   |   |
 
 As you can see, the reference physical sheets represent rows; each added column is shown next to it. Here the user added quires, 3 numberings, catchwords, signatures, and register signatures.
 
