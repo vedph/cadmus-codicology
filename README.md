@@ -11,10 +11,10 @@
     - [CodLayoutsPart](#codlayoutspart)
     - [CodMaterialDscPart](#codmaterialdscpart)
     - [CodSheetLabelsPart](#codsheetlabelspart)
-      - [History](#history)
+      - [Model History](#model-history)
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
-  - [History](#history-1)
+  - [History](#history)
     - [3.0.0](#300)
     - [2.2.1](#221)
     - [2.2.0](#220)
@@ -38,16 +38,16 @@ The models of some bricks are summarized here for the reader's commodity.
 - **PhysicalSize**:
 
   - tag (string) T:physical-size-tags
-  - w\* (**PhysicalDimension**):
+  - w\* (`PhysicalDimension`):
     - tag (string) T:physical-size-dim-tags
     - value\* (number)
     - unit\* (string) T:physical-size-units
-  - h (PhysicalDimension)
-  - d (PhysicalDimension)
+  - h (`PhysicalDimension`)
+  - d (`PhysicalDimension`)
   - note (string)
 
 - **HistoricalDate**:
-  - a\* (Datation):
+  - a\* (`Datation`):
     - value\* (int)
     - isCentury (boolean)
     - isSpan (boolean)
@@ -56,7 +56,7 @@ The models of some bricks are summarized here for the reader's commodity.
     - day (int)
     - month (int)
     - hint (string
-  - b (Datation)
+  - b (`Datation`)
 
 - **CodLocation**:
 
@@ -72,8 +72,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - **CodLocationRange**:
 
-  - start\* (CodLocation)
-  - end\* (CodLocation)
+  - start\* (`CodLocation`)
+  - end\* (`CodLocation`)
 
 - **DocReference**:
 
@@ -87,45 +87,45 @@ The models of some bricks are summarized here for the reader's commodity.
   - tag (string) T:assertion-tags
   - rank\* (number)
   - note (string)
-  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
+  - references (`DocReference[]`) T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedPlace**:
 
   - tag (string) T:asserted-place-tags
   - value\* (string)
-  - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - assertion (`Assertion`) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedDate**: equal to `HistoricalDate` plus:
 
   - tag (string) T:asserted-date-tags
-  - assertion (Assertion) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - assertion (`Assertion`) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 - **AssertedChronotope**:
 
-  - place (AssertedPlace) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - date (AssertedDate) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - place (`AssertedPlace`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - date (`AssertedDate`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
 
 ## Parts
 
 ### CodBindingsPart
 
-ID: `it.vedph.codicology.bindings`
+🔑 ID: `it.vedph.codicology.bindings`
 
-- bindings (CodBinding[]):
+- bindings (`CodBinding[]`):
   - tag (string) T:cod-binding-tags
   - coverMaterial\* (string) T:cod-binding-cover-materials
   - boardMaterial\* (string) T:cod-binding-board-materials
-  - chronotope\* (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
+  - chronotope\* (`AssertedChronotope`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - size (`PhysicalSize`) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - description (string)
 
 ### CodContentsPart
 
-ID: `it.vedph.codicology.contents`
+🔑 ID: `it.vedph.codicology.contents`
 
-- contents (CodContent[]):
+- contents (`CodContent[]`):
   - eid (string)
-  - range\* (CodLocationRange)
+  - range\* (`CodLocationRange`)
   - states\* (string[]) T:cod-content-states
   - title\* (string)
   - location (string)
@@ -135,41 +135,41 @@ ID: `it.vedph.codicology.contents`
   - note (string)
   - incipit (string)
   - explicit (string)
-  - annotations (CodContentAnnotation[]):
+  - annotations (`CodContentAnnotation[]`):
     - type\* (string) T:cod-content-annotation-types
-    - range\* (CodLocationRange)
+    - range\* (`CodLocationRange`)
     - incipit\* (string)
     - explicit\* (string)
     - text\* (string)
 
 ### CodDecorationsPart
 
-ID: `it.vedph.codicology.decorations`
+🔑 ID: `it.vedph.codicology.decorations`
 
-- decorations (CodDecoration[]):
+- decorations (`CodDecoration[]`):
   - eid (string)
   - name\* (string)
   - flags (string[]) T:cod-decoration-flags
-  - chronotopes (AssertedChronotope[]) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - artists (CodDecorationArtist[]):
+  - chronotopes (`AssertedChronotope[]`) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - artists (`CodDecorationArtist[]`):
     - eid (string)
     - type\* (string) T:cod-decoration-artist-types
     - name\* (string)
-    - ids (AssertedId[])
-    - styles (CodDecorationArtistStyle[]):
+    - ids (`AssertedId[]`)
+    - styles (`CodDecorationArtistStyle[]`):
       - name\* (string) T:cod-decoration-artist-style-names
-      - chronotope (AssertedChronotope)
-      - assertion (Assertion)
+      - chronotope (`AssertedChronotope`)
+      - assertion (`Assertion`)
     - elementKeys (string[])
     - note (string)
   - note (string)
-  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
-  - elements (CodDecorationElement[]):
+  - references (`DocReference[]`) T:doc-reference-types, T:doc-reference-tags
+  - elements (`CodDecorationElement[]`):
     - key (string)
     - parentKey (string)
     - type\* (string) T:cod-decoration-element-types
     - flags (string[]) T:cod-decoration-element-flags
-    - ranges\* (CodLocationRange[])
+    - ranges\* (`CodLocationRange[]`)
     - instanceCount (int)
     - typologies (string) T:cod-decoration-element-typologies
     - subject (string)
@@ -181,7 +181,7 @@ ID: `it.vedph.codicology.decorations`
     - lineHeight (int)
     - textRelation (string)
     - description (string MD)
-    - images (CodImage[]):
+    - images (`CodImage[]`):
       - id\* (string)
       - type\* (string) T:cod-image-types
       - sourceId (string)
@@ -191,76 +191,76 @@ ID: `it.vedph.codicology.decorations`
 
 ### CodEditsPart
 
-ID: `it.vedph.codicology.edits`
+🔑 ID: `it.vedph.codicology.edits`
 
 Specialized events related to any kind of text editing on the manuscript.
 
-- edits (CodEdit[]):
+- edits (`CodEdit[]`):
   - eid (string)
   - type\* (string) T:cod-edit-types
   - tag (string) T:cod-edit-tags
   - techniques (string[]) T:cod-edit-techniques
-  - ranges\* (CodLocationRange[])
+  - ranges\* (`CodLocationRange[]`)
   - language (string) T:cod-edit-languages
   - colors (string[]) T:cod-edit-colors
-  - date (HistoricalDate)
+  - date (`HistoricalDate`)
   - description (string)
   - text (string)
-  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
+  - references (`DocReference[]`) T:doc-reference-types, T:doc-reference-tags
 
 ### CodHandsPart
 
-ID: `it.vedph.codicology.hands`
+🔑 ID: `it.vedph.codicology.hands`
 
-- hands (CodHand[]):
+- hands (`CodHand[]`):
   - eid (string)
   - name (string)
-  - instances (CodHandInstance)
+  - instances (`CodHandInstance`)
     - script\* (string) T:cod-hand-scripts
     - typologies\* (string[]) T:cod-hand-typologies
     - colors (string[]) T:cod-hand-colors
-    - ranges\* (CodLocationRange[])
+    - ranges\* (`CodLocationRange[]`)
     - rank (short)
     - descriptionKey (string)
-    - chronotope (AssertedChronotope) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-    - images (CodImage[]):
+    - chronotope (`AssertedChronotope`) T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+    - images (`CodImage[]`):
       - id\* (string)
       - type\* (string) T:cod-image-types
       - sourceId (string)
       - label (string)
       - copyright (string)
-  - descriptions (CodHandDescription[]):
+  - descriptions (`CodHandDescription[]`):
     - key (string): this is referenced by `CodHandInstance.descriptionKey`
     - description (string)
     - initials (string)
     - corrections (string)
     - punctuation (string)
     - abbreviations (string)
-    - signs (CodHandSign[]):
+    - signs (`CodHandSign[]`):
       - eid (string)
       - type\* (string) T:cod-hand-sign-types
-      - sampleLocation\* (CodLocation)
+      - sampleLocation\* (`CodLocation`)
       - description (string)
-  - subscriptions (CodHandSubscription[]):
-    - range\* (CodLocationRange)
+  - subscriptions (`CodHandSubscription[]`):
+    - range\* (`CodLocationRange`)
     - language\* (string) T:cod-hand-subscription-languages
     - text (string)
     - note (string)
-  - references (DocReference[]) T:doc-reference-types, T:doc-reference-tags
+  - references (`DocReference[]`) T:doc-reference-types, T:doc-reference-tags
 
 ### CodLayoutsPart
 
-ID: `it.vedph.codicology.layouts`
+🔑 ID: `it.vedph.codicology.layouts`
 
-- layouts (CodLayout[]):
-  - sample\* (CodLocation)
-  - ranges\* (CodLocationRange[])
-  - dimensions (PhysicalDimension[]) T for dimension tag: cod-layout-dimension-tags, T:physical-size-dim-tags, T:physical-size-units
+- layouts (`CodLayout[]`):
+  - sample\* (`CodLocation`)
+  - ranges\* (`CodLocationRange[]`)
+  - dimensions (`PhysicalDimension[]`) T for dimension tag: cod-layout-dimension-tags, T:physical-size-dim-tags, T:physical-size-units
   - rulingTechnique (string) T:cod-layout-ruling-techniques
   - derolez (string) T:cod-layout-derolez
   - pricking (string) T:cod-layout-prickings
   - columnCount\* (int)
-  - counts (DecoratedCount[]):
+  - counts (`DecoratedCount[]`):
     - id* (string) T:cod-layout-counts
     - value* (int)
     - tag (string)
@@ -270,28 +270,28 @@ ID: `it.vedph.codicology.layouts`
 
 ### CodMaterialDscPart
 
-ID: `it.vedph.codicology.material-dsc`
+🔑 ID: `it.vedph.codicology.material-dsc`
 
-- units\* (CodUnit[]):
+- units\* (`CodUnit[]`):
   - eid (string)
   - tag (string) T:cod-unit-tags
   - material\* (string) T:cod-unit-materials
   - format\* (string) T:cod-unit-formats
   - state\* (string) T:cod-unit-states
-  - range\* (CodLocationRange)
-  - chronotopes\* (AssertedChronotope[]) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - range\* (`CodLocationRange`)
+  - chronotopes\* (`AssertedChronotope[]`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - noGregory (boolean)
   - note (string)
-- palimpsests (CodPalimpsest[]):
-  - range\* (CodLocationRange)
-  - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+- palimpsests (`CodPalimpsest[]`):
+  - range\* (`CodLocationRange`)
+  - chronotope (`AssertedChronotope`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - note (string)
 
-Note: endleaves are described in `CodSheetLabelsPart`.
+Note: endleaves are described in [CodSheetLabelsPart](#codsheetlabelspart).
 
 ### CodSheetLabelsPart
 
-ID: `it.vedph.codicology.sheet-labels`
+🔑 ID: `it.vedph.codicology.sheet-labels`
 
 This is a higher-abstraction level part deduced from refactoring parts initially designed as independent, but semantically and pragmatically connected.
 
@@ -303,7 +303,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
 
 - rows (`CodSheetRow[]`)
   - id\* (string): the physical sheet ID (`1r`, `1v`, `2r`, `2v`... etc).
-  - columns (CodSheetColumn[]):
+  - columns (`CodSheetColumn[]`):
     - id\* (string): assigned according to a convention (see below).
     - value: the cell's value.
     - note
@@ -380,7 +380,7 @@ Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ord
 
 For instance, `n.roman-endleaf` is a numbering system, `q` is the quires description, `c` the catchwords description, etc.
 
-#### History
+#### Model History
 
 The original design, reflecting more traditional approaches, had these 3 parts:
 
@@ -390,7 +390,7 @@ The original design, reflecting more traditional approaches, had these 3 parts:
 
 The model for `CodQuiresPart` included any number of quires, each described with a start/end sheet number, a count of its sheets, and an optional delta number representing sheets added or removed to the original quire, plus eventually a note:
 
-- quires (CodQuire[]):
+- quires (`CodQuire[]`):
   - tag (string) T:cod-quire-tags
   - startNr\* (number)
   - endNr\* (number)
@@ -400,19 +400,19 @@ The model for `CodQuiresPart` included any number of quires, each described with
 
 The model for `CodQuireLabelsPart` included all the "labels" attached to quires for structural purposes connected to the assembly of the book, i.e. catchwords and signatures on manuscript's quires:
 
-- catchwords (CodCatchword[]):
-  - range\* (CodLocationRange)
+- catchwords (`CodCatchword[]`):
+  - range\* (`CodLocationRange`)
   - position\* (string) T:cod-catchwords-positions
   - isVertical (boolean)
   - decoration (string)
   - note (string)
-- quireSignatures (CodQuireSignature[]):
-  - range\* (CodLocationRange)
+- quireSignatures (`CodQuireSignature[]`):
+  - range\* (`CodLocationRange`)
   - position\* (string) T:cod-quiresig-positions
   - system\* (string) T:cod-quiresig-systems
   - note (string)
-- quireRegSignatures (CodQuireRegSignature[]):
-  - range\* (CodLocationRange)
+- quireRegSignatures (`CodQuireRegSignature[]`):
+  - range\* (`CodLocationRange`)
   - position\* (string) T:cod-quiresig-positions
   - note (string)
 
@@ -420,7 +420,7 @@ Here we had 3 lists for catchwords, quire signatures, and quire register signatu
 
 Finally, the model for `CodNumberingsPart` described numberings on the manuscript's sheets:
 
-- numberings (CodNumbering[]):
+- numberings (`CodNumbering[]`):
   - eid (string)
   - isMain (boolean)
   - isPagination (boolean)
@@ -428,10 +428,10 @@ Finally, the model for `CodNumberingsPart` described numberings on the manuscrip
   - technique\* (string) T:cod-numbering-techniques
   - position\* (string) T:cod-numbering-positions
   - colors (string[]) T:cod-numbering-colors
-  - date (HistoricalDate)
-  - ranges\* (CodLocationRange[])
-  - spans (CodNumberingSpan[]):
-    - range (CodLocationRange)
+  - date (`HistoricalDate`)
+  - ranges\* (`CodLocationRange[]`)
+  - spans (`CodNumberingSpan[]`):
+    - range (`CodLocationRange`)
     - start (string)
     - end (string)
   - issues (string)
@@ -515,11 +515,11 @@ This provides an editor where the data entry UI also provides real-time feedback
 
 ### CodShelfmarksPart
 
-ID: `it.vedph.codicology.shelfmarks`
+🔑 ID: `it.vedph.codicology.shelfmarks`
 
 Manuscript's shelfmark(s). Usually there is just one, unless you are also adding some historical signatures; in this case, assign a tag to the non-current (default) one.
 
-- shelfmarks (CodShelfmark[]):
+- shelfmarks (`CodShelfmark[]`):
   - tag (string) T:cod-shelfmark-tags
   - city\* (string)
   - library\* (string) T:cod-shelfmark-libraries
@@ -528,17 +528,17 @@ Manuscript's shelfmark(s). Usually there is just one, unless you are also adding
 
 ### CodWatermarksPart
 
-ID: `it.vedph.codicology.watermarks`
+🔑 ID: `it.vedph.codicology.watermarks`
 
 Manuscript's watermarks.
 
-- watermarks (CodWatermark[]):
+- watermarks (`CodWatermark[]`):
   - name\* (string)
-  - sampleRange\* (CodLocationRange)
-  - ranges (CodLocationRange[])
-  - ids (AssertedId[]) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
-  - size (PhysicalSize) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
-  - chronotope (AssertedChronotope) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - sampleRange\* (`CodLocationRange`)
+  - ranges (`CodLocationRange[]`)
+  - ids (`AssertedId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - size (`PhysicalSize`) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
+  - chronotope (`AssertedChronotope`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
 ## History
