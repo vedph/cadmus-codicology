@@ -70,6 +70,8 @@ The models of some bricks are summarized here for the reader's commodity.
   - l (string): line
   - word (string): reference word
 
+📖 [More information](https://github.com/vedph/cadmus-bricks-shell/blob/master/projects/myrmidon/cadmus-cod-location/README.md)
+
 - **CodLocationRange**:
 
   - start\* (`CodLocation`)
@@ -293,16 +295,16 @@ Note: endleaves are described in [CodSheetLabelsPart](#codsheetlabelspart).
 
 🔑 ID: `it.vedph.codicology.sheet-labels`
 
-This is a higher-abstraction level part deduced from refactoring parts initially designed as independent, but semantically and pragmatically connected.
+This part allows you to edit data about labels (numbering, catchwords and signatures) attached to manuscript sheets and their relationship with quires. This is a higher-abstraction level part deduced from refactoring parts initially designed as independent, but semantically and pragmatically connected.
 
 The model focuses on the sequence of _physical sheets_ in the current arrangement of the manuscript (i.e. `1r`, `1v`, `2r`, `2v`, etc.). In relation with this sequence, quires describe sheets "grouping", while all the other properties describe labels on some sheets, usually following a pattern.
 
-So, we can first imagine a bidimensional **table**, having 1 **row** per *physical sheet* in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`... etc.
+So, we can first imagine a bidimensional **table**, having 1 **row** per *physical sheet* in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`, etc.
 
 Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus 0 or 1 column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
 
 - rows (`CodSheetRow[]`)
-  - id\* (string): the physical sheet ID (`1r`, `1v`, `2r`, `2v`... etc).
+  - id\* (string): the physical sheet ID, equal to the physical sheet `CodLocation` string value (`1r`, `1v`, `2r`, `2v`... etc).
   - columns (`CodSheetColumn[]`):
     - id\* (string): assigned according to a convention (see below).
     - value: the cell's value.
@@ -364,7 +366,22 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - note (string)
   - position\* (string) T:cod-quiresig-positions
 
-Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed.
+Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed. So, a typical quire sequence is like this:
+
+sheet | quire
+------|------
+1r    | 1.1/4
+1v    | 1.1/4
+2r    | 1.2/4
+2v    | 1.2/4
+3r    | 1.3/4
+3v    | 1.3/4
+4r    | 1.4/4
+4v    | 1.4/4
+5r    | 2.1/4
+5v    | 2.1/4
+
+... etc.
 
 🔖 Conventions for assigning **column IDs**:
 
