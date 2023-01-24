@@ -153,7 +153,7 @@ namespace Cadmus.Codicology.Parts.Test
 
             List<DataPin> pins = part.GetDataPins(null).ToList();
 
-            Assert.Equal(15, pins.Count);
+            Assert.Equal(18, pins.Count);
             TestHelper.AssertValidDataPinNames(pins);
 
             DataPin? pin = pins.Find(p => p.Name == "tot-count");
@@ -181,6 +181,10 @@ namespace Cadmus.Codicology.Parts.Test
 
             for (int n = 1; n <= 3; n++)
             {
+                pin = pins.Find(p => p.Name == "eid" && p.Value == $"d{n}");
+                Assert.NotNull(pin);
+                TestHelper.AssertPinIds(part, pin!);
+
                 pin = pins.Find(p => p.Name == $"subject-s{n}-count");
                 Assert.NotNull(pin);
                 TestHelper.AssertPinIds(part, pin!);

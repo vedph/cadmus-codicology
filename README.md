@@ -560,6 +560,10 @@ Manuscript's watermarks.
 
 ## History
 
+### 3.0.1
+
+- 2023-01-24: added `eid` pin to decorations part.
+
 ### 3.0.0
 
 - 2022-11-10: upgraded to NET 7.

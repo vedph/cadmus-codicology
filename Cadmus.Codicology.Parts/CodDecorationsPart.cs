@@ -50,6 +50,10 @@ namespace Cadmus.Codicology.Parts
             {
                 foreach (CodDecoration decoration in Decorations)
                 {
+                    // eid
+                    if (!string.IsNullOrEmpty(decoration.Eid))
+                        builder.AddValue("eid", decoration.Eid);
+
                     // chronotopes
                     if (decoration.Chronotopes?.Count > 0)
                     {
@@ -128,6 +132,10 @@ namespace Cadmus.Codicology.Parts
                 new DataPinDefinition(DataPinValueType.Integer,
                     "color-{COLOR}-count",
                     "The count of each decoration's colors."),
+                new DataPinDefinition(DataPinValueType.String,
+                   "eid",
+                   "The decorations IDs.",
+                   "M"),
                 new DataPinDefinition(DataPinValueType.String,
                     "artist-name",
                     "The list of artists names.",
