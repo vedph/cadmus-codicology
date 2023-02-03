@@ -15,6 +15,8 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [4.0.0](#400)
+    - [3.0.1](#301)
     - [3.0.0](#300)
     - [2.2.1](#221)
     - [2.2.0](#220)
@@ -559,6 +561,14 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 4.0.0
+
+- 2023-02-02: migrated to new components factory. This is a breaking change for backend components, please see [this page](https://myrmex.github.io/overview/cadmus/dev/history/#2023-02-01---backend-infrastructure-upgrade). Anyway, in the end you just have to update your libraries and a single namespace reference. Benefits include:
+  - more streamlined component instantiation.
+  - more functionality in components factory, including DI.
+  - dropped third party dependencies.
+  - adopted standard MS technologies for DI.
 
 ### 3.0.1
 
