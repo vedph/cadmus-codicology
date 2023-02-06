@@ -25,7 +25,7 @@ public sealed class CodMaterialDscPartSeeder : PartSeederBase
                 .RuleFor(u => u.Tag, f => f.PickRandom(null, "tag"))
                 .RuleFor(u => u.Material, f => f.PickRandom("parchment", "paper"))
                 .RuleFor(u => u.State, f => f.PickRandom("s1", "s2"))
-                .RuleFor(u => u.Range, SeedHelper.GetLocationRanges(1)[0])
+                .RuleFor(u => u.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(u => u.Chronotopes,
                     f => SeedHelper.GetAssertedChronotopes(f.Random.Number(1, 2)))
                 .RuleFor(u => u.NoGregory, f => f.Random.Bool(0.25f))

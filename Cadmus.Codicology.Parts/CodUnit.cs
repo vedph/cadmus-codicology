@@ -37,9 +37,9 @@ public class CodUnit
     public string? State { get; set; }
 
     /// <summary>
-    /// Gets or sets the range covered by this unit in the manuscript.
+    /// Gets or sets the range(s) covered by this unit in the manuscript.
     /// </summary>
-    public CodLocationRange? Range { get; set; }
+    public List<CodLocationRange> Ranges { get; set; }
 
     /// <summary>
     /// Gets or sets places/dates assigned to this unit.
@@ -64,6 +64,7 @@ public class CodUnit
     /// </summary>
     public CodUnit()
     {
+        Ranges = new List<CodLocationRange>();
         Chronotopes = new();
     }
 
@@ -80,7 +81,7 @@ public class CodUnit
         if (!string.IsNullOrEmpty(Material)) sb.Append(' ').Append(Material);
         if (!string.IsNullOrEmpty(Format))
             sb.Append(" (").Append(Format).Append(')');
-        if (Range != null) sb.Append(": ").Append(Range);
+        if (Ranges != null) sb.Append(": ").Append(Ranges);
 
         return sb.ToString();
     }

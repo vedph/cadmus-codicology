@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [4.0.1](#401)
     - [4.0.0](#400)
     - [3.0.1](#301)
     - [3.0.0](#300)
@@ -282,7 +283,7 @@ Specialized events related to any kind of text editing on the manuscript.
   - material\* (string) T:cod-unit-materials
   - format\* (string) T:cod-unit-formats
   - state\* (string) T:cod-unit-states
-  - range\* (`CodLocationRange`)
+  - ranges\* (`CodLocationRange[]`)
   - chronotopes\* (`AssertedChronotope[]`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - noGregory (boolean)
   - note (string)
@@ -561,6 +562,10 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 4.0.1
+
+- 2023-02-06: changed `CodUnit.Range` (single range) into `Ranges` (multiple ranges).
 
 ### 4.0.0
 
