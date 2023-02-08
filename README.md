@@ -247,7 +247,7 @@ Specialized events related to any kind of text editing on the manuscript.
       - sampleLocation\* (`CodLocation`)
       - description (string)
   - subscriptions (`CodHandSubscription[]`):
-    - range\* (`CodLocationRange`)
+    - ranges\* (`CodLocationRange[]`)
     - language\* (string) T:cod-hand-subscription-languages
     - text (string)
     - note (string)
@@ -562,6 +562,10 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 4.0.2
+
+- 2023-02-08: changed `CodHandSubscription.Range` (single range) into `Ranges` (multiple ranges).
 
 ### 4.0.1
 

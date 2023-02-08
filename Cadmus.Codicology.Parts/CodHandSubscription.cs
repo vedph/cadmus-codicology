@@ -1,4 +1,6 @@
-﻿namespace Cadmus.Codicology.Parts;
+﻿using System.Collections.Generic;
+
+namespace Cadmus.Codicology.Parts;
 
 /// <summary>
 /// A subscription in a manuscript's hand.
@@ -8,7 +10,7 @@ public class CodHandSubscription
     /// <summary>
     /// Gets or sets the range covered by the subscription.
     /// </summary>
-    public CodLocationRange? Range { get; set; }
+    public List<CodLocationRange> Ranges { get; set; }
 
     /// <summary>
     /// Gets or sets the language.
@@ -26,6 +28,14 @@ public class CodHandSubscription
     public string? Note { get; set; }
 
     /// <summary>
+    /// Initializes a new instance of the <see cref="CodHandSubscription"/> class.
+    /// </summary>
+    public CodHandSubscription()
+    {
+        Ranges = new();
+    }
+
+    /// <summary>
     /// Converts to string.
     /// </summary>
     /// <returns>
@@ -33,6 +43,6 @@ public class CodHandSubscription
     /// </returns>
     public override string ToString()
     {
-        return $"[{Language}] {Range}";
+        return $"[{Language}] {string.Join(", ", Ranges)}";
     }
 }

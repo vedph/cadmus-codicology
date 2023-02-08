@@ -81,7 +81,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         for (int n = 1; n <= count; n++)
         {
             subscriptions.Add(new Faker<CodHandSubscription>()
-                .RuleFor(s => s.Range, SeedHelper.GetLocationRanges(1)[0])
+                .RuleFor(s => s.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(s => s.Language, f => f.PickRandom("lat", "grc"))
                 .RuleFor(s => s.Text, f => f.Lorem.Sentence())
                 .RuleFor(s => s.Note, f => f.Lorem.Sentence().OrNull(f))
