@@ -16,6 +16,12 @@ public class CodSheetNColumnDefinition : CodSheetColumnDefinition
     public bool IsPagination { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether this numbering was provided
+    /// by the scribe.
+    /// </summary>
+    public bool IsByScribe { get; set; }
+
+    /// <summary>
     /// Gets or sets the numbering system (e.g. Arabic, Roman,
     /// Latin alphabetic, etc.).
     /// </summary>

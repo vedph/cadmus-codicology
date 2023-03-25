@@ -37,7 +37,8 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         for (int n = 1; n <= count; n++)
         {
             instances.Add(new Faker<CodHandInstance>()
-                .RuleFor(d => d.Script, f => f.PickRandom("got", "mea"))
+                .RuleFor(d => d.Scripts,
+                    f => new List<string> { f.PickRandom("got", "mea") })
                 .RuleFor(d => d.Typologies, f => new List<string>
                 {
                     f.PickRandom("text", "note")

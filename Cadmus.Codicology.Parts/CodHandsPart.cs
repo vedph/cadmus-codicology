@@ -54,8 +54,7 @@ public sealed class CodHandsPart : PartBase
                     foreach (CodHandInstance instance in hand.Instances)
                     {
                         // script+
-                        if (!string.IsNullOrEmpty(instance.Script))
-                            builder.AddValue("script", instance.Script);
+                        builder.AddValues("script", instance.Scripts);
 
                         // typology+
                         if (instance.Typologies?.Count > 0)

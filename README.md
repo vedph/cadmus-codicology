@@ -15,6 +15,8 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [4.1.0](#410)
+    - [4.0.2](#402)
     - [4.0.1](#401)
     - [4.0.0](#400)
     - [3.0.1](#301)
@@ -58,7 +60,7 @@ The models of some bricks are summarized here for the reader's commodity.
     - isDubious (boolean)
     - day (int)
     - month (int)
-    - hint (string
+    - hint (string)
   - b (`Datation`)
 
 - **CodLocation**:
@@ -221,7 +223,7 @@ Specialized events related to any kind of text editing on the manuscript.
   - eid (string)
   - name (string)
   - instances (`CodHandInstance`)
-    - script\* (string) T:cod-hand-scripts
+    - scripts\* (string[]) T:cod-hand-scripts
     - typologies\* (string[]) T:cod-hand-typologies
     - colors (string[]) T:cod-hand-colors
     - ranges\* (`CodLocationRange[]`)
@@ -345,6 +347,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
   - note (string)
   - isPagination (bool)
+  - isByScribe (bool)
   - system\* (string) T:cod-numbering-systems
   - technique\* (string) T:cod-numbering-techniques
   - position\* (string) T:cod-numbering-positions
@@ -562,6 +565,12 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 4.1.0
+
+- 2023-03-25:
+  - changed `script` to `scripts` for hand instance. This allows for multiple scripts, in their relevance order.
+  - added `isByScribe` to N-col definition.
 
 ### 4.0.2
 

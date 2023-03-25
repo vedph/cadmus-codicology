@@ -40,6 +40,7 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
             part.NDefinitions.Add(new Faker<CodSheetNColumnDefinition>()
                 .RuleFor(d => d.Id, i == 0? "n.alpha" : "n.beta")
                 .RuleFor(d => d.IsPagination, true)
+                .RuleFor(d => d.IsByScribe, i == 0)
                 .RuleFor(d => d.System, i == 0? "roman" : "arabic")
                 .RuleFor(d => d.Technique, f => f.PickRandom("ink", "lapis"))
                 .RuleFor(d => d.Position, f => f.PickRandom("mse", "msc"))

@@ -83,7 +83,7 @@ public sealed class CodHandsPartTest
                 {
                     new CodHandInstance
                     {
-                        Script = "script" + n,
+                        Scripts = new List<string>{ "script" + n },
                         Typologies = new List<string>
                         {
                             "typology" + n

@@ -1,4 +1,5 @@
 ﻿using Cadmus.Refs.Bricks;
+using System;
 using System.Collections.Generic;
 
 namespace Cadmus.Codicology.Parts;
@@ -9,9 +10,9 @@ namespace Cadmus.Codicology.Parts;
 public class CodHandInstance
 {
     /// <summary>
-    /// Gets or sets the script type.
+    /// Gets or sets the script(s) types.
     /// </summary>
-    public string? Script { get; set; }
+    public List<string> Scripts { get; set; }
 
     /// <summary>
     /// Gets or sets the typologies.
@@ -54,6 +55,7 @@ public class CodHandInstance
     /// </summary>
     public CodHandInstance()
     {
+        Scripts = new List<string>();
         Typologies = new List<string>();
         Colors = new List<string>();
         Ranges = new List<CodLocationRange>();
@@ -68,6 +70,7 @@ public class CodHandInstance
     /// </returns>
     public override string ToString()
     {
-        return $"{Script} ({Rank})";
+        return $"{string.Join(", ", (IList<string>)Scripts
+            ?? Array.Empty<string>())} ({Rank})";
     }
 }
