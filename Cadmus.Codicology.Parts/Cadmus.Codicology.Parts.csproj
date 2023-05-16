@@ -5,7 +5,7 @@
     <IncludeSymbols>true</IncludeSymbols>
 	<Nullable>enable</Nullable>
 	<SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	<Version>4.1.1</Version>
+	<Version>4.1.3</Version>
 	<Authors>Daniele Fusi</Authors>
 	<Company>Fusi</Company>
 	<Product>Cadmus</Product>
@@ -14,8 +14,8 @@
 	<NeutralLanguage>en-US</NeutralLanguage>
 	<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 	<PackageTags>Cadmus;parts</PackageTags>
-	<FileVersion>4.1.1</FileVersion>
-	<AssemblyVersion>4.1.1</AssemblyVersion>
+	<FileVersion>4.1.3</FileVersion>
+	<AssemblyVersion>4.1.3</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
