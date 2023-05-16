@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [4.1.2](#412)
     - [4.1.1](#411)
     - [4.1.0](#410)
     - [4.0.2](#402)
@@ -566,6 +567,10 @@ Manuscript's watermarks.
   - description (string)
 
 ## History
+
+### 4.1.2
+
+- 2023-05-16: updated packages for services.
 
 ### 4.1.1
 
