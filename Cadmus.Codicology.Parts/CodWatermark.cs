@@ -39,9 +39,9 @@ public class CodWatermark
     public PhysicalSize? Size { get; set; }
 
     /// <summary>
-    /// Gets or sets the date and/or place for this watermark.
+    /// Gets or sets the dates and/or places for this watermark.
     /// </summary>
-    public AssertedChronotope? Chronotope { get; set; }
+    public List<AssertedChronotope> Chronotopes { get; set; }
 
     /// <summary>
     /// Gets or sets a short description of this watermark.
@@ -54,6 +54,7 @@ public class CodWatermark
     public CodWatermark()
     {
         Ranges = new List<CodLocationRange>();
+        Chronotopes = new List<AssertedChronotope>();
         Ids = new List<AssertedId>();
     }
 

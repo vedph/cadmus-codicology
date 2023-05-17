@@ -1,7 +1,9 @@
 ﻿using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using Cadmus.Core;
+using Cadmus.Refs.Bricks;
 using Fusi.Tools.Configuration;
 
 namespace Cadmus.Codicology.Parts;
@@ -49,12 +51,16 @@ public sealed class CodWatermarksPart : PartBase
                     filterOptions: true);
                 if (watermark.Ids?.Count > 0)
                     builder.AddValues("id", watermark.Ids.Select(i => i.Value!));
-                if (!string.IsNullOrEmpty(watermark.Chronotope?.Place?.Value))
-                    builder.AddValue("place", watermark.Chronotope.Place.Value);
-                if (watermark.Chronotope?.Date is not null)
+
+                if (watermark.Chronotopes?.Count > 0)
                 {
-                    builder.AddValue("date-value",
-                        watermark.Chronotope.Date.GetSortValue());
+                    foreach (AssertedChronotope c in watermark.Chronotopes)
+                    {
+                        if (!string.IsNullOrEmpty(c.Place?.Value))
+                            builder.AddValue("place", c.Place?.Value);
+                        if (c.Date is not null)
+                            builder.AddValue("date-value", c.Date.GetSortValue());
+                    }
                 }
             }
         }

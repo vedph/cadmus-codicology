@@ -86,13 +86,17 @@ public class CodWatermarksPartTest
                 {
                     new AssertedId{Value = "mock/" + n}
                 },
-                Chronotope = new AssertedChronotope
+                Chronotopes = new List<AssertedChronotope>
                 {
-                    Place = new AssertedPlace
+                    new AssertedChronotope
                     {
-                        Value = even? "Even" : "Odd"
-                    },
-                    Date  = new AssertedDate(HistoricalDate.Parse($"{1400 + n}")!)
+                        Place = new AssertedPlace
+                        {
+                            Value = even? "Even" : "Odd"
+                        },
+                        Date  = new AssertedDate(
+                            HistoricalDate.Parse($"{1400 + n}")!)
+                    }
                 }
             });
         }

@@ -21,14 +21,19 @@ public class CodContentAnnotation
     public string? Incipit { get; set; }
 
     /// <summary>
-    /// Gets or sets the explicit.
+    /// Gets or sets the optional explicit.
     /// </summary>
     public string? Explicit { get; set; }
 
     /// <summary>
-    /// Gets or sets this annotation's text.
+    /// Gets or sets the optional annotation's text.
     /// </summary>
     public string? Text { get; set; }
+
+    /// <summary>
+    /// Gets or sets an optional note.
+    /// </summary>
+    public string? Note { get; set; }
 
     /// <summary>
     /// Converts to string.

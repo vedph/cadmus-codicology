@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [4.2.0](#420)
     - [4.1.3](#413)
     - [4.1.2](#412)
     - [4.1.1](#411)
@@ -149,8 +150,9 @@ The models of some bricks are summarized here for the reader's commodity.
     - type\* (string) T:cod-content-annotation-types
     - range\* (`CodLocationRange`)
     - incipit\* (string)
-    - explicit\* (string)
-    - text\* (string)
+    - explicit (string)
+    - text (string)
+    - note (string)
 
 ### CodDecorationsPart
 
@@ -564,10 +566,16 @@ Manuscript's watermarks.
   - ranges (`CodLocationRange[]`)
   - ids (`AssertedId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - size (`PhysicalSize`) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
-  - chronotope (`AssertedChronotope`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - chronotopes (`AssertedChronotope[]`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
 ## History
+
+### 4.2.0
+
+- 2023-05-17: minor changes to models:
+  - changed `CodWatermark` `chronotope` in `chronotopes`.
+  - added `note` to `CodContentAnnotation`.
 
 ### 4.1.3
 
