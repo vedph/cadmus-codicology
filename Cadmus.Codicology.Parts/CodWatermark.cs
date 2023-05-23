@@ -31,7 +31,7 @@ public class CodWatermark
     /// Briquet (https://briquet-online.at) or Piccard
     /// (https://www.piccard-online.de/struktur.php).
     /// </summary>
-    public List<AssertedId> Ids { get; set; }
+    public List<AssertedCompositeId> Ids { get; set; }
 
     /// <summary>
     /// Gets or sets the size.
@@ -55,7 +55,7 @@ public class CodWatermark
     {
         Ranges = new List<CodLocationRange>();
         Chronotopes = new List<AssertedChronotope>();
-        Ids = new List<AssertedId>();
+        Ids = new List<AssertedCompositeId>();
     }
 
     /// <summary>
@@ -72,8 +72,8 @@ public class CodWatermark
         if (Ranges?.Count > 0)
             sb.Append('@').AppendJoin(" ", Ranges);
         if (Ids?.Count > 0)
-            sb.Append(": ").AppendJoin(" ", Ids.Select(i => i.Value));
+            sb.Append(": ").AppendJoin(" ", Ids.Select(i => i.Target?.Gid));
 
-        return sb.ToString();
+        return sb.ToString().TrimEnd();
     }
 }

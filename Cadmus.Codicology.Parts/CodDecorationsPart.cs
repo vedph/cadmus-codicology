@@ -102,7 +102,8 @@ public sealed class CodDecorationsPart : PartBase
                         if (artist.Ids != null)
                         {
                             builder.AddValues("artist-id",
-                                artist.Ids.Select(id => id.Value!));
+                                artist.Ids.Where(id => id.Target?.Gid != null)
+                                          .Select(id => id.Target!.Gid));
                         }
                     }
                 }

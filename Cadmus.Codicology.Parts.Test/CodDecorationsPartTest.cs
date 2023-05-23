@@ -95,11 +95,14 @@ public sealed class CodDecorationsPartTest
                         new CodDecorationArtist
                         {
                             Name = "Petrus",
-                            Ids = new List<AssertedId>
+                            Ids = new List<AssertedCompositeId>
                             {
-                                new AssertedId
+                                new AssertedCompositeId
                                 {
-                                    Value = "petrus123"
+                                    Target = new PinTarget
+                                    {
+                                        Gid = "petrus123"
+                                    }
                                 }
                             }
                         }

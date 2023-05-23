@@ -82,9 +82,15 @@ public class CodWatermarksPartTest
             part.Watermarks.Add(new CodWatermark
             {
                 Name = "n" + n,
-                Ids = new List<AssertedId>
+                Ids = new List<AssertedCompositeId>
                 {
-                    new AssertedId{Value = "mock/" + n}
+                    new AssertedCompositeId
+                    {
+                        Target = new PinTarget
+                        {
+                            Gid = "mock/" + n
+                        }
+                    }
                 },
                 Chronotopes = new List<AssertedChronotope>
                 {

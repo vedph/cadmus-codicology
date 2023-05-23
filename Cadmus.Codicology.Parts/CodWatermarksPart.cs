@@ -1,5 +1,4 @@
 ﻿using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using Cadmus.Core;
@@ -38,8 +37,7 @@ public sealed class CodWatermarksPart : PartBase
     /// these keys: <c>id</c>, <c>place</c>, <c>date-value</c>.</returns>
     public override IEnumerable<DataPin> GetDataPins(IItem? item = null)
     {
-        DataPinBuilder builder = new(
-            DataPinHelper.DefaultFilter);
+        DataPinBuilder builder = new(DataPinHelper.DefaultFilter);
 
         builder.Set("tot", Watermarks?.Count ?? 0, false);
 
@@ -50,7 +48,11 @@ public sealed class CodWatermarksPart : PartBase
                 builder.AddValue("name", watermark.Name, filter: true,
                     filterOptions: true);
                 if (watermark.Ids?.Count > 0)
-                    builder.AddValues("id", watermark.Ids.Select(i => i.Value!));
+                {
+                    builder.AddValues("id", watermark.Ids
+                        .Where(i => i.Target?.Gid != null)
+                        .Select(i => i.Target!.Gid));
+                }
 
                 if (watermark.Chronotopes?.Count > 0)
                 {

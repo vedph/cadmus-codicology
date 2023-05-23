@@ -92,6 +92,28 @@ internal static class SeedHelper
         return ids;
     }
 
+    public static List<AssertedCompositeId> GetAssertedCompositeIds(int count)
+    {
+        List<AssertedCompositeId> ids = new();
+
+        for (int n = 1; n <= count; n++)
+        {
+            ids.Add(new Faker<AssertedCompositeId>()
+                .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
+                .RuleFor(r => r.Scope, f => f.Lorem.Word())
+                .RuleFor(r => r.Target, f =>
+                    new PinTarget
+                    {
+                        Gid = f.Internet.Url(),
+                        Label = $"n{n}"
+                    })
+                .RuleFor(r => r.Assertion, GetAssertion())
+                .Generate());
+        }
+
+        return ids;
+    }
+
     public static Assertion GetAssertion()
     {
         return new Faker<Assertion>()

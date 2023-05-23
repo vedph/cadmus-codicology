@@ -28,7 +28,7 @@ public class CodWatermarksPartSeeder : PartSeederBase
                 .RuleFor(w => w.Ranges,
                     new List<CodLocationRange> { ranges[n - 1] })
                 .RuleFor(w => w.Ids,
-                    f => SeedHelper.GetAssertedIds(f.Random.Number(1, 3)))
+                    f => SeedHelper.GetAssertedCompositeIds(f.Random.Number(1, 3)))
                 .Generate());
         }
         return watermarks;

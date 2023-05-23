@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [5.0.0](#500)
     - [4.2.0](#420)
     - [4.1.3](#413)
     - [4.1.2](#412)
@@ -167,7 +168,7 @@ The models of some bricks are summarized here for the reader's commodity.
     - eid (string)
     - type\* (string) T:cod-decoration-artist-types
     - name\* (string)
-    - ids (`AssertedId[]`)
+    - ids (`AssertedCompositeId[]`)
     - styles (`CodDecorationArtistStyle[]`):
       - name\* (string) T:cod-decoration-artist-style-names
       - chronotope (`AssertedChronotope`)
@@ -200,6 +201,8 @@ The models of some bricks are summarized here for the reader's commodity.
       - label (string)
       - copyright (string)
     - note (string)
+
+> ⚠️ `artists.ids` was of type `AssertedId[]` before version 5.
 
 ### CodEditsPart
 
@@ -564,12 +567,31 @@ Manuscript's watermarks.
   - name\* (string)
   - sampleRange\* (`CodLocationRange`)
   - ranges (`CodLocationRange[]`)
-  - ids (`AssertedId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
+  - ids (`AssertedCompositeId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags:
+    - target (PinTarget):
+      - gid\* (string)
+      - label\* (string)
+      - itemId (string)
+      - partId (string)
+      - partTypeId (string)
+      - roleId (string)
+      - name (string)
+      - value (string)
+    - scope (string)
+    - assertion (`Assertion`)
   - size (`PhysicalSize`) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - chronotopes (`AssertedChronotope[]`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
 
+> ⚠️ `ids` was of type `AssertedId[]` before version 5.
+
 ## History
+
+### 5.0.0
+
+- 2023-05-23: breaking changes following the introduction of [AssertedCompositeId](https://github.com/vedph/cadmus-bricks-shell/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-id) in general parts:
+  - decorations part
+  - watermarks part
 
 ### 4.2.0
 

@@ -26,7 +26,7 @@ public class CodDecorationArtist
     /// <summary>
     /// Gets or sets the optional asserted IDs for this author.
     /// </summary>
-    public List<AssertedId> Ids { get; set; }
+    public List<AssertedCompositeId> Ids { get; set; }
 
     /// <summary>
     /// Gets or sets the styles.
@@ -50,7 +50,7 @@ public class CodDecorationArtist
     /// </summary>
     public CodDecorationArtist()
     {
-        Ids = new List<AssertedId>();
+        Ids = new List<AssertedCompositeId>();
         Styles = new List<CodDecorationArtistStyle>();
         ElementKeys = new List<string>();
     }
