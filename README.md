@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [5.0.5](#505)
     - [5.0.4](#504)
     - [5.0.3](#503)
     - [5.0.2](#502)
@@ -590,6 +591,10 @@ Manuscript's watermarks.
 > ⚠️ `ids` was of type `AssertedId[]` before version 5.
 
 ## History
+
+### 5.0.5
+
+- 2023-06-23: updated packages.
 
 ### 5.0.4
 
