@@ -40,6 +40,11 @@ public class CodHand
     public List<DocReference> References { get; set; }
 
     /// <summary>
+    /// Gets or sets the identification(s) for this hand.
+    /// </summary>
+    public List<AssertedCompositeId> Ids { get; set; }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="CodHand"/> class.
     /// </summary>
     public CodHand()
@@ -48,6 +53,7 @@ public class CodHand
         Descriptions = new List<CodHandDescription>();
         Subscriptions = new List<CodHandSubscription>();
         References = new List<DocReference>();
+        Ids = new List<AssertedCompositeId>();
     }
 
     /// <summary>

@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [5.0.6](#506)
     - [5.0.5](#505)
     - [5.0.4](#504)
     - [5.0.3](#503)
@@ -173,7 +174,18 @@ The models of some bricks are summarized here for the reader's commodity.
     - eid (string)
     - type\* (string) T:cod-decoration-artist-types
     - name\* (string)
-    - ids (`AssertedCompositeId[]`)
+    - ids (`AssertedCompositeId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags:
+      - target (`PinTarget`):
+        - gid\* (string)
+        - label\* (string)
+        - itemId (string)
+        - partId (string)
+        - partTypeId (string)
+        - roleId (string)
+        - name (string)
+        - value (string)
+      - scope (string)
+      - assertion (`Assertion`)
     - styles (`CodDecorationArtistStyle[]`):
       - name\* (string) T:cod-decoration-artist-style-names
       - chronotope (`AssertedChronotope`)
@@ -267,6 +279,7 @@ Specialized events related to any kind of text editing on the manuscript.
     - text (string)
     - note (string)
   - references (`DocReference[]`) T:doc-reference-types, T:doc-reference-tags
+  - ids (`AssertedCompositeId[]`)
 
 ### CodLayoutsPart
 
@@ -572,18 +585,7 @@ Manuscript's watermarks.
   - name\* (string)
   - sampleRange\* (`CodLocationRange`)
   - ranges (`CodLocationRange[]`)
-  - ids (`AssertedCompositeId[]`) T:id-tags, T:id-scopes, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags:
-    - target (PinTarget):
-      - gid\* (string)
-      - label\* (string)
-      - itemId (string)
-      - partId (string)
-      - partTypeId (string)
-      - roleId (string)
-      - name (string)
-      - value (string)
-    - scope (string)
-    - assertion (`Assertion`)
+  - ids (`AssertedCompositeId[]`)
   - size (`PhysicalSize`) T:physical-size-tags, T:physical-size-dim-tags, T:physical-size-units
   - chronotopes (`AssertedChronotope[]`) T:chronotope-tags, T:assertion-tags, T:doc-reference-types, T:doc-reference-tags
   - description (string)
@@ -591,6 +593,10 @@ Manuscript's watermarks.
 > ⚠️ `ids` was of type `AssertedId[]` before version 5.
 
 ## History
+
+### 5.0.6
+
+- 2023-07-17: added `ids` to `CodHand` for hand's identifications.
 
 ### 5.0.5
 

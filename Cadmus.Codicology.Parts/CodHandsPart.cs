@@ -49,6 +49,14 @@ public sealed class CodHandsPart : PartBase
                 // eid
                 builder.AddValue("eid", hand.Eid);
 
+                // ids
+                if (hand.Ids?.Count > 0)
+                {
+                    builder.AddValues("id", hand.Ids
+                        .Where(cid => cid.Target != null)
+                        .Select(cid => cid.Target!.Gid));
+                }
+
                 if (hand.Instances?.Count > 0)
                 {
                     foreach (CodHandInstance instance in hand.Instances)
@@ -97,6 +105,10 @@ public sealed class CodHandsPart : PartBase
             new DataPinDefinition(DataPinValueType.String,
                "eid",
                "The list of hands EIDs.",
+               "M"),
+            new DataPinDefinition(DataPinValueType.String,
+               "id",
+               "The list of hands identifications.",
                "M"),
             new DataPinDefinition(DataPinValueType.String,
                "script",
