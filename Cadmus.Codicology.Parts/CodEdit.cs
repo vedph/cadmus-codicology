@@ -26,6 +26,11 @@ public class CodEdit
     public string? Tag { get; set; }
 
     /// <summary>
+    /// Gets or sets the author ids.
+    /// </summary>
+    public List<AssertedCompositeId> AuthorIds { get; set; }
+
+    /// <summary>
     /// Gets or sets the edit technique(s).
     /// </summary>
     public List<string> Techniques { get; set; }
@@ -74,6 +79,7 @@ public class CodEdit
         Colors = new List<string>();
         Ranges = new List<CodLocationRange>();
         References = new List<DocReference>();
+        AuthorIds = new List<AssertedCompositeId>();
     }
 
     /// <summary>

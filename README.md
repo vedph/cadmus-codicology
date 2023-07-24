@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [5.0.7](#507)
     - [5.0.6](#506)
     - [5.0.5](#505)
     - [5.0.4](#504)
@@ -231,6 +232,7 @@ Specialized events related to any kind of text editing on the manuscript.
   - eid (string)
   - type\* (string) T:cod-edit-types
   - tag (string) T:cod-edit-tags
+  - authorIds (`AssertedCompositeId[]`)
   - techniques (string[]) T:cod-edit-techniques
   - ranges\* (`CodLocationRange[]`)
   - language (string) T:cod-edit-languages
@@ -593,6 +595,10 @@ Manuscript's watermarks.
 > ⚠️ `ids` was of type `AssertedId[]` before version 5.
 
 ## History
+
+### 5.0.7
+
+- 2023-07-24: added `authorIds` to `CodEdit`.
 
 ### 5.0.6
 

@@ -57,8 +57,15 @@ public sealed class CodEditsPart : PartBase, IHasText
             {
                 builder.AddValue("eid", edit.Eid);
                 builder.AddValue("type", edit.Type);
+                if (edit.AuthorIds?.Count > 0)
+                {
+                    builder.AddValues("author", edit.AuthorIds.Select(
+                        i => i.Target!.Gid));
+                }
+
                 if (edit.Techniques?.Count > 0)
                     builder.AddValues("technique", edit.Techniques);
+
                 builder.AddValue("language", edit.Language);
 
                 if (edit.Colors?.Count > 0)
@@ -85,6 +92,10 @@ public sealed class CodEditsPart : PartBase, IHasText
             new DataPinDefinition(DataPinValueType.String,
                 "eid",
                 "The edits entity IDs.",
+                "M"),
+            new DataPinDefinition(DataPinValueType.String,
+                "author",
+                "The edits authors.",
                 "M"),
             new DataPinDefinition(DataPinValueType.String,
                 "type",
