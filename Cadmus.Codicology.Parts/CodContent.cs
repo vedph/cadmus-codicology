@@ -1,8 +1,12 @@
-﻿using System.Collections.Generic;
+﻿using Cadmus.Refs.Bricks;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Cadmus.Codicology.Parts;
 
+/// <summary>
+/// A single content unit in a manuscript.
+/// </summary>
 public class CodContent
 {
     /// <summary>
@@ -12,9 +16,9 @@ public class CodContent
     public string? Eid { get; set; }
 
     /// <summary>
-    /// Gets or sets the author.
+    /// Gets or sets the identifier of the work from some authority list.
     /// </summary>
-    public string? Author { get; set; }
+    public AssertedCompositeId? WorkId { get; set; }
 
     /// <summary>
     /// Gets or sets the range(s) covered by this content in the manuscript.
@@ -27,7 +31,14 @@ public class CodContent
     public List<string>? States { get; set; }
 
     /// <summary>
-    /// Gets or sets the content's standard title.
+    /// Gets or sets the author. Usually this is specified when
+    /// not setting <see cref="WorkId"/>."/>
+    /// </summary>
+    public string? Author { get; set; }
+
+    /// <summary>
+    /// Gets or sets the content's title. Usually this is specified when
+    /// not setting <see cref="WorkId"/>."/>
     /// </summary>
     public string? Title { get; set; }
 

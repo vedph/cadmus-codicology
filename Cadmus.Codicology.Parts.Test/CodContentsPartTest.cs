@@ -1,4 +1,5 @@
 ﻿using Cadmus.Core;
+using Cadmus.Refs.Bricks;
 using Cadmus.Seed.Codicology.Parts;
 using System;
 using System.Collections.Generic;
@@ -80,6 +81,13 @@ public sealed class CodContentsPartTest
             part.Contents.Add(new CodContent
             {
                 Eid = "n" + n,
+                WorkId = new AssertedCompositeId
+                {
+                    Target = new PinTarget
+                    {
+                        Gid = "g" + n,
+                    }
+                },
                 States = new List<string> { even ? "intact" : "fragments" },
                 Title = "Title " + n,
                 ClaimedAuthor = "Author " + n,
@@ -89,7 +97,7 @@ public sealed class CodContentsPartTest
 
         List<DataPin> pins = part.GetDataPins(null).ToList();
 
-        Assert.Equal(15, pins.Count);
+        Assert.Equal(18, pins.Count);
 
         DataPin? pin = pins.Find(p => p.Name == "tot-count");
         Assert.NotNull(pin);
@@ -102,6 +110,16 @@ public sealed class CodContentsPartTest
         TestHelper.AssertPinIds(part, pin!);
 
         pin = pins.Find(p => p.Name == "eid" && p.Value == "n3");
+        Assert.NotNull(pin);
+        TestHelper.AssertPinIds(part, pin!);
+
+        pin = pins.Find(p => p.Name == "work-id" && p.Value == "g1");
+        Assert.NotNull(pin);
+        TestHelper.AssertPinIds(part, pin!);
+        pin = pins.Find(p => p.Name == "work-id" && p.Value == "g2");
+        Assert.NotNull(pin);
+        TestHelper.AssertPinIds(part, pin!);
+        pin = pins.Find(p => p.Name == "work-id" && p.Value == "g3");
         Assert.NotNull(pin);
         TestHelper.AssertPinIds(part, pin!);
 

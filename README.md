@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [5.0.8](#508)
     - [5.0.7](#507)
     - [5.0.6](#506)
     - [5.0.5](#505)
@@ -144,9 +145,11 @@ The models of some bricks are summarized here for the reader's commodity.
 
 - contents (`CodContent[]`):
   - eid (string)
+  - workId (`AssertedCompositeId`): the optional reference to an authority work. When set, usually you do not need to set `author` and `title`.
   - range\* (`CodLocationRange`)
   - states\* (string[]) T:cod-content-states
-  - title\* (string)
+  - author (string)
+  - title (string)
   - location (string)
   - claimedAuthor (string)
   - claimedTitle (string)
@@ -595,6 +598,10 @@ Manuscript's watermarks.
 > ⚠️ `ids` was of type `AssertedId[]` before version 5.
 
 ## History
+
+### 5.0.8
+
+- 2023-07-30: added `workId` to `CodContent`.
 
 ### 5.0.7
 

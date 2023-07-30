@@ -49,6 +49,8 @@ public sealed class CodContentsPart : PartBase
             foreach (CodContent content in Contents)
             {
                 builder.AddValue("eid", content.Eid);
+                builder.AddValue("work-id", content.WorkId?.Target?.Gid);
+
                 if (content.States?.Count > 0)
                     builder.AddValues("state", content.States);
                 builder.AddValue("title", content.Title,
@@ -81,6 +83,10 @@ public sealed class CodContentsPart : PartBase
             new DataPinDefinition(DataPinValueType.String,
                "eid",
                "The contents IDs.",
+               "M"),
+            new DataPinDefinition(DataPinValueType.String,
+               "work-id",
+               "The work IDs.",
                "M"),
             new DataPinDefinition(DataPinValueType.String,
                "state",
