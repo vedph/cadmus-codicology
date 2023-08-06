@@ -4,6 +4,8 @@ using Cadmus.Codicology.Parts;
 using Fusi.Tools.Configuration;
 using System.Text.Json;
 using System.Diagnostics;
+using System;
+using System.Linq;
 
 namespace Cadmus.Codicology.Graph;
 
@@ -54,7 +56,7 @@ public class CodLocationMacro : INodeMappingMacro
             {
                 CodLocationRange[] ranges = JsonSerializer
                     .Deserialize<CodLocationRange[]>(args[0], _options)!;
-                return string.Join(", ", ranges.Select(r => r.ToString()));
+                return string.Join(" ", ranges.Select(r => r.ToString()));
             }
 
             // single range (if the document has a start property)
@@ -67,7 +69,8 @@ public class CodLocationMacro : INodeMappingMacro
             }
 
             // else single location
-            CodLocation? loc = JsonSerializer.Deserialize<CodLocation>(args[0]);
+            CodLocation? loc = JsonSerializer.Deserialize<CodLocation>(args[0],
+                _options);
 
             return loc?.ToString();
         }
