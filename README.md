@@ -599,7 +599,9 @@ Manuscript's watermarks.
 
 ## History
 
-- 2023-08-06: adding `CodLocation` macro for graph mappers.
+- 2023-08-06:
+  - add `CodLocation` macro for graph mappers.
+  - fixed `CodLocationEndleaf` out of synch values (frontend was more up to date).
 
 ### 5.0.8
 
