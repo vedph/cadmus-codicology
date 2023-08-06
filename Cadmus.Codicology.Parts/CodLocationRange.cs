@@ -17,13 +17,17 @@ public class CodLocationRange
     public CodLocation? End { get; set; }
 
     /// <summary>
-    /// Converts to string.
+    /// Converts to a parsable string.
     /// </summary>
     /// <returns>
     /// A <see cref="string" /> that represents this instance.
     /// </returns>
     public override string ToString()
     {
-        return $"{Start}-{End}";
+        if (Start == null || End == null) return "";
+
+        string a = Start.ToString();
+        string b = End.ToString();
+        return a == b ? a : $"{a}-{b}";
     }
 }

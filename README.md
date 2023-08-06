@@ -599,6 +599,8 @@ Manuscript's watermarks.
 
 ## History
 
+- 2023-08-06: adding `CodLocation` macro for graph mappers.
+
 ### 5.0.8
 
 - 2023-07-30: added `workId` to `CodContent`.

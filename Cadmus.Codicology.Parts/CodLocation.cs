@@ -1,11 +1,13 @@
-﻿using System.Text;
+﻿using System.Globalization;
+using System.Text;
+using System.Text.RegularExpressions;
 
 namespace Cadmus.Codicology.Parts;
 
 /// <summary>
 /// Location in a manuscript's sheet.
 /// </summary>
-public class CodLocation
+public partial class CodLocation
 {
     /// <summary>
     /// Gets or sets the endleaf type.
@@ -60,7 +62,7 @@ public class CodLocation
     public string? Word { get; set; }
 
     /// <summary>
-    /// Converts to string.
+    /// Converts to a parsable string.
     /// </summary>
     /// <returns>
     /// A <see cref="string" /> that represents this instance.
@@ -68,25 +70,106 @@ public class CodLocation
     public override string ToString()
     {
         StringBuilder sb = new();
+
+        // endleaf open
         if (Endleaf != CodLocationEndleaf.None)
-            sb.Append(Endleaf == CodLocationEndleaf.End ? "(/" : "(");
-
-        if (!string.IsNullOrEmpty(S)) sb.Append(S).Append(':');
-        if (Rmn) sb.Append('^');
-        sb.Append(N);
-        if (!string.IsNullOrEmpty(Sfx))
-            sb.Append('"').Append(Sfx).Append('"');
-        if (V != null)
         {
-            sb.Append(V == true ? 'v' : 'r');
-            if (!string.IsNullOrEmpty(C)) sb.Append(C);
+            sb.Append(Endleaf switch
+            {
+                CodLocationEndleaf.FrontEndleaf => "(",
+                CodLocationEndleaf.BackEndleaf => "(/",
+                CodLocationEndleaf.FrontCover => "[",
+                CodLocationEndleaf.BackCover => "[/",
+                _ => ""
+            });
         }
-        if (L != 0) sb.Append('.').Append(L);
 
+        // s:
+        if (!string.IsNullOrEmpty(S)) sb.Append(S).Append(':');
+        // rmn
+        if (Rmn) sb.Append('^');
+        // n
+        if (N != 0) sb.Append(N);
+        // sfx
+        if (!string.IsNullOrEmpty(Sfx)) sb.Append(Sfx);
+        // v or r
+        if (V.HasValue) sb.Append(V.Value ? 'v' : 'r');
+        // c
+        if (!string.IsNullOrEmpty(C)) sb.Append(C);
+        // .l
+        if (L != 0) sb.Append('.').Append(L);
+        // @word
         if (!string.IsNullOrEmpty(Word)) sb.Append('@').Append(Word);
 
-        if (Endleaf != CodLocationEndleaf.None) sb.Append(')');
+        // endleaf close
+        if (Endleaf != CodLocationEndleaf.None)
+        {
+            sb.Append(Endleaf switch
+            {
+                CodLocationEndleaf.FrontEndleaf => ")",
+                CodLocationEndleaf.BackEndleaf => ")",
+                CodLocationEndleaf.FrontCover => "]",
+                CodLocationEndleaf.BackCover => "]",
+                _ => ""
+            });
+        }
+
         return sb.ToString();
+    }
+
+    [GeneratedRegex(
+        @"^(?<f>[\[\(]/?)?" +
+        @"(?:(?<s>[a-zA-Z][_.a-zA-Z0-9]*):)?" +
+        @"(?<rmn>\^)?" +
+        @"(?<n>[0-9]*)" +
+        @"(?:""(?<sfx>[^""]*)"")?" +
+        @"(?<v>[rv])?" +
+        @"(?<c>[a-q])?" +
+        @"(?:\.(?<l>[0-9]+))?" +
+        @"(?:@(?<word>[\p{L}]+))?" +
+        @"[\)\]]?$")]
+    private static partial Regex LocationRegex();
+
+    /// <summary>
+    /// Parses the specified text representing a <see cref="CodLocation"/>.
+    /// </summary>
+    /// <param name="text">The text.</param>
+    /// <returns>Location or null.</returns>
+    public static CodLocation? Parse(string? text)
+    {
+        if (string.IsNullOrEmpty(text)) return null;
+
+        Regex r = LocationRegex();
+        Match m = r.Match(text);
+        if (!m.Success) return null;
+
+        return new CodLocation
+        {
+            Endleaf = m.Groups["f"].Value switch
+            {
+                "(" => CodLocationEndleaf.FrontEndleaf,
+                "(/" => CodLocationEndleaf.BackEndleaf,
+                "[" => CodLocationEndleaf.FrontCover,
+                "[/" => CodLocationEndleaf.BackCover,
+                _ => CodLocationEndleaf.None
+            },
+            S = m.Groups["s"].Value.Length == 0? null : m.Groups["s"].Value,
+            Rmn = m.Groups["rmn"].Value.Length > 0,
+            N = m.Groups["n"].Value.Length == 0
+                ? 0
+                : int.Parse(m.Groups["n"].Value, CultureInfo.InvariantCulture),
+            Sfx = m.Groups["sfx"].Value.Length == 0? null : m.Groups["sfx"].Value,
+            V = m.Groups["v"].Value.Length == 0
+                ? null
+                : m.Groups["v"].Value == "v",
+            C = m.Groups["c"].Value.Length == 0? null : m.Groups["c"].Value,
+            L = m.Groups["l"].Value.Length == 0
+                ? 0
+                : int.Parse(m.Groups["l"].Value, CultureInfo.InvariantCulture),
+            Word = m.Groups["word"].Value.Length == 0
+                ? null
+                : m.Groups["word"].Value,
+        };
     }
 }
 
@@ -95,7 +178,14 @@ public class CodLocation
 /// </summary>
 public enum CodLocationEndleaf
 {
+    /// <summary>No endleaf.</summary>
     None = 0,
-    Start,
-    End
+    /// <summary>Front cover endleaf.</summary>
+    FrontCover = 1,
+    /// <summary>Front endleaf.</summary>
+    FrontEndleaf = 2,
+    /// <summary>Back endleaf.</summary>
+    BackEndleaf = 3,
+    /// <summary>Back cover endleaf.</summary>
+    BackCover = 4,
 }

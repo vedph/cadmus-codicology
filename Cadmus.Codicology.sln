@@ -22,6 +22,10 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Cadmus.Codicology.Services", "Cadmus.Codicology.Services\Cadmus.Codicology.Services.csproj", "{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.Codicology.Graph", "Cadmus.Codicology.Graph\Cadmus.Codicology.Graph.csproj", "{EF98A477-FC62-49EB-B473-2096CC64B6C5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Cadmus.Codicology.Graph.Test", "Cadmus.Codicology.Graph.Test\Cadmus.Codicology.Graph.Test.csproj", "{B0263A20-50D8-4B09-87D1-A934FE35FD09}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -48,6 +52,14 @@ Global
 		{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{BF461E2E-7DE0-4CE0-B7FB-98350DB18E0F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF98A477-FC62-49EB-B473-2096CC64B6C5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF98A477-FC62-49EB-B473-2096CC64B6C5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF98A477-FC62-49EB-B473-2096CC64B6C5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF98A477-FC62-49EB-B473-2096CC64B6C5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B0263A20-50D8-4B09-87D1-A934FE35FD09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B0263A20-50D8-4B09-87D1-A934FE35FD09}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B0263A20-50D8-4B09-87D1-A934FE35FD09}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B0263A20-50D8-4B09-87D1-A934FE35FD09}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
