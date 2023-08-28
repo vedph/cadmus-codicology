@@ -599,6 +599,9 @@ Manuscript's watermarks.
 
 ## History
 
+### 5.0.9
+
+- 2023-08-28: updated packages.
 - 2023-08-06:
   - add `CodLocation` macro for graph mappers in new library `Cadmus.Codicology.Graph`. If you need this macro, in your API startup DI configuration add the macro to the existing set when building `GraphUpdater`.
   - fixed `CodLocationEndleaf` out of synch values (frontend was more up to date).
