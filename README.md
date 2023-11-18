@@ -15,6 +15,7 @@
     - [CodShelfmarksPart](#codshelfmarkspart)
     - [CodWatermarksPart](#codwatermarkspart)
   - [History](#history)
+    - [6.0.0](#600)
     - [5.0.11](#5011)
     - [5.0.10](#5010)
     - [5.0.9](#509)
@@ -601,6 +602,10 @@ Manuscript's watermarks.
 > ⚠️ `ids` was of type `AssertedId[]` before version 5.
 
 ## History
+
+### 6.0.0
+
+- 2023-11-18: ⚠️ Upgraded to .NET 8.
 
 ### 5.0.11
 
