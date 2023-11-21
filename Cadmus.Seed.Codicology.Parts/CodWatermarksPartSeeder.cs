@@ -46,8 +46,7 @@ public class CodWatermarksPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodWatermarksPart part = new Faker<CodWatermarksPart>()
            .RuleFor(p => p.Watermarks, f => GetWatermarks(f.Random.Number(1, 3)))

@@ -124,8 +124,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodHandsPart part = new Faker<CodHandsPart>()
            .RuleFor(p => p.Hands, f => GetHands(f.Random.Number(1, 2)))

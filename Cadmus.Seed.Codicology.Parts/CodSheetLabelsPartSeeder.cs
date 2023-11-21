@@ -29,7 +29,7 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null) throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodSheetLabelsPart part = new();
         SetPartMetadata(part, roleId, item);

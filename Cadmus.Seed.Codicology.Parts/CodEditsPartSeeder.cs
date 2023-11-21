@@ -57,8 +57,7 @@ public sealed class CodEditsPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodEditsPart part = new Faker<CodEditsPart>()
            .RuleFor(p => p.Edits, f => GetEdits(f.Random.Number(1, 3)))

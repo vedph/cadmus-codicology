@@ -70,8 +70,7 @@ public sealed class CodContentsPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodContentsPart part = new Faker<CodContentsPart>()
            .RuleFor(p => p.Contents, f => GetContents(f.Random.Number(1, 3)))

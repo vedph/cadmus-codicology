@@ -46,8 +46,7 @@ public sealed class CodBindingsPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodBindingsPart part = new Faker<CodBindingsPart>()
            .RuleFor(p => p.Bindings, f => GetBindings(f.Random.Number(1, 3)))

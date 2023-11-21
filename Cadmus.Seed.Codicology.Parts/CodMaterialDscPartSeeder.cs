@@ -63,8 +63,7 @@ public sealed class CodMaterialDscPartSeeder : PartSeederBase
     public override IPart GetPart(IItem item, string? roleId,
         PartSeederFactory? factory)
     {
-        if (item == null)
-            throw new ArgumentNullException(nameof(item));
+        ArgumentNullException.ThrowIfNull(item);
 
         CodMaterialDscPart part = new Faker<CodMaterialDscPart>()
            .RuleFor(p => p.Units, f => GetUnits(f.Random.Number(2, 5)))

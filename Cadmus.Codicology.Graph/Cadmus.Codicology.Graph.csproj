@@ -13,13 +13,13 @@
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<PackageTags>Cadmus;parts</PackageTags>
-		<Version>6.0.0</Version>
-		<FileVersion>6.0.0</FileVersion>
-		<AssemblyVersion>6.0.0</AssemblyVersion>
+		<Version>6.0.1</Version>
+		<FileVersion>6.0.1</FileVersion>
+		<AssemblyVersion>6.0.1</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Graph" Version="4.0.0" />
+		<PackageReference Include="Cadmus.Graph" Version="5.0.2" />
 	</ItemGroup>
 
 	<ItemGroup>
