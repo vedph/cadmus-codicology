@@ -1,0 +1,55 @@
+# Codicology Material Description
+
+🔑 `it.vedph.codicology.material-dsc`
+
+- units\* (`CodUnit[]`):
+  - eid (`string`)
+  - tag (`string`) 📚 `cod-unit-tags`
+  - material\* (`string`) 📚 `cod-unit-materials`
+  - format\* (`string`) 📚 `cod-unit-formats`
+  - state\* (`string`) 📚 `cod-unit-states`
+  - ranges\* (`CodLocationRange[]`):
+    - start\* (`CodLocation`):
+      - endleaf (int): 0=none 1=start 2=end
+      - s (string): system
+      - n\* (int): sheet number
+      - rmn (boolean): Roman system for `n`
+      - sfx (string): arbitrary suffix
+      - v (boolean?): verso or recto or unspecified/not-applicable
+      - c (string): column
+      - l (string): line
+      - word (string): reference word
+    - end\* (`CodLocation`)
+  - chronotopes\* (`AssertedChronotope[]`):
+    - place (`AssertedPlace`)
+      - tag (`string` 📚 `chronotope-tags`)
+      - value (`string`)
+      - assertion (`Assertion`):
+        - tag (`string` 📚 `assertion-tags`)
+        - rank (`short`)
+        - references (`DocReference[]`):
+          - type (`string` 📚 `doc-reference-types`)
+          - tag (`string` 📚 `doc-reference-tags`)
+          - citation (`string`)
+          - note (`string`)
+    - date (`AssertedDate`):
+      - a* (`Datation`):
+        - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
+        - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
+        - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
+        - month (`short`): the month number (1-12) or 0.
+        - day (`short`): the day number (1-31) or 0.
+        - isApproximate (`boolean`): true if the point is approximate ("about").
+        - isDubious (`boolean`): true if the point is dubious ("perhaphs").
+        - hint (`string`): a short textual hint used to better explain or motivate the datation point.
+      - b (`Datation`)
+      - tag (`string`)
+      - assertion (`Assertion`)
+  - noGregory (`boolean`)
+  - note (`string`)
+- palimpsests (`CodPalimpsest[]`):
+  - range\* (`CodLocationRange`)
+  - chronotope (`AssertedChronotope`) 📚 `chronotope-tags`, 📚 `assertion-tags`, 📚 `doc-reference-types`, 📚 `doc-reference-tags`:
+  - note (`string`)
+
+Note: endleaves are described in [sheet labels](cod-sheet-labels.md).
