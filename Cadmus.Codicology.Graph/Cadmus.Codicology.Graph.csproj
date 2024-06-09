@@ -13,9 +13,9 @@
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<PackageTags>Cadmus;parts</PackageTags>
-		<Version>6.0.3</Version>
-		<FileVersion>6.0.3</FileVersion>
-		<AssemblyVersion>6.0.3</AssemblyVersion>
+		<Version>6.0.4</Version>
+		<FileVersion>6.0.4</FileVersion>
+		<AssemblyVersion>6.0.4</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
