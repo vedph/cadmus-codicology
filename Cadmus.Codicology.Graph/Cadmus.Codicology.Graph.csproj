@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
 	<PropertyGroup>
-		<TargetFramework>net8.0</TargetFramework>
+		<TargetFramework>net9.0</TargetFramework>
 		<IncludeSymbols>true</IncludeSymbols>
 		<Nullable>enable</Nullable>
 		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
@@ -13,13 +13,13 @@
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<PackageTags>Cadmus;parts</PackageTags>
-		<Version>6.0.5</Version>
-		<FileVersion>6.0.5</FileVersion>
-		<AssemblyVersion>6.0.5</AssemblyVersion>
+		<Version>7.0.0</Version>
+		<FileVersion>7.0.0</FileVersion>
+		<AssemblyVersion>7.0.0</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Graph" Version="7.0.4" />
+		<PackageReference Include="Cadmus.Graph" Version="8.0.0" />
 	</ItemGroup>
 
 	<ItemGroup>
