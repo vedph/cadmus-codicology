@@ -91,6 +91,9 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 7.0.1
+
+- 2024-11-30: updated packages.
 - 2024-11-20: updated test packages.
 
 ### 7.0.0
