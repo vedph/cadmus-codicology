@@ -3,29 +3,20 @@
 🔑 `it.vedph.codicology.layouts`
 
 - layouts (`CodLayout[]`):
-  - sample\* ([CodLocation](cod-location.md)):
-    - endleaf (int): 0=none 1=start 2=end
-    - s (string): system
-    - n\* (int): sheet number
-    - rmn (boolean): Roman system for `n`
-    - sfx (string): arbitrary suffix
-    - v (boolean?): verso or recto or unspecified/not-applicable
-    - c (string): column
-    - l (string): line
-    - word (string): reference word
+  - sample\* ([CodLocation](cod-location.md))
   - ranges\* ([CodLocationRange[]](cod-location-range.md)):
-  - dimensions (`PhysicalDimension[]`):
+  - dimensions (🧱 [PhysicalDimension[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/physical-dimension.md)):
     - value\* (`number`)
     - unit\* (`string` 📚 `physical-size-units`)
     - tag (`string` 📚 `physical-size-dim-tags`)
-  - rulingTechnique (`string`) 📚 `cod-layout-ruling-techniques`
-  - derolez (`string`) 📚 `cod-layout-derolez`
-  - pricking (`string`) 📚 `cod-layout-prickings`
+  - rulingTechnique (`string` 📚 `cod-layout-ruling-techniques`)
+  - derolez (`string` 📚 `cod-layout-derolez`)
+  - pricking (`string` 📚 `cod-layout-prickings`)
   - columnCount\* (int)
-  - counts (`DecoratedCount[]`):
-    - id* (`string`) 📚 `cod-layout-counts`
+  - counts (🧱 [DecoratedCount[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/decorated-count.md)):
+    - id* (`string` 📚 `cod-layout-counts`)
     - value* (`int`)
     - tag (`string`)
     - note (`string`)
-  - tag (`string`) 📚 `cod-layout-tags`
+  - tag (`string` 📚 `cod-layout-tags`)
   - note (`string`)

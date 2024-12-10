@@ -11,68 +11,68 @@ So, we can first imagine a bidimensional **table**, having 1 **row** per _physic
 Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus 0 or 1 column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
 
 - rows (`CodSheetRow[]`)
-  - id\* (`string`): the physical sheet ID, equal to the physical sheet `CodLocation` string value (`1r`, `1v`, `2r`, `2v`... etc).
+  - id\* (`string`): the physical sheet ID, equal to the physical sheet [CodLocation](cod-location.md) string value (`1r`, `1v`, `2r`, `2v`... etc).
   - columns (`CodSheetColumn[]`):
     - id\* (`string`): assigned according to a convention (see below).
     - value: the cell's value.
     - note
 - endleaves (`CodEndleaf[]`):
   - location\* (`string`): the endleaf location. This links these data to the endleaf row's ID in the table.
-  - material\* (`string`) T:cod-endleaf-materials
-  - chronotope (`AssertedChronotope`):
-    - place (`AssertedPlace`):
-      - tag (`string`)
-      - value\* (`string`)
-      - assertion (`Assertion`):
-        - tag (`string`)
-        - rank (short)
-        - references (`DocReference[]`):
-          - type (`string`)
-          - tag (`string`)
-          - citation\* (`string`)
+  - material\* (`string`) 📚cod-endleaf-materials
+  - chronotope\* (🧱 [AssertedChronotope](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md)):
+    - place (🧱 [AssertedPlace](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-place.md))
+      - tag (`string` 📚 `chronotope-tags`)
+      - value (`string`)
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
+        - tag (`string` 📚 `assertion-tags`)
+        - rank (`short`)
+        - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
+          - type (`string` 📚 `doc-reference-types`)
+          - tag (`string` 📚 `doc-reference-tags`)
+          - citation (`string`)
           - note (`string`)
-    - date (`AssertedDate`):
-      - a* (`Datation`):
-        - value* (int): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
-        - isCentury (boolean): true if value is a century number; false if it's a Gregorian year.
-        - isSpan (boolean): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
-        - month (short): the month number (1-12) or 0.
-        - day (short): the day number (1-31) or 0.
-        - isApproximate (boolean): true if the point is approximate ("about").
-        - isDubious (boolean): true if the point is dubious ("perhaphs").
+    - date (🧱 [AssertedDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-date.md)):
+      - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
+        - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
+        - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
+        - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
+        - month (`short`): the month number (1-12) or 0.
+        - day (`short`): the day number (1-31) or 0.
+        - isApproximate (`boolean`): true if the point is approximate ("about").
+        - isDubious (`boolean`): true if the point is dubious ("perhaphs").
         - hint (`string`): a short textual hint used to better explain or motivate the datation point.
-      - b (`Datation`)
+      - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
-      - assertion (`Assertion`)
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
 - nDefinitions (`CodSheetNColumnDefinition[]`): numbering on sheets:
   - id\* (`string`)
   - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
   - note (`string`)
   - isPagination (bool)
   - isByScribe (bool)
-  - system\* (`string`) T:cod-numbering-systems
-  - technique\* (`string`) T:cod-numbering-techniques
-  - position\* (`string`) T:cod-numbering-positions
+  - system\* (`string` 📚 cod-numbering-systems)
+  - technique\* (`string` 📚 cod-numbering-techniques)
+  - position\* (`string` 📚 cod-numbering-positions)
   - colors (`string[]`)
   - date (`HistoricalDate`)
 - cDefinitions (`CodSheetCColumnDefinition[]`): catchwords on sheets:
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - position\* (`string`) T:cod-catchwords-positions
+  - position\* (`string` 📚 cod-catchwords-positions)
   - isVertical (bool)
   - decoration (`string`)
 - sDefinitions (`CodSheetSColumnDefinition[]`): quire signatures on sheets:
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - system\* (`string`) T:cod-quiresig-systems
-  - position\* (`string`) T:cod-quiresig-positions
+  - system\* (`string` 📚cod-quiresig-systems)
+  - position\* (`string` 📚cod-quiresig-positions)
 - rDefinitions (`CodSheetRColumnDefinition[]`): quire register signatures:
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - position\* (`string`) T:cod-quiresig-positions
+  - position\* (`string` 📚cod-quiresig-positions)
 
 Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed. So, a typical quire sequence is like this:
 
@@ -116,7 +116,7 @@ The original design, reflecting more traditional approaches, had these 3 parts:
 The model for `CodQuiresPart` included any number of quires, each described with a start/end sheet number, a count of its sheets, and an optional delta number representing sheets added or removed to the original quire, plus eventually a note:
 
 - quires (`CodQuire[]`):
-  - tag (`string`) T:cod-quire-tags
+  - tag (`string`) 📚cod-quire-tags
   - startNr\* (number)
   - endNr\* (number)
   - sheetCount\* (number)
@@ -127,18 +127,18 @@ The model for `CodQuireLabelsPart` included all the "labels" attached to quires 
 
 - catchwords (`CodCatchword[]`):
   - range\* ([CodLocationRange](cod-location-range.md))
-  - position\* (`string`) T:cod-catchwords-positions
+  - position\* (`string`) 📚cod-catchwords-positions
   - isVertical (boolean)
   - decoration (`string`)
   - note (`string`)
 - quireSignatures (`CodQuireSignature[]`):
   - range\* ([CodLocationRange](cod-location-range.md))
-  - position\* (`string`) T:cod-quiresig-positions
-  - system\* (`string`) T:cod-quiresig-systems
+  - position\* (`string`) 📚cod-quiresig-positions
+  - system\* (`string`) 📚cod-quiresig-systems
   - note (`string`)
 - quireRegSignatures (`CodQuireRegSignature[]`):
   - range\* ([CodLocationRange](cod-location-range.md))
-  - position\* (`string`) T:cod-quiresig-positions
+  - position\* (`string`) 📚cod-quiresig-positions
   - note (`string`)
 
 Here we had 3 lists for catchwords, quire signatures, and quire register signatures, each with the range of sheets covered.
@@ -149,10 +149,10 @@ Finally, the model for `CodNumberingsPart` described numberings on the manuscrip
   - eid (`string`)
   - isMain (boolean)
   - isPagination (boolean)
-  - system\* (`string`) T:cod-numbering-systems
-  - technique\* (`string`) T:cod-numbering-techniques
-  - position\* (`string`) T:cod-numbering-positions
-  - colors (`string`[]) T:cod-numbering-colors
+  - system\* (`string`) 📚cod-numbering-systems
+  - technique\* (`string`) 📚cod-numbering-techniques
+  - position\* (`string`) 📚cod-numbering-positions
+  - colors (`string`[]) 📚cod-numbering-colors
   - date (`HistoricalDate`)
   - ranges\* (`CodLocationRange[]`)
   - spans (`CodNumberingSpan[]`):

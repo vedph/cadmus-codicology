@@ -5,24 +5,24 @@
 - units\* (`CodUnit[]`):
   - eid (`string`)
   - tag (`string`) 📚 `cod-unit-tags`
-  - material\* (`string`) 📚 `cod-unit-materials`
-  - format\* (`string`) 📚 `cod-unit-formats`
-  - state\* (`string`) 📚 `cod-unit-states`
+  - material\* (`string` 📚 `cod-unit-materials`)
+  - format\* (`string` 📚 `cod-unit-formats`)
+  - state\* (`string` 📚 `cod-unit-states`)
   - ranges\* ([CodLocationRange[]](cod-location-range.md)):
-  - chronotopes\* (`AssertedChronotope[]`):
-    - place (`AssertedPlace`)
+  - chronotopes\* (🧱 [AssertedChronotope[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md)):
+    - place (🧱 [AssertedPlace](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-place.md))
       - tag (`string` 📚 `chronotope-tags`)
       - value (`string`)
-      - assertion (`Assertion`):
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
         - tag (`string` 📚 `assertion-tags`)
         - rank (`short`)
-        - references (`DocReference[]`):
+        - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
           - type (`string` 📚 `doc-reference-types`)
           - tag (`string` 📚 `doc-reference-tags`)
           - citation (`string`)
           - note (`string`)
-    - date (`AssertedDate`):
-      - a* (`Datation`):
+    - date (🧱 [AssertedDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-date.md)):
+      - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
         - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
         - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
         - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
@@ -31,14 +31,14 @@
         - isApproximate (`boolean`): true if the point is approximate ("about").
         - isDubious (`boolean`): true if the point is dubious ("perhaphs").
         - hint (`string`): a short textual hint used to better explain or motivate the datation point.
-      - b (`Datation`)
+      - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
-      - assertion (`Assertion`)
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
   - noGregory (`boolean`)
   - note (`string`)
 - palimpsests (`CodPalimpsest[]`):
   - range\* ([CodLocationRange](cod-location-range.md))
-  - chronotope (`AssertedChronotope`) 📚 `chronotope-tags`, 📚 `assertion-tags`, 📚 `doc-reference-types`, 📚 `doc-reference-tags`:
+  - chronotope (🧱 [AssertedChronotope](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md))
   - note (`string`)
 
-Note: endleaves are described in [sheet labels](cod-sheet-labels.md).
+>Endleaves are described in [sheet labels](cod-sheet-labels.md).

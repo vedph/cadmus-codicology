@@ -5,8 +5,8 @@ Manuscript's shelfmark(s). Usually there is just one, unless you are also adding
 🔑 `it.vedph.codicology.shelfmarks`
 
 - shelfmarks (`CodShelfmark[]`):
-  - tag (`string`) 📚 `cod-shelfmark-tags`
+  - tag (`string` 📚 `cod-shelfmark-tags`)
   - city\* (`string`)
-  - library\* (`string`) 📚 `cod-shelfmark-libraries`
+  - library\* (`string` 📚 `cod-shelfmark-libraries`)
   - fund (`string`)
   - location\* (`string`)
