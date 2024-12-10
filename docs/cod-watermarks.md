@@ -6,7 +6,7 @@ Manuscript's watermarks.
 
 - watermarks (`CodWatermark[]`):
   - name\* (`string`)
-  - sampleRange\* (`CodLocationRange`):
+  - sampleRange\* ([CodLocationRange](cod-location-range.md)):
     - start\* (`CodLocation`):
       - endleaf (int): 0=none 1=start 2=end
       - s (string): system

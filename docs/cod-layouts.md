@@ -3,7 +3,7 @@
 🔑 `it.vedph.codicology.layouts`
 
 - layouts (`CodLayout[]`):
-  - sample\* (`CodLocation`):
+  - sample\* ([CodLocation](cod-location.md)):
     - endleaf (int): 0=none 1=start 2=end
     - s (string): system
     - n\* (int): sheet number
@@ -13,9 +13,7 @@
     - c (string): column
     - l (string): line
     - word (string): reference word
-  - ranges\* (`CodLocationRange[]`):
-    - start\* (`CodLocation`)
-    - end\* (`CodLocation`)
+  - ranges\* ([CodLocationRange[]](cod-location-range.md)):
   - dimensions (`PhysicalDimension[]`):
     - value\* (`number`)
     - unit\* (`string` 📚 `physical-size-units`)

@@ -126,18 +126,18 @@ The model for `CodQuiresPart` included any number of quires, each described with
 The model for `CodQuireLabelsPart` included all the "labels" attached to quires for structural purposes connected to the assembly of the book, i.e. catchwords and signatures on manuscript's quires:
 
 - catchwords (`CodCatchword[]`):
-  - range\* (`CodLocationRange`)
+  - range\* ([CodLocationRange](cod-location-range.md))
   - position\* (`string`) T:cod-catchwords-positions
   - isVertical (boolean)
   - decoration (`string`)
   - note (`string`)
 - quireSignatures (`CodQuireSignature[]`):
-  - range\* (`CodLocationRange`)
+  - range\* ([CodLocationRange](cod-location-range.md))
   - position\* (`string`) T:cod-quiresig-positions
   - system\* (`string`) T:cod-quiresig-systems
   - note (`string`)
 - quireRegSignatures (`CodQuireRegSignature[]`):
-  - range\* (`CodLocationRange`)
+  - range\* ([CodLocationRange](cod-location-range.md))
   - position\* (`string`) T:cod-quiresig-positions
   - note (`string`)
 
@@ -156,7 +156,7 @@ Finally, the model for `CodNumberingsPart` described numberings on the manuscrip
   - date (`HistoricalDate`)
   - ranges\* (`CodLocationRange[]`)
   - spans (`CodNumberingSpan[]`):
-    - range (`CodLocationRange`)
+    - range ([CodLocationRange](cod-location-range.md))
     - start (`string`)
     - end (`string`)
   - issues (`string`)

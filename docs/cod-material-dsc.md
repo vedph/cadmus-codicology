@@ -8,18 +8,7 @@
   - material\* (`string`) 📚 `cod-unit-materials`
   - format\* (`string`) 📚 `cod-unit-formats`
   - state\* (`string`) 📚 `cod-unit-states`
-  - ranges\* (`CodLocationRange[]`):
-    - start\* (`CodLocation`):
-      - endleaf (int): 0=none 1=start 2=end
-      - s (string): system
-      - n\* (int): sheet number
-      - rmn (boolean): Roman system for `n`
-      - sfx (string): arbitrary suffix
-      - v (boolean?): verso or recto or unspecified/not-applicable
-      - c (string): column
-      - l (string): line
-      - word (string): reference word
-    - end\* (`CodLocation`)
+  - ranges\* ([CodLocationRange[]](cod-location-range.md)):
   - chronotopes\* (`AssertedChronotope[]`):
     - place (`AssertedPlace`)
       - tag (`string` 📚 `chronotope-tags`)
@@ -48,7 +37,7 @@
   - noGregory (`boolean`)
   - note (`string`)
 - palimpsests (`CodPalimpsest[]`):
-  - range\* (`CodLocationRange`)
+  - range\* ([CodLocationRange](cod-location-range.md))
   - chronotope (`AssertedChronotope`) 📚 `chronotope-tags`, 📚 `assertion-tags`, 📚 `doc-reference-types`, 📚 `doc-reference-tags`:
   - note (`string`)
 

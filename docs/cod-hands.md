@@ -9,34 +9,23 @@
     - scripts\* (`string[]`) 📚 `cod-hand-scripts`
     - typologies\* (`string[]`) 📚 `cod-hand-typologies`
     - colors (`string[]`) 📚 `cod-hand-colors`
-    - ranges\* (`CodLocationRange[]`):
-      - start\* (`CodLocation`):
-        - endleaf (int): 0=none 1=start 2=end
-        - s (`string`): system
-        - n\* (`int`): sheet number
-        - rmn (`boolean`): Roman system for `n`
-        - sfx (`string`): arbitrary suffix
-        - v (`boolean?`): verso or recto or unspecified/not-applicable
-        - c (`string`): column
-        - l (`string`): line
-        - word (`string`): reference word
-      - end\* (`CodLocation`)
+    - ranges\* ([CodLocationRange[]](cod-location-range.md)):
     - rank (short)
     - descriptionKey (`string`)
-    - chronotope (`AssertedChronotope`):
-      - place (`AssertedPlace`)
+    - chronotope\* (🧱 [AssertedChronotope](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md)):
+      - place (🧱 [AssertedPlace](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-place.md))
         - tag (`string` 📚 `chronotope-tags`)
         - value (`string`)
-        - assertion (`Assertion`):
+        - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
           - tag (`string` 📚 `assertion-tags`)
           - rank (`short`)
-          - references (`DocReference[]`):
+          - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
             - type (`string` 📚 `doc-reference-types`)
             - tag (`string` 📚 `doc-reference-tags`)
             - citation (`string`)
             - note (`string`)
-      - date (`AssertedDate`):
-        - a* (`Datation`):
+      - date (🧱 [AssertedDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-date.md)):
+        - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
           - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
           - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
           - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
@@ -45,12 +34,12 @@
           - isApproximate (`boolean`): true if the point is approximate ("about").
           - isDubious (`boolean`): true if the point is dubious ("perhaphs").
           - hint (`string`): a short textual hint used to better explain or motivate the datation point.
-        - b (`Datation`)
+        - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
         - tag (`string`)
-        - assertion (`Assertion`)
+        - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
     - images (`CodImage[]`):
       - id\* (`string`)
-      - type\* (`string`) 📚 cod-image-types
+      - type\* (`string` 📚 cod-image-types)
       - sourceId (`string`)
       - label (`string`)
       - copyright (`string`)
@@ -63,16 +52,16 @@
     - abbreviations (`string`)
     - signs (`CodHandSign[]`):
       - eid (`string`)
-      - type\* (`string`) 📚 cod-hand-sign-types
-      - sampleLocation\* (`CodLocation`)
+      - type\* (`string` 📚 cod-hand-sign-types)
+      - sampleLocation\* ([CodLocation](cod-location.md))
       - description (`string`)
   - subscriptions (`CodHandSubscription[]`):
-    - ranges\* (`CodLocationRange[]`)
-    - language\* (`string`) 📚 cod-hand-subscription-languages
+    - ranges\* ([CodLocationRange[]](cod-location-range.md))
+    - language\* (`string` 📚 `cod-hand-subscription-languages`)
     - text (`string`)
     - note (`string`)
-  - references (`DocReference[]`)
-  - ids (`AssertedCompositeId[]`):
+  - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md))
+  - ids (🧱 [AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-composite-id.md)):
     - target (`PinTarget`):
       - gid\* (`string`)
       - label\* (`string`)
@@ -83,4 +72,4 @@
       - name (`string`)
       - value (`string`)
     - scope (`string`)
-    - assertion (`Assertion`)
+    - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))

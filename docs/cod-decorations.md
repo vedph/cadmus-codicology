@@ -6,20 +6,20 @@
   - eid (`string`)
   - name\* (`string`)
   - flags (`string`[]) 📚 `cod-decoration-flags`
-  - chronotopes (`AssertedChronotope[]`):
+  - chronotopes (🧱 [AssertedChronotope[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md)):
     - place (`AssertedPlace`)
       - tag (`string` 📚 `chronotope-tags`)
       - value (`string`)
-      - assertion (`Assertion`):
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
         - tag (`string` 📚 `assertion-tags`)
         - rank (`short`)
-        - references (`DocReference[]`):
+        - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
           - type (`string` 📚 `doc-reference-types`)
           - tag (`string` 📚 `doc-reference-tags`)
           - citation (`string`)
           - note (`string`)
-    - date (`AssertedDate`):
-      - a* (`Datation`):
+    - date (🧱 [AssertedDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-date.md)):
+      - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
         - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
         - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
         - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
@@ -28,14 +28,14 @@
         - isApproximate (`boolean`): true if the point is approximate ("about").
         - isDubious (`boolean`): true if the point is dubious ("perhaphs").
         - hint (`string`): a short textual hint used to better explain or motivate the datation point.
-      - b (`Datation`)
+      - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
-      - assertion (`Assertion`)
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
   - artists (`CodDecorationArtist[]`):
     - eid (`string`)
     - type\* (`string`) 📚 cod-decoration-artist-types
     - name\* (`string`)
-    - ids (`AssertedCompositeId[]`):
+    - ids (🧱 [AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-composite-id.md)):
       - target (`PinTarget`):
         - gid\* (`string`)
         - label\* (`string`)
@@ -46,36 +46,21 @@
         - name (`string`)
         - value (`string`)
       - scope (`string`)
-      - assertion (`Assertion`)
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
     - styles (`CodDecorationArtistStyle[]`):
       - name\* (`string`) 📚 cod-decoration-artist-style-names
-      - chronotope (`AssertedChronotope`)
-      - assertion (`Assertion`)
+      - chronotope (🧱 [AssertedChronotope](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md))
+      - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
     - elementKeys (`string`[])
     - note (`string`)
   - note (`string`)
-  - references (`DocReference[]`):
-    - type (`string` 📚 `doc-reference-types`)
-    - tag (`string` 📚 `doc-reference-tags`)
-    - citation\* (`string`)
-    - note (`string`)
+  - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
   - elements (`CodDecorationElement[]`):
     - key (`string`)
     - parentKey (`string`)
     - type\* (`string`) 📚 cod-decoration-element-types
     - flags (`string`[]) 📚 cod-decoration-element-flags
-    - ranges\* (`CodLocationRange[]`):
-      - start\* (`CodLocation`):
-        - endleaf (int): 0=none 1=start 2=end
-        - s (string): system
-        - n\* (int): sheet number
-        - rmn (boolean): Roman system for `n`
-        - sfx (string): arbitrary suffix
-        - v (boolean?): verso or recto or unspecified/not-applicable
-        - c (string): column
-        - l (string): line
-        - word (string): reference word
-      - end\* (`CodLocation`)
+    - ranges\* ([CodLocationRange[]](cod-location-range.md)):
     - instanceCount (int)
     - typologies (`string`) 📚 cod-decoration-element-typologies
     - subject (`string`)
