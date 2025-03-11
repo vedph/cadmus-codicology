@@ -17,7 +17,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 {
     private static List<CodHandSign> GetSigns(int count)
     {
-        List<CodHandSign> signs = new();
+        List<CodHandSign> signs = [];
         for (int n = 1; n <= count; n++)
         {
             signs.Add(new Faker<CodHandSign>()
@@ -33,20 +33,20 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 
     private static List<CodHandInstance> GetInstances(int count)
     {
-        List<CodHandInstance> instances = new();
+        List<CodHandInstance> instances = [];
         for (int n = 1; n <= count; n++)
         {
             instances.Add(new Faker<CodHandInstance>()
                 .RuleFor(d => d.Scripts,
-                    f => new List<string> { f.PickRandom("got", "mea") })
-                .RuleFor(d => d.Typologies, f => new List<string>
-                {
+                    f => [f.PickRandom("got", "mea")])
+                .RuleFor(d => d.Typologies, f =>
+                [
                     f.PickRandom("text", "note")
-                })
-                .RuleFor(d => d.Colors, f => new List<string>
-                {
+                ])
+                .RuleFor(d => d.Colors, f =>
+                [
                     f.PickRandom("red", "blue")
-                })
+                ])
                 .RuleFor(d => d.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(d => d.Rank, f => f.Random.Short(1, 3))
                 .RuleFor(d => d.DescriptionKey, "d1")
@@ -60,7 +60,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 
     private static List<CodHandDescription> GetDescriptions(int count)
     {
-        List<CodHandDescription> descriptions = new();
+        List<CodHandDescription> descriptions = [];
         for (int n = 1; n <= count; n++)
         {
             descriptions.Add(new Faker<CodHandDescription>()
@@ -78,7 +78,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 
     private static List<CodHandSubscription> GetSubscriptions(int count)
     {
-        List<CodHandSubscription> subscriptions = new();
+        List<CodHandSubscription> subscriptions = [];
         for (int n = 1; n <= count; n++)
         {
             subscriptions.Add(new Faker<CodHandSubscription>()
@@ -93,7 +93,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 
     private static List<CodHand> GetHands(int count)
     {
-        List<CodHand> hands = new();
+        List<CodHand> hands = [];
         for (int n = 1; n <= count; n++)
         {
             hands.Add(new Faker<CodHand>()

@@ -17,7 +17,7 @@ public sealed class CodLayoutsPartSeeder : PartSeederBase
 {
     private static List<DecoratedCount> GetCounts(int count)
     {
-        List<DecoratedCount> counts = new();
+        List<DecoratedCount> counts = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -45,8 +45,8 @@ public sealed class CodLayoutsPartSeeder : PartSeederBase
             .RuleFor(p => p.Ranges, SeedHelper.GetLocationRanges(1))
             .RuleFor(p => p.Dimensions,
                 f => SeedHelper.GetDimensions(f.Random.Number(1, 3)))
-            .RuleFor(p => p.RulingTechnique,
-                f => f.PickRandom(new[] { "dry", "color" }))
+            .RuleFor(p => p.RulingTechniques,
+                f => [f.PickRandom("dry", "color")])
             .RuleFor(p => p.Derolez, f => f.Lorem.Word())
             .RuleFor(p => p.Pricking, f => f.Lorem.Word())
             .RuleFor(p => p.ColumnCount, f => f.Random.Number(1, 4))

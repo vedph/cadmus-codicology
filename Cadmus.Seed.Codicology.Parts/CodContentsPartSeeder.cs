@@ -18,7 +18,7 @@ public sealed class CodContentsPartSeeder : PartSeederBase
     private static List<CodContentAnnotation> GetAnnotations(int count)
     {
         List<CodContentAnnotation> annotations =
-            new();
+            [];
         for (int n = 1; n <= count; n++)
         {
             annotations.Add(new Faker<CodContentAnnotation>()
@@ -35,14 +35,14 @@ public sealed class CodContentsPartSeeder : PartSeederBase
 
     private static List<CodContent> GetContents(int count)
     {
-        List<CodContent> contents = new();
+        List<CodContent> contents = [];
         for (int n = 1; n <= count; n++)
         {
             contents.Add(new Faker<CodContent>()
                 .RuleFor(c => c.Eid, f => f.Lorem.Word())
                 .RuleFor(c => c.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(c => c.States,
-                    f => new List<string> { f.PickRandom("headless", "gaps") })
+                    f => [f.PickRandom("headless", "gaps")])
                 .RuleFor(c => c.Title, f => f.Lorem.Sentence(2, 4))
                 .RuleFor(c => c.Location,
                     f => $"{f.Random.Number(1, 12)}.{f.Random.Number(1, 100)}")

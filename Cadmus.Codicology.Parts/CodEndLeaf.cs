@@ -24,6 +24,11 @@ public class CodEndleaf
     public AssertedChronotope? Chronotope { get; set; }
 
     /// <summary>
+    /// Gets or sets the note.
+    /// </summary>
+    public string? Note { get; set; }
+
+    /// <summary>
     /// Converts to string.
     /// </summary>
     /// <returns>

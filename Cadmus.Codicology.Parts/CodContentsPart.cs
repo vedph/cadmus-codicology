@@ -23,7 +23,7 @@ public sealed class CodContentsPart : PartBase
     /// </summary>
     public CodContentsPart()
     {
-        Contents = new List<CodContent>();
+        Contents = [];
     }
 
     /// <summary>
@@ -75,7 +75,7 @@ public sealed class CodContentsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -104,7 +104,7 @@ public sealed class CodContentsPart : PartBase
                "claimed-title",
                "The contents claimed titles.",
                "MF"),
-        });
+        }];
     }
 
     /// <summary>

@@ -45,7 +45,7 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
                 .RuleFor(d => d.Technique, f => f.PickRandom("ink", "lapis"))
                 .RuleFor(d => d.Position, f => f.PickRandom("mse", "msc"))
                 .RuleFor(d => d.Colors,
-                    f => new List<string> { f.PickRandom("red", "dark-brown") })
+                    f => [f.PickRandom("red", "dark-brown")])
                 .RuleFor(d => d.Date, HistoricalDate.Parse($"{1300 + i} AD"))
                 .Generate());
         }

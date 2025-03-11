@@ -88,7 +88,7 @@ public sealed class CodContentsPartTest
                         Gid = "g" + n,
                     }
                 },
-                States = new List<string> { even ? "intact" : "fragments" },
+                States = [even ? "intact" : "fragments"],
                 Title = "Title " + n,
                 ClaimedAuthor = "Author " + n,
                 ClaimedTitle = "Title " + n

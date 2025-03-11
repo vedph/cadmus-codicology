@@ -27,6 +27,12 @@ public class CodWatermark
     public List<CodLocationRange> Ranges { get; set; }
 
     /// <summary>
+    /// Gets or sets a value indicating whether ranges refer to quires rather
+    /// than sheets.
+    /// </summary>
+    public bool RangesAsQuire { get; set; }
+
+    /// <summary>
     /// Gets or sets the watermark IDs, usually from repertories like
     /// Briquet (https://briquet-online.at) or Piccard
     /// (https://www.piccard-online.de/struktur.php).
@@ -53,9 +59,9 @@ public class CodWatermark
     /// </summary>
     public CodWatermark()
     {
-        Ranges = new List<CodLocationRange>();
-        Chronotopes = new List<AssertedChronotope>();
-        Ids = new List<AssertedCompositeId>();
+        Ranges = [];
+        Chronotopes = [];
+        Ids = [];
     }
 
     /// <summary>

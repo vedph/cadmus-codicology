@@ -23,7 +23,7 @@ public sealed class CodHandsPart : PartBase
     /// </summary>
     public CodHandsPart()
     {
-        Hands = new List<CodHand>();
+        Hands = [];
     }
 
     /// <summary>
@@ -83,6 +83,18 @@ public sealed class CodHandsPart : PartBase
                     builder.AddValues("subs-language",
                         hand.Subscriptions.Select(s => s.Language!));
                 }
+
+                if (hand.Descriptions?.Count > 0)
+                {
+                    foreach (CodHandDescription dsc in hand.Descriptions)
+                    {
+                        // mufi
+                        builder.AddValues("mufi",
+                            dsc.Signs.Select(s => s.Mufi)
+                                .Where(n => n != null)
+                                .Select(n => $"{n:X6}"));
+                    }
+                }
             }
         }
 
@@ -97,7 +109,7 @@ public sealed class CodHandsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -129,8 +141,12 @@ public sealed class CodHandsPart : PartBase
             new DataPinDefinition(DataPinValueType.String,
                "subs-language",
                "The list of hands subscriptions languages.",
-               "M")
-        });
+               "M"),
+            new DataPinDefinition(DataPinValueType.String,
+                "mufi",
+                "The list of hex MUFI codes.",
+                "M"),
+        }];
     }
 
     /// <summary>

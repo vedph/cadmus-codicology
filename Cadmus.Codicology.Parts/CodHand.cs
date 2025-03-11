@@ -49,11 +49,11 @@ public class CodHand
     /// </summary>
     public CodHand()
     {
-        Instances = new List<CodHandInstance>();
-        Descriptions = new List<CodHandDescription>();
-        Subscriptions = new List<CodHandSubscription>();
-        References = new List<DocReference>();
-        Ids = new List<AssertedCompositeId>();
+        Instances = [];
+        Descriptions = [];
+        Subscriptions = [];
+        References = [];
+        Ids = [];
     }
 
     /// <summary>

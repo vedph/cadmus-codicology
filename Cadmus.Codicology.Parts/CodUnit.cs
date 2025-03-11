@@ -64,8 +64,8 @@ public class CodUnit
     /// </summary>
     public CodUnit()
     {
-        Ranges = new List<CodLocationRange>();
-        Chronotopes = new();
+        Ranges = [];
+        Chronotopes = [];
     }
 
     /// <summary>

@@ -25,7 +25,7 @@ public sealed class CodDecorationsPart : PartBase
     /// </summary>
     public CodDecorationsPart()
     {
-        Decorations = new List<CodDecoration>();
+        Decorations = [];
     }
 
     /// <summary>
@@ -119,7 +119,7 @@ public sealed class CodDecorationsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                 "tot-count",
@@ -149,7 +149,7 @@ public sealed class CodDecorationsPart : PartBase
                 "date-value",
                 "The list of decorations sortable date values",
                 "M")
-        });
+        }];
     }
 
     /// <summary>

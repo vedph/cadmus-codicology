@@ -73,8 +73,8 @@ public class CodLocationMacroTest
     [Fact]
     public void Run_LocationRangeArray()
     {
-        List<CodLocationRange> ranges = new()
-        {
+        List<CodLocationRange> ranges =
+        [
             new CodLocationRange
             {
                 Start = new CodLocation
@@ -101,7 +101,7 @@ public class CodLocationMacroTest
                     N = 15,
                 }
             }
-        };
+        ];
         string json = JsonSerializer.Serialize(ranges, _options);
         CodLocationMacro m = new();
 

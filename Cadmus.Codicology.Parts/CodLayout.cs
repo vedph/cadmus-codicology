@@ -26,9 +26,9 @@ public class CodLayout
     public List<PhysicalDimension> Dimensions { get; set; }
 
     /// <summary>
-    /// Gets or sets the ruling technique.
+    /// Gets or sets the ruling technique(s).
     /// </summary>
-    public string? RulingTechnique { get; set; }
+    public List<string>? RulingTechniques { get; set; }
 
     /// <summary>
     /// Gets or sets the Derolez classification.
@@ -70,9 +70,9 @@ public class CodLayout
     /// </summary>
     public CodLayout()
     {
-        Ranges = new List<CodLocationRange>();
-        Dimensions = new List<PhysicalDimension>();
-        Counts = new List<DecoratedCount>();
+        Ranges = [];
+        Dimensions = [];
+        Counts = [];
     }
 
     /// <summary>

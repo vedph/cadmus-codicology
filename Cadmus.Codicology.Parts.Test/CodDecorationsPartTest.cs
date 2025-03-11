@@ -12,7 +12,7 @@ public sealed class CodDecorationsPartTest
 {
     private static List<CodDecorationElement> GetElements(int count)
     {
-        List<CodDecorationElement> elements = new();
+        List<CodDecorationElement> elements = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -23,8 +23,8 @@ public sealed class CodDecorationsPartTest
                 Key = n == 1 ? "e1" : null,
                 ParentKey = n == 2 ? "e1" : null,
                 Type = alt,
-                Flags = new List<string>(new[] { "f-" + alt }),
-                Ranges = new List<CodLocationRange>(new[]
+                Flags = [.. new[] { "f-" + alt }],
+                Ranges = [.. new[]
                 {
                     new CodLocationRange
                     {
@@ -45,14 +45,14 @@ public sealed class CodDecorationsPartTest
                             L = 5
                         }
                     }
-                }),
-                Typologies = new List<string>(new[] { "t-" + alt }),
+                }],
+                Typologies = [.. new[] { "t-" + alt }],
                 Subject = "s" + n,
-                Colors = new List<string>(new[] { "c" + n }),
-                Gildings = new List<string> { "gilding" },
-                Techniques = new List<string> { "technique" },
-                Tools = new List<string> { "tool" },
-                Positions = new List<string> { "position" },
+                Colors = [.. new[] { "c" + n }],
+                Gildings = ["gilding"],
+                Techniques = ["technique"],
+                Tools = ["tool"],
+                Positions = ["position"],
                 LineHeight = (short)n,
                 TextRelation = "relation",
                 Description = "description",
@@ -80,23 +80,23 @@ public sealed class CodDecorationsPartTest
             {
                 Eid = $"d{n}",
                 Name = "Decoration " + n,
-                Chronotopes = new List<AssertedChronotope>
-                {
+                Chronotopes =
+                [
                     new AssertedChronotope
                     {
                         Place = new AssertedPlace { Value = "Paris" },
                         Date = new AssertedDate(HistoricalDate.Parse($"{1300 + n}")!)
                     }
-                },
-                Flags = new List<string>(new[] { "f-" + alt }),
+                ],
+                Flags = [.. new[] { "f-" + alt }],
                 Note = "Note",
-                Artists = new List<CodDecorationArtist>(new[]
+                Artists = [.. new[]
                     {
                         new CodDecorationArtist
                         {
                             Name = "Petrus",
-                            Ids = new List<AssertedCompositeId>
-                            {
+                            Ids =
+                            [
                                 new AssertedCompositeId
                                 {
                                     Target = new PinTarget
@@ -104,9 +104,9 @@ public sealed class CodDecorationsPartTest
                                         Gid = "petrus123"
                                     }
                                 }
-                            }
+                            ]
                         }
-                    }),
+                    }],
                 References = TestHelper.GetDocReferences(1),
                 Elements = GetElements(3)
             });

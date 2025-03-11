@@ -26,7 +26,7 @@ public class CodSheetRow
     /// </summary>
     public CodSheetRow()
     {
-        Columns = new List<CodSheetColumn>();
+        Columns = [];
     }
 
     /// <summary>

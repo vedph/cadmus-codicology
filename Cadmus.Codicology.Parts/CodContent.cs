@@ -54,9 +54,16 @@ public class CodContent
     public string? ClaimedAuthor { get; set; }
 
     /// <summary>
-    /// Gets or sets the claimed title.
+    /// Gets or sets the claimed author ranges.
+    /// </summary>
+    public List<CodLocationRange>? ClaimedAuthorRanges { get; set; }
+
+    /// <summary>
+    /// Gets or sets the claimed title ranges.
     /// </summary>
     public string? ClaimedTitle { get; set; }
+
+    public List<CodLocationRange>? ClaimedTitleRanges { get; set; }
 
     /// <summary>
     /// Gets or sets a generic tag used to group or classify a content.
@@ -88,9 +95,9 @@ public class CodContent
     /// </summary>
     public CodContent()
     {
-        Ranges = new List<CodLocationRange>();
-        States = new List<string>();
-        Annotations = new List<CodContentAnnotation>();
+        Ranges = [];
+        States = [];
+        Annotations = [];
     }
 
     /// <summary>

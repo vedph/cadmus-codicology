@@ -82,8 +82,8 @@ public class CodWatermarksPartTest
             part.Watermarks.Add(new CodWatermark
             {
                 Name = "n" + n,
-                Ids = new List<AssertedCompositeId>
-                {
+                Ids =
+                [
                     new AssertedCompositeId
                     {
                         Target = new PinTarget
@@ -91,9 +91,9 @@ public class CodWatermarksPartTest
                             Gid = "mock/" + n
                         }
                     }
-                },
-                Chronotopes = new List<AssertedChronotope>
-                {
+                ],
+                Chronotopes =
+                [
                     new AssertedChronotope
                     {
                         Place = new AssertedPlace
@@ -103,7 +103,7 @@ public class CodWatermarksPartTest
                         Date  = new AssertedDate(
                             HistoricalDate.Parse($"{1400 + n}")!)
                     }
-                }
+                ]
             });
         }
 

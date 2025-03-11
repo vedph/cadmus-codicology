@@ -91,6 +91,20 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+- 2025-03-11: changes to models (⚠️=breaking changes!):
+  - `CodDecorationElement`: ➕ add `tag` (`string`, optional thesaurus 📚 `cod-decoration-element-tags`).
+  - `CodWatermark`: ➕ add `rangesAsQuire` checkbox (`boolean`) meaning that `ranges` refers to quires rather than sheets.
+  - `CodContent`: ➕ add `ClaimedAuthorRanges` (`CodLocationRange[]`) and `ClaimedTitleRanges` (`CodLocationRange[]`) for ranges referring to claimed author and title.
+  - `CodContentAnnotation`:
+    - ➕ add `Features` (`string[]`, flags) with its thesaurus 📚 `cod-content-annotation-features`.
+    - ➕ add `Languages` (`string[]`, flags) with its optional thesaurus 📚 `cod-content-annotation-languages`.
+  - `CodHandInstance`: ➕ add `Note` (`string`).
+  - `CodHandDescription`: ➕ add `Note` (`string`).
+  - `CodHandSign`: ➕ add `Mufi` (`number`) for the corresponding MUFI code. This has also been added to the part's pins.
+  - `CodEndleaf`: ➕ add `Note` (`string`).
+  - ⚠️ `CodPalimpsest`: change `Range` (`CodLocationRange`) into `Ranges` (`CodLocationRange[]`).
+  - ⚠️ change `RulingTechnique` (`string`) into `RulingTechniques` (`string[]`, flags).
+
 - 2025-03-10: updated packages.
 
 ### 7.0.3

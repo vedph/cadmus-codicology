@@ -51,15 +51,20 @@ public class CodHandInstance
     public List<CodImage> Images { get; set; }
 
     /// <summary>
+    /// Gets or sets a generic note.
+    /// </summary>
+    public string? Note { get; set; }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="CodHandInstance"/> class.
     /// </summary>
     public CodHandInstance()
     {
-        Scripts = new List<string>();
-        Typologies = new List<string>();
-        Colors = new List<string>();
-        Ranges = new List<CodLocationRange>();
-        Images = new List<CodImage>();
+        Scripts = [];
+        Typologies = [];
+        Colors = [];
+        Ranges = [];
+        Images = [];
     }
 
     /// <summary>

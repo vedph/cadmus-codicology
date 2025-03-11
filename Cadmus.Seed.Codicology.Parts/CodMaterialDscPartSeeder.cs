@@ -17,7 +17,7 @@ public sealed class CodMaterialDscPartSeeder : PartSeederBase
 {
     private static List<CodUnit> GetUnits(int count)
     {
-        List<CodUnit> units = new();
+        List<CodUnit> units = [];
         for (int n = 1; n <= count; n++)
         {
             units.Add(new Faker<CodUnit>()
@@ -38,11 +38,11 @@ public sealed class CodMaterialDscPartSeeder : PartSeederBase
 
     private static List<CodPalimpsest> GetPalimpsests(int count)
     {
-        List<CodPalimpsest> palimpsests = new();
+        List<CodPalimpsest> palimpsests = [];
         for (int n = 1; n <= count; n++)
         {
             palimpsests.Add(new Faker<CodPalimpsest>()
-                .RuleFor(p => p.Range, SeedHelper.GetLocationRanges(1)[0])
+                .RuleFor(p => p.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(p => p.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
                 .RuleFor(p => p.Note,
                     f => f.Random.Bool(0.25f)? f.Lorem.Sentence() : null)

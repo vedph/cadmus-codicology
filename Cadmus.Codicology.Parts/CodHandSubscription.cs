@@ -32,7 +32,7 @@ public class CodHandSubscription
     /// </summary>
     public CodHandSubscription()
     {
-        Ranges = new();
+        Ranges = [];
     }
 
     /// <summary>

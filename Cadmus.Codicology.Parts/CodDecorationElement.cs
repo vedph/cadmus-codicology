@@ -28,6 +28,11 @@ public class CodDecorationElement
     public string? Type { get; set; }
 
     /// <summary>
+    /// Gets or sets a general-purpose tag.
+    /// </summary>
+    public string? Tag { get; set; }
+
+    /// <summary>
     /// Gets or sets the flags. These are typically drawn from a thesaurus,
     /// and represent single features of the element, which may or not be
     /// present in it, like "original", "unitary", "complete", "has tips",
@@ -122,15 +127,15 @@ public class CodDecorationElement
     /// </summary>
     public CodDecorationElement()
     {
-        Flags = new List<string>();
-        Ranges = new List<CodLocationRange>();
-        Typologies = new List<string>();
-        Colors = new List<string>();
-        Gildings = new List<string>();
-        Techniques = new List<string>();
-        Tools = new List<string>();
-        Positions = new List<string>();
-        Images = new List<CodImage>();
+        Flags = [];
+        Ranges = [];
+        Typologies = [];
+        Colors = [];
+        Gildings = [];
+        Techniques = [];
+        Tools = [];
+        Positions = [];
+        Images = [];
     }
 
     /// <summary>

@@ -79,28 +79,28 @@ public sealed class CodHandsPartTest
             part.Hands.Add(new CodHand
             {
                 Eid = "h" + n,
-                Instances = new List<CodHandInstance>
-                {
+                Instances =
+                [
                     new CodHandInstance
                     {
-                        Scripts = new List<string>{ "script" + n },
-                        Typologies = new List<string>
-                        {
+                        Scripts = ["script" + n],
+                        Typologies =
+                        [
                             "typology" + n
-                        },
-                        Colors = new List<string>
-                        {
+                        ],
+                        Colors =
+                        [
                             "color" + n
-                        }
+                        ]
                     }
-                },
-                Subscriptions = new List<CodHandSubscription>
-                {
+                ],
+                Subscriptions =
+                [
                     new CodHandSubscription
                     {
                         Language = n % 2 == 0 ? "even" : "odd"
                     }
-                }
+                ]
             });
         }
 

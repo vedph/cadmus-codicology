@@ -53,7 +53,7 @@ public class CodSheetNColumnDefinition : CodSheetColumnDefinition
     /// </summary>
     public CodSheetNColumnDefinition()
     {
-        Colors = new List<string>();
+        Colors = [];
     }
 
     /// <summary>

@@ -41,6 +41,11 @@ public class CodHandDescription
     public string? Abbreviations { get; set; }
 
     /// <summary>
+    /// Gets or sets a generic note.
+    /// </summary>
+    public string? Note { get; set; }
+
+    /// <summary>
     /// Gets or sets the descriptions of single signs.
     /// </summary>
     public List<CodHandSign> Signs { get; set; }
@@ -51,7 +56,7 @@ public class CodHandDescription
     /// </summary>
     public CodHandDescription()
     {
-        Signs = new List<CodHandSign>();
+        Signs = [];
     }
 
     /// <summary>

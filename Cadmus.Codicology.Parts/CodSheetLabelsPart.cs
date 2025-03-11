@@ -49,12 +49,12 @@ public sealed class CodSheetLabelsPart : PartBase
     /// </summary>
     public CodSheetLabelsPart()
     {
-        Rows = new List<CodSheetRow>();
-        Endleaves = new List<CodEndleaf>();
-        NDefinitions = new List<CodSheetNColumnDefinition>();
-        CDefinitions = new List<CodSheetCColumnDefinition>();
-        SDefinitions = new List<CodSheetSColumnDefinition>();
-        RDefinitions = new List<CodSheetRColumnDefinition>();
+        Rows = [];
+        Endleaves = [];
+        NDefinitions = [];
+        CDefinitions = [];
+        SDefinitions = [];
+        RDefinitions = [];
     }
 
     /// <summary>
@@ -93,7 +93,7 @@ public sealed class CodSheetLabelsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "row-count",
@@ -114,7 +114,7 @@ public sealed class CodSheetLabelsPart : PartBase
                "r-id",
                "The quire register signature IDs.",
                "M"),
-        });
+        }];
     }
 
     static public string? DumpTable(IList<CodSheetRow> rows)
@@ -123,7 +123,7 @@ public sealed class CodSheetLabelsPart : PartBase
 
         // collect unique col IDs
         int maxValLen = 0;
-        HashSet<string> colIds = new();
+        HashSet<string> colIds = [];
         foreach (CodSheetRow row in rows)
         {
             foreach (CodSheetColumn col in row.Columns)

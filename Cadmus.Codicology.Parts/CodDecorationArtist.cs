@@ -50,9 +50,9 @@ public class CodDecorationArtist
     /// </summary>
     public CodDecorationArtist()
     {
-        Ids = new List<AssertedCompositeId>();
-        Styles = new List<CodDecorationArtistStyle>();
-        ElementKeys = new List<string>();
+        Ids = [];
+        Styles = [];
+        ElementKeys = [];
     }
 
     /// <summary>

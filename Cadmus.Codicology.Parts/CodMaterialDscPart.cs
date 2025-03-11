@@ -28,8 +28,8 @@ public sealed class CodMaterialDscPart : PartBase
     /// </summary>
     public CodMaterialDscPart()
     {
-        Units = new List<CodUnit>();
-        Palimpsests = new List<CodPalimpsest>();
+        Units = [];
+        Palimpsests = [];
     }
 
     /// <summary>
@@ -61,7 +61,7 @@ public sealed class CodMaterialDscPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
              new DataPinDefinition(DataPinValueType.Integer,
                 "unit-count",
@@ -73,7 +73,7 @@ public sealed class CodMaterialDscPart : PartBase
                 "unit-eid",
                 "The unit IDs.",
                 "M")
-        });
+        }];
     }
 
     /// <summary>

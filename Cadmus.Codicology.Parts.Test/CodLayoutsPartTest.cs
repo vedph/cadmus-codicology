@@ -12,7 +12,7 @@ public sealed class CodLayoutsPartTest
 {
     private static List<PhysicalDimension> GetDimensions(int count)
     {
-        List<PhysicalDimension> measurements = new();
+        List<PhysicalDimension> measurements = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -29,7 +29,7 @@ public sealed class CodLayoutsPartTest
 
     private static List<DecoratedCount> GetCounts(int count)
     {
-        List<DecoratedCount> counts = new();
+        List<DecoratedCount> counts = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -46,7 +46,7 @@ public sealed class CodLayoutsPartTest
 
     private static CodLayoutsPart GetPart(int count)
     {
-        List<CodLayout> layouts = new();
+        List<CodLayout> layouts = [];
         for (int n = 1; n <= count; n++)
         {
             layouts.Add(new CodLayout
@@ -57,7 +57,7 @@ public sealed class CodLayoutsPartTest
                     S = "r"
                 },
                 ColumnCount = n,
-                RulingTechnique = "ruling",
+                RulingTechniques = [ "ruling"],
                 Derolez = "derolez",
                 Pricking = "pricking",
                 Counts = GetCounts(1),

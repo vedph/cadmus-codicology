@@ -24,7 +24,7 @@ internal static class SeedHelper
 
     public static List<CodLocationRange> GetLocationRanges(int count)
     {
-        List<CodLocationRange> ranges = new();
+        List<CodLocationRange> ranges = [];
         for (int n = 1; n <= count; n++)
         {
             ranges.Add(new CodLocationRange
@@ -43,7 +43,7 @@ internal static class SeedHelper
     /// <returns>References.</returns>
     public static List<DocReference> GetDocReferences(int count)
     {
-        List<DocReference> refs = new();
+        List<DocReference> refs = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -61,7 +61,7 @@ internal static class SeedHelper
 
     public static List<ExternalId> GetExternalIds(int count)
     {
-        List<ExternalId> ids = new();
+        List<ExternalId> ids = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -77,7 +77,7 @@ internal static class SeedHelper
 
     public static List<AssertedId> GetAssertedIds(int count)
     {
-        List<AssertedId> ids = new();
+        List<AssertedId> ids = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -94,7 +94,7 @@ internal static class SeedHelper
 
     public static List<AssertedCompositeId> GetAssertedCompositeIds(int count)
     {
-        List<AssertedCompositeId> ids = new();
+        List<AssertedCompositeId> ids = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -126,7 +126,7 @@ internal static class SeedHelper
 
     public static List<AssertedChronotope> GetAssertedChronotopes(int count)
     {
-        List<AssertedChronotope> chronotopes = new();
+        List<AssertedChronotope> chronotopes = [];
         for (int n = 1; n <= count; n++)
         {
             bool even = n % 2 == 0;
@@ -144,7 +144,7 @@ internal static class SeedHelper
 
     public static List<CodImage> GetCodImages(int count)
     {
-        List<CodImage> images = new();
+        List<CodImage> images = [];
         for (int n = 1; n <= count; n++)
         {
             images.Add(new Faker<CodImage>()
@@ -160,7 +160,7 @@ internal static class SeedHelper
 
     public static List<PhysicalDimension> GetDimensions(int count)
     {
-        List<PhysicalDimension> dimensions = new();
+        List<PhysicalDimension> dimensions = [];
 
         for (int n = 1; n <= count; n++)
         {

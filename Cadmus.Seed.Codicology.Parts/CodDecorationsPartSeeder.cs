@@ -25,7 +25,7 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
 
     private List<string> GetColors()
     {
-        List<string> colors = new();
+        List<string> colors = [];
         int count = Randomizer.Seed.Next(1, 3 + 1);
 
         for (int n = 1; n <= count; n++)
@@ -36,7 +36,7 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
     private List<CodDecorationElement> GetElements(int count, Faker faker)
     {
         List<CodDecorationElement> elements =
-            new();
+            [];
         string[] typologies = new[] { "frieze", "frame" };
         string[] gildings = new[] { "leaf", "powder" };
         string[] positions = new[]
@@ -51,16 +51,15 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
                 Key = n == 1 ? "e1" : null,
                 ParentKey = n == 2 ? "e1" : null,
                 Type = "ill",
-                Flags = new List<string>(new[] { faker.PickRandom(_flags) }),
+                Flags = [.. new[] { faker.PickRandom(_flags) }],
                 Ranges = SeedHelper.GetLocationRanges(n % 2 == 0? 1 : 2),
-                Typologies = new List<string>(
-                    new[] { faker.PickRandom(typologies) }),
+                Typologies = [.. new[] { faker.PickRandom(typologies) }],
                 Subject = faker.Lorem.Word(),
                 Colors = GetColors(),
-                Gildings = new List<string> { faker.PickRandom(gildings) },
-                Techniques = new List<string> { faker.PickRandom("ink", "watercolor") },
-                Tools = new List<string> { faker.PickRandom("pen", "brush") },
-                Positions = new List<string> { faker.PickRandom(positions) },
+                Gildings = [faker.PickRandom(gildings)],
+                Techniques = [faker.PickRandom("ink", "watercolor")],
+                Tools = [faker.PickRandom("pen", "brush")],
+                Positions = [faker.PickRandom(positions)],
                 LineHeight = faker.Random.Short(1, 10),
                 TextRelation = faker.Lorem.Sentence(),
                 Description = faker.Lorem.Sentence(),
@@ -77,15 +76,15 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
             .RuleFor(a => a.Eid, f => f.Lorem.Word())
             .RuleFor(a => a.Type, f => f.PickRandom("painter", "illuminator"))
             .RuleFor(a => a.Name, f => f.Person.FullName)
-            .RuleFor(a => a.Styles, new List<CodDecorationArtistStyle>
-            {
+            .RuleFor(a => a.Styles,
+            [
                 new CodDecorationArtistStyle
                 {
                     // TODO: use thesaurus
                     Name = "style",
                     Chronotope = SeedHelper.GetAssertedChronotopes(1)[0]
                 }
-            })
+            ])
             .Generate();
     }
 
@@ -114,10 +113,10 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
                 .RuleFor(d => d.Eid, f => "d" + f.UniqueIndex)
                 .RuleFor(d => d.Name, f => f.Lorem.Word())
                 .RuleFor(d => d.Flags,
-                    f => new List<string>(new[] { f.PickRandom(_flags) }))
+                    f => [.. new[] { f.PickRandom(_flags) }])
                 .RuleFor(d => d.Chronotopes, SeedHelper.GetAssertedChronotopes(1))
                 .RuleFor(d => d.Artists,
-                    new List<CodDecorationArtist>(new[] { GetArtist() }))
+                    [.. new[] { GetArtist() }])
                 .RuleFor(d => d.Note, f => f.Random.Bool(0.25f)
                     ? f.Lorem.Sentence() : null)
                 .RuleFor(d => d.References,

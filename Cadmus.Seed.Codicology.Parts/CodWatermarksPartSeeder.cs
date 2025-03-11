@@ -17,7 +17,7 @@ public class CodWatermarksPartSeeder : PartSeederBase
 {
     private static IList<CodWatermark> GetWatermarks(int count)
     {
-        List<CodWatermark> watermarks = new();
+        List<CodWatermark> watermarks = [];
         IList<CodLocationRange> ranges = SeedHelper.GetLocationRanges(count);
 
         for (int n = 1; n <= count; n++)
@@ -26,7 +26,7 @@ public class CodWatermarksPartSeeder : PartSeederBase
                 .RuleFor(w => w.Name, f => f.Lorem.Word())
                 .RuleFor(w => w.SampleRange, ranges[n - 1])
                 .RuleFor(w => w.Ranges,
-                    new List<CodLocationRange> { ranges[n - 1] })
+                    [ranges[n - 1]])
                 .RuleFor(w => w.Ids,
                     f => SeedHelper.GetAssertedCompositeIds(f.Random.Number(1, 3)))
                 .Generate());

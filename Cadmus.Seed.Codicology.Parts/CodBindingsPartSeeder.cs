@@ -17,7 +17,7 @@ public sealed class CodBindingsPartSeeder : PartSeederBase
 {
     private static List<CodBinding> GetBindings(int count)
     {
-        List<CodBinding> bindings = new();
+        List<CodBinding> bindings = [];
         for (int n = 1; n <= count; n++)
         {
             bindings.Add(new Faker<CodBinding>()

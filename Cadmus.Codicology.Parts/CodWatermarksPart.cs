@@ -24,7 +24,7 @@ public sealed class CodWatermarksPart : PartBase
     /// </summary>
     public CodWatermarksPart()
     {
-        Watermarks = new List<CodWatermark>();
+        Watermarks = [];
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public sealed class CodWatermarksPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -97,7 +97,7 @@ public sealed class CodWatermarksPart : PartBase
                "date-value",
                "The watermarks date values.",
                "M")
-        });
+        }];
     }
 
     /// <summary>

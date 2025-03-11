@@ -24,7 +24,7 @@ public sealed class CodLayoutsPart : PartBase
     /// </summary>
     public CodLayoutsPart()
     {
-        Layouts = new List<CodLayout>();
+        Layouts = [];
     }
 
     /// <summary>
@@ -48,8 +48,8 @@ public sealed class CodLayoutsPart : PartBase
             {
                 builder.AddValue("cols", layout.ColumnCount);
 
-                if (!string.IsNullOrEmpty(layout.RulingTechnique))
-                    builder.AddValue("ruling", layout.RulingTechnique);
+                if (layout.RulingTechniques?.Count > 0)
+                    builder.AddValues("ruling", layout.RulingTechniques);
 
                 if (!string.IsNullOrEmpty(layout.Derolez))
                     builder.AddValue("derolez", layout.Derolez);
@@ -77,7 +77,7 @@ public sealed class CodLayoutsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -103,7 +103,7 @@ public sealed class CodLayoutsPart : PartBase
                 "The list of dimensions grouped by their tag, " +
                 "with format 00.0.",
                 "M"),
-        });
+        }];
     }
 
     /// <summary>

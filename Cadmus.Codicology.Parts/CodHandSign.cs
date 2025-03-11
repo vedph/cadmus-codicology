@@ -11,6 +11,11 @@ public class CodHandSign
     public string? Eid { get; set; }
 
     /// <summary>
+    /// Gets or sets the MUFI character code for this sign.
+    /// </summary>
+    public int? Mufi { get; set; }
+
+    /// <summary>
     /// Gets or sets the sign's type (e.g. letter, ligature, punctuation...).
     /// </summary>
     public string? Type { get; set; }

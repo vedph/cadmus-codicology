@@ -57,11 +57,11 @@ public class CodDecoration
     /// </summary>
     public CodDecoration()
     {
-        Flags = new List<string>();
-        Chronotopes = new List<AssertedChronotope>();
-        Artists = new List<CodDecorationArtist>();
-        References = new List<DocReference>();
-        Elements = new List<CodDecorationElement>();
+        Flags = [];
+        Chronotopes = [];
+        Artists = [];
+        References = [];
+        Elements = [];
     }
 
     /// <summary>

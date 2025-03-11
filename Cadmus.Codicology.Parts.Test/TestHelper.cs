@@ -57,7 +57,7 @@ internal static class TestHelper
 
     public static List<DocReference> GetDocReferences(int count)
     {
-        List<DocReference> citations = new();
+        List<DocReference> citations = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -73,7 +73,7 @@ internal static class TestHelper
 
     public static List<Chronotope> GetChronotopes(int count)
     {
-        List<Chronotope> chronotopes = new();
+        List<Chronotope> chronotopes = [];
 
         for (int n = 1; n <= count; n++)
         {
@@ -90,7 +90,7 @@ internal static class TestHelper
 
     public static List<AssertedChronotope> GetAssertedChronotopes(int count)
     {
-        List<AssertedChronotope> chronotopes = new();
+        List<AssertedChronotope> chronotopes = [];
 
         for (int n = 1; n <= count; n++)
         {

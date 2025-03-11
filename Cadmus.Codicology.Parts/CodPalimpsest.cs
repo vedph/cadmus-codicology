@@ -1,4 +1,5 @@
 ﻿using Cadmus.Refs.Bricks;
+using System.Collections.Generic;
 
 namespace Cadmus.Codicology.Parts;
 
@@ -10,7 +11,7 @@ public class CodPalimpsest
     /// <summary>
     /// Gets or sets the range.
     /// </summary>
-    public CodLocationRange? Range { get; set; }
+    public List<CodLocationRange>? Ranges { get; set; }
 
     /// <summary>
     /// Gets or sets the place/time of reuse.
@@ -30,6 +31,6 @@ public class CodPalimpsest
     /// </returns>
     public override string ToString()
     {
-        return Range != null ? Range.ToString() : base.ToString()!;
+        return Ranges != null ? string.Join(", ", Ranges) : base.ToString()!;
     }
 }

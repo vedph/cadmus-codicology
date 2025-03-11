@@ -18,7 +18,7 @@ public sealed class CodEditsPartSeeder : PartSeederBase
 {
     private static IList<CodEdit> GetEdits(int count)
     {
-        List<CodEdit> edits = new();
+        List<CodEdit> edits = [];
         for (int n = 1; n <= count; n++)
         {
             edits.Add(new Faker<CodEdit>()
@@ -26,7 +26,7 @@ public sealed class CodEditsPartSeeder : PartSeederBase
                 .RuleFor(p => p.Type, f => f.PickRandom("correction", "comment"))
                 .RuleFor(p => p.Tag, f => f.PickRandom(null, "tag"))
                 .RuleFor(p => p.Techniques, f =>
-                    new List<string> { f.PickRandom("ink", "lapis") })
+                    [f.PickRandom("ink", "lapis")])
                 .RuleFor(p => p.Language, f => f.PickRandom("lat", "grc"))
                 .RuleFor(p => p.Colors, f => new string[]
                     {

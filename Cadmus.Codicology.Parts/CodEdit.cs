@@ -75,11 +75,11 @@ public class CodEdit
     /// </summary>
     public CodEdit()
     {
-        Techniques = new List<string>();
-        Colors = new List<string>();
-        Ranges = new List<CodLocationRange>();
-        References = new List<DocReference>();
-        AuthorIds = new List<AssertedCompositeId>();
+        Techniques = [];
+        Colors = [];
+        Ranges = [];
+        References = [];
+        AuthorIds = [];
     }
 
     /// <summary>

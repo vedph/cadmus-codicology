@@ -25,7 +25,7 @@ public sealed class CodShelfmarksPart : PartBase
     /// </summary>
     public CodShelfmarksPart()
     {
-        Shelfmarks = new List<CodShelfmark>();
+        Shelfmarks = [];
     }
 
     /// <summary>
@@ -76,7 +76,7 @@ public sealed class CodShelfmarksPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                 "tot-count",
@@ -96,7 +96,7 @@ public sealed class CodShelfmarksPart : PartBase
                 "location",
                 "The list of locations from the shelfmarks.",
                 "M")
-        });
+        }];
     }
 
     /// <summary>

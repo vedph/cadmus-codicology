@@ -22,7 +22,7 @@ public sealed class CodBindingsPart : PartBase
     /// </summary>
     public CodBindingsPart()
     {
-        Bindings = new List<CodBinding>();
+        Bindings = [];
     }
 
     /// <summary>
@@ -67,7 +67,7 @@ public sealed class CodBindingsPart : PartBase
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -88,7 +88,7 @@ public sealed class CodBindingsPart : PartBase
                "date-value",
                "The date value of each binding.",
                "M")
-        });
+        }];
     }
 
     /// <summary>

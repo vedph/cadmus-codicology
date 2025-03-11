@@ -82,7 +82,7 @@ public sealed class CodEditsPartTest
             {
                 Eid = "n" + n,
                 Type = even ? "correction" : "comment",
-                Techniques = new List<string> { even ? "even" : "odd" },
+                Techniques = [even ? "even" : "odd"],
                 Language = even ? "lat" : "grc",
                 Colors = new[] { even ? "red" : "black" },
                 Date = HistoricalDate.Parse($"{1400 + n} AD")

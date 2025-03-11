@@ -23,7 +23,7 @@ public sealed class CodEditsPart : PartBase, IHasText
     /// </summary>
     public CodEditsPart()
     {
-        Edits = new List<CodEdit>();
+        Edits = [];
     }
 
     /// <summary>
@@ -84,7 +84,7 @@ public sealed class CodEditsPart : PartBase, IHasText
     /// <returns>Data pins definitions.</returns>
     public override IList<DataPinDefinition> GetDataPinDefinitions()
     {
-        return new List<DataPinDefinition>(new[]
+        return [.. new[]
         {
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
@@ -117,7 +117,7 @@ public sealed class CodEditsPart : PartBase, IHasText
                 "date-value",
                 "The date values of edits.",
                 "M")
-        });
+        }];
     }
 
     /// <summary>

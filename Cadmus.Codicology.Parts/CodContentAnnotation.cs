@@ -1,4 +1,6 @@
-﻿namespace Cadmus.Codicology.Parts;
+﻿using System.Collections.Generic;
+
+namespace Cadmus.Codicology.Parts;
 
 /// <summary>
 /// An annotation in a <see cref="CodContent"/>.
@@ -14,6 +16,18 @@ public class CodContentAnnotation
     /// Gets or sets the range covered by this annotation.
     /// </summary>
     public CodLocationRange? Range { get; set; }
+
+    /// <summary>
+    /// Gets or sets the features, usually drawn from a thesaurus
+    /// (<c>cod-content-annotation-features</c>).
+    /// </summary>
+    public List<string>? Features { get; set; }
+
+    /// <summary>
+    /// Gets or sets the languages of the annotation, usually drawn from a
+    /// thesaurus (<c>cod-content-annotation-languages</c>).
+    /// </summary>
+    public List<string>? Languages { get; set; }
 
     /// <summary>
     /// Gets or sets the incipit.
