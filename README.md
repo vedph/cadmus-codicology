@@ -92,6 +92,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+Version 8 will be the next major version, and will include minor changes to some of the models. Only a couple of changes are breaking changes; all the others are just additions.
+
 - 2025-03-12:
   - added `CodIllumInstructionsPart`.
 - 2025-03-11: changes to models (⚠️=breaking changes!):
