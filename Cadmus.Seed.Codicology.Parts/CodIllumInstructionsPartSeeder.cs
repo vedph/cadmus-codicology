@@ -9,10 +9,10 @@ namespace Cadmus.Seed.Codicology.Parts;
 
 /// <summary>
 /// Seeder for <see cref="CodIllumInstructionsPart"/>.
-/// Tag: <c>seed.it.vedph.codicology.cod-illum-instructions</c>.
+/// Tag: <c>seed.it.vedph.codicology.illum-instructions</c>.
 /// </summary>
 /// <seealso cref="PartSeederBase" />
-[Tag("seed.it.vedph.codicology.cod-illum-instructions")]
+[Tag("seed.it.vedph.codicology.illum-instructions")]
 public sealed class CodIllumInstructionsPartSeeder : PartSeederBase
 {
     private static List<CodIllumInstruction> GetInstructions(int min, int max)
