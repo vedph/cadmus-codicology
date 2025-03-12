@@ -36,6 +36,17 @@ internal static class SeedHelper
         return ranges;
     }
 
+    public static CodLocationRange GetLocationRange()
+        => GetLocationRanges(1)[0];
+
+    public static CodLocation GetLocation()
+    {
+        return new Faker<CodLocation>()
+            .RuleFor(l => l.N, f => f.Random.Number(1, 50))
+            .RuleFor(l => l.V, f => f.Random.Bool())
+            .Generate();
+    }
+
     /// <summary>
     /// Gets a random number of document references.
     /// </summary>

@@ -91,6 +91,7 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+- 2025-03-12: added `CodIllumInstructionsPart`.
 - 2025-03-11: changes to models (⚠️=breaking changes!):
   - `CodDecorationElement`: ➕ add `tag` (`string`, optional thesaurus 📚 `cod-decoration-element-tags`).
   - `CodWatermark`: ➕ add `rangesAsQuire` checkbox (`boolean`) meaning that `ranges` refers to quires rather than sheets.
