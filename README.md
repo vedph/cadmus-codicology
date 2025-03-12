@@ -5,6 +5,7 @@
 - [decorations](docs/cod-decorations.md)
 - [edits](docs/cod-edits.md)
 - [hands](docs/cod-hands.md)
+- [illuminator instructions](docs/cod-illum-instructions.md)
 - [layouts](docs/cod-layouts.md)
 - [material](docs/cod-material-dsc.md)
 - [sheet labels](docs/cod-sheet-labels.md)
