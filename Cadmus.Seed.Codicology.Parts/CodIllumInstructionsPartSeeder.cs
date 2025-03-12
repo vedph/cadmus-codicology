@@ -20,13 +20,12 @@ public sealed class CodIllumInstructionsPartSeeder : PartSeederBase
         int n = Randomizer.Seed.Next(min, max + 1);
 
         return new Faker<CodIllumInstruction>()
-            // TODO: use thesaurus items
-            .RuleFor(i => i.Types, f => [f.PickRandom("alpha", "beta")])
+            .RuleFor(i => i.Types, f => [f.PickRandom("rubrics", "instructions")])
             .RuleFor(i => i.Subject, f => f.Lorem.Word())
             .RuleFor(i => i.Text, f => f.Lorem.Sentence())
-            .RuleFor(i => i.Location, _ => SeedHelper.GetLocation())
+            .RuleFor(i => i.Range, _ => SeedHelper.GetLocationRange())
             .RuleFor(i => i.Position, f => f.PickRandom(
-                "margin-left", "margin-right"))
+                "margin-top", "margin-bottom"))
             .RuleFor(i => i.Description, f => f.Lorem.Sentence())
             .RuleFor(i => i.Languages, f => [f.PickRandom("lat", "ita")])
             .Generate(n);

@@ -7,6 +7,7 @@ public class CodIllumInstructionDiff
 {
     /// <summary>
     /// Gets or sets the diff type.
+    /// Usually from thesaurus <c>cod-illum-instruction-diff-types</c>.
     /// </summary>
     public string Type { get; set; } = "";
 

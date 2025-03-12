@@ -91,7 +91,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
-- 2025-03-12: added `CodIllumInstructionsPart`.
+- 2025-03-12:
+  - added `CodIllumInstructionsPart`.
 - 2025-03-11: changes to models (⚠️=breaking changes!):
   - `CodDecorationElement`: ➕ add `tag` (`string`, optional thesaurus 📚 `cod-decoration-element-tags`).
   - `CodWatermark`: ➕ add `rangesAsQuire` checkbox (`boolean`) meaning that `ranges` refers to quires rather than sheets.
@@ -105,6 +106,10 @@ The models of some bricks are summarized here for the reader's commodity.
   - `CodEndleaf`: ➕ add `Note` (`string`).
   - ⚠️ `CodPalimpsest`: change `Range` (`CodLocationRange`) into `Ranges` (`CodLocationRange[]`).
   - ⚠️ change `RulingTechnique` (`string`) into `RulingTechniques` (`string[]`, flags).
+  - `CodSheetLabelsPart`: ➕ add `Note` (`string`). This will be mainly used to add notes about quires.
+  - `CodSheetColumnDefinition`:
+    - ➕ add `Features` (`string[]`, flags from thesauri different according to the column type: 📚 `cod-labels-col-n-features`, 📚 `cod-labels-col-c-features`, 📚 `cod-labels-col-s-features`, 📚 `cod-labels-col-r-features`, plus one for quires: 📚 `cod-labels-col-q-features`.
+    - ➕ add `Links` (`AssertedCompositeIds[]`).
 
 - 2025-03-10: updated packages.
 

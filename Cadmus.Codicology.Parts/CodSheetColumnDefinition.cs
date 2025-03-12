@@ -1,4 +1,7 @@
-﻿namespace Cadmus.Codicology.Parts;
+﻿using Cadmus.Refs.Bricks;
+using System.Collections.Generic;
+
+namespace Cadmus.Codicology.Parts;
 
 /// <summary>
 /// Base class for sheet columns definitions.
@@ -25,6 +28,21 @@ public abstract class CodSheetColumnDefinition
     /// have the same relevance, they would have the same rank.
     /// </summary>
     public short Rank { get; set; }
+
+    /// <summary>
+    /// Gets or sets binary features attached to this definition.
+    /// Usually from thesauri which differ according to the type of the column:
+    /// <c>cod-labels-col-n-features</c>, <c>cod-labels-col-c-features</c>,
+    /// <c>cod-labels-col-s-features</c>, <c>cod-labels-col-r-features</c>,
+    /// plus one for quires: <c>cod-labels-col-q-features</c>.
+    /// </summary>
+    public List<string>? Features { get; set; }
+
+    /// <summary>
+    /// Gets or sets links to some other entities, e.g. a figurative element
+    /// for decorated labels.
+    /// </summary>
+    public List<AssertedCompositeId>? Links { get; set; }
 
     /// <summary>
     /// Gets or sets a generic short note.

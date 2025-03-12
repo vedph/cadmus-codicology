@@ -52,9 +52,9 @@ public class CodIllumInstruction : IHasAssertion
     public string? Repertoire { get; set; }
 
     /// <summary>
-    /// Gets or sets the location (e.g. "12r") in the manuscript.
+    /// Gets or sets the location range in the manuscript.
     /// </summary>
-    public CodLocation Location { get; set; } = new();
+    public CodLocationRange Range { get; set; } = new();
 
     /// <summary>
     /// Gets or sets the position relative to the manuscript's page (e.g.
@@ -156,7 +156,7 @@ public class CodIllumInstruction : IHasAssertion
         sb.AppendJoin(", ", Types);
         sb.Append("] ");
 
-        sb.Append(Location).Append(" (").Append(Position).Append(')');
+        sb.Append(Range).Append(" (").Append(Position).Append(')');
 
         return sb.ToString();
     }

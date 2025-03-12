@@ -12,6 +12,11 @@ public class CodIllumColorReuse
     public string Color { get; set; } = "";
 
     /// <summary>
+    /// Gets or sets the location corresponding to the reuse.
+    /// </summary>
+    public CodLocationRange? Range { get; set; }
+
+    /// <summary>
     /// Gets or sets a generic note about the reuse.
     /// </summary>
     public string? Note { get; set; }
