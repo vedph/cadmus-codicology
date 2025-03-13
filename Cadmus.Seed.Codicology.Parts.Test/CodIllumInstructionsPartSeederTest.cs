@@ -22,7 +22,7 @@ public sealed class CodIllumInstructionsPartSeederTest
         Type t = typeof(CodIllumInstructionsPartSeeder);
         TagAttribute? attr = t.GetTypeInfo().GetCustomAttribute<TagAttribute>();
         Assert.NotNull(attr);
-        Assert.Equal("seed.it.vedph.codicology.cod-illum-instructions", attr!.Tag);
+        Assert.Equal("seed.it.vedph.codicology.illum-instructions", attr!.Tag);
     }
 
     [Fact]

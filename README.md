@@ -110,9 +110,8 @@ Version 8 will be the next major version, and will include minor changes to some
   - ⚠️ `CodPalimpsest`: change `Range` (`CodLocationRange`) into `Ranges` (`CodLocationRange[]`).
   - ⚠️ change `RulingTechnique` (`string`) into `RulingTechniques` (`string[]`, flags).
   - `CodSheetLabelsPart`: ➕ add `Note` (`string`). This will be mainly used to add notes about quires.
-  - `CodSheetColumnDefinition`:
-    - ➕ add `Features` (`string[]`, flags from thesauri different according to the column type: 📚 `cod-labels-col-n-features`, 📚 `cod-labels-col-c-features`, 📚 `cod-labels-col-s-features`, 📚 `cod-labels-col-r-features`, plus one for quires: 📚 `cod-labels-col-q-features`.
-    - ➕ add `Links` (`AssertedCompositeIds[]`).
+  - `CodSheetColumnDefinition`: ➕ add `Links` (`AssertedCompositeIds[]`).
+  - `CodSheetColumn`: ➕ add `Features` (`string[]`, flags from thesauri different according to the column type: 📚 `cod-labels-col-n-features`, 📚 `cod-labels-col-c-features`, 📚 `cod-labels-col-s-features`, 📚 `cod-labels-col-r-features`, plus one for quires: 📚 `cod-labels-col-q-features`.
 
 - 2025-03-10: updated packages.
 

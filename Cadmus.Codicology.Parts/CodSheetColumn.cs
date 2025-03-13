@@ -1,4 +1,6 @@
-﻿namespace Cadmus.Codicology.Parts;
+﻿using System.Collections.Generic;
+
+namespace Cadmus.Codicology.Parts;
 
 /// <summary>
 /// A column in the table model of the sheet labels part.
@@ -20,6 +22,15 @@ public class CodSheetColumn
     /// or <c>2.5/4</c>).
     /// </summary>
     public string? Value { get; set; }
+
+    /// <summary>
+    /// Gets or sets binary features attached to this column.
+    /// Usually from thesauri which differ according to the type of the column:
+    /// <c>cod-labels-col-n-features</c>, <c>cod-labels-col-c-features</c>,
+    /// <c>cod-labels-col-s-features</c>, <c>cod-labels-col-r-features</c>,
+    /// plus one for quires: <c>cod-labels-col-q-features</c>.
+    /// </summary>
+    public List<string>? Features { get; set; }
 
     /// <summary>
     /// Gets or sets the note.
