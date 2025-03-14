@@ -14,7 +14,7 @@ public class CodIllumInstructionDiff
     /// <summary>
     /// Gets or sets the target this diff refers to.
     /// </summary>
-    public string Target { get; set; } = "";
+    public string? Target { get; set; }
 
     /// <summary>
     /// Gets or sets the note.

@@ -7,7 +7,7 @@
   - prevTypes (`string[]`, hierarchical thesaurus 📚 `cod-illum-instruction-types`)
   - nextTypes (`string[]`, hierarchical thesaurus 📚 `cod-illum-instruction-types`)
   - subject (`string`)
-  - script (`string`, 📚 `cod-illum-instruction-scripts`)
+  - script\* (`string`, 📚 `cod-illum-instruction-scripts`)
   - text (`string`)
   - sequences (`string[]`): like A,B,C or any other kind of symbols sequence used to guide the work.
   - repertoire (`string`)
@@ -16,7 +16,7 @@
   - positionNote (`string`)
   - targetLocation ([CodLocation](cod-location.md))
   - implementation (`string`)
-  - differences:
+  - differences (`CodIllumInstructionDiff[]`):
     - type* (`string`, 📚 `cod-illum-instruction-diff-types`)
     - target (`string`, citation range)
     - note (`string`)
@@ -26,28 +26,28 @@
   - languages\* (`string[]`, flags, 📚 `cod-illum-instruction-languages`)
   - tools (`string[]`, flags, 📚 `cod-illum-instruction-tools`)
   - colors (`string[]`, flags, 📚 `cod-illum-instruction-colors`)
-  - colorReuses (`ColorReuse[]`):
+  - colorReuses (`CodIllumColorReuse[]`):
     - color\* (`string`)
     - range ([CodLocationRange](cod-location-range.md))
     - note (`string`)
   - links (🧱 [AssertedCompositeId[]](https://github.com/vedph/cadmus-bricks-shell-v3/blob/master/projects/myrmidon/cadmus-refs-asserted-ids/README.md#asserted-composite-id))
-- date (🧱 [HistoricalDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/historical-date.md))
-  - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
-    - value\* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
-    - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
-    - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
-    - month (`short`): the month number (1-12) or 0.
-    - day (`short`): the day number (1-31) or 0.
-    - isApproximate (`boolean`): true if the point is approximate ("about").
-    - isDubious (`boolean`): true if the point is dubious ("perhaphs").
-    - hint (`string`): a short textual hint used to better explain or motivate the datation point.
-  - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
-  - tag (`string`)
-- assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
-  - tag (`string` 📚 `assertion-tags`)
-  - rank (`short`)
-  - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
-    - type (`string` 📚 `doc-reference-types`)
-    - tag (`string` 📚 `doc-reference-tags`)
-    - citation (`string`)
-    - note (`string`)
+  - date (🧱 [HistoricalDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/historical-date.md))
+    - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
+      - value\* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
+      - isCentury (`boolean`): true if value is a century number; false if it's a Gregorian year.
+      - isSpan (`boolean`): true if the value is the first year of a pair of two consecutive years. This is used for calendars which span across two Gregorian years, e.g. 776/5 BC.
+      - month (`short`): the month number (1-12) or 0.
+      - day (`short`): the day number (1-31) or 0.
+      - isApproximate (`boolean`): true if the point is approximate ("about").
+      - isDubious (`boolean`): true if the point is dubious ("perhaphs").
+      - hint (`string`): a short textual hint used to better explain or motivate the datation point.
+    - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
+    - tag (`string`)
+  - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
+    - tag (`string` 📚 `assertion-tags`)
+    - rank (`short`)
+    - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
+      - type (`string` 📚 `doc-reference-types`)
+      - tag (`string` 📚 `doc-reference-tags`)
+      - citation (`string`)
+      - note (`string`)
