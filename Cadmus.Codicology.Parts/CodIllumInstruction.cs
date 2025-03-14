@@ -35,6 +35,12 @@ public class CodIllumInstruction : IHasAssertion
     public string? Subject { get; set; }
 
     /// <summary>
+    /// Gets or sets the script type.
+    /// Usually from thesaurus <c>cod-illum-instruction-scripts</c>.
+    /// </summary>
+    public string? Script { get; set; }
+
+    /// <summary>
     /// Gets or sets the transcribed text of this instruction.
     /// </summary>
     public string? Text { get; set; }

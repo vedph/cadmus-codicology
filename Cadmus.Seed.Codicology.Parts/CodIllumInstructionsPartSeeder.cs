@@ -22,6 +22,7 @@ public sealed class CodIllumInstructionsPartSeeder : PartSeederBase
         return new Faker<CodIllumInstruction>()
             .RuleFor(i => i.Types, f => [f.PickRandom("rubrics", "instructions")])
             .RuleFor(i => i.Subject, f => f.Lorem.Word())
+            .RuleFor(i => i.Script, f => f.PickRandom("cursive", "merchant"))
             .RuleFor(i => i.Text, f => f.Lorem.Sentence())
             .RuleFor(i => i.Range, _ => SeedHelper.GetLocationRange())
             .RuleFor(i => i.Position, f => f.PickRandom(

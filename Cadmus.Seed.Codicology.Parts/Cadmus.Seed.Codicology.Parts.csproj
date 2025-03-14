@@ -1,30 +1,30 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
-  <PropertyGroup>
-    <TargetFramework>net9.0</TargetFramework>
-    <IncludeSymbols>true</IncludeSymbols>
-    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
-	<Nullable>enable</Nullable>
-    <Version>8.0.2</Version>
-    <Authors>Daniele Fusi</Authors>
-    <Company>Fusi</Company>
-    <Product>Cadmus</Product>
-    <Description>Codicological part seeders for Cadmus.</Description>
-    <Copyright>by Daniele Fusi 2022</Copyright>
-    <NeutralLanguage>en-US</NeutralLanguage>
-    <PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
-  <PackageTags>Cadmus;parts</PackageTags>
-  <FileVersion>8.0.2</FileVersion>
-  <AssemblyVersion>8.0.2</AssemblyVersion>
+	<PropertyGroup>
+		<TargetFramework>net9.0</TargetFramework>
+		<IncludeSymbols>true</IncludeSymbols>
+		<SymbolPackageFormat>snupkg</SymbolPackageFormat>
+		<Nullable>enable</Nullable>
+		<Authors>Daniele Fusi</Authors>
+		<Company>Fusi</Company>
+		<Product>Cadmus</Product>
+		<Description>Codicological part seeders for Cadmus.</Description>
+		<Copyright>by Daniele Fusi 2022</Copyright>
+		<NeutralLanguage>en-US</NeutralLanguage>
+		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
+		<PackageTags>Cadmus;parts</PackageTags>
+		<Version>8.0.3</Version>
+		<FileVersion>8.0.3</FileVersion>
+		<AssemblyVersion>8.0.3</AssemblyVersion>
 
-  </PropertyGroup>
+	</PropertyGroup>
 
-  <ItemGroup>
-    <PackageReference Include="Cadmus.Seed" Version="8.0.7" />
-  </ItemGroup>
+	<ItemGroup>
+		<PackageReference Include="Cadmus.Seed" Version="8.0.7" />
+	</ItemGroup>
 
-  <ItemGroup>
-    <ProjectReference Include="..\Cadmus.Codicology.Parts\Cadmus.Codicology.Parts.csproj" />
-  </ItemGroup>
+	<ItemGroup>
+		<ProjectReference Include="..\Cadmus.Codicology.Parts\Cadmus.Codicology.Parts.csproj" />
+	</ItemGroup>
 
 </Project>

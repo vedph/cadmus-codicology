@@ -7,6 +7,7 @@
   - prevTypes (`string[]`, hierarchical thesaurus 📚 `cod-illum-instruction-types`)
   - nextTypes (`string[]`, hierarchical thesaurus 📚 `cod-illum-instruction-types`)
   - subject (`string`)
+  - script (`string`, 📚 `cod-illum-instruction-scripts`)
   - text (`string`)
   - sequences (`string[]`): like A,B,C or any other kind of symbols sequence used to guide the work.
   - repertoire (`string`)

@@ -35,14 +35,18 @@ public sealed class CodIllumInstructionsPart : PartBase
         if (Instructions?.Count > 0)
         {
             int diffCount = 0;
+            HashSet<string> types = [];
+            HashSet<string> positions = [];
+            HashSet<string> scripts = [];
             HashSet<string> features = [];
             HashSet<string> languages = [];
             HashSet<double> dates = [];
 
             foreach (CodIllumInstruction entry in Instructions)
             {
-                builder.AddValues("type", entry.Types);
-                builder.AddValue("position", entry.Position);
+                foreach (string type in entry.Types) types.Add(type);
+                positions.Add(entry.Position);
+                if (entry.Script is not null) scripts.Add(entry.Script);
 
                 if (entry.Differences?.Count > 0)
                     diffCount += entry.Differences.Count;
@@ -63,6 +67,9 @@ public sealed class CodIllumInstructionsPart : PartBase
                     dates.Add(entry.Date.GetSortValue());
             }
 
+            if (types.Count > 0) builder.AddValues("type", types);
+            if (positions.Count > 0) builder.AddValues("position", positions);
+            if (scripts.Count > 0) builder.AddValues("script", scripts);
             if (diffCount > 0) builder.AddValue("diff-count", diffCount);
             if (features.Count > 0) builder.AddValues("feature", features);
             if (languages.Count > 0) builder.AddValues("lang", languages);
@@ -91,6 +98,10 @@ public sealed class CodIllumInstructionsPart : PartBase
             new DataPinDefinition(DataPinValueType.String,
                 "position",
                 "The position relative to the manuscript's page.",
+                "M"),
+            new DataPinDefinition(DataPinValueType.String,
+                "script",
+                "The script type.",
                 "M"),
             new DataPinDefinition(DataPinValueType.Integer,
                 "diff-count",

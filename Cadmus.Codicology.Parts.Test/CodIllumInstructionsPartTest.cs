@@ -79,6 +79,7 @@ public sealed class CodIllumInstructionsPartTest
             part.Instructions.Add(new CodIllumInstruction
             {
                 Types = [n == 1? "odd" : "even"],
+                Script = "merchant",
                 Position = n == 1 ? "margin-left" : "margin-right",
                 Differences =
                 [
@@ -95,7 +96,7 @@ public sealed class CodIllumInstructionsPartTest
 
         List<DataPin> pins = [.. part.GetDataPins(null)];
 
-        Assert.Equal(11, pins.Count);
+        Assert.Equal(12, pins.Count);
 
         DataPin? pin = pins.Find(p => p.Name == "tot-count");
         Assert.NotNull(pin);
@@ -108,6 +109,11 @@ public sealed class CodIllumInstructionsPartTest
         TestHelper.AssertPinIds(part, pin!);
 
         pin = pins.Find(p => p.Name == "type" && p.Value == "even");
+        Assert.NotNull(pin);
+        TestHelper.AssertPinIds(part, pin!);
+
+        // script
+        pin = pins.Find(p => p.Name == "script" && p.Value == "merchant");
         Assert.NotNull(pin);
         TestHelper.AssertPinIds(part, pin!);
 
