@@ -51,6 +51,12 @@ public class CodEdit
     public IList<CodLocationRange> Ranges { get; set; }
 
     /// <summary>
+    /// Gets or sets the position relative to the page (e.g. top margin,
+    /// bottom margin, etc.).
+    /// </summary>
+    public string? Position { get; set; }
+
+    /// <summary>
     /// Gets or sets the date.
     /// </summary>
     public HistoricalDate? Date { get; set; }

@@ -5,7 +5,6 @@
 - [decorations](docs/cod-decorations.md)
 - [edits](docs/cod-edits.md)
 - [hands](docs/cod-hands.md)
-- [illuminator instructions](docs/cod-illum-instructions.md)
 - [layouts](docs/cod-layouts.md)
 - [material](docs/cod-material-dsc.md)
 - [sheet labels](docs/cod-sheet-labels.md)
@@ -94,8 +93,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 Version 8 will be the next major version, and will include minor changes to some of the models. Only a couple of changes are breaking changes; all the others are just additions.
 
-- 2025-03-12:
-  - added `CodIllumInstructionsPart`.
+- 2025-03-25:
+  - added `position` to `CodEditsPart`.
 - 2025-03-11: changes to models (⚠️=breaking changes!):
   - `CodDecorationElement`: ➕ add `tag` (`string`, optional thesaurus 📚 `cod-decoration-element-tags`).
   - `CodWatermark`: ➕ add `rangesAsQuire` checkbox (`boolean`) meaning that `ranges` refers to quires rather than sheets.

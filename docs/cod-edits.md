@@ -30,6 +30,7 @@ Specialized events related to any kind of text editing on the manuscript.
         - note (`string`)
   - techniques (`string`[]) 📚 `cod-edit-techniques`
   - ranges\* ([CodLocationRange[]](cod-location-range.md)):
+  - position (`string` 📚 `cod-edit-positions`: top, bottom...)
   - language (`string`) 📚 `cod-edit-languages`
   - colors (`string`[]) 📚 `cod-edit-colors`
   - date (🧱 [HistoricalDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/historical-date.md))
