@@ -81,3 +81,32 @@
     - note (`string`)
 
 > ⚠️ `artists.ids` was of type `AssertedId[]` before version 5.
+
+## Thesauri
+
+The decorations part uses some thesauri to dynamically update its UI according to data being entered. The core thesaurus here is 📚 `cod-decoration-element-types`, required, which defines the types of decoration elements, such as initial pages, illustrations, headletters, paragraphematic signs, etc.
+
+The UI structure is hierarchical:
+
+- list of decorations:
+  - edited decoration:
+    - ID, name, features (📚 `cod-decoration-flags`), note, chronotopes, references, artists, list of elements:
+      - edited element
+
+In the edited elements, when the edited element type is selected from the list of element types:
+
+- all the thesauri entries (except for `cod-decoration-type-hidden`, which is a settings thesaurus) are filtered according to the selected type. To this end, the IDs of these thesauri follow the syntax of hierarchical thesauri, e.g. `par.rubrication` is the entry for "rubrication" which must be displayed only when the element type is `par`.
+- some areas of the UI are hidden according to the selected type. To this end, the 📚 `cod-decoration-type-hidden` thesaurus contains a list of identifiers from `cod-decoration-element-types`, each having as value a space-delimited list of tokens. In this thesaurus, each token represents a portion of the UI which should be hidden when that element type is selected. For instance, the paragraphematic type has ID `par` in the types thesaurus; in the hidden thesaurus, an entry has `par` as its ID, and `subject textRelation lineHeight` as its value. The value contains 3 UI portions to hide, each identified by a name.
+
+The portions which can be hidden are:
+
+- flags
+- typologies
+- subject
+- colors
+- gildings
+- techniques
+- tools
+- positions
+- lineHeight
+- textRelation
