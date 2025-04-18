@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using Cadmus.Refs.Bricks;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Cadmus.Codicology.Parts;
@@ -96,6 +97,12 @@ public class CodDecorationElement
     public List<string> Positions { get; set; }
 
     /// <summary>
+    /// The optional reference sign from some script, e.g. the letter
+    /// corresponding to a decorated initial.
+    /// </summary>
+    public string? RefSign { get; set; }
+
+    /// <summary>
     /// Gets or sets the height of the element, measured in lines.
     /// </summary>
     public short LineHeight { get; set; }
@@ -117,6 +124,11 @@ public class CodDecorationElement
     public List<CodImage> Images { get; set; }
 
     /// <summary>
+    /// Gets or sets the list of document references for this element.
+    /// </summary>
+    public List<DocReference> References { get; set; }
+
+    /// <summary>
     /// Gets or sets an optional note.
     /// </summary>
     public string? Note { get; set; }
@@ -136,6 +148,7 @@ public class CodDecorationElement
         Tools = [];
         Positions = [];
         Images = [];
+        References = [];
     }
 
     /// <summary>

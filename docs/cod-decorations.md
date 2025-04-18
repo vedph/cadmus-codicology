@@ -69,6 +69,7 @@
     - techniques (`string`[]) 📚 cod-decoration-element-techniques
     - tools (`string`[]) 📚 cod-decoration-element-tools
     - positions (`string`[]) 📚 cod-decoration-element-positions
+    - refSign (`string`): the optional reference sign from some script, e.g. the letter corresponding to a decorated initial
     - lineHeight (int)
     - textRelation (`string`)
     - description (`string` MD)
@@ -78,6 +79,7 @@
       - sourceId (`string`)
       - label (`string`)
       - copyright (`string`)
+    - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
     - note (`string`)
 
 > ⚠️ `artists.ids` was of type `AssertedId[]` before version 5.

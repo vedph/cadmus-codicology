@@ -4,13 +4,13 @@
     <TargetFramework>net9.0</TargetFramework>
     <Nullable>enable</Nullable>
     <IsPackable>false</IsPackable>
-    <Version>8.0.4</Version>
-    <FileVersion>8.0.4</FileVersion>
-    <AssemblyVersion>8.0.4</AssemblyVersion>
+    <Version>8.0.5</Version>
+    <FileVersion>8.0.5</FileVersion>
+    <AssemblyVersion>8.0.5</AssemblyVersion>
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Cadmus.Refs.Bricks" Version="6.0.1" />
+    <PackageReference Include="Cadmus.Refs.Bricks" Version="6.0.2" />
     <PackageReference Include="Microsoft.NET.Test.Sdk" Version="17.13.0" />
     <PackageReference Include="xunit" Version="2.9.3" />
     <PackageReference Include="xunit.runner.visualstudio" Version="3.0.2">
