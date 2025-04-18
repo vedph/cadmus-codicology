@@ -112,3 +112,4 @@ The portions which can be hidden are:
 - positions
 - lineHeight
 - textRelation
+- refSign
