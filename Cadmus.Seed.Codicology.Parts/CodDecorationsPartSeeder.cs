@@ -19,8 +19,8 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
 
     public CodDecorationsPartSeeder()
     {
-        _flags = new[] { "original", "unitary", "complete" };
-        _colors = new[] { "red", "green", "blue", "gold" };
+        _flags = ["not-original", "incomplete"];
+        _colors = ["red", "blue", "other"];
     }
 
     private List<string> GetColors()
@@ -35,14 +35,8 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
 
     private List<CodDecorationElement> GetElements(int count, Faker faker)
     {
-        List<CodDecorationElement> elements =
-            [];
-        string[] typologies = new[] { "frieze", "frame" };
-        string[] gildings = new[] { "leaf", "powder" };
-        string[] positions = new[]
-        {
-            "ill.full-page", "ill.margin-l", "ill.margin-r"
-        };
+        List<CodDecorationElement> elements = [];
+        string[] gildings = ["leaf", "powder"];
 
         for (int n = 1; n <= count; n++)
         {
@@ -53,13 +47,13 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
                 Type = "ill",
                 Flags = [.. new[] { faker.PickRandom(_flags) }],
                 Ranges = SeedHelper.GetLocationRanges(n % 2 == 0? 1 : 2),
-                Typologies = [.. new[] { faker.PickRandom(typologies) }],
+                Typologies = [],
                 Subject = faker.Lorem.Word(),
                 Colors = GetColors(),
                 Gildings = [faker.PickRandom(gildings)],
                 Techniques = [faker.PickRandom("ink", "watercolor")],
                 Tools = [faker.PickRandom("pen", "brush")],
-                Positions = [faker.PickRandom(positions)],
+                Positions = [],
                 LineHeight = faker.Random.Short(1, 10),
                 TextRelation = faker.Lorem.Sentence(),
                 Description = faker.Lorem.Sentence(),
@@ -74,13 +68,12 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase
     {
         return new Faker<CodDecorationArtist>()
             .RuleFor(a => a.Eid, f => f.Lorem.Word())
-            .RuleFor(a => a.Type, f => f.PickRandom("painter", "illuminator"))
+            .RuleFor(a => a.Type, f => f.PickRandom("workshop", "illuminator"))
             .RuleFor(a => a.Name, f => f.Person.FullName)
             .RuleFor(a => a.Styles,
             [
                 new CodDecorationArtistStyle
                 {
-                    // TODO: use thesaurus
                     Name = "style",
                     Chronotope = SeedHelper.GetAssertedChronotopes(1)[0]
                 }
