@@ -18,8 +18,8 @@ Specialized events related to any kind of text editing on the manuscript.
       - roleId (`string`)
       - name (`string`)
       - value (`string`)
-    - scope (`string` 📚 `comment-id-scopes`)
-    - tag (`string` 📚 `comment-id-tags`)
+    - scope (`string` 📚 `asserted-id-scopes`)
+    - tag (`string` 📚 `asserted-id-tags`)
     - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
       - tag (`string` 📚 `assertion-tags`)
       - rank (`short`)
@@ -29,10 +29,10 @@ Specialized events related to any kind of text editing on the manuscript.
         - citation (`string`)
         - note (`string`)
   - techniques (`string`[]) 📚 `cod-edit-techniques`
-  - ranges\* ([CodLocationRange[]](cod-location-range.md)):
-  - position (`string` 📚 `cod-edit-positions`: top, bottom...)
   - language (`string`) 📚 `cod-edit-languages`
   - colors (`string`[]) 📚 `cod-edit-colors`
+  - ranges\* ([CodLocationRange[]](cod-location-range.md)):
+  - position (`string` 📚 `cod-edit-positions`: top, bottom...)
   - date (🧱 [HistoricalDate](https://github.com/vedph/cadmus-bricks/blob/master/docs/historical-date.md))
     - a* (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md)):
       - value* (`int`): the numeric value of the point. Its interpretation depends on other points properties: it may represent a year or a century, or a span between two consecutive Gregorian years.
