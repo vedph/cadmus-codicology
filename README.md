@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.6
+
+- 2025-05-02: updated packages.
+
 ### 8.0.5
 
 Version 8 is be the next major version, and includes minor changes to some of the models. Only a couple of changes are breaking changes; all the others are just additions.
