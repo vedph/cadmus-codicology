@@ -91,6 +91,11 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.8
+
+- 2025-05-14:
+  - added `CodSheetNColumnDefinition.canonicalRanges`.
+  - removed `CodSheetLabelsPart`.`Note`.
 - 2025-05-06: updated test packages.
 
 ### 8.0.6

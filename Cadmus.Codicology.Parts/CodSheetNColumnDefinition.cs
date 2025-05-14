@@ -48,6 +48,14 @@ public class CodSheetNColumnDefinition : CodSheetColumnDefinition
     public HistoricalDate? Date { get; set; }
 
     /// <summary>
+    /// Gets or sets the numbering ranges for which this column should be used
+    /// as the canonical system to reference the pages in them. All the ranges
+    /// not covered by canonical ranges of any of the N-columns will be assumed
+    /// to be referenced via the default "natural" N-column.
+    /// </summary>
+    public List<CodLocationRange>? CanonicalRanges { get; set; }
+
+    /// <summary>
     /// Initializes a new instance of the <see cref="CodSheetNColumnDefinition"/>
     /// class.
     /// </summary>

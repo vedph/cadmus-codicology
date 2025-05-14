@@ -44,11 +44,6 @@ public sealed class CodSheetLabelsPart : PartBase
     public List<CodSheetRColumnDefinition> RDefinitions { get; set; }
 
     /// <summary>
-    /// Gets or sets a generic note.
-    /// </summary>
-    public string? Note { get; set; }
-
-    /// <summary>
     /// Initializes a new instance of the <see cref="CodSheetLabelsPart"/>
     /// class.
     /// </summary>
@@ -170,7 +165,11 @@ public sealed class CodSheetLabelsPart : PartBase
                     if (col.Value.Length < maxValLen)
                         sb.Append(' ', maxValLen - col.Value.Length);
                 }
-                else sb.Append(' ', maxValLen);
+                else
+                {
+                    sb.Append(' ', maxValLen);
+                }
+
                 sb.Append('|');
             }
             sb.AppendLine();

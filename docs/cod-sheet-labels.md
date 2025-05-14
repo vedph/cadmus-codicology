@@ -55,6 +55,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - position\* (`string` 📚 cod-numbering-positions)
   - colors (`string[]`)
   - date (`HistoricalDate`)
+  - canonicalRanges (`CodLocationRange[]`)
 - cDefinitions (`CodSheetCColumnDefinition[]`): catchwords on sheets:
   - id\* (`string`)
   - rank (short)
