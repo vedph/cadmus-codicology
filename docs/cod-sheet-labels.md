@@ -44,7 +44,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
       - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
       - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
-- quires (`CodSheetQuire[]`): specific data about quires:
+- quireDescription (`CodQuireDescription`): specific data about quires:
   - features (`string[]` 📚 cod-quire-features)
   - note (`string`)
   - scopedNotes (dictionary of notes keyed by the quire ordinal number)

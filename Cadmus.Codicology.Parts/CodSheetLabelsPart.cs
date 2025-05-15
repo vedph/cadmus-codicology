@@ -24,9 +24,9 @@ public sealed class CodSheetLabelsPart : PartBase
     public List<CodEndleaf> Endleaves { get; set; } = [];
 
     /// <summary>
-    /// Gets specific data about the quires.
+    /// Gets specific data about quires.
     /// </summary>
-    public List<CodSheetQuire> Quires { get; set; } = [];
+    public CodQuireDescription? QuireDescription { get; set; }
 
     /// <summary>
     /// Gets or sets the definitions of numbering columns.
@@ -182,7 +182,6 @@ public sealed class CodSheetLabelsPart : PartBase
 
         sb.Append("[CodSheetLabels]: R=").Append(Rows?.Count ?? 0);
 
-        sb.Append(" QN=").Append(Quires?.Count ?? 0);
         sb.Append(" CN=").Append(NDefinitions?.Count ?? 0);
         sb.Append(" CC=").Append(CDefinitions?.Count ?? 0);
         sb.Append(" CS=").Append(SDefinitions?.Count ?? 0);

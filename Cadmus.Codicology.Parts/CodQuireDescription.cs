@@ -9,7 +9,7 @@ namespace Cadmus.Codicology.Parts;
 /// quire-specific data (thus valid for multiple pages), like features,
 /// notes for each quire, and a general note about all the quires.
 /// </summary>
-public class CodSheetQuire
+public class CodQuireDescription
 {
     /// <summary>
     /// The features referred to all the quires. Usually derived from thesaurus
