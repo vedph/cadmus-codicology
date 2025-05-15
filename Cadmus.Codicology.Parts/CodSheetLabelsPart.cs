@@ -16,46 +16,37 @@ public sealed class CodSheetLabelsPart : PartBase
     /// <summary>
     /// Gets or sets the rows.
     /// </summary>
-    public List<CodSheetRow> Rows { get; set; }
+    public List<CodSheetRow> Rows { get; set; } = [];
 
     /// <summary>
     /// Gets or sets data about the endleaves.
     /// </summary>
-    public List<CodEndleaf> Endleaves { get; set; }
+    public List<CodEndleaf> Endleaves { get; set; } = [];
+
+    /// <summary>
+    /// Gets specific data about the quires.
+    /// </summary>
+    public List<CodSheetQuire> Quires { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the definitions of numbering columns.
     /// </summary>
-    public List<CodSheetNColumnDefinition> NDefinitions { get; set; }
+    public List<CodSheetNColumnDefinition> NDefinitions { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the definitions of catchword columns.
     /// </summary>
-    public List<CodSheetCColumnDefinition> CDefinitions { get; set; }
+    public List<CodSheetCColumnDefinition> CDefinitions { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the definitions of quire signature columns.
     /// </summary>
-    public List<CodSheetSColumnDefinition> SDefinitions { get; set; }
+    public List<CodSheetSColumnDefinition> SDefinitions { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the definitions of quire register signature columns.
     /// </summary>
-    public List<CodSheetRColumnDefinition> RDefinitions { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="CodSheetLabelsPart"/>
-    /// class.
-    /// </summary>
-    public CodSheetLabelsPart()
-    {
-        Rows = [];
-        Endleaves = [];
-        NDefinitions = [];
-        CDefinitions = [];
-        SDefinitions = [];
-        RDefinitions = [];
-    }
+    public List<CodSheetRColumnDefinition> RDefinitions { get; set; } = [];
 
     /// <summary>
     /// Get all the key=value pairs (pins) exposed by the implementor.
@@ -153,7 +144,7 @@ public sealed class CodSheetLabelsPart : PartBase
         int i = 0;
         foreach (CodSheetRow row in rows)
         {
-            sb.Append('|').AppendFormat("{0:00}", i / 2 + 1)
+            sb.Append('|').AppendFormat("{0:00}", (i / 2) + 1)
               .Append(i % 2 == 0? 'r':'v')
               .Append('|');
             foreach (string colId in colIds)
@@ -191,6 +182,7 @@ public sealed class CodSheetLabelsPart : PartBase
 
         sb.Append("[CodSheetLabels]: R=").Append(Rows?.Count ?? 0);
 
+        sb.Append(" QN=").Append(Quires?.Count ?? 0);
         sb.Append(" CN=").Append(NDefinitions?.Count ?? 0);
         sb.Append(" CC=").Append(CDefinitions?.Count ?? 0);
         sb.Append(" CS=").Append(SDefinitions?.Count ?? 0);

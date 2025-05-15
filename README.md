@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.9
+
+- 2025-05-15: add `Quires` to `CodSheetLabelsPart`.
+
 ### 8.0.8
 
 - 2025-05-14:

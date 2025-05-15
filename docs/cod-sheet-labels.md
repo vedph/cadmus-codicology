@@ -44,6 +44,10 @@ Each of these rows has a number of **columns** equal to all the labels we want t
       - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
       - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
+- quires (`CodSheetQuire[]`): specific data about quires:
+  - features (`string[]` 📚 cod-quire-features)
+  - note (`string`)
+  - scopedNotes (dictionary of notes keyed by the quire ordinal number)
 - nDefinitions (`CodSheetNColumnDefinition[]`): numbering on sheets:
   - id\* (`string`)
   - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
@@ -75,7 +79,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - note (`string`)
   - position\* (`string` 📚cod-quiresig-positions)
 
-Quires need no definitions. Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed. So, a typical quire sequence is like this:
+Quires need no definitions, but can have additional data (in `CodSheetQuire`). Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed. So, a typical quire sequence is like this:
 
 sheet | quire
 ------|------
