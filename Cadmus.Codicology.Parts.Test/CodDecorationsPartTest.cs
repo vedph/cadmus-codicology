@@ -156,13 +156,18 @@ public sealed class CodDecorationsPartTest
 
         List<DataPin> pins = part.GetDataPins(null).ToList();
 
-        Assert.Equal(18, pins.Count);
+        Assert.Equal(19, pins.Count);
         TestHelper.AssertValidDataPinNames(pins);
 
         DataPin? pin = pins.Find(p => p.Name == "tot-count");
         Assert.NotNull(pin);
         TestHelper.AssertPinIds(part, pin!);
         Assert.Equal("3", pin!.Value);
+
+        pin = pins.Find(p => p.Name == "element-key");
+        Assert.NotNull(pin);
+        TestHelper.AssertPinIds(part, pin!);
+        Assert.Equal("e1", pin!.Value);
 
         pin = pins.Find(p => p.Name == "type-odd-count");
         Assert.NotNull(pin);

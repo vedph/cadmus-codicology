@@ -69,10 +69,14 @@ public sealed class CodDecorationsPart : PartBase
                     }
                 }
 
+                // elements
                 if (decoration?.Elements?.Count > 0)
                 {
                     foreach (CodDecorationElement element in decoration.Elements)
                     {
+                        if (!string.IsNullOrEmpty(element.Key))
+                            builder.AddValue("element-key", element.Key);
+
                         builder.Increase(
                             DataPinHelper.DefaultFilter.Apply(element.Type, true),
                             false, "type-");
@@ -92,6 +96,7 @@ public sealed class CodDecorationsPart : PartBase
                     }
                 }
 
+                // artists
                 if (decoration?.Artists?.Count > 0)
                 {
                     foreach (var artist in decoration.Artists)
@@ -124,6 +129,9 @@ public sealed class CodDecorationsPart : PartBase
             new DataPinDefinition(DataPinValueType.Integer,
                 "tot-count",
                 "The total count of decorations."),
+            new DataPinDefinition(DataPinValueType.String,
+                "element-key",
+                "The decoration elements' key(s)."),
             new DataPinDefinition(DataPinValueType.Integer,
                 "type-{TYPE}-count",
                 "The count of each decoration's type."),

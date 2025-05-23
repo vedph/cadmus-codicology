@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.11
+
+- 2025-05-23: added `element-key` pin to decorations part.
+
 ### 8.0.10
 
 - 2025-05-15: add `QuireDescription` to `CodSheetLabelsPart`.
