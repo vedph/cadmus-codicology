@@ -91,6 +91,12 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.13
+
+- 2025-07-15: added optional `formula` to layout.
+
+### 8.0.12
+
 - 2025-07-14: updated packages.
 - 2025-06-26: updated test packages.
 

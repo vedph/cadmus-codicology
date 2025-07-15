@@ -4,7 +4,8 @@
 
 - layouts (`CodLayout[]`):
   - sample\* ([CodLocation](cod-location.md))
-  - ranges\* ([CodLocationRange[]](cod-location-range.md)):
+  - ranges\* ([CodLocationRange[]](cod-location-range.md))
+  - formula (`string`): optional [codicological layout formula](https://github.com/vedph/cod-layout-view). This is usually also reflected by `dimensions`.
   - dimensions (🧱 [PhysicalDimension[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/physical-dimension.md)):
     - value\* (`number`)
     - unit\* (`string` 📚 `physical-size-units`)

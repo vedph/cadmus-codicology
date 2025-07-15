@@ -21,6 +21,13 @@ public class CodLayout
     public List<CodLocationRange> Ranges { get; set; }
 
     /// <summary>
+    /// The optional codicological layout formula
+    /// (see https://github.com/vedph/cod-layout-view). This is usually
+    /// also reflected by <see cref="Dimensions"/>.
+    /// </summary>
+    public string? Formula { get; set; }
+
+    /// <summary>
     /// Gets or sets the dimensions.
     /// </summary>
     public List<PhysicalDimension> Dimensions { get; set; }
