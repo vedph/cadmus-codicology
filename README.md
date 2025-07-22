@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.14
+
+- 2025-07-22: changed language codes in seeders to conform to BCP47.
+
 ### 8.0.13
 
 - 2025-07-15: added optional `formula` to layout.

@@ -27,11 +27,8 @@ public sealed class CodEditsPartSeeder : PartSeederBase
                 .RuleFor(p => p.Tag, f => f.PickRandom(null, "tag"))
                 .RuleFor(p => p.Techniques, f =>
                     [f.PickRandom("ink", "lapis")])
-                .RuleFor(p => p.Language, f => f.PickRandom("lat", "grc"))
-                .RuleFor(p => p.Colors, f => new string[]
-                    {
-                        f.PickRandom("black", "red")
-                    })
+                .RuleFor(p => p.Language, f => f.PickRandom("la", "grc"))
+                .RuleFor(p => p.Colors, f => [ f.PickRandom("black", "red") ])
                 .RuleFor(p => p.Ranges,
                     f => SeedHelper.GetLocationRanges(f.Random.Number(1, 3)))
                 .RuleFor(p => p.Date, HistoricalDate.Parse($"{1400 + n} AD"))
