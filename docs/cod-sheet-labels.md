@@ -8,17 +8,17 @@ The model focuses on the sequence of _physical sheets_ in the current arrangemen
 
 So, we can first imagine a bidimensional **table**, having 1 **row** per _physical sheet_ in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`, etc.
 
-Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus 0 or 1 column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
+Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus a fixed column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
 
-- rows (`CodSheetRow[]`)
+- rows (`CodSheetRow[]`):
   - id\* (`string`): the physical sheet ID, equal to the physical sheet [CodLocation](cod-location.md) string value (`1r`, `1v`, `2r`, `2v`... etc).
   - columns (`CodSheetColumn[]`):
     - id\* (`string`): assigned according to a convention (see below).
-    - value: the cell's value.
-    - note
+    - value (`string`): the cell's value.
+    - note (`string`)
 - endleaves (`CodEndleaf[]`):
   - location\* (`string`): the endleaf location. This links these data to the endleaf row's ID in the table.
-  - material\* (`string`) 📚cod-endleaf-materials
+  - material\* (`string`) 📚 `cod-endleaf-materials`
   - chronotope\* (🧱 [AssertedChronotope](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-chronotope.md)):
     - place (🧱 [AssertedPlace](https://github.com/vedph/cadmus-bricks/blob/master/docs/asserted-place.md))
       - tag (`string` 📚 `chronotope-tags`)
@@ -50,13 +50,13 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - scopedNotes (dictionary of notes keyed by the quire ordinal number)
 - nDefinitions (`CodSheetNColumnDefinition[]`): numbering on sheets:
   - id\* (`string`)
-  - rank (short): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
+  - rank (`short`): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
   - note (`string`)
   - isPagination (bool)
   - isByScribe (bool)
-  - system\* (`string` 📚 cod-numbering-systems)
-  - technique\* (`string` 📚 cod-numbering-techniques)
-  - position\* (`string` 📚 cod-numbering-positions)
+  - system\* (`string` 📚 `cod-numbering-systems`)
+  - technique\* (`string` 📚 `cod-numbering-techniques`)
+  - position\* (`string` 📚 `cod-numbering-positions`)
   - colors (`string[]`)
   - date (`HistoricalDate`)
   - canonicalRanges (`CodLocationRange[]`)
@@ -64,22 +64,43 @@ Each of these rows has a number of **columns** equal to all the labels we want t
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - position\* (`string` 📚 cod-catchwords-positions)
+  - position\* (`string` 📚 `cod-catchwords-positions`)
   - isVertical (bool)
   - decoration (`string`)
 - sDefinitions (`CodSheetSColumnDefinition[]`): quire signatures on sheets:
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - system\* (`string` 📚cod-quiresig-systems)
-  - position\* (`string` 📚cod-quiresig-positions)
+  - system\* (`string` 📚 `cod-quiresig-systems`)
+  - position\* (`string` 📚 `cod-quiresig-positions`)
 - rDefinitions (`CodSheetRColumnDefinition[]`): quire register signatures:
   - id\* (`string`)
   - rank (short)
   - note (`string`)
-  - position\* (`string` 📚cod-quiresig-positions)
+  - position\* (`string` 📚 `cod-quiresig-positions`)
 
-Quires need no definitions, but can have additional data (in `CodSheetQuire`). Quire labels have syntax `N.S/T` where `N`=quire ordinal number, `S`=sheet ordinal number, `T`=total sheets in quire; `S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed. So, a typical quire sequence is like this:
+## Rows
+
+Rows (=physical sheets) are numbered according to these conventions:
+
+- front endleaf: `(Nr)` or `(Nv)`: e.g. `(1r)`=1 recto.
+- back endleaf: `(/Nr)` or `(/Nv)`: e.g.
+  `(/1r)`=1 recto.
+- body sheet: `Nr` or `Nv`: e.g.  `1v`=1 verso.
+
+## Columns
+
+### Quires
+
+Quires need no definitions, but they can have a description. Their labels have syntax `N.S/T` where:
+
+- `N`=quire ordinal number;
+- `S`=sheet ordinal number;
+- `T`=total sheets in quire.
+
+>`S` may be greater than `T` when sheets were added (e.g. `1.5/4`) or less than `T` when sheets were removed.
+
+So, a typical quire sequence is like this:
 
 sheet | quire
 ------|------
@@ -96,9 +117,11 @@ sheet | quire
 
 ... etc.
 
+### Other Columns
+
 🔖 Conventions for assigning **column IDs**:
 
-(1) (required) prefix representing the ID type: one of:
+(1) (required) _prefix_ representing the ID type: one of:
 
 - `n`: a numbering system.
 - `q`: the quires description.
@@ -106,9 +129,33 @@ sheet | quire
 - `s`: quire signatures.
 - `r`: quire register signatures.
 
-(2) dot (`.`) + an arbitrary name. If this part is missing, it is assumed that this is the default item for its type of column. For instance, `q` is the (obviously unique and thus default) description for quires; while `n` is the default numbering system, side by side with another numbering system `n.some-other`.
+(2) dot (`.`) + an arbitrary _name_. If this part is missing, it is assumed that this is the default item for its type of column. For instance, `q` is the (obviously unique and thus default) description for quires; while `n` is the default numbering system, side by side with another numbering system `n.some-other`.
 
-For instance, `n.roman-endleaf` is a numbering system, `q` is the quires description, `c` the catchwords description, etc.
+For instance, `n.roman-endleaf` is a numbering system named `roman-endleaf`; `q` is the quires description; `c` the catchwords description, etc.
+
+## UI
+
+The main view shows a grid having a row for each physical sheet, and a column for each label. The quires column is unique, and always has the ID `q`. All the other columns have an ID starting with their type prefix plus dot plus an arbitrary suffix (e.g. `n.roman`).
+
+The `q` column is the quires column, which is unique. All the other columns are added at will, each with its own type and ID. To add a column, use the _adder tool_ by picking a type, and entering the ID when required. You can edit data about each column using the edit button next to the action's tool column picker.
+
+The _action tool_ allows you to (1) pick a target column and (2) either edit it, or add new sheets (=rows) with the specified labels on it. To this end, it uses a simple **formula** allowing you to quickly enter rows and their labels in batches.
+
+>Alternatively, you can always edit each cell's value by clicking on it. This is the only way to edit additional notes about any of the cell values.
+
+The formula syntax for batch data entry is:
+
+1. `N`=sheet number;
+2. `r/v`=recto/verso (always `r` for quires);
+3. `*`=sheet or `%`=page;
+4. `N`=count of sheet/page labels to add;
+5. `value`=value of the label(s) to add. Include in double quotes when it's a literal constant. Else, it can be an Arabic number, a Roman number, or a Latin/Greek letter, either uppercase or lowercase. In all these cases, labels will be generated automatically: e.g.:
+   - `1r*3=xi` = assign labels `xi`, `xii`, and  `xiii` to sheets 1r, 2r, and 3r. Quires have a   special numbering, with form `qN/M` where N=sheet number and M=count of sheets in that quire.
+   - `1x2=q1/4` = generate 16 labels like `1.1/4` for 1r and 1v, `1.2/4` for 2r and 2v, etc. where the initial number followed by dot is the quire ordinal number, while others correspond to N and M.
+
+Also, you can use another syntax to just set the value of an arbitrarily defined set of cells. In this case, you specify any number of physical locations (e.g. `1r`) or location ranges (e.g. `1r-4v`), followed by `:=` and a single value to assign to all the listed cells.
+
+---
 
 ## Model History
 
