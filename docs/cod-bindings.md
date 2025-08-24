@@ -2,6 +2,8 @@
 
 🔑 ID: `it.vedph.codicology.bindings`
 
+Essential data about a manuscript's binding(s), including materials, date and/or place, size, and narrative description.
+
 - bindings (`CodBinding[]`):
   - tag (`string`) 📚 `cod-binding-tags`
   - coverMaterial\* (`string`) 📚 `cod-binding-cover-materials`

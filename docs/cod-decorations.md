@@ -2,6 +2,12 @@
 
 🔑 ID: `it.vedph.codicology.decorations`
 
+Essential description of the decorations found in a manuscript. This is a relatively synthetic, yet highly granular description, thus included in a single part rathern than being an item.
+
+Each decoration has some generic metadata (ID, name and features), date and/or place, artist(s), references, and any number of elements.
+
+Each element has a more detailed set of descriptive metadata, and can also be positioned in an elements hierarchy shaped like a tree, where each element can have one parent and any number of children. An element has type, features, range(s) covered by it in the manuscript, typologies, subject, colors, gildings, techniques and tools, positions in the page, reference sign, height, relation with text, free text description, and zero or more images.
+
 - decorations (`CodDecoration[]`):
   - eid (`string`)
   - name\* (`string`)
@@ -56,30 +62,34 @@
   - note (`string`)
   - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
   - elements (`CodDecorationElement[]`):
-    - key (`string`)
-    - parentKey (`string`)
-    - type\* (`string`) 📚 cod-decoration-element-types
-    - flags (`string`[]) 📚 cod-decoration-element-flags
-    - ranges\* ([CodLocationRange[]](cod-location-range.md)):
-    - instanceCount (int)
-    - typologies (`string`) 📚 cod-decoration-element-typologies
-    - subject (`string`)
-    - colors (`string`[]) 📚 cod-decoration-element-colors
-    - gildings (`string`[]) 📚 cod-decoration-element-gildings
-    - techniques (`string`[]) 📚 cod-decoration-element-techniques
-    - tools (`string`[]) 📚 cod-decoration-element-tools
-    - positions (`string`[]) 📚 cod-decoration-element-positions
-    - refSign (`string`): the optional reference sign from some script, e.g. the letter corresponding to a decorated initial
-    - lineHeight (int)
-    - textRelation (`string`)
-    - description (`string` MD)
-    - images (`CodImage[]`):
-      - id\* (`string`)
-      - type\* (`string`) 📚 cod-image-types
-      - sourceId (`string`)
-      - label (`string`)
+    - key (`string`): the element's key.
+    - parentKey (`string`): the element parent's key if any.
+    - type\* (`string`) 📚 `cod-decoration-element-types`: the type of the element.
+    - flags (`string`[]) 📚 `cod-decoration-element-flags`: binary features assigned to this element.
+    - ranges\* ([CodLocationRange[]](cod-location-range.md)): the ranges of locations this element spans for.
+    - instanceCount (int): the count of other instances of the same element which is described just once about its parent decoration, but occurs several times in other decorations of the same manuscript. When not used this is just 0.
+    - typologies (`string`) 📚 `cod-decoration-element-typologies`: the typologies assigned to this element. These are typically drawn from a thesaurus, organized in sub-sets according to the element's type; for instance, for type "ornamentation" you would have typologies like "fregi", "cornici", "grottesche", "stemmi", etc.
+    - subject (`string`): the decoration subject, when applicable. For letters, it might be the letter itself.
+    - colors (`string`[]) 📚 `cod-decoration-element-colors`: color(s) used for this element.
+    - gildings (`string`[]) 📚 `cod-decoration-element-gildings`: gilding type(s) used for this element.
+    - techniques (`string`[]) 📚 `cod-decoration-element-techniques`: technique(s) used for this element.
+    - tools (`string`[]) 📚 `cod-decoration-element-tools`: tool(s) used for this element.
+    - positions (`string`[]) 📚 `cod-decoration-element-positions`: the position of the element relative to the page (e.g. top margin, bottom margin, etc.).
+    - refSign (`string`): the optional reference sign from some script, e.g. the letter corresponding to a decorated initial.
+    - lineHeight (int): the element's height, measured in lines.
+    - textRelation (`string`): a free textual dscription of the relation of this element with the text.
+    - description (`string` MD): a rich-text description of the element.
+    - images (`CodImage[]`): optional images of this element:
+      - id\* (`string`): the image's ID.
+      - type\* (`string`) 📚 `cod-image-types`: the image's type.
+      - sourceId (`string`): the image's source ID. This depends on the image source; e.g. in a file system it could just be the image's file path, or just a numeric value if image files are progressively numbered in a folder, etc.; for a web image it could be a URL; etc.
+      - label (`string`): a human-readable label for the image.
       - copyright (`string`)
-    - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
+      - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
+        - type (`string` 📚 `doc-reference-types`)
+        - tag (`string` 📚 `doc-reference-tags`)
+        - citation (`string`)
+        - note (`string`)
     - note (`string`)
 
 > ⚠️ `artists.ids` was of type `AssertedId[]` before version 5.

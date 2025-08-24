@@ -2,6 +2,8 @@
 
 🔑 `it.vedph.codicology.material-dsc`
 
+Material description of the manuscript via its codicological units (defined as "a sample of folios or queries whose production can be regarded a unic operation, realised in the same conditions (place, time, technics)", Muzerelle 1985).
+
 - units\* (`CodUnit[]`):
   - eid (`string`)
   - tag (`string`) 📚 `cod-unit-tags`
@@ -34,7 +36,7 @@
       - b (🧱 [Datation](https://github.com/vedph/cadmus-bricks/blob/master/docs/datation.md))
       - tag (`string`)
       - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md))
-  - noGregory (`boolean`)
+  - noGregory (`boolean`): a value indicating whether this unit does _not_ follow Gregory's law (which determines that during the creation of the parchment quires the pages with the same side -hair/flesh- always touch).
   - note (`string`)
 - palimpsests (`CodPalimpsest[]`):
   - range\* ([CodLocationRange](cod-location-range.md))
