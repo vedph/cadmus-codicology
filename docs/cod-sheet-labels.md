@@ -6,7 +6,7 @@ This part allows you to edit data about labels (numbering, catchwords and signat
 
 The model focuses on the sequence of _physical sheets_ in the current arrangement of the manuscript (i.e. `1r`, `1v`, `2r`, `2v`, etc.). In relation with this sequence, quires describe sheets "grouping", while all the other properties describe labels on some sheets, usually following a pattern.
 
-So, we can first imagine a bidimensional **table**, having 1 **row** per _physical sheet_ in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`, etc.
+So, we can first imagine a bidimensional **table**, having 2 **rows** per _physical page_ (each page being a recto/verso of a physical sheet) in the current manuscript, and thus being uniformly labelled like `1r`, `1v`, `2r`, `2v`, etc.
 
 Each of these rows has a number of **columns** equal to all the labels we want to attach to the sheets, plus a fixed column to describe how sheets are related to _quires_. So, at a minimum we have a single column for quires. Usually anyway several other columns get added for numbering systems, catchwords, quire signatures, and quire register signatures.
 
