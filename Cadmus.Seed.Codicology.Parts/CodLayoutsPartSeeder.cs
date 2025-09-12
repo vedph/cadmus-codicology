@@ -39,8 +39,7 @@ public sealed class CodLayoutsPartSeeder : PartSeederBase
                 f => new CodLocation
                 {
                     N = f.Random.Number(1, 60),
-                    S = f.Random.Bool() ?
-                        "v" : "r",
+                    V = f.Random.Bool()
                 })
             .RuleFor(p => p.Ranges, SeedHelper.GetLocationRanges(1))
             .RuleFor(p => p.Dimensions,

@@ -91,7 +91,11 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
-- 2025-09-12: updated test packages.
+### 8.0.15
+
+- 2025-09-12:
+  - updated test packages.
+  - fix to sample page range in layout seeder.
 
 ### 8.0.14
 
