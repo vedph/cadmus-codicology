@@ -39,12 +39,17 @@ public class CodDecorationElement
     /// present in it, like "original", "unitary", "complete", "has tips",
     /// etc.
     /// </summary>
-    public List<string> Flags { get; set; }
+    public List<string> Flags { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the ranges of locations this element spans for.
     /// </summary>
-    public List<CodLocationRange> Ranges { get; set; }
+    public List<CodLocationRange> Ranges { get; set; } = [];
+
+    /// <summary>
+    /// Links towards other entities like iconographies.
+    /// </summary>
+    public List<AssertedCompositeId> Links { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the count of other instances of the same element
@@ -61,7 +66,7 @@ public class CodDecorationElement
     /// "ornamentation" you would have typologies like "fregi", "cornici",
     /// "grottesche", "stemmi", etc.
     /// </summary>
-    public List<string> Typologies { get; set; }
+    public List<string> Typologies { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the decoration subject, when applicable. For letters,
@@ -72,29 +77,29 @@ public class CodDecorationElement
     /// <summary>
     /// Gets or sets the colors, usually drawn from a thesaurus.
     /// </summary>
-    public List<string> Colors { get; set; }
+    public List<string> Colors { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the gilding types, usually drawn from a thesaurus.
     /// </summary>
-    public List<string> Gildings { get; set; }
+    public List<string> Gildings { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the techniques, usually drawn from a thesaurus.
     /// </summary>
-    public List<string> Techniques { get; set; }
+    public List<string> Techniques { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the tools used for the element, usually drawn from
     /// a thesaurus.
     /// </summary>
-    public List<string> Tools { get; set; }
+    public List<string> Tools { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the position of the element relative to the page,
     /// usually drawn from a thesaurus.
     /// </summary>
-    public List<string> Positions { get; set; }
+    public List<string> Positions { get; set; } = [];
 
     /// <summary>
     /// The optional reference sign from some script, e.g. the letter
@@ -121,35 +126,17 @@ public class CodDecorationElement
     /// <summary>
     /// Gets or sets the list of images depicting this element.
     /// </summary>
-    public List<CodImage> Images { get; set; }
+    public List<CodImage> Images { get; set; } = [];
 
     /// <summary>
     /// Gets or sets the list of document references for this element.
     /// </summary>
-    public List<DocReference> References { get; set; }
+    public List<DocReference> References { get; set; } = [];
 
     /// <summary>
     /// Gets or sets an optional note.
     /// </summary>
     public string? Note { get; set; }
-
-    /// <summary>
-    /// Initializes a new instance of the <see cref="MsDecorationElement"/>
-    /// class.
-    /// </summary>
-    public CodDecorationElement()
-    {
-        Flags = [];
-        Ranges = [];
-        Typologies = [];
-        Colors = [];
-        Gildings = [];
-        Techniques = [];
-        Tools = [];
-        Positions = [];
-        Images = [];
-        References = [];
-    }
 
     /// <summary>
     /// Converts to string.

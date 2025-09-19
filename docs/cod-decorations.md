@@ -62,11 +62,12 @@ Each element has a more detailed set of descriptive metadata, and can also be po
   - note (`string`)
   - references (🧱 [DocReference[]](https://github.com/vedph/cadmus-bricks/blob/master/docs/doc-reference.md)):
   - elements (`CodDecorationElement[]`):
-    - key (`string`): the element's key.
-    - parentKey (`string`): the element parent's key if any.
+    - key (`string`): the element's key. Used for the element when it represents also a parent of other elements. Its scope is limited to the part.
+    - parentKey (`string`): the element parent's key if any. Its scope is limited to the part.
     - type\* (`string`) 📚 `cod-decoration-element-types`: the type of the element.
     - flags (`string`[]) 📚 `cod-decoration-element-flags`: binary features assigned to this element.
     - ranges\* ([CodLocationRange[]](cod-location-range.md)): the ranges of locations this element spans for.
+    - links (`AssertedCompositeId[]`): links towards other entities like iconographies.
     - instanceCount (int): the count of other instances of the same element which is described just once about its parent decoration, but occurs several times in other decorations of the same manuscript. When not used this is just 0.
     - typologies (`string`) 📚 `cod-decoration-element-typologies`: the typologies assigned to this element. These are typically drawn from a thesaurus, organized in sub-sets according to the element's type; for instance, for type "ornamentation" you would have typologies like "fregi", "cornici", "grottesche", "stemmi", etc.
     - subject (`string`): the decoration subject, when applicable. For letters, it might be the letter itself.
