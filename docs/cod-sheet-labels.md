@@ -51,6 +51,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
 - nDefinitions (`CodSheetNColumnDefinition[]`): numbering on sheets:
   - id\* (`string`)
   - rank (`short`): a generic `rank` property which defines the rank for N definitions of the same type: e.g. the main numbering has rank=1, the second has rank=2, etc. Two numberings might also have the same rank if neither prevails. Also, this has the advantage of allowing several columns for quires, signatures, etc. should this be ever required because of different, conflicting descriptions.
+  - links (`AssertedCompositeId[]`): links to some other entities, e.g. a figurative element for decorated labels.
   - note (`string`)
   - isPagination (bool)
   - isByScribe (bool)
@@ -63,6 +64,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
 - cDefinitions (`CodSheetCColumnDefinition[]`): catchwords on sheets:
   - id\* (`string`)
   - rank (short)
+  - links (`AssertedCompositeId[]`): links to some other entities, e.g. a figurative element for decorated labels.
   - note (`string`)
   - position\* (`string` 📚 `cod-catchwords-positions`)
   - isVertical (bool)
@@ -70,12 +72,14 @@ Each of these rows has a number of **columns** equal to all the labels we want t
 - sDefinitions (`CodSheetSColumnDefinition[]`): quire signatures on sheets:
   - id\* (`string`)
   - rank (short)
+  - links (`AssertedCompositeId[]`): links to some other entities, e.g. a figurative element for decorated labels.
   - note (`string`)
   - system\* (`string` 📚 `cod-quiresig-systems`)
   - position\* (`string` 📚 `cod-quiresig-positions`)
 - rDefinitions (`CodSheetRColumnDefinition[]`): quire register signatures:
   - id\* (`string`)
   - rank (short)
+  - links (`AssertedCompositeId[]`): links to some other entities, e.g. a figurative element for decorated labels.
   - note (`string`)
   - position\* (`string` 📚 `cod-quiresig-positions`)
 
@@ -84,8 +88,7 @@ Each of these rows has a number of **columns** equal to all the labels we want t
 Rows (=physical sheets) are numbered according to these conventions:
 
 - front endleaf: `(Nr)` or `(Nv)`: e.g. `(1r)`=1 recto.
-- back endleaf: `(/Nr)` or `(/Nv)`: e.g.
-  `(/1r)`=1 recto.
+- back endleaf: `(/Nr)` or `(/Nv)`: e.g. `(/1r)`=1 recto.
 - body sheet: `Nr` or `Nv`: e.g.  `1v`=1 verso.
 
 ## Columns
