@@ -6,7 +6,7 @@ Manuscript's shelfmark(s). Usually there is just one, unless you are also adding
 
 - shelfmarks (`CodShelfmark[]`):
   - tag (`string` 📚 `cod-shelfmark-tags`)
-  - city\* (`string`)
-  - library\* (`string` 📚 `cod-shelfmark-libraries`)
+  - city (`string` 📚 `cod-shelfmark-cities`)
+  - library (`string` 📚 `cod-shelfmark-libraries`)
   - fund (`string`)
-  - location\* (`string`)
+  - location (`string`)
