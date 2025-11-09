@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 8.0.18
+
+- 2025-11-09: updated packages.
+
 ### 8.0.17
 
 - 2025-09-19: added `links` to decoration element.
