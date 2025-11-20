@@ -51,7 +51,8 @@ Each element has a more detailed set of descriptive metadata, and can also be po
         - roleId (`string`)
         - name (`string`)
         - value (`string`)
-      - scope (`string`)
+      - scope (`string` 📚 `asserted-id-scopes`): optional ID scope.
+      - tag (`string` 📚 `asserted-id-tags`): optional tag.
       - assertion (🧱 [Assertion](https://github.com/vedph/cadmus-bricks/blob/master/docs/assertion.md)):
     - styles (`CodDecorationArtistStyle[]`):
       - name\* (`string`) 📚 cod-decoration-artist-style-names
