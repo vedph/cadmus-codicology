@@ -13,19 +13,36 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.bindings")]
-public sealed class CodBindingsPartSeeder : PartSeederBase
+public sealed class CodBindingsPartSeeder : PartSeederBase,
+    IConfigurable<CodBindingsPartSeederOptions>
 {
-    private static List<CodBinding> GetBindings(int count)
+    private CodBindingsPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures the seeder with the specified options.
+    /// </summary>
+    /// <param name="options">The options to use for configuring the seeder.</param>
+    /// <exception cref="ArgumentNullException">options</exception>
+    public void Configure(CodBindingsPartSeederOptions options)
+    {
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
+    private List<CodBinding> GetBindings(int count)
     {
         List<CodBinding> bindings = [];
         for (int n = 1; n <= count; n++)
         {
             bindings.Add(new Faker<CodBinding>()
-                .RuleFor(b => b.Tag, f => f.PickRandom(null, "tag"))
+                .RuleFor(b => b.Tag,
+                    f => f.PickRandom(_options?.Tags?.Count > 0
+                    ? _options.Tags : ["previous", "-"]))
                 .RuleFor(b => b.CoverMaterial,
-                    f => f.PickRandom("skin", "velvet"))
+                    f => f.PickRandom(_options?.CoverMaterials?.Count > 0
+                    ? _options.CoverMaterials : ["skin", "velvet"]))
                 .RuleFor(b => b.BoardMaterial,
-                    f => f.PickRandom("wood", "card"))
+                    f => f.PickRandom(_options?.BoardMaterials?.Count > 0
+                    ? _options.BoardMaterials : ["wood", "card"]))
                 .RuleFor(b => b.Size, SeedHelper.GetPhysicalSize())
                 .RuleFor(b => b.Chronotope, SeedHelper.GetAssertedChronotopes(1)[0])
                 .RuleFor(b => b.Description, f => f.Lorem.Sentence())
@@ -55,4 +72,26 @@ public sealed class CodBindingsPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodBindingsPartSeeder"/>.
+/// </summary>
+public class CodBindingsPartSeederOptions
+{
+    /// <summary>
+    /// Binding tag IDs to pick from.
+    /// </summary>
+    public List<string>? Tags { get; set; }
+
+    /// <summary>
+    /// Cover material IDs to pick from.
+    /// </summary>
+    public List<string>? CoverMaterials { get; set; }
+
+    /// <summary>
+    /// Board material IDs to pick from.
+    /// </summary>
+    public List<string>? BoardMaterials { get; set; }
+
 }

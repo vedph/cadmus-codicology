@@ -13,9 +13,9 @@
 		<NeutralLanguage>en-US</NeutralLanguage>
 		<PackageLicenseExpression>GPL-3.0-or-later</PackageLicenseExpression>
 		<PackageTags>Cadmus;parts</PackageTags>
-		<Version>8.0.18</Version>
-		<FileVersion>8.0.18</FileVersion>
-		<AssemblyVersion>8.0.18</AssemblyVersion>
+		<Version>8.0.19</Version>
+		<FileVersion>8.0.19</FileVersion>
+		<AssemblyVersion>8.0.19</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

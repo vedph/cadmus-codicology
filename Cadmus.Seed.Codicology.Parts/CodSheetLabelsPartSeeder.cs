@@ -15,8 +15,21 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.sheet-labels")]
-public sealed class CodSheetLabelsPartSeeder : PartSeederBase
+public sealed class CodSheetLabelsPartSeeder : PartSeederBase,
+    IConfigurable<CodSheetLabelsPartSeederOptions>
 {
+    private CodSheetLabelsPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures the seeder with the specified options.
+    /// </summary>
+    /// <param name="options">The options to use for configuring the seeder.</param>
+    /// <exception cref="ArgumentNullException">options</exception>
+    public void Configure(CodSheetLabelsPartSeederOptions options)
+    {
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
     /// <summary>
     /// Creates and seeds a new part.
     /// </summary>
@@ -34,6 +47,11 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
         CodSheetLabelsPart part = new();
         SetPartMetadata(part, roleId, item);
 
+        IList<string> systems = _options?.Systems ?? ["roman", "arabic"];
+        IList<string> techniques = _options?.Techniques ?? ["ink", "lapis"];
+        IList<string> positions = _options?.Positions ?? ["mse", "msc"];
+        IList<string> colors = _options?.Colors ?? ["red", "dark-brown"];
+
         // n.alpha and n.beta
         for (int i = 0; i < 2; i++)
         {
@@ -41,11 +59,10 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
                 .RuleFor(d => d.Id, i == 0? "n.alpha" : "n.beta")
                 .RuleFor(d => d.IsPagination, true)
                 .RuleFor(d => d.IsByScribe, i == 0)
-                .RuleFor(d => d.System, i == 0? "roman" : "arabic")
-                .RuleFor(d => d.Technique, f => f.PickRandom("ink", "lapis"))
-                .RuleFor(d => d.Position, f => f.PickRandom("mse", "msc"))
-                .RuleFor(d => d.Colors,
-                    f => [f.PickRandom("red", "dark-brown")])
+                .RuleFor(d => d.System, f => f.PickRandom(systems))
+                .RuleFor(d => d.Technique, f => f.PickRandom(techniques))
+                .RuleFor(d => d.Position, f => f.PickRandom(positions))
+                .RuleFor(d => d.Colors, f => [f.PickRandom(colors)])
                 .RuleFor(d => d.Date, HistoricalDate.Parse($"{1300 + i} AD"))
                 .Generate());
         }
@@ -88,4 +105,30 @@ public sealed class CodSheetLabelsPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodSheetLabelsPartSeeder"/>.
+/// </summary>
+public class CodSheetLabelsPartSeederOptions
+{
+    /// <summary>
+    /// System IDs to pick from.
+    /// </summary>
+    public List<string>? Systems { get; set; }
+
+    /// <summary>
+    /// Technique IDs to pick from.
+    /// </summary>
+    public List<string>? Techniques { get; set; }
+
+    /// <summary>
+    /// Position IDs to pick from.
+    /// </summary>
+    public List<string>? Positions { get; set; }
+
+    /// <summary>
+    /// System IDs to pick from.
+    /// </summary>
+    public List<string>? Colors { get; set; }
 }

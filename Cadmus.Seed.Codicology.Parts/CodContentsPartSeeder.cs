@@ -13,17 +13,30 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.contents")]
-public sealed class CodContentsPartSeeder : PartSeederBase
+public sealed class CodContentsPartSeeder : PartSeederBase,
+    IConfigurable<CodContentsPartSeederOptions>
 {
-    private static List<CodContentAnnotation> GetAnnotations(int count)
+    private CodContentsPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures the seeder with the specified options.
+    /// </summary>
+    /// <param name="options">The options to use for seeding content parts.</param>
+    /// <exception cref="ArgumentNullException">options.</exception>
+    public void Configure(CodContentsPartSeederOptions options)
     {
-        List<CodContentAnnotation> annotations =
-            [];
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
+    private List<CodContentAnnotation> GetAnnotations(int count)
+    {
+        List<CodContentAnnotation> annotations = [];
         for (int n = 1; n <= count; n++)
         {
             annotations.Add(new Faker<CodContentAnnotation>()
                 .RuleFor(a => a.Type,
-                    f => f.PickRandom("rubric", "dedication"))
+                    f => f.PickRandom(_options?.AnnotationTypes?.Count > 0
+                    ? _options.AnnotationTypes : ["rubric", "dedication"]))
                 .RuleFor(c => c.Range, SeedHelper.GetLocationRanges(1)[0])
                 .RuleFor(c => c.Text, f => f.Lorem.Sentence())
                 .RuleFor(c => c.Incipit, f => f.Lorem.Sentence())
@@ -33,7 +46,7 @@ public sealed class CodContentsPartSeeder : PartSeederBase
         return annotations;
     }
 
-    private static List<CodContent> GetContents(int count)
+    private List<CodContent> GetContents(int count)
     {
         List<CodContent> contents = [];
         for (int n = 1; n <= count; n++)
@@ -42,13 +55,13 @@ public sealed class CodContentsPartSeeder : PartSeederBase
                 .RuleFor(c => c.Eid, f => f.Lorem.Word())
                 .RuleFor(c => c.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(c => c.States,
-                    f => [f.PickRandom("headless", "gaps")])
+                    f => [f.PickRandom(_options?.ContentStates?.Count > 0
+                    ? _options.ContentStates : ["headless", "gaps"])])
                 .RuleFor(c => c.Title, f => f.Lorem.Sentence(2, 4))
                 .RuleFor(c => c.Location,
                     f => $"{f.Random.Number(1, 12)}.{f.Random.Number(1, 100)}")
                 .RuleFor(c => c.ClaimedAuthor, f => f.Person.FullName)
                 .RuleFor(c => c.ClaimedTitle, f => f.Lorem.Sentence(2, 4))
-                .RuleFor(c => c.Tag, f => f.PickRandom(null, "tag"))
                 .RuleFor(c => c.Incipit, f => f.Lorem.Sentence())
                 .RuleFor(c => c.Explicit, f => f.Lorem.Sentence())
                 .RuleFor(c => c.Annotations,
@@ -79,4 +92,20 @@ public sealed class CodContentsPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodContentsPartSeeder"/>.
+/// </summary>
+public class CodContentsPartSeederOptions
+{
+    /// <summary>
+    /// The annotation type IDs to pick from.
+    /// </summary>
+    public List<string>? AnnotationTypes { get; set; }
+
+    /// <summary>
+    /// The content state IDs to pick from.
+    /// </summary>
+    public List<string>? ContentStates { get; set; }
 }

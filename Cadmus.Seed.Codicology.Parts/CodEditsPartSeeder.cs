@@ -14,21 +14,38 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.edits")]
-public sealed class CodEditsPartSeeder : PartSeederBase
+public sealed class CodEditsPartSeeder : PartSeederBase,
+    IConfigurable<CodEditsPartSeederOptions>
 {
-    private static IList<CodEdit> GetEdits(int count)
+    private CodEditsPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures the seeder with the specified options.
+    /// </summary>
+    /// <param name="options">The options to use for configuring the seeder.
+    /// </param>
+    /// <exception cref="ArgumentNullException">options.</exception>
+    public void Configure(CodEditsPartSeederOptions options)
+    {
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
+    private IList<CodEdit> GetEdits(int count)
     {
         List<CodEdit> edits = [];
+        IList<string> types = _options?.Types ?? ["correction", "comment"];
+        IList<string> techniques = _options?.Techniques ?? ["ink", "lapis"];
+        IList<string> languages = _options?.Languages ?? ["la", "grc"];
+        IList<string> colors = _options?.Colors ?? ["black", "red"];
+
         for (int n = 1; n <= count; n++)
         {
             edits.Add(new Faker<CodEdit>()
                 .RuleFor(p => p.Eid, f => f.Lorem.Word())
-                .RuleFor(p => p.Type, f => f.PickRandom("correction", "comment"))
-                .RuleFor(p => p.Tag, f => f.PickRandom(null, "tag"))
-                .RuleFor(p => p.Techniques, f =>
-                    [f.PickRandom("ink", "lapis")])
-                .RuleFor(p => p.Language, f => f.PickRandom("la", "grc"))
-                .RuleFor(p => p.Colors, f => [ f.PickRandom("black", "red") ])
+                .RuleFor(p => p.Type, f => f.PickRandom(types))
+                .RuleFor(p => p.Techniques, f => [f.PickRandom(techniques)])
+                .RuleFor(p => p.Language, f => f.PickRandom(languages))
+                .RuleFor(p => p.Colors, f => [ f.PickRandom(colors) ])
                 .RuleFor(p => p.Ranges,
                     f => SeedHelper.GetLocationRanges(f.Random.Number(1, 3)))
                 .RuleFor(p => p.Date, HistoricalDate.Parse($"{1400 + n} AD"))
@@ -63,4 +80,30 @@ public sealed class CodEditsPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodEditsPartSeeder"/>.
+/// </summary>
+public class CodEditsPartSeederOptions
+{
+    /// <summary>
+    /// The type IDs to pick from.
+    /// </summary>
+    public List<string>? Types { get; set; }
+
+    /// <summary>
+    /// The technique IDs to pick from.
+    /// </summary>
+    public List<string>? Techniques { get; set; }
+
+    /// <summary>
+    /// The language IDs to pick from.
+    /// </summary>
+    public List<string>? Languages { get; set; }
+
+    /// <summary>
+    /// The color IDs to pick from.
+    /// </summary>
+    public List<string>? Colors { get; set; }
 }

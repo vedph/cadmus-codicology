@@ -91,6 +91,8 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+- 2025-11-21: configurable seeders.
+
 ### 8.0.18
 
 - 2025-11-09: updated packages.

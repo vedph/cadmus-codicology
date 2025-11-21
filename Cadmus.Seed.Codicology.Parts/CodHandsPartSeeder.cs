@@ -13,16 +13,31 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.hands")]
-public sealed class CodHandsPartSeeder : PartSeederBase
+public sealed class CodHandsPartSeeder : PartSeederBase,
+    IConfigurable<CodHandsPartSeederOptions>
 {
-    private static List<CodHandSign> GetSigns(int count)
+    private CodHandsPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures this seeder.
+    /// </summary>
+    /// <param name="options">The options.</param>
+    /// <exception cref="ArgumentNullException">options</exception>
+    public void Configure(CodHandsPartSeederOptions options)
+    {
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
+    private List<CodHandSign> GetSigns(int count)
     {
         List<CodHandSign> signs = [];
+        IList<string> types = _options?.SignTypes ?? ["letter", "punct"];
+
         for (int n = 1; n <= count; n++)
         {
             signs.Add(new Faker<CodHandSign>()
                 .RuleFor(s => s.Eid, f => f.Lorem.Word())
-                .RuleFor(s => s.Type, f => f.PickRandom("letter", "punct"))
+                .RuleFor(s => s.Type, f => f.PickRandom(types))
                 .RuleFor(s => s.SampleLocation,
                     SeedHelper.GetLocationRanges(1)[0].Start)
                 .RuleFor(s => s.Description, f => f.Lorem.Sentence())
@@ -31,22 +46,19 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         return signs;
     }
 
-    private static List<CodHandInstance> GetInstances(int count)
+    private List<CodHandInstance> GetInstances(int count)
     {
         List<CodHandInstance> instances = [];
+        IList<string> scripts = _options?.Scripts ?? ["got", "mea"];
+        IList<string> typologies = _options?.Typologies ?? ["text", "note"];
+        IList<string> colors = _options?.Colors ?? ["red", "blue"];
+
         for (int n = 1; n <= count; n++)
         {
             instances.Add(new Faker<CodHandInstance>()
-                .RuleFor(d => d.Scripts,
-                    f => [f.PickRandom("got", "mea")])
-                .RuleFor(d => d.Typologies, f =>
-                [
-                    f.PickRandom("text", "note")
-                ])
-                .RuleFor(d => d.Colors, f =>
-                [
-                    f.PickRandom("red", "blue")
-                ])
+                .RuleFor(d => d.Scripts, f => [f.PickRandom(scripts)])
+                .RuleFor(d => d.Typologies, f => [f.PickRandom(typologies)])
+                .RuleFor(d => d.Colors, f => [f.PickRandom(colors)])
                 .RuleFor(d => d.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(d => d.Rank, f => f.Random.Short(1, 3))
                 .RuleFor(d => d.DescriptionKey, "d1")
@@ -58,7 +70,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         return instances;
     }
 
-    private static List<CodHandDescription> GetDescriptions(int count)
+    private List<CodHandDescription> GetDescriptions(int count)
     {
         List<CodHandDescription> descriptions = [];
         for (int n = 1; n <= count; n++)
@@ -76,14 +88,16 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         return descriptions;
     }
 
-    private static List<CodHandSubscription> GetSubscriptions(int count)
+    private List<CodHandSubscription> GetSubscriptions(int count)
     {
         List<CodHandSubscription> subscriptions = [];
+        IList<string> languages = _options?.Languages ?? ["la", "grc"];
+
         for (int n = 1; n <= count; n++)
         {
             subscriptions.Add(new Faker<CodHandSubscription>()
                 .RuleFor(s => s.Ranges, SeedHelper.GetLocationRanges(1))
-                .RuleFor(s => s.Language, f => f.PickRandom("la", "grc"))
+                .RuleFor(s => s.Language, f => f.PickRandom(languages))
                 .RuleFor(s => s.Text, f => f.Lorem.Sentence())
                 .RuleFor(s => s.Note, f => f.Lorem.Sentence().OrNull(f))
                 .Generate());
@@ -91,7 +105,7 @@ public sealed class CodHandsPartSeeder : PartSeederBase
         return subscriptions;
     }
 
-    private static List<CodHand> GetHands(int count)
+    private List<CodHand> GetHands(int count)
     {
         List<CodHand> hands = [];
         for (int n = 1; n <= count; n++)
@@ -133,4 +147,35 @@ public sealed class CodHandsPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodHandsPartSeeder"/>.
+/// </summary>
+public class CodHandsPartSeederOptions
+{
+    /// <summary>
+    /// Sign type IDs to pick from.
+    /// </summary>
+    public List<string>? SignTypes { get; set; }
+
+    /// <summary>
+    /// Script IDs to pick from.
+    /// </summary>
+    public List<string>? Scripts { get; set; }
+
+    /// <summary>
+    /// Typology IDs to pick from.
+    /// </summary>
+    public List<string>? Typologies { get; set; }
+
+    /// <summary>
+    /// Color IDs to pick from.
+    /// </summary>
+    public List<string>? Colors { get; set; }
+
+    /// <summary>
+    /// Language IDs to pick from.
+    /// </summary>
+    public List<string>? Languages { get; set; }
 }

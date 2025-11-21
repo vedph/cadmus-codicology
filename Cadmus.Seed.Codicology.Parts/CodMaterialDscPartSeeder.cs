@@ -13,18 +13,33 @@ namespace Cadmus.Seed.Codicology.Parts;
 /// </summary>
 /// <seealso cref="PartSeederBase" />
 [Tag("seed.it.vedph.codicology.material-dsc")]
-public sealed class CodMaterialDscPartSeeder : PartSeederBase
+public sealed class CodMaterialDscPartSeeder : PartSeederBase,
+    IConfigurable<CodMaterialDscPartSeederOptions>
 {
-    private static List<CodUnit> GetUnits(int count)
+    private CodMaterialDscPartSeederOptions? _options;
+
+    /// <summary>
+    /// Configures the seeder with the specified options.
+    /// </summary>
+    /// <param name="options">The options to use for configuring the seeder.</param>
+    /// <exception cref="ArgumentNullException">options</exception>
+    public void Configure(CodMaterialDscPartSeederOptions options)
+    {
+        _options = options ?? throw new ArgumentNullException(nameof(options));
+    }
+
+    private List<CodUnit> GetUnits(int count)
     {
         List<CodUnit> units = [];
+        IList<string> materials = _options?.Materials ?? ["parchment", "paper"];
+        IList<string> states = _options?.States ?? ["s1", "s2"];
+
         for (int n = 1; n <= count; n++)
         {
             units.Add(new Faker<CodUnit>()
                 .RuleFor(u => u.Eid, f => f.Lorem.Word())
-                .RuleFor(u => u.Tag, f => f.PickRandom(null, "tag"))
-                .RuleFor(u => u.Material, f => f.PickRandom("parchment", "paper"))
-                .RuleFor(u => u.State, f => f.PickRandom("s1", "s2"))
+                .RuleFor(u => u.Material, f => f.PickRandom(materials))
+                .RuleFor(u => u.State, f => f.PickRandom(states))
                 .RuleFor(u => u.Ranges, SeedHelper.GetLocationRanges(1))
                 .RuleFor(u => u.Chronotopes,
                     f => SeedHelper.GetAssertedChronotopes(f.Random.Number(1, 2)))
@@ -73,4 +88,20 @@ public sealed class CodMaterialDscPartSeeder : PartSeederBase
 
         return part;
     }
+}
+
+/// <summary>
+/// Options for <see cref="CodMaterialDscPartSeeder"/>.
+/// </summary>
+public class CodMaterialDscPartSeederOptions
+{
+    /// <summary>
+    /// The material IDs to pick from.
+    /// </summary>
+    public List<string>? Materials { get; set; }
+
+    /// <summary>
+    /// The state IDs to pick from.
+    /// </summary>
+    public List<string>? States { get; set; }
 }

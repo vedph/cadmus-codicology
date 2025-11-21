@@ -59,8 +59,6 @@ internal static class SeedHelper
         for (int n = 1; n <= count; n++)
         {
             refs.Add(new Faker<DocReference>()
-                .RuleFor(r => r.Tag, f => f.PickRandom(null, "tag"))
-                .RuleFor(r => r.Type, "biblio")
                 .RuleFor(r => r.Citation,
                     f => f.Person.LastName + " " + f.Date.Past(10).Year)
                 .RuleFor(r => r.Note, f => f.Lorem.Sentence())
@@ -128,7 +126,6 @@ internal static class SeedHelper
     public static Assertion GetAssertion()
     {
         return new Faker<Assertion>()
-            .RuleFor(a => a.Tag, f => f.PickRandom("a", "b", null))
             .RuleFor(a => a.Rank, f => f.Random.Short(1, 3))
             .RuleFor(a => a.References, GetDocReferences(2))
             .RuleFor(a => a.Note, f => f.Lorem.Sentence().OrNull(f))
@@ -192,7 +189,6 @@ internal static class SeedHelper
         Faker faker = new();
         return new PhysicalSize
         {
-            Tag = "tag",
             W = dimensions[0],
             H = dimensions[1],
             Note = faker.Random.Bool(0.25f)? faker.Lorem.Sentence() : null
