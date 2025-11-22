@@ -18,12 +18,18 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase,
 {
     private CodDecorationsPartSeederOptions? _options;
     private readonly IList<string> _flags;
+    private readonly IList<string> _positions;
+    private readonly IList<string> _typologies;
     private readonly IList<string> _colors;
 
     public CodDecorationsPartSeeder()
     {
         _flags = ["not-original", "incomplete"];
-        _colors = ["red", "blue", "other"];
+        _positions = ["ill.full-page", "ill.foot", "ini-pla.aligned", 
+            "ini-wat.aligned", "ini-orn.hanging", "ini-fig.aligned"];
+        _typologies = ["ill.miniature", "ill.drawing", "orn.frieze-fig",
+            "ini-orn.zoomrp", "par.rubrication"];
+        _colors = ["red", "blue", "green"];
     }
 
     /// <summary>
@@ -62,6 +68,25 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase,
         IList<string> tools = _options?.ElementTools?.Count > 0
             ? _options.ElementTools : ["pen", "brush"];
 
+        // flags, positions and typologies are filtered by type
+        string type = _options?.ElementTypes?.Count > 0
+            ? _options.ElementTypes[0] : "ill";
+        string typePrefix = type + ".";
+
+        IList<string> flags = _options?.Flags?.Where(
+            f => f.StartsWith(typePrefix))?.Any() == true
+            ? [.. _options.Flags.Where(f => f.StartsWith(typePrefix))] : _flags;
+
+        IList<string> positions = _options?.ElementPositions?.Where(
+            p => p.StartsWith(typePrefix))?.Any() == true
+            ? [.. _options.ElementPositions.Where(p => p.StartsWith(typePrefix))]
+            : _positions;
+
+        IList<string> typologies = _options?.ElementTypologies?.Where(
+            t => t.StartsWith(typePrefix))?.Any() == true
+            ? [.. _options.ElementTypologies.Where(t => t.StartsWith(typePrefix))]
+            : _typologies;
+
         for (int n = 1; n <= count; n++)
         {
             elements.Add(new CodDecorationElement
@@ -70,16 +95,15 @@ public sealed class CodDecorationsPartSeeder : PartSeederBase,
                 ParentKey = n == 2 ? "e1" : null,
                 Type = _options?.ElementTypes?.Count > 0
                     ? _options.ElementTypes[0] : "ill",
-                Flags = [.. new[] { faker.PickRandom(_options?.Flags?.Count > 0
-                    ? _options.Flags : _flags) }],
+                Flags = [faker.PickRandom(flags)],
                 Ranges = SeedHelper.GetLocationRanges(n % 2 == 0? 1 : 2),
-                Typologies = [],
+                Typologies = [faker.PickRandom(typologies)],
                 Subject = faker.Lorem.Word(),
                 Colors = GetColors(),
                 Gildings = [faker.PickRandom(gildings)],
                 Techniques = [faker.PickRandom(techniques)],
                 Tools = [faker.PickRandom(tools)],
-                Positions = [],
+                Positions = [faker.PickRandom(positions)],
                 LineHeight = faker.Random.Short(1, 10),
                 TextRelation = faker.Lorem.Sentence(),
                 Description = faker.Lorem.Sentence(),
@@ -178,9 +202,19 @@ public class CodDecorationsPartSeederOptions
     public List<string>? ElementGildings { get; set; }
 
     /// <summary>
+    /// The position IDs to pick from.
+    /// </summary>
+    public List<string>? ElementPositions { get; set; }
+
+    /// <summary>
     /// The technique IDs to pick from.
     /// </summary>
     public List<string>? ElementTechniques { get; set; }
+
+    /// <summary>
+    /// The element typology IDs to pick from.
+    /// </summary>
+    public List<string>? ElementTypologies { get; set; }
 
     /// <summary>
     /// The tool IDs to pick from.
