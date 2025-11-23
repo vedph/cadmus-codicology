@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 9.0.0
+
+- 2025-11-23: ⚠️ upgraded to NET 10.
+
 ### 8.0.19
 
 - 2025-11-21: configurable seeders.
