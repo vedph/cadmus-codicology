@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 9.0.1
+
+- 2026-01-17: updated packages.
+
 ### 9.0.0
 
 - 2025-11-23: ⚠️ upgraded to NET 10.
