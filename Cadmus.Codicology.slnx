@@ -1,0 +1,16 @@
+<Solution>
+  <Folder Name="/Solution Items/">
+    <File Path="models.png" />
+    <File Path="Pack.bat" />
+    <File Path="Push.bat" />
+    <File Path="PushLocal.bat" />
+    <File Path="README.md" />
+  </Folder>
+  <Project Path="Cadmus.Codicology.Graph.Test/Cadmus.Codicology.Graph.Test.csproj" />
+  <Project Path="Cadmus.Codicology.Graph/Cadmus.Codicology.Graph.csproj" />
+  <Project Path="Cadmus.Codicology.Parts.Test/Cadmus.Codicology.Parts.Test.csproj" />
+  <Project Path="Cadmus.Codicology.Parts/Cadmus.Codicology.Parts.csproj" />
+  <Project Path="Cadmus.Codicology.Services/Cadmus.Codicology.Services.csproj" />
+  <Project Path="Cadmus.Seed.Codicology.Parts.Test/Cadmus.Seed.Codicology.Parts.Test.csproj" />
+  <Project Path="Cadmus.Seed.Codicology.Parts/Cadmus.Seed.Codicology.Parts.csproj" />
+</Solution>
