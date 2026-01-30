@@ -91,6 +91,10 @@ The models of some bricks are summarized here for the reader's commodity.
 
 ## History
 
+### 9.0.2
+
+- 2026-01-30: added optional gaps to `CodContent`.
+
 ### 9.0.1
 
 - 2026-01-17: updated packages.

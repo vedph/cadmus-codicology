@@ -16,6 +16,9 @@ A set of content entries representing in the manuscript. Each is a different wor
   - claimedAuthorRanges ([CodLocationRange[]](cod-location-range.md)): the location of the author's name claim.
   - claimedTitle (`string`): the work's title as claimed in the unit.
   - claimedTitleRanges ([CodLocationRange[]](cod-location-range.md)): the location of the work's title claim.
+  - gaps (`CodContentGap[]` 📚 `cod-content-gap-types`, 📚 `cod-content-gap-tags`): gaps in the content:
+    - start (`DocReference`)
+    - end (`DocReference`)
   - tag (`string` 📚 `cod-content-tags`)
   - note (`string`)
   - incipit (`string`): the _incipit_'s text.

@@ -66,6 +66,11 @@ public class CodContent
     public List<CodLocationRange>? ClaimedTitleRanges { get; set; }
 
     /// <summary>
+    /// A set of optional gaps in this content.
+    /// </summary>
+    public List<CodContentGap>? Gaps { get; set; }
+
+    /// <summary>
     /// Gets or sets a generic tag used to group or classify a content.
     /// </summary>
     public string? Tag { get; set; }

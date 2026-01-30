@@ -45,6 +45,8 @@ public sealed class CodContentsPart : PartBase
 
         if (Contents?.Count > 0)
         {
+            int gapCount = 0;
+
             int ac = 0;
             foreach (CodContent content in Contents)
             {
@@ -62,8 +64,11 @@ public sealed class CodContentsPart : PartBase
 
                 if (content.Annotations?.Count > 0)
                     ac += content.Annotations.Count;
+
+                if (content.Gaps?.Count > 0) gapCount += content.Gaps.Count;
             }
             if (ac > 0) builder.AddValue("annotation-count", ac);
+            if (gapCount > 0) builder.AddValue("gap-count", gapCount);
         }
 
         return builder.Build(this);
@@ -80,6 +85,9 @@ public sealed class CodContentsPart : PartBase
             new DataPinDefinition(DataPinValueType.Integer,
                "tot-count",
                "The total count of contents."),
+            new DataPinDefinition(DataPinValueType.Integer,
+               "gap-count",
+               "The total count of gaps."),
             new DataPinDefinition(DataPinValueType.String,
                "eid",
                "The contents IDs.",
