@@ -100,7 +100,7 @@ public class CodWatermarksPartTest
                         {
                             Value = even? "Even" : "Odd"
                         },
-                        Date  = new AssertedDate(
+                        Date  = new AssertedHistoricalDate(
                             HistoricalDate.Parse($"{1400 + n}")!)
                     }
                 ]
