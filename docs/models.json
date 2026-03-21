@@ -1,0 +1,64 @@
+{
+  "it.vedph.codicology.bindings": {
+    "thesauriIds": [
+      "cod-binding-tags",
+      "cod-binding-cover-materials",
+      "cod-binding-board-materials",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags",
+      "physical-size-tags",
+      "physical-size-dim-tags"
+    ]
+  },
+  "it.vedph.codicology.contents": {
+    "thesauriIds": [
+      "cod-content-states",
+      "cod-content-gap-types",
+      "cod-content-gap-tags",
+      "cod-content-tags",
+      "cod-content-annotation-types",
+      "cod-content-annotation-features",
+      "cod-content-annotation-languages"
+    ]
+  },
+  "it.vedph.codicology.decorations": {
+    "thesauriIds": [
+      "cod-decoration-flags",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags",
+      "cod-decoration-artist-types",
+      "asserted-id-scopes",
+      "asserted-id-tags",
+      "cod-decoration-artist-style-names",
+      "*cod-decoration-element-types",
+      "cod-decoration-element-flags",
+      "cod-decoration-element-typologies",
+      "cod-decoration-element-colors",
+      "cod-decoration-element-gildings",
+      "cod-decoration-element-techniques",
+      "cod-decoration-element-tools",
+      "cod-decoration-element-positions",
+      "cod-image-types",
+      "*cod-decoration-type-hidden"
+    ]
+  },
+  "it.vedph.codicology.edits": {
+    "thesauriIds": [
+      "cod-edit-types",
+      "cod-edit-tags",
+      "asserted-id-scopes",
+      "asserted-id-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags",
+      "cod-edit-techniques",
+      "cod-edit-languages",
+      "cod-edit-colors",
+      "cod-edit-positions"
+    ]
+  }
+}
