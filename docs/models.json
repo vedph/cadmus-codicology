@@ -9,6 +9,7 @@
       "doc-reference-types",
       "doc-reference-tags",
       "physical-size-tags",
+      "physical-size-units",
       "physical-size-dim-tags"
     ]
   },
@@ -59,6 +60,76 @@
       "cod-edit-languages",
       "cod-edit-colors",
       "cod-edit-positions"
+    ]
+  },
+  "it.vedph.codicology.hands": {
+    "thesauriIds": [
+      "cod-hand-scripts",
+      "cod-hand-colors",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags",
+      "cod-image-types",
+      "cod-hand-subscription-languages"
+    ]
+  },
+  "it.vedph.codicology.layouts": {
+    "thesauriIds": [
+      "physical-size-tags",
+      "physical-size-units",
+      "physical-size-dim-tags",
+      "cod-layout-ruling-techniques",
+      "cod-layout-derolez",
+      "cod-layout-prickings",
+      "cod-layout-counts",
+      "cod-layout-tags"
+    ]
+  },
+  "it.vedph.codicology.material-dsc": {
+    "thesauriIds": [
+      "cod-unit-tags",
+      "cod-unit-materials",
+      "cod-unit-formats",
+      "cod-unit-states",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags"
+    ]
+  },
+  "it.vedph.codicology.sheet-labels": {
+    "thesauriIds": [
+      "cod-endleaf-materials",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags",
+      "cod-quire-features",
+      "cod-numbering-systems",
+      "cod-numbering-techniques",
+      "cod-numbering-positions",
+      "cod-catchwords-positions",
+      "cod-quiresig-systems",
+      "cod-quiresig-positions"
+    ]
+  },
+  "it.vedph.codicology.shelfmarks": {
+    "thesauriIds": [
+      "cod-shelfmark-tags",
+      "cod-shelfmark-cities",
+      "cod-shelfmark-libraries"
+    ]
+  },
+  "it.vedph.codicology.watermarks": {
+    "thesauriIds": [
+      "physical-size-tags",
+      "physical-size-units",
+      "physical-size-dim-tags",
+      "chronotope-tags",
+      "assertion-tags",
+      "doc-reference-types",
+      "doc-reference-tags"
     ]
   }
 }
