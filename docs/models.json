@@ -1,135 +1,137 @@
 {
-  "it.vedph.codicology.bindings": {
-    "thesauriIds": [
-      "cod-binding-tags",
-      "cod-binding-cover-materials",
-      "cod-binding-board-materials",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags",
-      "physical-size-tags",
-      "physical-size-units",
-      "physical-size-dim-tags"
-    ]
-  },
-  "it.vedph.codicology.contents": {
-    "thesauriIds": [
-      "cod-content-states",
-      "cod-content-gap-types",
-      "cod-content-gap-tags",
-      "cod-content-tags",
-      "cod-content-annotation-types",
-      "cod-content-annotation-features",
-      "cod-content-annotation-languages"
-    ]
-  },
-  "it.vedph.codicology.decorations": {
-    "thesauriIds": [
-      "cod-decoration-flags",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags",
-      "cod-decoration-artist-types",
-      "asserted-id-scopes",
-      "asserted-id-tags",
-      "cod-decoration-artist-style-names",
-      "*cod-decoration-element-types",
-      "cod-decoration-element-flags",
-      "cod-decoration-element-typologies",
-      "cod-decoration-element-colors",
-      "cod-decoration-element-gildings",
-      "cod-decoration-element-techniques",
-      "cod-decoration-element-tools",
-      "cod-decoration-element-positions",
-      "cod-image-types",
-      "*cod-decoration-type-hidden"
-    ]
-  },
-  "it.vedph.codicology.edits": {
-    "thesauriIds": [
-      "cod-edit-types",
-      "cod-edit-tags",
-      "asserted-id-scopes",
-      "asserted-id-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags",
-      "cod-edit-techniques",
-      "cod-edit-languages",
-      "cod-edit-colors",
-      "cod-edit-positions"
-    ]
-  },
-  "it.vedph.codicology.hands": {
-    "thesauriIds": [
-      "cod-hand-scripts",
-      "cod-hand-colors",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags",
-      "cod-image-types",
-      "cod-hand-subscription-languages"
-    ]
-  },
-  "it.vedph.codicology.layouts": {
-    "thesauriIds": [
-      "physical-size-tags",
-      "physical-size-units",
-      "physical-size-dim-tags",
-      "cod-layout-ruling-techniques",
-      "cod-layout-derolez",
-      "cod-layout-prickings",
-      "cod-layout-counts",
-      "cod-layout-tags"
-    ]
-  },
-  "it.vedph.codicology.material-dsc": {
-    "thesauriIds": [
-      "cod-unit-tags",
-      "cod-unit-materials",
-      "cod-unit-formats",
-      "cod-unit-states",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags"
-    ]
-  },
-  "it.vedph.codicology.sheet-labels": {
-    "thesauriIds": [
-      "cod-endleaf-materials",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags",
-      "cod-quire-features",
-      "cod-numbering-systems",
-      "cod-numbering-techniques",
-      "cod-numbering-positions",
-      "cod-catchwords-positions",
-      "cod-quiresig-systems",
-      "cod-quiresig-positions"
-    ]
-  },
-  "it.vedph.codicology.shelfmarks": {
-    "thesauriIds": [
-      "cod-shelfmark-tags",
-      "cod-shelfmark-cities",
-      "cod-shelfmark-libraries"
-    ]
-  },
-  "it.vedph.codicology.watermarks": {
-    "thesauriIds": [
-      "physical-size-tags",
-      "physical-size-units",
-      "physical-size-dim-tags",
-      "chronotope-tags",
-      "assertion-tags",
-      "doc-reference-types",
-      "doc-reference-tags"
-    ]
+  "parts": {
+    "it.vedph.codicology.bindings": {
+      "thesauriIds": [
+        "cod-binding-tags",
+        "cod-binding-cover-materials",
+        "cod-binding-board-materials",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags",
+        "physical-size-tags",
+        "physical-size-units",
+        "physical-size-dim-tags"
+      ]
+    },
+    "it.vedph.codicology.contents": {
+      "thesauriIds": [
+        "cod-content-states",
+        "cod-content-gap-types",
+        "cod-content-gap-tags",
+        "cod-content-tags",
+        "cod-content-annotation-types",
+        "cod-content-annotation-features",
+        "cod-content-annotation-languages"
+      ]
+    },
+    "it.vedph.codicology.decorations": {
+      "thesauriIds": [
+        "cod-decoration-flags",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags",
+        "cod-decoration-artist-types",
+        "asserted-id-scopes",
+        "asserted-id-tags",
+        "cod-decoration-artist-style-names",
+        "*cod-decoration-element-types",
+        "cod-decoration-element-flags",
+        "cod-decoration-element-typologies",
+        "cod-decoration-element-colors",
+        "cod-decoration-element-gildings",
+        "cod-decoration-element-techniques",
+        "cod-decoration-element-tools",
+        "cod-decoration-element-positions",
+        "cod-image-types",
+        "*cod-decoration-type-hidden"
+      ]
+    },
+    "it.vedph.codicology.edits": {
+      "thesauriIds": [
+        "cod-edit-types",
+        "cod-edit-tags",
+        "asserted-id-scopes",
+        "asserted-id-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags",
+        "cod-edit-techniques",
+        "cod-edit-languages",
+        "cod-edit-colors",
+        "cod-edit-positions"
+      ]
+    },
+    "it.vedph.codicology.hands": {
+      "thesauriIds": [
+        "cod-hand-scripts",
+        "cod-hand-colors",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags",
+        "cod-image-types",
+        "cod-hand-subscription-languages"
+      ]
+    },
+    "it.vedph.codicology.layouts": {
+      "thesauriIds": [
+        "physical-size-tags",
+        "physical-size-units",
+        "physical-size-dim-tags",
+        "cod-layout-ruling-techniques",
+        "cod-layout-derolez",
+        "cod-layout-prickings",
+        "cod-layout-counts",
+        "cod-layout-tags"
+      ]
+    },
+    "it.vedph.codicology.material-dsc": {
+      "thesauriIds": [
+        "cod-unit-tags",
+        "cod-unit-materials",
+        "cod-unit-formats",
+        "cod-unit-states",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags"
+      ]
+    },
+    "it.vedph.codicology.sheet-labels": {
+      "thesauriIds": [
+        "cod-endleaf-materials",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags",
+        "cod-quire-features",
+        "cod-numbering-systems",
+        "cod-numbering-techniques",
+        "cod-numbering-positions",
+        "cod-catchwords-positions",
+        "cod-quiresig-systems",
+        "cod-quiresig-positions"
+      ]
+    },
+    "it.vedph.codicology.shelfmarks": {
+      "thesauriIds": [
+        "cod-shelfmark-tags",
+        "cod-shelfmark-cities",
+        "cod-shelfmark-libraries"
+      ]
+    },
+    "it.vedph.codicology.watermarks": {
+      "thesauriIds": [
+        "physical-size-tags",
+        "physical-size-units",
+        "physical-size-dim-tags",
+        "chronotope-tags",
+        "assertion-tags",
+        "doc-reference-types",
+        "doc-reference-tags"
+      ]
+    }
   }
 }
