@@ -25,7 +25,7 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Seed" Version="15.0.0" />
+		<PackageReference Include="Cadmus.Seed" Version="16.0.0" />
 		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="10.0.301" />
 	</ItemGroup>
 

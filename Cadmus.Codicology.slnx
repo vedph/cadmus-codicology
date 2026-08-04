@@ -7,8 +7,6 @@
     <File Path="PushLocal.bat" />
     <File Path="README.md" />
   </Folder>
-  <Project Path="Cadmus.Codicology.Graph.Test/Cadmus.Codicology.Graph.Test.csproj" />
-  <Project Path="Cadmus.Codicology.Graph/Cadmus.Codicology.Graph.csproj" />
   <Project Path="Cadmus.Codicology.Parts.Test/Cadmus.Codicology.Parts.Test.csproj" />
   <Project Path="Cadmus.Codicology.Parts/Cadmus.Codicology.Parts.csproj" />
   <Project Path="Cadmus.Codicology.Services/Cadmus.Codicology.Services.csproj" />
