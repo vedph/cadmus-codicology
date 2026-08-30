@@ -19,16 +19,16 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 		<Deterministic>true</Deterministic>
-		<Version>9.0.5</Version>
-		<FileVersion>9.0.5</FileVersion>
-		<AssemblyVersion>9.0.5</AssemblyVersion>
+		<Version>9.0.6</Version>
+		<FileVersion>9.0.6</FileVersion>
+		<AssemblyVersion>9.0.6</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Core" Version="16.0.0" />
-		<PackageReference Include="Cadmus.Mongo" Version="16.0.0" />
+		<PackageReference Include="Cadmus.Core" Version="16.0.2" />
+		<PackageReference Include="Cadmus.Mongo" Version="16.0.2" />
 		<PackageReference Include="Fusi.Microsoft.Extensions.Configuration.InMemoryJson" Version="5.0.0" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="10.0.301" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="10.0.400" />
 	</ItemGroup>
 
 	<ItemGroup>

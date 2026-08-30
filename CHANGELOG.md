@@ -1,5 +1,8 @@
 ## History
 
+## 9.0.6
+
+- 2026-08-30: updated packages.
 - 2026-08-04: updated packages and removed `Cadmus.Codicology.Graph library`, which is now in the core Cadmus solution (renamed to `Cadmus.Codicology.Mapping`).
 
 ## 9.0.5
