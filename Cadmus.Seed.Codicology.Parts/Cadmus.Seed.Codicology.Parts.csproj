@@ -19,9 +19,9 @@
 		<EmbedUntrackedSources>true</EmbedUntrackedSources>
 		<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 		<Deterministic>true</Deterministic>
-		<Version>9.0.6</Version>
-		<FileVersion>9.0.6</FileVersion>
-		<AssemblyVersion>9.0.6</AssemblyVersion>
+		<Version>9.0.7</Version>
+		<FileVersion>9.0.7</FileVersion>
+		<AssemblyVersion>9.0.7</AssemblyVersion>
 	</PropertyGroup>
 
 	<ItemGroup>

@@ -1,6 +1,9 @@
 ## History
 
+## 9.0.7
+
 - 2026-09-22:
+  - 🆕 added `CodLocationRangesPart`.
   - updated packages.
   - migrated to MTP test platform (<https://learn.microsoft.com/en-us/dotnet/core/testing/migrating-vstest-microsoft-testing-platform>).
 
