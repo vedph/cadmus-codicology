@@ -25,11 +25,11 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Core" Version="16.0.2" />
-		<PackageReference Include="Cadmus.Mat.Bricks" Version="16.0.2" />
-		<PackageReference Include="Cadmus.Refs.Bricks" Version="16.0.2" />
+		<PackageReference Include="Cadmus.Core" Version="16.0.5" />
+		<PackageReference Include="Cadmus.Mat.Bricks" Version="16.0.5" />
+		<PackageReference Include="Cadmus.Refs.Bricks" Version="16.0.5" />
 		<PackageReference Include="Fusi.Antiquity" Version="6.0.0" />
-		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="10.0.400" />
+		<PackageReference Include="Microsoft.SourceLink.GitHub" PrivateAssets="All" Version="10.0.401" />
 	</ItemGroup>
 
 </Project>
