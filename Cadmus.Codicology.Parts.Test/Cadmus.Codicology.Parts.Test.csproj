@@ -9,9 +9,9 @@
 	</PropertyGroup>
 
 	<ItemGroup>
-		<PackageReference Include="Cadmus.Refs.Bricks" Version="16.0.5" />
+		<PackageReference Include="Cadmus.Refs.Bricks" Version="16.0.7" />
 		<PackageReference Include="xunit.v3" Version="4.0.1" />
-		<PackageReference Include="coverlet.collector" Version="10.0.1">
+		<PackageReference Include="coverlet.collector" Version="10.1.0">
 			<IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
 			<PrivateAssets>all</PrivateAssets>
 		</PackageReference>
